@@ -82,14 +82,14 @@ namespace ArmoredCorePDR
             // Process gathered data
             foreach (PARAM param in paramList) 
             {
-                ParamRichTextBox.AppendText("\r\n");
-                ParamRichTextBox.AppendText($"Param: {param}");
-                ParamRichTextBox.AppendText("\r\n");
+                //ParamRichTextBox.AppendText("\r\n");
+                //ParamRichTextBox.AppendText($"Param: {param}");
+                //ParamRichTextBox.AppendText("\r\n");
                 foreach (var row in param.Rows)
                 {
-                    ParamRichTextBox.AppendText("\r\n");
-                    ParamRichTextBox.AppendText($"Row ID: {row.ID} Row Name: {row.Name}");
-                    ParamRichTextBox.AppendText("\r\n");
+                    //ParamRichTextBox.AppendText("\r\n");
+                    //ParamRichTextBox.AppendText($"Row ID: {row.ID} Row Name: {row.Name}");
+                    //ParamRichTextBox.AppendText("\r\n");
                     try 
                     {
                         if (row.Cells == null)
@@ -98,8 +98,8 @@ namespace ArmoredCorePDR
                             foreach (var cell in row.Cells)
                             {
                                 //ParamDGV.Rows.Add(cell.Value);
-                                ParamRichTextBox.AppendText($"{cell.Def.DisplayName}: {cell.Value}");
-                                ParamRichTextBox.AppendText("\r\n");
+                                //ParamRichTextBox.AppendText($"{cell.Def.DisplayName}: {cell.Value}");
+                                //ParamRichTextBox.AppendText("\r\n");
                             }
                     }
                     catch
