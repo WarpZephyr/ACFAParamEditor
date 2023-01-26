@@ -17,7 +17,8 @@ namespace ArmoredCorePDR
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
+            CellDGV.Columns.Add("displayname", "Display Name");
+            CellDGV.Columns.Add("value", "Value");
         }
 
         private void EditParamsBtn_click(object sender, EventArgs e)
@@ -82,25 +83,29 @@ namespace ArmoredCorePDR
             // Process gathered data
             foreach (PARAM param in paramList) 
             {
-                //ParamRichTextBox.AppendText("\r\n");
-                //ParamRichTextBox.AppendText($"Param: {param}");
-                //ParamRichTextBox.AppendText("\r\n");
                 foreach (var row in param.Rows)
                 {
-                    //ParamRichTextBox.AppendText("\r\n");
-                    //ParamRichTextBox.AppendText($"Row ID: {row.ID} Row Name: {row.Name}");
-                    //ParamRichTextBox.AppendText("\r\n");
                     try 
                     {
+                        string[] newrow = {"displayname", "value"};
+                        CellDGV.Rows.Add(newrow);
+
                         if (row.Cells == null)
                             Debug.WriteLine($"Cell at {row} is null");
                         if (row.Cells != null)
-                            foreach (var cell in row.Cells)
+                            try
                             {
-                                //ParamDGV.Rows.Add(cell.Value);
-                                //ParamRichTextBox.AppendText($"{cell.Def.DisplayName}: {cell.Value}");
-                                //ParamRichTextBox.AppendText("\r\n");
+                                foreach (var cell in row.Cells)
+                                {
+                                    
+                                    //ParamRichTextBox.AppendText($"{cell.Def.DisplayName}: {cell.Value}");
+                                    //ParamRichTextBox.AppendText("\r\n");
+                                }
                             }
+                            catch 
+                            {
+                                Debug.WriteLine($"DataGridView adding failed");
+                            } 
                     }
                     catch
                     {
