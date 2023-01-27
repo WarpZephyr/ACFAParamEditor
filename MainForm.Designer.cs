@@ -41,20 +41,23 @@
             this.ConvertDefsBtn = new System.Windows.Forms.Button();
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.ConvertParamsTSVBtn = new System.Windows.Forms.Button();
-            this.RowSelectorPanel = new System.Windows.Forms.Panel();
             this.RowDGV = new System.Windows.Forms.DataGridView();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ParamSelectorPanel = new System.Windows.Forms.Panel();
             this.ParamDGV = new System.Windows.Forms.DataGridView();
             this.CellDGV = new System.Windows.Forms.DataGridView();
-            this.CellEditorPanel = new System.Windows.Forms.Panel();
+            this.SplitContainerA = new System.Windows.Forms.SplitContainer();
+            this.SplitContainerB = new System.Windows.Forms.SplitContainer();
             this.TopBarPanel.SuspendLayout();
-            this.RowSelectorPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RowDGV)).BeginInit();
-            this.ParamSelectorPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParamDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CellDGV)).BeginInit();
-            this.CellEditorPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerA)).BeginInit();
+            this.SplitContainerA.Panel1.SuspendLayout();
+            this.SplitContainerA.Panel2.SuspendLayout();
+            this.SplitContainerA.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerB)).BeginInit();
+            this.SplitContainerB.Panel1.SuspendLayout();
+            this.SplitContainerB.Panel2.SuspendLayout();
+            this.SplitContainerB.SuspendLayout();
             this.SuspendLayout();
             // 
             // EditParamsBtn
@@ -91,10 +94,11 @@
             this.TopBarPanel.Controls.Add(this.ConvertParamsTSVBtn);
             this.TopBarPanel.Controls.Add(this.ConvertDefsBtn);
             this.TopBarPanel.Controls.Add(this.EditParamsBtn);
+            this.TopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.TopBarPanel.ForeColor = System.Drawing.SystemColors.Control;
-            this.TopBarPanel.Location = new System.Drawing.Point(0, -1);
+            this.TopBarPanel.Location = new System.Drawing.Point(0, 0);
             this.TopBarPanel.Name = "TopBarPanel";
-            this.TopBarPanel.Size = new System.Drawing.Size(1110, 45);
+            this.TopBarPanel.Size = new System.Drawing.Size(1118, 45);
             this.TopBarPanel.TabIndex = 3;
             // 
             // ConvertParamsTSVBtn
@@ -110,15 +114,6 @@
             this.ConvertParamsTSVBtn.Text = "Convert Params to TSV";
             this.ConvertParamsTSVBtn.UseVisualStyleBackColor = false;
             this.ConvertParamsTSVBtn.Click += new System.EventHandler(this.ConvertParamsTSVBtn_Click);
-            // 
-            // RowSelectorPanel
-            // 
-            this.RowSelectorPanel.Controls.Add(this.RowDGV);
-            this.RowSelectorPanel.Controls.Add(this.menuStrip1);
-            this.RowSelectorPanel.Location = new System.Drawing.Point(370, 44);
-            this.RowSelectorPanel.Name = "RowSelectorPanel";
-            this.RowSelectorPanel.Size = new System.Drawing.Size(370, 607);
-            this.RowSelectorPanel.TabIndex = 5;
             // 
             // RowDGV
             // 
@@ -148,6 +143,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.RowDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            this.RowDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RowDGV.Location = new System.Drawing.Point(0, 0);
             this.RowDGV.Name = "RowDGV";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -158,26 +154,8 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.RowDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.RowDGV.Size = new System.Drawing.Size(370, 607);
+            this.RowDGV.Size = new System.Drawing.Size(370, 606);
             this.RowDGV.TabIndex = 1;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(370, 24);
-            this.menuStrip1.TabIndex = 2;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // ParamSelectorPanel
-            // 
-            this.ParamSelectorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.ParamSelectorPanel.Controls.Add(this.ParamDGV);
-            this.ParamSelectorPanel.ForeColor = System.Drawing.SystemColors.Control;
-            this.ParamSelectorPanel.Location = new System.Drawing.Point(0, 44);
-            this.ParamSelectorPanel.Name = "ParamSelectorPanel";
-            this.ParamSelectorPanel.Size = new System.Drawing.Size(370, 607);
-            this.ParamSelectorPanel.TabIndex = 4;
             // 
             // ParamDGV
             // 
@@ -207,6 +185,7 @@
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.ParamDGV.DefaultCellStyle = dataGridViewCellStyle5;
+            this.ParamDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ParamDGV.Location = new System.Drawing.Point(0, 0);
             this.ParamDGV.Name = "ParamDGV";
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -217,8 +196,8 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ParamDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.ParamDGV.Size = new System.Drawing.Size(370, 607);
-            this.ParamDGV.TabIndex = 2;
+            this.ParamDGV.Size = new System.Drawing.Size(370, 606);
+            this.ParamDGV.TabIndex = 0;
             this.ParamDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ParamDGV_CellDoubleClick);
             // 
             // CellDGV
@@ -249,6 +228,7 @@
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.CellDGV.DefaultCellStyle = dataGridViewCellStyle8;
+            this.CellDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CellDGV.Location = new System.Drawing.Point(0, 0);
             this.CellDGV.Name = "CellDGV";
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -259,39 +239,70 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.CellDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.CellDGV.Size = new System.Drawing.Size(370, 607);
-            this.CellDGV.TabIndex = 0;
+            this.CellDGV.Size = new System.Drawing.Size(370, 606);
+            this.CellDGV.TabIndex = 2;
             // 
-            // CellEditorPanel
+            // SplitContainerA
             // 
-            this.CellEditorPanel.Controls.Add(this.CellDGV);
-            this.CellEditorPanel.Location = new System.Drawing.Point(740, 44);
-            this.CellEditorPanel.Name = "CellEditorPanel";
-            this.CellEditorPanel.Size = new System.Drawing.Size(370, 607);
-            this.CellEditorPanel.TabIndex = 6;
+            this.SplitContainerA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitContainerA.ForeColor = System.Drawing.SystemColors.Control;
+            this.SplitContainerA.Location = new System.Drawing.Point(0, 45);
+            this.SplitContainerA.Name = "SplitContainerA";
+            // 
+            // SplitContainerA.Panel1
+            // 
+            this.SplitContainerA.Panel1.Controls.Add(this.ParamDGV);
+            this.SplitContainerA.Panel1.ForeColor = System.Drawing.SystemColors.Control;
+            // 
+            // SplitContainerA.Panel2
+            // 
+            this.SplitContainerA.Panel2.Controls.Add(this.SplitContainerB);
+            this.SplitContainerA.Panel2.ForeColor = System.Drawing.SystemColors.Control;
+            this.SplitContainerA.Size = new System.Drawing.Size(1118, 606);
+            this.SplitContainerA.SplitterDistance = 370;
+            this.SplitContainerA.TabIndex = 4;
+            // 
+            // SplitContainerB
+            // 
+            this.SplitContainerB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitContainerB.Location = new System.Drawing.Point(0, 0);
+            this.SplitContainerB.Name = "SplitContainerB";
+            // 
+            // SplitContainerB.Panel1
+            // 
+            this.SplitContainerB.Panel1.Controls.Add(this.RowDGV);
+            this.SplitContainerB.Panel1.ForeColor = System.Drawing.SystemColors.Control;
+            // 
+            // SplitContainerB.Panel2
+            // 
+            this.SplitContainerB.Panel2.Controls.Add(this.CellDGV);
+            this.SplitContainerB.Size = new System.Drawing.Size(744, 606);
+            this.SplitContainerB.SplitterDistance = 370;
+            this.SplitContainerB.TabIndex = 1;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.ClientSize = new System.Drawing.Size(1110, 651);
-            this.Controls.Add(this.CellEditorPanel);
-            this.Controls.Add(this.RowSelectorPanel);
-            this.Controls.Add(this.ParamSelectorPanel);
+            this.ClientSize = new System.Drawing.Size(1118, 651);
+            this.Controls.Add(this.SplitContainerA);
             this.Controls.Add(this.TopBarPanel);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Armored Core For Answer Param Editor";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.TopBarPanel.ResumeLayout(false);
-            this.RowSelectorPanel.ResumeLayout(false);
-            this.RowSelectorPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RowDGV)).EndInit();
-            this.ParamSelectorPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ParamDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CellDGV)).EndInit();
-            this.CellEditorPanel.ResumeLayout(false);
+            this.SplitContainerA.Panel1.ResumeLayout(false);
+            this.SplitContainerA.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerA)).EndInit();
+            this.SplitContainerA.ResumeLayout(false);
+            this.SplitContainerB.Panel1.ResumeLayout(false);
+            this.SplitContainerB.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerB)).EndInit();
+            this.SplitContainerB.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -301,14 +312,12 @@
         private System.Windows.Forms.Button EditParamsBtn;
         private System.Windows.Forms.Button ConvertDefsBtn;
         private System.Windows.Forms.Panel TopBarPanel;
-        private System.Windows.Forms.Panel ParamSelectorPanel;
-        private System.Windows.Forms.Panel RowSelectorPanel;
-        private System.Windows.Forms.Panel CellEditorPanel;
         private System.Windows.Forms.DataGridView CellDGV;
         private System.Windows.Forms.DataGridView RowDGV;
         private System.Windows.Forms.DataGridView ParamDGV;
-        private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.Button ConvertParamsTSVBtn;
+        private System.Windows.Forms.SplitContainer SplitContainerA;
+        private System.Windows.Forms.SplitContainer SplitContainerB;
     }
 }
 

@@ -13,6 +13,8 @@ namespace ACFAParamEditor
 {
     public partial class MainForm : Form
     {
+        private List<PARAM> paramList = new List<PARAM>();
+        private List<PARAMDEF> defList = new List<PARAMDEF>();
         public MainForm()
         {
             InitializeComponent();
@@ -47,7 +49,7 @@ namespace ACFAParamEditor
             var binFolderPath = binFolderPathDialog.FileName;
 
             // Create lists and add data to lists
-            List<PARAMDEF> defList = new List<PARAMDEF>();
+            
 
             string[] defFiles = Directory.GetFiles(defResFolderPath, "*.def");
             foreach (string defPath in defFiles)
@@ -64,7 +66,6 @@ namespace ACFAParamEditor
                 }
             }
 
-            List<PARAM> paramList = new List<PARAM>();
             List<string> paramNameList = new List<string>();
 
             string[] binFiles = Directory.GetFiles(binFolderPath, "*.*");
