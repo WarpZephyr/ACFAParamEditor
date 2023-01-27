@@ -22,11 +22,7 @@ namespace ACFAParamEditor
         // On Form Load
         private void MainForm_Load(object sender, EventArgs e)
         {
-            ParamDGV.Columns.Add("param", "Param");
-            RowDGV.Columns.Add("rowid", "Row ID");
-            RowDGV.Columns.Add("name", "Name");
-            CellDGV.Columns.Add("name", "Name");
-            CellDGV.Columns.Add("value", "Value");
+            
         }
 
         // When Edit Params button is pressed
@@ -40,45 +36,45 @@ namespace ACFAParamEditor
                 Title = "Select the Folder containing your Params"
             };
 
-            /*CommonOpenFileDialog defFolderPathDialog = new CommonOpenFileDialog
-            {
-                InitialDirectory = "C:\\Users",
-                IsFolderPicker = true,
-                Title = "Select the Folder containing your Defs - Temporary until I make them into XMLs"
-            };*/
-
             if (binFolderPathDialog.ShowDialog() != CommonFileDialogResult.Ok)
             {
                 return;
             }
 
-            var binFolderPath = binFolderPathDialog.FileName;
-            var defResFolderPath = $"{Environment.CurrentDirectory}/res/def/";
 
+            var defResFolderPath = $"{Environment.CurrentDirectory}/res/def/";
+            //var xmlResFolderPath = $"{Environment.CurrentDirectory}/res/xml/";
+            var binFolderPath = binFolderPathDialog.FileName;
 
             // Create lists and add data to lists
-            List <PARAMDEF> defList = new List<PARAMDEF>();
+            List<PARAMDEF> defList = new List<PARAMDEF>();
 
-            string[] defFiles = Directory.GetFiles(defResFolderPath, "*.xml");
+            string[] defFiles = Directory.GetFiles(defResFolderPath, "*.def");
             foreach (string defPath in defFiles)
             {
                 try
                 {
-                    defList.Add(PARAMDEF.XmlDeserialize(defPath));
+                    defList.Add(PARAMDEF.Read(defPath));
+                    //defList.Add(PARAMDEF.XmlDeserialize(defPath));
                 }
                 catch
                 {
                     Debug.WriteLine($"Failed to parse Paramdef at {defPath}");
+                    throw;
                 }
             }
 
-            List <PARAM> paramList = new List<PARAM>();
+            List<PARAM> paramList = new List<PARAM>();
+            List<string> paramNameList = new List<string>();
 
             string[] binFiles = Directory.GetFiles(binFolderPath, "*.*");
             foreach (string binPath in binFiles)
             {
                 try
                 {
+                    var paramName = Path.GetFileNameWithoutExtension(binPath);
+                    paramNameList.Add(paramName);
+
                     var param = PARAM.Read(binPath);
                     param.ApplyParamdefCarefully(defList);
                     paramList.Add(param);
@@ -86,13 +82,23 @@ namespace ACFAParamEditor
                 catch 
                 {
                     Debug.WriteLine($"Failed to parse Param at {binPath}");
+                    throw;
                 }
             }
 
             // Process gathered data
+            ParamDGV.Columns.Add("paramname", "Param Name");
+            ParamDGV.Columns.Add("paramtype", "Param Type");
+            RowDGV.Columns.Add("rowid", "Row ID");
+            RowDGV.Columns.Add("name", "Name");
+            CellDGV.Columns.Add("name", "Name");
+            CellDGV.Columns.Add("value", "Value");
+
+            var paramNameCounter = 0;
             foreach (PARAM param in paramList) 
             {
-                string[] newParamRow = {$"{param.ParamType}"};
+                string[] newParamRow = { $"{paramNameList[paramNameCounter]}", $"{param.ParamType}"};
+                paramNameCounter++;
                 ParamDGV.Rows.Add(newParamRow);
                 foreach (var row in param.Rows)
                 {
@@ -101,7 +107,7 @@ namespace ACFAParamEditor
                     try
                     {
                         if (row.Cells == null)
-                            Debug.WriteLine($"Cell at {row} is null");
+                            Debug.WriteLine($"Cell at {row} is null in {param.ParamType}");
                         if (row.Cells != null)
                             try
                             {
@@ -114,11 +120,13 @@ namespace ACFAParamEditor
                             catch
                             {
                                 Debug.WriteLine($"DataGridView adding failed");
+                                throw;
                             }
                     }
                     catch
                     {
                         Debug.WriteLine($"Failed to parse cell at {row.ID}");
+                        throw;
                     }
                 }
             }
@@ -157,6 +165,7 @@ namespace ACFAParamEditor
                 catch
                 {
                     Debug.WriteLine($"Failed to parse Paramdef at {defPath}");
+                    throw;
                 }
             }
         }
@@ -168,9 +177,10 @@ namespace ACFAParamEditor
 
         private void ParamDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            MessageBox.Show("You clicked on a cell!");
+            if (ParamDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                MessageBox.Show(ParamDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+            }
         }
-
-
     }
 }

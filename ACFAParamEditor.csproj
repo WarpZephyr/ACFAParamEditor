@@ -101,244 +101,487 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <Content Include="res\def\AaParam.xml">
+    <Content Include="res\def\AaParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\ACAIParam.xml">
+    <Content Include="res\def\AcActRestrictionParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcAnimHokan.xml">
+    <Content Include="res\def\ACAIParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcAssemblyDrawing.xml">
+    <Content Include="res\def\AcAnimHokan.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcCamBehaviorParam.xml">
+    <Content Include="res\def\AcAssemblyDrawing.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcCameraAction.xml">
+    <Content Include="res\def\AcCamBehaviorParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcDataInfo.xml">
+    <Content Include="res\def\AcCameraAction.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcFightMessageTable.xml">
+    <Content Include="res\def\AcDataInfo.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcFightMessageTriggerData.xml">
+    <Content Include="res\def\AcFightMessageTable.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcMotion.xml">
+    <Content Include="res\def\AcFightMessageTriggerData.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcProfileInfo.xml">
+    <Content Include="res\def\AcMotion.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcsisDisplay.xml">
+    <Content Include="res\def\AcProfileInfo.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcSoundEffect.xml">
+    <Content Include="res\def\AcsisDisplay.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcSoundParam.xml">
+    <Content Include="res\def\AcSoundEffect.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcTestData.xml">
+    <Content Include="res\def\AcSoundParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcTextInfo.xml">
+    <Content Include="res\def\AcTestData.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AICommonParam.xml">
+    <Content Include="res\def\AcTextInfo.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AIThinkCapacityCalcParam.xml">
+    <Content Include="res\def\AICommonParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AIThinkCost.xml">
+    <Content Include="res\def\AIThinkCapacityCalcParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\ArenaAcInfo.xml">
+    <Content Include="res\def\AIThinkCost.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\ArenaDataPack.xml">
+    <Content Include="res\def\ArenaAcInfo.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\ArenaMapInfo.xml">
+    <Content Include="res\def\ArenaDataPack.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\ArmAimCollate.xml">
+    <Content Include="res\def\ArenaMapInfo.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\ArmWeaponAimInfo.xml">
+    <Content Include="res\def\ArmAimCollate.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BattleMapInfo.xml">
+    <Content Include="res\def\ArmWeaponAimInfo.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletArise.xml">
+    <Content Include="res\def\BattleMapInfo.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletBlade.xml">
+    <Content Include="res\def\BulletArise.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletDecalParam.xml">
+    <Content Include="res\def\BulletBlade.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletDecoy.xml">
+    <Content Include="res\def\BulletDecalParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletEcm.xml">
+    <Content Include="res\def\BulletDecoy.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletEffectParam.xml">
+    <Content Include="res\def\BulletEcm.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletEnergy.xml">
+    <Content Include="res\def\BulletEffectParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletExplosion.xml">
+    <Content Include="res\def\BulletEnergy.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletGlue.xml">
+    <Content Include="res\def\BulletExplosion.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletHitParam.xml">
+    <Content Include="res\def\BulletGlue.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletKojimaZone.xml">
+    <Content Include="res\def\BulletHitParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletLaunchEnemy.xml">
+    <Content Include="res\def\BulletKojimaZone.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletMissile.xml">
+    <Content Include="res\def\BulletLaunchEnemy.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\BulletRigid.xml">
+    <Content Include="res\def\BulletMissile.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\CalcRatingParam.xml">
+    <Content Include="res\def\BulletRigid.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\ChapterInfo.xml">
+    <Content Include="res\def\CalcRatingParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\CharaEventData.xml">
+    <Content Include="res\def\ChapterInfo.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\ClassParam.xml">
+    <Content Include="res\def\CharaEventData.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\ClassSystemParam.xml">
+    <Content Include="res\def\ClassParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\ColoringSet.xml">
+    <Content Include="res\def\ClassSystemParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\DestroyAP.xml">
+    <Content Include="res\def\ColoringSet.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\DestroyFallParam.xml">
+    <Content Include="res\def\DestroyAP.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\EnemyAnimeInterpolationData.xml">
+    <Content Include="res\def\DestroyFallParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\EnemyBasicParam.xml">
+    <Content Include="res\def\EnemyAnimeInterpolationData.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\EnemyCommon.xml">
+    <Content Include="res\def\EnemyBasicParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\EnemyGraphicsParam.xml">
+    <Content Include="res\def\EnemyCommon.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\EnemyPerformanceParam.xml">
+    <Content Include="res\def\EnemyGraphicsParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\EnemyWeapon.xml">
+    <Content Include="res\def\EnemyPerformanceParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\EventMessage.xml">
+    <Content Include="res\def\EnemyWeapon.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\EventMessageTextMap.xml">
+    <Content Include="res\def\EventMessage.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\FilterDamageNoiseParam.xml">
+    <Content Include="res\def\EventMessageTextMap.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\FlockingParam.xml">
+    <Content Include="res\def\FilterDamageNoiseParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\FriendAcInfo.xml">
+    <Content Include="res\def\FlockingParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\GroundSfxParam.xml">
+    <Content Include="res\def\FriendAcInfo.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\MapObjParam.xml">
+    <Content Include="res\def\GroundSfxParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\MapSfxParam.xml">
+    <Content Include="res\def\MapObjParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\MissionCreateParam.xml">
+    <Content Include="res\def\MapSfxParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\MissionEstimate.xml">
+    <Content Include="res\def\MissionCreateParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\MissionInfo.xml">
+    <Content Include="res\def\MissionEstimate.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\MotionCollate.xml">
+    <Content Include="res\def\MissionInfo.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\PaParam.xml">
+    <Content Include="res\def\MotionCollate.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\PASfxParam.xml">
+    <Content Include="res\def\PaParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\RadarShape.xml">
+    <Content Include="res\def\PASfxParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\RadarShapeInfo.xml">
+    <Content Include="res\def\RadarShape.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\SeasonParam.xml">
+    <Content Include="res\def\RadarShapeInfo.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\SfxLimitParam.xml">
+    <Content Include="res\def\SeasonParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\SfxSeSetParam.xml">
+    <Content Include="res\def\SfxLimitParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\SystemColor.xml">
+    <Content Include="res\def\SfxSeSetParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\TutorialData.xml">
+    <Content Include="res\def\SystemColor.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\TutorialOperationText.xml">
+    <Content Include="res\def\TutorialData.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\TutorialProgressText.xml">
+    <Content Include="res\def\TutorialOperationText.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\TutorialTaskData.xml">
+    <Content Include="res\def\TutorialProgressText.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\TutorialTaskText.xml">
+    <Content Include="res\def\TutorialTaskData.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\WeaponSfxParam.xml">
+    <Content Include="res\def\TutorialTaskText.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\WeaponSoundParam.xml">
+    <Content Include="res\def\WeaponSfxParam.def">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\def\WeaponSoundParam.def">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AaParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\ACAIParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcAnimHokan.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcAssemblyDrawing.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcCamBehaviorParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcCameraAction.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcDataInfo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcFightMessageTable.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcFightMessageTriggerData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcMotion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcProfileInfo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcsisDisplay.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcSoundEffect.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcSoundParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcTestData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AcTextInfo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AICommonParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AIThinkCapacityCalcParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\AIThinkCost.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\ArenaAcInfo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\ArenaDataPack.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\ArenaMapInfo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\ArmAimCollate.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\ArmWeaponAimInfo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BattleMapInfo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletArise.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletBlade.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletDecalParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletDecoy.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletEcm.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletEffectParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletEnergy.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletExplosion.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletGlue.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletHitParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletKojimaZone.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletLaunchEnemy.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletMissile.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\BulletRigid.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\CalcRatingParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\ChapterInfo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\CharaEventData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\ClassParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\ClassSystemParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\ColoringSet.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\DestroyAP.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\DestroyFallParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\EnemyAnimeInterpolationData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\EnemyBasicParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\EnemyCommon.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\EnemyGraphicsParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\EnemyPerformanceParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\EnemyWeapon.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\EventMessage.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\EventMessageTextMap.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\FilterDamageNoiseParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\FlockingParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\FriendAcInfo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\GroundSfxParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\MapObjParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\MapSfxParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\MissionCreateParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\MissionEstimate.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\MissionInfo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\MotionCollate.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\PaParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\PASfxParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\RadarShape.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\RadarShapeInfo.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\SeasonParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\SfxLimitParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\SfxSeSetParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\SystemColor.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\TutorialData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\TutorialOperationText.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\TutorialProgressText.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\TutorialTaskData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\TutorialTaskText.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\WeaponSfxParam.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\xml\WeaponSoundParam.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
