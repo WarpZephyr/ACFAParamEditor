@@ -12,11 +12,9 @@ namespace ACFAParamEditor
 {
     public partial class MainForm : Form
     {
-        private BindingSource rowSource;
         public MainForm()
         {
             InitializeComponent();
-            rowSource = new BindingSource();
         }
 
 
@@ -41,31 +39,31 @@ namespace ACFAParamEditor
                 Title = "Select the Folder containing your Params"
             };
 
-            CommonOpenFileDialog defFolderPathDialog = new CommonOpenFileDialog
+            /*CommonOpenFileDialog defFolderPathDialog = new CommonOpenFileDialog
             {
                 InitialDirectory = "C:\\Users",
                 IsFolderPicker = true,
                 Title = "Select the Folder containing your Defs - Temporary until I make them into XMLs"
-            };
+            };*/
 
-            if (binFolderPathDialog.ShowDialog() != CommonFileDialogResult.Ok || defFolderPathDialog.ShowDialog() != CommonFileDialogResult.Ok)
+            if (binFolderPathDialog.ShowDialog() != CommonFileDialogResult.Ok)
             {
                 return;
             }
 
             var binFolderPath = binFolderPathDialog.FileName;
-            var defFolderPath = defFolderPathDialog.FileName;
+            var defResFolderPath = $"{Environment.CurrentDirectory}/res/def/";
 
 
             // Create lists and add data to lists
             List <PARAMDEF> defList = new List<PARAMDEF>();
 
-            string[] defFiles = Directory.GetFiles(defFolderPath, "*.def");
+            string[] defFiles = Directory.GetFiles(defResFolderPath, "*.xml");
             foreach (string defPath in defFiles)
             {
                 try
                 {
-                    defList.Add(PARAMDEF.Read(defPath));
+                    defList.Add(PARAMDEF.XmlDeserialize(defPath));
                 }
                 catch
                 {
@@ -95,42 +93,79 @@ namespace ACFAParamEditor
             {
                 string[] newParamRow = {$"{param.ParamType}"};
                 ParamDGV.Rows.Add(newParamRow);
+                foreach (var row in param.Rows)
+                {
+                    string[] newRowRow = { $"{row.ID}", $"{row.Name}" };
+                    RowDGV.Rows.Add(newRowRow);
+                    try
+                    {
+                        if (row.Cells == null)
+                            Debug.WriteLine($"Cell at {row} is null");
+                        if (row.Cells != null)
+                            try
+                            {
+                                foreach (var cell in row.Cells)
+                                {
+                                    string[] newCellRow = { $"{cell.Def.DisplayName}", $"{cell.Value}" };
+                                    CellDGV.Rows.Add(newCellRow);
+                                }
+                            }
+                            catch
+                            {
+                                Debug.WriteLine($"DataGridView adding failed");
+                            }
+                    }
+                    catch
+                    {
+                        Debug.WriteLine($"Failed to parse cell at {row.ID}");
+                    }
+                }
+            }
+        }
+
+        private void ConvertDefsBtn_Click(object sender, EventArgs e)
+        {
+            // Prompt the user for folders containing files
+            CommonOpenFileDialog defFolderPathDialog = new CommonOpenFileDialog
+            {
+                InitialDirectory = "C:\\Users",
+                IsFolderPicker = true,
+                Title = "Select the Folder containing your Defs to convert them into XMLs"
+            };
+
+            if (defFolderPathDialog.ShowDialog() != CommonFileDialogResult.Ok)
+            {
+                return;
             }
 
-            /*foreach (var row in param.Rows)
+            var defResFolderPath = $"{Environment.CurrentDirectory}/res/def/";
+            var defUserFolderPath = defFolderPathDialog.FileName;
+
+            string[] defFiles = Directory.GetFiles(defUserFolderPath, "*.*");
+            foreach (string defPath in defFiles)
             {
-                string[] newRowRow = { $"{row.ID}", $"{row.Name}" };
-                RowDGV.Rows.Add(newRowRow);
                 try
                 {
-                    if (row.Cells == null)
-                        Debug.WriteLine($"Cell at {row} is null");
-                    if (row.Cells != null)
-                        try
-                        {
-                            foreach (var cell in row.Cells)
-                            {
-                                string[] newCellRow = { $"{cell.Def.DisplayName}", $"{cell.Value}" };
-                                CellDGV.Rows.Add(newCellRow);
-                            }
-                        }
-                        catch
-                        {
-                            Debug.WriteLine($"DataGridView adding failed");
-                        }
+                    var paramdef = PARAMDEF.Read(defPath);
+                    paramdef.XmlSerialize($"{defResFolderPath}/{Path.GetFileNameWithoutExtension(defPath)}.xml");
                 }
                 catch
                 {
-                    Debug.WriteLine($"Failed to parse cell at {row.ID}");
+                    Debug.WriteLine($"Failed to parse Paramdef at {defPath}");
                 }
-            }*/
+            }
         }
 
-
+        private void ConvertParamsTSVBtn_Click(object sender, EventArgs e)
+        {
+            
+        }
 
         private void ParamDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             MessageBox.Show("You clicked on a cell!");
         }
+
+
     }
 }

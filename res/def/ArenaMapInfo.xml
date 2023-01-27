@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PARAMDEF XmlVersion="1">
+  <ParamType>ARENA_MAP_INFO</ParamType>
+  <DataVersion>1</DataVersion>
+  <BigEndian>True</BigEndian>
+  <Unicode>False</Unicode>
+  <FormatVersion>101</FormatVersion>
+  <Fields>
+    <Field Def="u8 ">
+      <DisplayName>ID</DisplayName>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>予約</DisplayName>
+      <EditFlags>Wrap, Lock</EditFlags>
+    </Field>
+    <Field Def="u16 ">
+      <DisplayName>マップID</DisplayName>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="fixstr [32]">
+      <DisplayName>マップ名</DisplayName>
+      <Minimum>0</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>サイズ：X</DisplayName>
+      <Minimum>0</Minimum>
+      <Maximum>99999</Maximum>
+      <Increment>1</Increment>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>サイズ：Y</DisplayName>
+      <Minimum>0</Minimum>
+      <Maximum>99999</Maximum>
+      <Increment>1</Increment>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>サイズ：Z</DisplayName>
+      <Minimum>0</Minimum>
+      <Maximum>99999</Maximum>
+      <Increment>1</Increment>
+    </Field>
+  </Fields>
+</PARAMDEF>

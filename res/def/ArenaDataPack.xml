@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PARAMDEF XmlVersion="1">
+  <ParamType>ARENA_DATAPACK</ParamType>
+  <DataVersion>1</DataVersion>
+  <BigEndian>True</BigEndian>
+  <Unicode>False</Unicode>
+  <FormatVersion>101</FormatVersion>
+  <Fields>
+    <Field Def="u8 ">
+      <DisplayName>ID</DisplayName>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>予約</DisplayName>
+      <EditFlags>Wrap, Lock</EditFlags>
+    </Field>
+    <Field Def="fixstrW [30]">
+      <DisplayName>データパックID</DisplayName>
+      <Minimum>0</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="fixstr [32]">
+      <DisplayName>依頼者名</DisplayName>
+      <Minimum>0</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="fixstr [2]">
+      <DisplayName>予約</DisplayName>
+      <DisplayFormat />
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>0</Maximum>
+      <Increment>0</Increment>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>報酬金額</DisplayName>
+      <Maximum>999999</Maximum>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>予約</DisplayName>
+      <EditFlags>Wrap, Lock</EditFlags>
+    </Field>
+    <Field Def="s8 ">
+      <DisplayName>報酬パーツ種別</DisplayName>
+      <Enum>PARTS_CATEGORY</Enum>
+      <Minimum>0</Minimum>
+    </Field>
+    <Field Def="u16 ">
+      <DisplayName>報酬パーツID</DisplayName>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="fixstr [24]">
+      <DisplayName>予約</DisplayName>
+      <DisplayFormat />
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>0</Maximum>
+      <Increment>0</Increment>
+    </Field>
+  </Fields>
+</PARAMDEF>

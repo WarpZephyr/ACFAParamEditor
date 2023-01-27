@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PARAMDEF XmlVersion="1">
+  <ParamType>RADAR_SHAPE</ParamType>
+  <DataVersion>1</DataVersion>
+  <BigEndian>True</BigEndian>
+  <Unicode>False</Unicode>
+  <FormatVersion>101</FormatVersion>
+  <Fields>
+    <Field Def="u8  = 1">
+      <DisplayName>形状</DisplayName>
+      <Enum>RADAR_SHAPE_ID</Enum>
+    </Field>
+    <Field Def="dummy8 [3]">
+      <DisplayName>--予約--</DisplayName>
+      <DisplayFormat>%d</DisplayFormat>
+      <EditFlags>Wrap</EditFlags>
+      <Maximum>255</Maximum>
+      <Increment>1</Increment>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>味方
+( R )</DisplayName>
+    </Field>
+    <Field Def="u8  = 255">
+      <DisplayName>味方
+( G )</DisplayName>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>味方
+( B )</DisplayName>
+    </Field>
+    <Field Def="u8  = 255">
+      <DisplayName>味方
+( A )</DisplayName>
+    </Field>
+    <Field Def="u8  = 255">
+      <DisplayName> 敵
+( R )</DisplayName>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName> 敵
+( G )</DisplayName>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName> 敵
+( B )</DisplayName>
+    </Field>
+    <Field Def="u8  = 255">
+      <DisplayName> 敵
+( A )</DisplayName>
+    </Field>
+    <Field Def="u8  = 255">
+      <DisplayName>中立
+( R )</DisplayName>
+    </Field>
+    <Field Def="u8  = 255">
+      <DisplayName>中立
+( G )</DisplayName>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>中立
+( B )</DisplayName>
+    </Field>
+    <Field Def="u8  = 255">
+      <DisplayName>中立
+( A )</DisplayName>
+    </Field>
+  </Fields>
+</PARAMDEF>

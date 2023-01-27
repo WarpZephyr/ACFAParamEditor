@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PARAMDEF XmlVersion="1">
+  <ParamType>MISSION_INFO</ParamType>
+  <DataVersion>1</DataVersion>
+  <BigEndian>True</BigEndian>
+  <Unicode>False</Unicode>
+  <FormatVersion>101</FormatVersion>
+  <Fields>
+    <Field Def="u8 ">
+      <DisplayName>ID</DisplayName>
+      <Description>1からの連番にすること</Description>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>チャプターID</DisplayName>
+      <Description>チャプターID*10+サブチャプターID</Description>
+    </Field>
+    <Field Def="u16 ">
+      <DisplayName>マップID</DisplayName>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>ミッションタイプ</DisplayName>
+      <Enum>MISSION_TYPE</Enum>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>遷移先チャプターID</DisplayName>
+      <Description>クリアした場合指定チャプターへ遷移</Description>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>特殊ミッション出現条件</DisplayName>
+      <Description>同じチャプターのクリア数がこの値のときのみ出現</Description>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>エンディングID</DisplayName>
+      <Enum>ENDING_TYPE</Enum>
+    </Field>
+    <Field Def="s16 ">
+      <DisplayName>GA貢献度</DisplayName>
+      <Minimum>-9999</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="s16 ">
+      <DisplayName>インテリオル貢献度</DisplayName>
+      <Minimum>-9999</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="s16 ">
+      <DisplayName>オーメル貢献度</DisplayName>
+      <Minimum>-9999</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="s16 ">
+      <DisplayName>企業連貢献度</DisplayName>
+      <Minimum>-9999</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="s16 ">
+      <DisplayName>ORCA貢献度</DisplayName>
+      <Minimum>-9999</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="s16 ">
+      <DisplayName>自治都市貢献度</DisplayName>
+      <Minimum>-9999</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="s16 ">
+      <DisplayName>貢献度予備1</DisplayName>
+      <Minimum>-9999</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="s16 ">
+      <DisplayName>貢献度予備2</DisplayName>
+      <Minimum>-9999</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="u16  = 9999">
+      <DisplayName>出現貢献度タイプ</DisplayName>
+      <Enum>CP_TYPE</Enum>
+      <Description>貢献度が出現条件のミッションのみ設定</Description>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="s16 ">
+      <DisplayName>必要貢献度</DisplayName>
+      <Minimum>-9999</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>ムービーID</DisplayName>
+      <Description>ミッションクリア後に再生するミッションのみ設定</Description>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>ミッション出現条件 Sアリーナランク</DisplayName>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>共同ミッション選択可能フラグ</DisplayName>
+      <Enum>ON_OFF</Enum>
+      <Description>ONで選択可能に</Description>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="u8 ">
+      <DisplayName>2週目ムービーID</DisplayName>
+      <Description>2週目以降再生</Description>
+    </Field>
+    <Field Def="u16 ">
+      <DisplayName>AC対戦時メッセージシステムのID</DisplayName>
+      <Description>AC対戦時メッセージシステムを使用かつ僚機がいないときにメッセージを再生したいときに設定</Description>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="u16 ">
+      <DisplayName>依頼者</DisplayName>
+      <Enum>REQUESTER_TYPE</Enum>
+      <EditFlags>Lock</EditFlags>
+    </Field>
+    <Field Def="fixstrW [32]">
+      <DisplayName>ミッション名</DisplayName>
+      <DisplayFormat />
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>0</Maximum>
+      <Increment>0</Increment>
+    </Field>
+    <Field Def="fixstrW [32]">
+      <DisplayName>作戦目標</DisplayName>
+      <DisplayFormat />
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>0</Maximum>
+      <Increment>0</Increment>
+    </Field>
+    <Field Def="fixstrW [32]">
+      <DisplayName>エリア名</DisplayName>
+      <DisplayFormat />
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>0</Maximum>
+      <Increment>0</Increment>
+    </Field>
+    <Field Def="fixstrW [64]">
+      <DisplayName>ミッション説明</DisplayName>
+      <DisplayFormat />
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>0</Maximum>
+      <Increment>0</Increment>
+    </Field>
+    <Field Def="fixstrW [64]">
+      <DisplayName>ミッション説明（Hard）</DisplayName>
+      <DisplayFormat />
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>0</Maximum>
+      <Increment>0</Increment>
+    </Field>
+  </Fields>
+</PARAMDEF>

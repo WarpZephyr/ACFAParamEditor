@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PARAMDEF XmlVersion="1">
+  <ParamType>ASSAULT_ARMOR_PARAM_ST</ParamType>
+  <DataVersion>1</DataVersion>
+  <BigEndian>True</BigEndian>
+  <Unicode>False</Unicode>
+  <FormatVersion>101</FormatVersion>
+  <Fields>
+    <Field Def="f32 ">
+      <DisplayName>整波性能</DisplayName>
+      <Description>基準となる制波性能。</Description>
+      <DisplayFormat>%.0f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>99999</Maximum>
+      <Increment>100</Increment>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>攻撃力係数</DisplayName>
+      <Description>敵の場合は生の攻撃力</Description>
+      <DisplayFormat>%.2f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>99999</Maximum>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>AA終了時の攻撃力係数</DisplayName>
+      <Description>敵の場合は生の攻撃力</Description>
+      <DisplayFormat>%.2f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>99999</Maximum>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>PA-攻撃力変換率</DisplayName>
+      <Description>残りPAをどれだけ攻撃力に追加するか</Description>
+      <DisplayFormat>%.2f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>PA減衰</DisplayName>
+      <DisplayFormat>%.0f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>9999</Maximum>
+      <Increment>10</Increment>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>PA貫通</DisplayName>
+      <DisplayFormat>%.0f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>9999</Maximum>
+      <Increment>10</Increment>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>反動</DisplayName>
+      <DisplayFormat>%.0f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>999</Maximum>
+      <Increment>10</Increment>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>AA終了時の反動</DisplayName>
+      <DisplayFormat>%.0f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>999</Maximum>
+      <Increment>10</Increment>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>PA-反動変換率</DisplayName>
+      <Description>残りPAをどれだけ反動に追加するか</Description>
+      <DisplayFormat>%.2f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <Increment>0.001</Increment>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>初期爆発半径係数</DisplayName>
+      <DisplayFormat>%.2f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>1000</Maximum>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>最大爆発半径係数</DisplayName>
+      <DisplayFormat>%.2f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>1000</Maximum>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>PA-爆発半径変換率</DisplayName>
+      <Description>残りPAをどれだけ爆発半径に追加するか</Description>
+      <DisplayFormat>%.2f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+      <Increment>0.001</Increment>
+    </Field>
+    <Field Def="s32  = 10">
+      <DisplayName>ダメージ発生フレーム</DisplayName>
+      <EditFlags>None</EditFlags>
+      <Minimum>1</Minimum>
+      <Maximum>99</Maximum>
+    </Field>
+    <Field Def="f32  = 10">
+      <DisplayName>閃光効果時間（秒）</DisplayName>
+      <DisplayFormat>%.0f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>999</Maximum>
+      <Increment>1</Increment>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>PA0からのマイナス値</DisplayName>
+      <DisplayFormat>%.0f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>99999</Maximum>
+      <Increment>1000</Increment>
+    </Field>
+    <Field Def="s32  = 1">
+      <DisplayName>ダメージの種類（0：実弾 1：EN）</DisplayName>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>1</Maximum>
+    </Field>
+    <Field Def="f32 ">
+      <DisplayName>AAを使うのに必要な最低PA</DisplayName>
+      <DisplayFormat>%.0f</DisplayFormat>
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>99999</Maximum>
+      <Increment>1000</Increment>
+    </Field>
+  </Fields>
+</PARAMDEF>

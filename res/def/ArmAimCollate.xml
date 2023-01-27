@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PARAMDEF XmlVersion="1">
+  <ParamType>ARM_AIM_COLLATE</ParamType>
+  <DataVersion>1</DataVersion>
+  <BigEndian>True</BigEndian>
+  <Unicode>False</Unicode>
+  <FormatVersion>101</FormatVersion>
+  <Fields>
+    <Field Def="fixstr [16]">
+      <DisplayName>腕構えタイプ</DisplayName>
+      <Minimum>0</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="fixstr [16]">
+      <DisplayName>武器構えタイプ</DisplayName>
+      <Minimum>0</Minimum>
+      <Maximum>9999</Maximum>
+    </Field>
+    <Field Def="u16 ">
+      <DisplayName>構えデータID</DisplayName>
+    </Field>
+    <Field Def="dummy8 [2]">
+      <DisplayName>予約</DisplayName>
+      <DisplayFormat>%1.2f</DisplayFormat>
+      <EditFlags>Wrap</EditFlags>
+      <Maximum>1</Maximum>
+      <Increment>0.01</Increment>
+    </Field>
+  </Fields>
+</PARAMDEF>

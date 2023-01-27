@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<PARAMDEF XmlVersion="1">
+  <ParamType>AC_FIGHT_MESSAGE_TABLE</ParamType>
+  <DataVersion>1</DataVersion>
+  <BigEndian>True</BigEndian>
+  <Unicode>False</Unicode>
+  <FormatVersion>101</FormatVersion>
+  <Fields>
+    <Field Def="u8 ">
+      <DisplayName>メッセージトリガーデータID</DisplayName>
+      <Description>メッセージを発行するための基準データのID</Description>
+    </Field>
+    <Field Def="fixstr [3]">
+      <DisplayName>予約</DisplayName>
+      <DisplayFormat />
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>0</Maximum>
+      <Increment>0</Increment>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>自機AP減少
+敵ネクストAP多</DisplayName>
+      <Description>自機AP減少　敵ネクストAP多</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>自機AP減少
+敵ネクストAP中</DisplayName>
+      <Description>自機AP減少　敵ネクストAP中</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>自機AP減少
+敵ネクストAP少</DisplayName>
+      <Description>自機AP減少　敵ネクストAP少</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>敵ネクストAP減少
+自機AP多</DisplayName>
+      <Description>敵ネクストAP減少　自機AP多</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>敵ネクストAP減少
+自機AP中</DisplayName>
+      <Description>敵ネクストAP減少　自機AP中</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>敵ネクストAP減少
+自機AP少</DisplayName>
+      <Description>敵ネクストAP減少　自機AP少</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>自機AP0　1</DisplayName>
+      <Description>自機AP0　1</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>自機AP0　2</DisplayName>
+      <Description>自機AP0　2</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>敵ネクストAP0
+自機AP多</DisplayName>
+      <Description>敵ネクストAP0、自機AP多</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>敵ネクストAP0
+自機AP中</DisplayName>
+      <Description>敵ネクストAP0、自機AP中</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>敵ネクストAP0
+自機AP少</DisplayName>
+      <Description>敵ネクストAP0、自機AP少</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>武器を命中させた（右腕）</DisplayName>
+      <Description>武器を命中させた（右腕）</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>武器を命中させた（左腕）</DisplayName>
+      <Description>武器を命中させた（左腕）</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>武器を命中させた（右背）</DisplayName>
+      <Description>武器を命中させた（右背）</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>武器を命中させた（左背）</DisplayName>
+      <Description>武器を命中させた（左背）</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>200ｍ以内に近づく</DisplayName>
+      <Description>200ｍ以内に近づく</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>100ｍ以内に近づく</DisplayName>
+      <Description>100ｍ以内に近づく</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>50ｍ以内に近づく</DisplayName>
+      <Description>50ｍ以内に近づく</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>20ｍ以内に近づく</DisplayName>
+      <Description>20ｍ以内に近づく</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>5秒以上、500ｍ以内に近づかない</DisplayName>
+      <Description>5秒以上、500ｍ以内に近づかない</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>5秒以上、1000ｍ以内に近づかない</DisplayName>
+      <Description>5秒以上、1000ｍ以内に近づかない</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>敵ネクストのAPが80％以上で
+自機に攻撃が命中する</DisplayName>
+      <Description>敵ネクストのAPが80％以上で自機に攻撃が命中する</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>敵ネクストのAPが1～50％で被弾する</DisplayName>
+      <Description>敵ネクストのAPが1～50％で被弾する</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>自機のAPが3秒以内の時間で
+5000以上減少した</DisplayName>
+      <Description>自機のAPが3秒以内の時間で5000以上減少した</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>敵ネクストのAPが3秒以内の時間で
+5000以上減少した</DisplayName>
+      <Description>敵ネクストのAPが3秒以内の時間で5000以上減少した</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>自機の射撃命中率が
+20％以下になる</DisplayName>
+      <Description>自機の射撃命中率が20％以下になる</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>敵ネクストの射撃命中率が
+20％以下になる</DisplayName>
+      <Description>敵ネクストの射撃命中率が20％以下になる</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>10秒以上、自機が敵ネクストを捕捉していない</DisplayName>
+      <Description>10秒以上、自機が敵ネクストを捕捉していない</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>10秒以上、敵ネクストが自機を捕捉していない</DisplayName>
+      <Description>10秒以上、敵ネクストが自機を捕捉していない</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>敵ネクストが射撃したとき
+10分の1の確率で再生</DisplayName>
+      <Description>敵ネクストが射撃したとき10分の1の確率で再生</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>敵ネクストが被弾したとき
+10分の1の確率で再生</DisplayName>
+      <Description>敵ネクストが被弾したとき10分の1の確率で再生</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>自機のAPが半分になったとき
+所定APより多いとき再生</DisplayName>
+      <Description>自機のAPが半分になったとき 所定APより多いとき再生</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>自機のAPが半分になったとき
+所定APより少ないとき再生</DisplayName>
+      <Description>自機のAPが半分になったとき 所定APより少ないとき再生</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>汎用メッセージ0</DisplayName>
+      <Description>汎用0</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>汎用メッセージ1</DisplayName>
+      <Description>汎用1</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>汎用メッセージ2</DisplayName>
+      <Description>汎用2</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>汎用メッセージ3</DisplayName>
+      <Description>汎用3</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>汎用メッセージ4</DisplayName>
+      <Description>汎用4</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>汎用メッセージ5</DisplayName>
+      <Description>汎用5</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>汎用メッセージ6</DisplayName>
+      <Description>汎用6</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="u32 ">
+      <DisplayName>汎用メッセージ7</DisplayName>
+      <Description>汎用7</Description>
+      <Maximum>9009999</Maximum>
+    </Field>
+    <Field Def="fixstr [88]">
+      <DisplayName>予約</DisplayName>
+      <DisplayFormat />
+      <EditFlags>None</EditFlags>
+      <Minimum>0</Minimum>
+      <Maximum>0</Maximum>
+      <Increment>0</Increment>
+    </Field>
+  </Fields>
+</PARAMDEF>
