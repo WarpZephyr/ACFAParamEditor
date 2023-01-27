@@ -6,104 +6,87 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="s16 ">
-      <DisplayName>AcLightブースター</DisplayName>
+    <Field Def="s16 AcLightブースター">
       <Description>ブースターSFX</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>Acメインブースタ</DisplayName>
+    <Field Def="s16 Acメインブースタ">
       <Description>メインブースタ</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>Ac足ブースタ</DisplayName>
+    <Field Def="s16 Ac足ブースタ">
       <Description>足ブースタ</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>Acバックブースタ</DisplayName>
+    <Field Def="s16 Acバックブースタ">
       <Description>バックブースタ</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>AcQB　Normal</DisplayName>
+    <Field Def="s16 AcQB　Normal">
       <Description>QB　Normal</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>AcQB　Charge・Shortage</DisplayName>
+    <Field Def="s16 AcQB　Charge・Shortage">
       <Description>QB　Charge・Shortage</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>AcQB_Large</DisplayName>
+    <Field Def="s16 AcQB_Large">
       <Description>QB_Large</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>AcWeaponPurge</DisplayName>
+    <Field Def="s16 AcWeaponPurge">
       <Description>WeaponPurge</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>敵メインブースタ</DisplayName>
+    <Field Def="s16 敵メインブースタ">
       <Description>敵メインブースタ</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>敵足ブースタ</DisplayName>
+    <Field Def="s16 敵足ブースタ">
       <Description>敵足ブースタ</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16  = 619">
-      <DisplayName>自機水しぶき（大）</DisplayName>
+    <Field Def="s16 自機水しぶき（大） = 619">
       <Description>自機水しぶき（大）</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16  = 620">
-      <DisplayName>自機水しぶき（小）</DisplayName>
+    <Field Def="s16 自機水しぶき（小） = 620">
       <Description>自機水しぶき（小）</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16  = 619">
-      <DisplayName>敵水しぶき（大）</DisplayName>
+    <Field Def="s16 敵水しぶき（大） = 619">
       <Description>敵水しぶき（大）</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16  = 620">
-      <DisplayName>敵水しぶき（小）</DisplayName>
+    <Field Def="s16 敵水しぶき（小） = 620">
       <Description>敵水しぶき（小）</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>弾丸水しぶき（大）</DisplayName>
+    <Field Def="s16 弾丸水しぶき（大）">
       <Description>弾丸水しぶき（大）</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16  = 627">
-      <DisplayName>弾丸しぶき（小）</DisplayName>
+    <Field Def="s16 弾丸しぶき（小） = 627">
       <Description>弾丸しぶき（小）</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="dummy8 [32]">
-      <DisplayName>----</DisplayName>
+    <Field Def="dummy8 ----[32]">
       <DisplayFormat>%d</DisplayFormat>
       <EditFlags>Wrap</EditFlags>
       <Maximum>9999</Maximum>

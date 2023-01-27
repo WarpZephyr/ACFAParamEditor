@@ -6,26 +6,22 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u32 ">
-      <DisplayName>課題メッセージID</DisplayName>
+    <Field Def="u32 課題メッセージID">
       <Description>課題メッセージID</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>補足メッセージID</DisplayName>
+    <Field Def="u32 補足メッセージID">
       <Description>補足メッセージID</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>補足メッセージID2</DisplayName>
+    <Field Def="u32 補足メッセージID2">
       <Description>補足メッセージID2</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="fixstr [4]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="fixstr 予約[4]">
       <Description>予約</Description>
       <DisplayFormat />
       <EditFlags>None</EditFlags>

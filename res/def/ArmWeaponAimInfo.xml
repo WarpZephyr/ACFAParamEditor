@@ -6,18 +6,15 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="fixstr [16]">
-      <DisplayName>装備時関節制御名</DisplayName>
+    <Field Def="fixstr 装備時関節制御名[16]">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="fixstr [16]">
-      <DisplayName>解除時間接制御名</DisplayName>
+    <Field Def="fixstr 解除時間接制御名[16]">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>解除時アニメ補間具合</DisplayName>
+    <Field Def="f32 解除時アニメ補間具合">
       <DisplayFormat>%1.2f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>

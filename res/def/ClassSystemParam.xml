@@ -6,133 +6,90 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u16  = 2007">
-      <DisplayName>基点シーズンの西暦[year]</DisplayName>
+    <Field Def="u16 基点シーズンの西暦[year] = 2007">
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16  = 1">
-      <DisplayName>基点シーズンの西暦[month]</DisplayName>
+    <Field Def="u16 基点シーズンの西暦[month] = 1">
       <Minimum>1</Minimum>
       <Maximum>12</Maximum>
     </Field>
-    <Field Def="u16  = 7200">
-      <DisplayName>シーズン切り替えの停止期間[sec]</DisplayName>
+    <Field Def="u16 シーズン切り替えの停止期間[sec] = 7200">
       <Minimum>1</Minimum>
     </Field>
-    <Field Def="u8  = 5">
-      <DisplayName>上級者の基準クラス</DisplayName>
+    <Field Def="u8 上級者の基準クラス = 5">
       <Description>このクラス以上だと上級者です。</Description>
       <Minimum>1</Minimum>
       <Maximum>14</Maximum>
     </Field>
-    <Field Def="u8  = 10">
-      <DisplayName>中級者の基準クラス</DisplayName>
+    <Field Def="u8 中級者の基準クラス = 10">
       <Description>このクラス以上だと中級者です。</Description>
       <Minimum>1</Minimum>
       <Maximum>14</Maximum>
     </Field>
-    <Field Def="u8  = 12">
-      <DisplayName>ストーリークリア時の最低クラス</DisplayName>
+    <Field Def="u8 ストーリークリア時の最低クラス = 12">
       <Description>今の所、クラス別パラメータのIDと一致</Description>
       <Minimum>1</Minimum>
       <Maximum>14</Maximum>
     </Field>
-    <Field Def="u8  = 10">
-      <DisplayName>ノーマル全クリア時の最低クラス</DisplayName>
+    <Field Def="u8 ノーマル全クリア時の最低クラス = 10">
       <Description>今の所、クラス別パラメータのIDと一致</Description>
       <Minimum>1</Minimum>
       <Maximum>14</Maximum>
     </Field>
-    <Field Def="u8  = 8">
-      <DisplayName>ミッション全クリア時の最低クラス</DisplayName>
+    <Field Def="u8 ミッション全クリア時の最低クラス = 8">
       <Description>今の所、クラス別パラメータのIDと一致</Description>
       <Minimum>1</Minimum>
       <Maximum>14</Maximum>
     </Field>
-    <Field Def="u8  = 6">
-      <DisplayName>Ｓミッション全クリア時の最低クラス</DisplayName>
+    <Field Def="u8 Ｓミッション全クリア時の最低クラス = 6">
       <Description>今の所、クラス別パラメータのIDと一致</Description>
       <Minimum>1</Minimum>
       <Maximum>14</Maximum>
     </Field>
-    <Field Def="u8  = 10">
-      <DisplayName>１番目の実績解放クラス</DisplayName>
+    <Field Def="u8 １番目の実績解放クラス = 10">
       <Description>今の所、クラス別パラメータのIDと一致</Description>
       <Minimum>1</Minimum>
       <Maximum>14</Maximum>
     </Field>
-    <Field Def="u8  = 5">
-      <DisplayName>２番目の実績解放クラス</DisplayName>
+    <Field Def="u8 ２番目の実績解放クラス = 5">
       <Description>今の所、クラス別パラメータのIDと一致</Description>
       <Minimum>1</Minimum>
       <Maximum>14</Maximum>
     </Field>
-    <Field Def="u16  = 1">
-      <DisplayName>３番目の実績解放クラス</DisplayName>
+    <Field Def="u16 ３番目の実績解放クラス = 1">
       <Description>今の所、クラス別パラメータのIDと一致</Description>
       <Minimum>1</Minimum>
       <Maximum>14</Maximum>
     </Field>
-    <Field Def="u16  = 1000">
-      <DisplayName>１番目の実績解放勝利数</DisplayName>
-    </Field>
-    <Field Def="u16  = 2000">
-      <DisplayName>２番目の実績解放勝利数</DisplayName>
-    </Field>
-    <Field Def="u16  = 3000">
-      <DisplayName>３番目の実績解放勝利数</DisplayName>
-    </Field>
-    <Field Def="u16  = 4000">
-      <DisplayName>４番目の実績解放勝利数</DisplayName>
-    </Field>
-    <Field Def="u16  = 5000">
-      <DisplayName>５番目の実績解放勝利数</DisplayName>
-    </Field>
-    <Field Def="u16  = 7500">
-      <DisplayName>６番目の実績解放勝利数</DisplayName>
-    </Field>
-    <Field Def="u16  = 10000">
-      <DisplayName>７番目の実績解放勝利数</DisplayName>
-    </Field>
-    <Field Def="u16  = 1000">
-      <DisplayName>１番目の実績解放撃破数</DisplayName>
-    </Field>
-    <Field Def="u16  = 2000">
-      <DisplayName>２番目の実績解放撃破数</DisplayName>
-    </Field>
-    <Field Def="u16  = 3000">
-      <DisplayName>３番目の実績解放撃破数</DisplayName>
-    </Field>
-    <Field Def="u16  = 4000">
-      <DisplayName>４番目の実績解放撃破数</DisplayName>
-    </Field>
-    <Field Def="u16  = 5000">
-      <DisplayName>５番目の実績解放撃破数</DisplayName>
-    </Field>
-    <Field Def="u16  = 7500">
-      <DisplayName>６番目の実績解放撃破数</DisplayName>
-    </Field>
-    <Field Def="u16  = 10000">
-      <DisplayName>７番目の実績解放撃破数</DisplayName>
-    </Field>
-    <Field Def="f32  = 200">
-      <DisplayName>サーバとのクラスポイントの差の限界値</DisplayName>
+    <Field Def="u16 １番目の実績解放勝利数 = 1000" />
+    <Field Def="u16 ２番目の実績解放勝利数 = 2000" />
+    <Field Def="u16 ３番目の実績解放勝利数 = 3000" />
+    <Field Def="u16 ４番目の実績解放勝利数 = 4000" />
+    <Field Def="u16 ５番目の実績解放勝利数 = 5000" />
+    <Field Def="u16 ６番目の実績解放勝利数 = 7500" />
+    <Field Def="u16 ７番目の実績解放勝利数 = 10000" />
+    <Field Def="u16 １番目の実績解放撃破数 = 1000" />
+    <Field Def="u16 ２番目の実績解放撃破数 = 2000" />
+    <Field Def="u16 ３番目の実績解放撃破数 = 3000" />
+    <Field Def="u16 ４番目の実績解放撃破数 = 4000" />
+    <Field Def="u16 ５番目の実績解放撃破数 = 5000" />
+    <Field Def="u16 ６番目の実績解放撃破数 = 7500" />
+    <Field Def="u16 ７番目の実績解放撃破数 = 10000" />
+    <Field Def="f32 サーバとのクラスポイントの差の限界値 = 200">
       <Description>１時間に稼ぎ切れない程度</Description>
       <DisplayFormat>%2f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>10000</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32  = 160">
-      <DisplayName>表示１当たりの計算用クラスポイント</DisplayName>
+    <Field Def="f32 表示１当たりの計算用クラスポイント = 160">
       <Description>定数にするかもしれません。</Description>
       <DisplayFormat>%2f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>10000</Maximum>
       <Increment>10</Increment>
     </Field>
-    <Field Def="f32  = 16000">
-      <DisplayName>表示が０の時の計算用クラスポイント</DisplayName>
+    <Field Def="f32 表示が０の時の計算用クラスポイント = 16000">
       <Description>定数にするかもしれません。</Description>
       <DisplayFormat>%2f</DisplayFormat>
       <Minimum>0</Minimum>

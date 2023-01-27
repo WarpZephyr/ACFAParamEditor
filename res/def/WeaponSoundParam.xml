@@ -6,46 +6,36 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="s16  = -1">
-      <DisplayName>発射SE</DisplayName>
+    <Field Def="s16 発射SE = -1">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16  = -1">
-      <DisplayName>リロードSE</DisplayName>
+    <Field Def="s16 リロードSE = -1">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16  = -1">
-      <DisplayName>マガジン
-リロードSE</DisplayName>
+    <Field Def="s16 マガジン&#xA;リロードSE = -1">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>リロードSE
-再生フレーム</DisplayName>
+    <Field Def="s16 リロードSE&#xA;再生フレーム">
       <Description>リロードＳＥ再生タイミング用</Description>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16  = -1">
-      <DisplayName>溜めSE</DisplayName>
+    <Field Def="s16 溜めSE = -1">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16  = -1">
-      <DisplayName>溜まり状態SE</DisplayName>
+    <Field Def="s16 溜まり状態SE = -1">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16  = -1">
-      <DisplayName>飛行ループＳＥ</DisplayName>
+    <Field Def="s16 飛行ループＳＥ = -1">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="dummy8 [2] = -1">
-      <DisplayName>予約</DisplayName>
+    <Field Def="dummy8 予約[2] = -1">
       <DisplayFormat>%d</DisplayFormat>
       <EditFlags>Wrap</EditFlags>
       <Minimum>-1</Minimum>

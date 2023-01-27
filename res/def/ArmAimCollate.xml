@@ -6,21 +6,16 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="fixstr [16]">
-      <DisplayName>腕構えタイプ</DisplayName>
+    <Field Def="fixstr 腕構えタイプ[16]">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="fixstr [16]">
-      <DisplayName>武器構えタイプ</DisplayName>
+    <Field Def="fixstr 武器構えタイプ[16]">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>構えデータID</DisplayName>
-    </Field>
-    <Field Def="dummy8 [2]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="u16 構えデータID" />
+    <Field Def="dummy8 予約[2]">
       <DisplayFormat>%1.2f</DisplayFormat>
       <EditFlags>Wrap</EditFlags>
       <Maximum>1</Maximum>

@@ -6,8 +6,7 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="fixstr [32]">
-      <DisplayName>レイヤー名</DisplayName>
+    <Field Def="fixstr レイヤー名[32]">
       <Description>有効化するレイヤー名</Description>
       <DisplayFormat />
       <EditFlags>None</EditFlags>
@@ -15,8 +14,7 @@
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="fixstr [32]">
-      <DisplayName>スクリプト名</DisplayName>
+    <Field Def="fixstr スクリプト名[32]">
       <Description>ミッション管理に当たるスクリプト名</Description>
       <DisplayFormat />
       <EditFlags>None</EditFlags>
@@ -24,28 +22,24 @@
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>自機のイベントID</DisplayName>
+    <Field Def="u32 自機のイベントID">
       <Description>【敵イベントデータ.xls】の照合データキー</Description>
       <EditFlags>None</EditFlags>
       <Maximum>10000</Maximum>
     </Field>
-    <Field Def="s32 ">
-      <DisplayName>自機機体構成ID</DisplayName>
+    <Field Def="s32 自機機体構成ID">
       <Description>自機機体構成ID</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10000</Maximum>
     </Field>
-    <Field Def="s32 ">
-      <DisplayName>自機初期位置ポイントID</DisplayName>
+    <Field Def="s32 自機初期位置ポイントID">
       <Description>自機初期位置</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10000</Maximum>
     </Field>
-    <Field Def="dummy8 [52]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="dummy8 予約[52]">
       <Description>予約</Description>
     </Field>
   </Fields>

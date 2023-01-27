@@ -6,30 +6,26 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="fixstr [16]">
-      <DisplayName>レイヤー名</DisplayName>
+    <Field Def="fixstr レイヤー名[16]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="fixstr [16]">
-      <DisplayName>ターゲットモデル名</DisplayName>
+    <Field Def="fixstr ターゲットモデル名[16]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="s32 ">
-      <DisplayName>ターゲット数</DisplayName>
+    <Field Def="s32 ターゲット数">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>99</Maximum>
     </Field>
-    <Field Def="fixstr [28]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="fixstr 予約[28]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>

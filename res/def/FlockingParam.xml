@@ -6,58 +6,48 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="f32 ">
-      <DisplayName>群れ制御で使用する最大の力</DisplayName>
+    <Field Def="f32 群れ制御で使用する最大の力">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>離れる力の割合</DisplayName>
+    <Field Def="f32 離れる力の割合">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>99999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>近づく力の割合</DisplayName>
+    <Field Def="f32 近づく力の割合">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>目標位置に近づく力の割合</DisplayName>
+    <Field Def="f32 目標位置に近づく力の割合">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>最低限あける距離[m]</DisplayName>
+    <Field Def="u16 最低限あける距離[m]">
       <EditFlags>None</EditFlags>
       <Maximum>3000</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>群れタイプ</DisplayName>
+    <Field Def="u8 群れタイプ">
       <Enum>FLOCKING_BEHAVIOR_TYPE</Enum>
       <EditFlags>None</EditFlags>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>離れる力算出間隔[frame]</DisplayName>
+    <Field Def="u8 離れる力算出間隔[frame]">
       <EditFlags>None</EditFlags>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>壁よけ力の割合</DisplayName>
+    <Field Def="f32 壁よけ力の割合">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="dummy8 [8]">
-      <DisplayName>予約</DisplayName>
-    </Field>
+    <Field Def="dummy8 予約[8]" />
   </Fields>
 </PARAMDEF>

@@ -6,130 +6,112 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="f32 ">
-      <DisplayName>キャパシティの定数</DisplayName>
+    <Field Def="f32 キャパシティの定数">
       <Description>状況の変化に関わらない一定のキャパシティ</Description>
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="fixstr [12]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="fixstr 予約[12]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>PA率（低）</DisplayName>
+    <Field Def="f32 PA率（低）">
       <Description>PAのファジイ値を出すためのPA率の低い側の基準値</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>PA率（高）</DisplayName>
+    <Field Def="f32 PA率（高） = 1">
       <Description>PAのファジイ値を出すためのPA率の高い側の基準値</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>PAファジイ値(低）</DisplayName>
+    <Field Def="f32 PAファジイ値(低）">
       <Description>PAファジイ値の低い側の値</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>PAファジイ値(高）</DisplayName>
+    <Field Def="f32 PAファジイ値(高） = 1">
       <Description>PAファジイ値の高い側の値</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>PAファジイ値に対しての係数</DisplayName>
+    <Field Def="f32 PAファジイ値に対しての係数">
       <Description>PAファジイ値に対してかける係数(マイナスの場合、関数を変更する)</Description>
       <EditFlags>None</EditFlags>
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>APファジイ値(Begin値）</DisplayName>
+    <Field Def="f32 APファジイ値(Begin値） = 1">
       <Description>APのファジイ値を出すためのAP率の初期の基準値</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32  = 0.5">
-      <DisplayName>APファジイ値(Mid値）</DisplayName>
+    <Field Def="f32 APファジイ値(Mid値） = 0.5">
       <Description>APのファジイ値を出すためのAP率の中間の基準値</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>APファジイ値(End値）</DisplayName>
+    <Field Def="f32 APファジイ値(End値）">
       <Description>APのファジイ値を出すためのAP率の末期の基準値</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>AP率（Begin）</DisplayName>
+    <Field Def="f32 AP率（Begin） = 1">
       <Description>APファジイ値の初期の値</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32  = 0.5">
-      <DisplayName>AP率（Mid）</DisplayName>
+    <Field Def="f32 AP率（Mid） = 0.5">
       <Description>APファジイ値の中間の値</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>AP率（End）</DisplayName>
+    <Field Def="f32 AP率（End）">
       <Description>APファジイ値の末期の値</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>APファジイ値に対しての係数</DisplayName>
+    <Field Def="f32 APファジイ値に対しての係数">
       <Description>APファジイ値に対してかける係数(マイナスの場合、関数を変更する)</Description>
       <EditFlags>None</EditFlags>
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>テンション距離（近）</DisplayName>
+    <Field Def="u16 テンション距離（近）">
       <Description>テンションが適用される距離（近）</Description>
       <EditFlags>None</EditFlags>
       <Maximum>60000</Maximum>
       <Increment>10</Increment>
     </Field>
-    <Field Def="u16  = 1">
-      <DisplayName>テンション距離（遠）</DisplayName>
+    <Field Def="u16 テンション距離（遠） = 1">
       <Description>テンションが適用される距離（遠）</Description>
       <EditFlags>None</EditFlags>
       <Maximum>60000</Maximum>
       <Increment>10</Increment>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>テンション率</DisplayName>
+    <Field Def="f32 テンション率 = 1">
       <Description>テンションが率</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="fixstr [56]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="fixstr 予約[56]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>

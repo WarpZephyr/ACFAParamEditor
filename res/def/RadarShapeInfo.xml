@@ -6,72 +6,32 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u8  = 1">
-      <DisplayName>形状</DisplayName>
+    <Field Def="u8 形状 = 1">
       <Enum>RADAR_SHAPE_ID</Enum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>モーショントラック無効</DisplayName>
+    <Field Def="u8 モーショントラック無効">
       <Enum>ON_OFF</Enum>
     </Field>
-    <Field Def="u8  = 10">
-      <DisplayName>モデルサイズ</DisplayName>
+    <Field Def="u8 モデルサイズ = 10">
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="dummy8 [1]">
-      <DisplayName>--予約--</DisplayName>
+    <Field Def="dummy8 --予約--[1]">
       <DisplayFormat>%d</DisplayFormat>
       <EditFlags>Wrap</EditFlags>
       <Maximum>255</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>味方
-( R )</DisplayName>
-    </Field>
-    <Field Def="u8  = 255">
-      <DisplayName>味方
-( G )</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName>味方
-( B )</DisplayName>
-    </Field>
-    <Field Def="u8  = 255">
-      <DisplayName>味方
-( A )</DisplayName>
-    </Field>
-    <Field Def="u8  = 255">
-      <DisplayName> 敵
-( R )</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName> 敵
-( G )</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName> 敵
-( B )</DisplayName>
-    </Field>
-    <Field Def="u8  = 255">
-      <DisplayName> 敵
-( A )</DisplayName>
-    </Field>
-    <Field Def="u8  = 255">
-      <DisplayName>中立
-( R )</DisplayName>
-    </Field>
-    <Field Def="u8  = 255">
-      <DisplayName>中立
-( G )</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName>中立
-( B )</DisplayName>
-    </Field>
-    <Field Def="u8  = 255">
-      <DisplayName>中立
-( A )</DisplayName>
-    </Field>
+    <Field Def="u8 味方&#xA;( R )" />
+    <Field Def="u8 味方&#xA;( G ) = 255" />
+    <Field Def="u8 味方&#xA;( B )" />
+    <Field Def="u8 味方&#xA;( A ) = 255" />
+    <Field Def="u8  敵&#xA;( R ) = 255" />
+    <Field Def="u8  敵&#xA;( G )" />
+    <Field Def="u8  敵&#xA;( B )" />
+    <Field Def="u8  敵&#xA;( A ) = 255" />
+    <Field Def="u8 中立&#xA;( R ) = 255" />
+    <Field Def="u8 中立&#xA;( G ) = 255" />
+    <Field Def="u8 中立&#xA;( B )" />
+    <Field Def="u8 中立&#xA;( A ) = 255" />
   </Fields>
 </PARAMDEF>

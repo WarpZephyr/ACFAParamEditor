@@ -6,348 +6,270 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="fixstrW [24]">
-      <DisplayName>機体名</DisplayName>
+    <Field Def="fixstrW 機体名[24]">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="fixstrW [24]">
-      <DisplayName>設計者名</DisplayName>
+    <Field Def="fixstrW 設計者名[24]">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>Head</DisplayName>
+    <Field Def="s16 Head">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>Core</DisplayName>
+    <Field Def="s16 Core">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>Arms</DisplayName>
+    <Field Def="s16 Arms">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>Legs</DisplayName>
+    <Field Def="s16 Legs">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>Fcs</DisplayName>
+    <Field Def="s16 Fcs">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>Gene</DisplayName>
+    <Field Def="s16 Gene">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>Booster</DisplayName>
+    <Field Def="s16 Booster">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>BackBoost</DisplayName>
+    <Field Def="s16 BackBoost">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SideBoost</DisplayName>
+    <Field Def="s16 SideBoost">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>OverBoost</DisplayName>
+    <Field Def="s16 OverBoost">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ArmUnitR</DisplayName>
+    <Field Def="s16 ArmUnitR">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ArmUnitL</DisplayName>
+    <Field Def="s16 ArmUnitL">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>BackUnitR</DisplayName>
+    <Field Def="s16 BackUnitR">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>BackUnitL</DisplayName>
+    <Field Def="s16 BackUnitL">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>Shoulder</DisplayName>
+    <Field Def="s16 Shoulder">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>HangerR</DisplayName>
+    <Field Def="s16 HangerR">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>HangerL</DisplayName>
+    <Field Def="s16 HangerL">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>HeadT</DisplayName>
+    <Field Def="s16 HeadT">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>HeadS_R</DisplayName>
+    <Field Def="s16 HeadS_R">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>HeadS_L</DisplayName>
+    <Field Def="s16 HeadS_L">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>CoreU_R</DisplayName>
+    <Field Def="s16 CoreU_R">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>CoreU_L</DisplayName>
+    <Field Def="s16 CoreU_L">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>CoreL_R</DisplayName>
+    <Field Def="s16 CoreL_R">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>CoreL_L</DisplayName>
+    <Field Def="s16 CoreL_L">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ArmsR</DisplayName>
+    <Field Def="s16 ArmsR">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ArmsL</DisplayName>
+    <Field Def="s16 ArmsL">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>LegsB</DisplayName>
+    <Field Def="s16 LegsB">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>LegsU_R</DisplayName>
+    <Field Def="s16 LegsU_R">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>LegsU_L</DisplayName>
+    <Field Def="s16 LegsU_L">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>LegsU_RB</DisplayName>
+    <Field Def="s16 LegsU_RB">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>LegsU_LB</DisplayName>
+    <Field Def="s16 LegsU_LB">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>LegsM_R</DisplayName>
+    <Field Def="s16 LegsM_R">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>LegsM_L</DisplayName>
+    <Field Def="s16 LegsM_L">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>LegsM_RB</DisplayName>
+    <Field Def="s16 LegsM_RB">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>LegsM_LB</DisplayName>
+    <Field Def="s16 LegsM_LB">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>LegsL_R</DisplayName>
+    <Field Def="s16 LegsL_R">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>LegsL_L</DisplayName>
+    <Field Def="s16 LegsL_L">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>LegsL_RB</DisplayName>
+    <Field Def="s16 LegsL_RB">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>LegsL_LB</DisplayName>
+    <Field Def="s16 LegsL_LB">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>EN出力</DisplayName>
+    <Field Def="u8 EN出力">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>コンデンサ容量</DisplayName>
+    <Field Def="u8 コンデンサ容量">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>PA出力</DisplayName>
+    <Field Def="u8 PA出力">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>脚部：積載能力</DisplayName>
+    <Field Def="u8 脚部：積載能力">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>腕部：EN供給能力</DisplayName>
+    <Field Def="u8 腕部：EN供給能力">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>腕部：運動性能　</DisplayName>
+    <Field Def="u8 腕部：運動性能　">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>腕部：射撃安定</DisplayName>
+    <Field Def="u8 腕部：射撃安定">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>腕部：照準制度</DisplayName>
+    <Field Def="u8 腕部：照準制度">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>FCS：ロック速度</DisplayName>
+    <Field Def="u8 FCS：ロック速度">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>FCS：MISロック速度</DisplayName>
+    <Field Def="u8 FCS：MISロック速度">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>FCS：レーダー</DisplayName>
+    <Field Def="u8 FCS：レーダー">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>FCS：対ECM性能　</DisplayName>
+    <Field Def="u8 FCS：対ECM性能　">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>頭部：整波性能　</DisplayName>
+    <Field Def="u8 頭部：整波性能　">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>コア：整波性能　</DisplayName>
+    <Field Def="u8 コア：整波性能　">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>腕部：整波性能　</DisplayName>
+    <Field Def="u8 腕部：整波性能　">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>脚部：整波性能　</DisplayName>
+    <Field Def="u8 脚部：整波性能　">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>メイン：水平推力</DisplayName>
+    <Field Def="u8 メイン：水平推力">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>メイン：垂直推力</DisplayName>
+    <Field Def="u8 メイン：垂直推力">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>サイド：推力</DisplayName>
+    <Field Def="u8 サイド：推力">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>バック：推力</DisplayName>
+    <Field Def="u8 バック：推力">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>メイン：クイック推力</DisplayName>
+    <Field Def="u8 メイン：クイック推力">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>サイド：クイック推力</DisplayName>
+    <Field Def="u8 サイド：クイック推力">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>バック：クイック推力</DisplayName>
+    <Field Def="u8 バック：クイック推力">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>オーバード推力</DisplayName>
+    <Field Def="u8 オーバード推力">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>脚部：移動性能　</DisplayName>
+    <Field Def="u8 脚部：移動性能　">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>脚部：制動性能　</DisplayName>
+    <Field Def="u8 脚部：制動性能　">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>脚部：旋回性能　</DisplayName>
+    <Field Def="u8 脚部：旋回性能　">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>脚部：ジャンプ</DisplayName>
+    <Field Def="u8 脚部：ジャンプ">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>頭部：機体安定</DisplayName>
+    <Field Def="u8 頭部：機体安定">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>脚部：被弾安定</DisplayName>
+    <Field Def="u8 脚部：被弾安定">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>脚部：着地安定</DisplayName>
+    <Field Def="u8 脚部：着地安定">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>脚部：射撃安定</DisplayName>
+    <Field Def="u8 脚部：射撃安定">
       <Maximum>50</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>カラーリングID</DisplayName>
+    <Field Def="u16 カラーリングID">
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>エンブレムID</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName>予約</DisplayName>
-    </Field>
+    <Field Def="u8 エンブレムID" />
+    <Field Def="u8 予約" />
   </Fields>
 </PARAMDEF>

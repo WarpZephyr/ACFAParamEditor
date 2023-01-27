@@ -6,28 +6,24 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u16 ">
-      <DisplayName>SFX ID</DisplayName>
+    <Field Def="u16 SFX ID">
       <Description>SFXのID</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8  = 1">
-      <DisplayName>サウンドカテゴリ</DisplayName>
+    <Field Def="u8 サウンドカテゴリ = 1">
       <Enum>SE_CATEGORY</Enum>
       <Description>サウンドID cXXXXXXXX の先頭の文字です。 1：c  2：a  3：b  4：w  5：m  6：d</Description>
       <EditFlags>None</EditFlags>
       <Minimum>1</Minimum>
       <Maximum>6</Maximum>
     </Field>
-    <Field Def="dummy8 [1]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="dummy8 予約[1]">
       <DisplayFormat>%d</DisplayFormat>
       <Maximum>1E+08</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>サウンドID</DisplayName>
+    <Field Def="u32 サウンドID">
       <EditFlags>None</EditFlags>
       <Maximum>1E+08</Maximum>
     </Field>

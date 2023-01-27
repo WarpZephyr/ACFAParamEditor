@@ -6,38 +6,31 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u8 ">
-      <DisplayName>AP2アニメ</DisplayName>
+    <Field Def="u8 AP2アニメ">
       <Enum>ACANMID</Enum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>ループ</DisplayName>
+    <Field Def="u8 ループ">
       <Enum>ON_OFF</Enum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>補間ID</DisplayName>
+    <Field Def="u8 補間ID">
       <Enum>ACANIM_HOKAN_ID</Enum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>コア制御禁止</DisplayName>
+    <Field Def="u8 コア制御禁止">
       <Enum>ON_OFF</Enum>
       <EditFlags>None</EditFlags>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="fixstr [4]">
-      <DisplayName>--予約--</DisplayName>
+    <Field Def="fixstr --予約--[4]">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>ﾌﾞｰｽﾀｰアニメ</DisplayName>
+    <Field Def="u8 ﾌﾞｰｽﾀｰアニメ">
       <Enum>BOOSTERANMID</Enum>
       <EditFlags>Wrap, Lock</EditFlags>
     </Field>
-    <Field Def="fixstr [7]">
-      <DisplayName>--予約--</DisplayName>
+    <Field Def="fixstr --予約--[7]">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>

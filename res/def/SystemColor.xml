@@ -6,17 +6,9 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u8  = 128">
-      <DisplayName>R</DisplayName>
-    </Field>
-    <Field Def="u8  = 128">
-      <DisplayName>G</DisplayName>
-    </Field>
-    <Field Def="u8  = 128">
-      <DisplayName>B</DisplayName>
-    </Field>
-    <Field Def="u8  = 128">
-      <DisplayName>A</DisplayName>
-    </Field>
+    <Field Def="u8 R = 128" />
+    <Field Def="u8 G = 128" />
+    <Field Def="u8 B = 128" />
+    <Field Def="u8 A = 128" />
   </Fields>
 </PARAMDEF>

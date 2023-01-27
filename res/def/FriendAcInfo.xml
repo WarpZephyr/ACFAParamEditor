@@ -6,36 +6,24 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u8 ">
-      <DisplayName>ID</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName>登場ミッションID</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName>ACのデータID</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName>プロフィールデータID</DisplayName>
-    </Field>
-    <Field Def="fixstr [15]">
-      <DisplayName>AIの名前</DisplayName>
+    <Field Def="u8 ID" />
+    <Field Def="u8 登場ミッションID" />
+    <Field Def="u8 ACのデータID" />
+    <Field Def="u8 プロフィールデータID" />
+    <Field Def="fixstr AIの名前[15]">
       <Minimum>0</Minimum>
       <Maximum>127</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>報酬金額(割合)</DisplayName>
+    <Field Def="u8 報酬金額(割合)">
       <EditFlags>Wrap, Lock</EditFlags>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>AC対戦メッセージID</DisplayName>
+    <Field Def="u16 AC対戦メッセージID">
       <Description>0は無効</Description>
       <EditFlags>Wrap, Lock</EditFlags>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>キャラスクリプトID</DisplayName>
+    <Field Def="u16 キャラスクリプトID">
       <Maximum>9999</Maximum>
     </Field>
   </Fields>

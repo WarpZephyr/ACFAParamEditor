@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
 using System.IO;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 using ACFAParamEditor.Properties;
 using Microsoft.WindowsAPICodePack.Dialogs;
@@ -73,7 +74,7 @@ namespace ACFAParamEditor
 
             List <PARAM> paramList = new List<PARAM>();
 
-            string[] binFiles = Directory.GetFiles(binFolderPath, "*.bin");
+            string[] binFiles = Directory.GetFiles(binFolderPath, "*.*");
             foreach (string binPath in binFiles)
             {
                 try
@@ -147,6 +148,10 @@ namespace ACFAParamEditor
                 try
                 {
                     var paramdef = PARAMDEF.Read(defPath);
+                    foreach (var field in paramdef.Fields)
+                    {
+                        field.InternalName = field.DisplayName;
+                    }
                     paramdef.XmlSerialize($"{defResFolderPath}/{Path.GetFileNameWithoutExtension(defPath)}.xml");
                 }
                 catch

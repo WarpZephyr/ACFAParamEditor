@@ -6,78 +6,55 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="s16 ">
-      <DisplayName>消滅前
-(ループ)</DisplayName>
+    <Field Def="s16 消滅前&#xA;(ループ)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>消滅</DisplayName>
+    <Field Def="s16 消滅">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>復活</DisplayName>
+    <Field Def="s16 復活">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>実弾(小)
-着弾</DisplayName>
+    <Field Def="s16 実弾(小)&#xA;着弾">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>実弾(中)
-着弾</DisplayName>
+    <Field Def="s16 実弾(中)&#xA;着弾">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>実弾（大）
-着弾</DisplayName>
+    <Field Def="s16 実弾（大）&#xA;着弾">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>EN弾(小)
-着弾</DisplayName>
+    <Field Def="s16 EN弾(小)&#xA;着弾">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>EN弾(中)
-着弾</DisplayName>
+    <Field Def="s16 EN弾(中)&#xA;着弾">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>EN弾（大）
-着弾</DisplayName>
+    <Field Def="s16 EN弾（大）&#xA;着弾">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>アサルトアーマー
-タメ</DisplayName>
+    <Field Def="s16 アサルトアーマー&#xA;タメ">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>アサルトアーマー
-発動</DisplayName>
+    <Field Def="s16 アサルトアーマー&#xA;発動">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>アサルトアーマー
-停滞</DisplayName>
+    <Field Def="s16 アサルトアーマー&#xA;停滞">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="dummy8 [8]">
-      <DisplayName>----</DisplayName>
+    <Field Def="dummy8 ----[8]">
       <DisplayFormat>%d</DisplayFormat>
       <EditFlags>Wrap</EditFlags>
       <Maximum>9999</Maximum>

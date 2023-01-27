@@ -6,19 +6,15 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u8 ">
-      <DisplayName>ID</DisplayName>
-    </Field>
-    <Field Def="fixstr [3]">
-      <DisplayName>ダミー</DisplayName>
+    <Field Def="u8 ID" />
+    <Field Def="fixstr ダミー[3]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="fixstrW [254]">
-      <DisplayName>説明</DisplayName>
+    <Field Def="fixstrW 説明[254]">
       <Minimum>0</Minimum>
       <Maximum>999999</Maximum>
     </Field>

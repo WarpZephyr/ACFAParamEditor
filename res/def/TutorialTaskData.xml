@@ -6,26 +6,22 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u16 ">
-      <DisplayName>課題ID</DisplayName>
+    <Field Def="u16 課題ID">
       <Description>課題ID</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>CAPイベントID</DisplayName>
+    <Field Def="u16 CAPイベントID">
       <Description>CAPイベントID</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>課題テキストID</DisplayName>
+    <Field Def="u16 課題テキストID">
       <Description>課題テキストID</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>操作説明テキストID</DisplayName>
+    <Field Def="u16 操作説明テキストID">
       <Description>操作説明テキストID</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9999</Maximum>

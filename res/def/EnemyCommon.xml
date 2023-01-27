@@ -6,195 +6,157 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="fixstr [32]">
-      <DisplayName>挙動名</DisplayName>
+    <Field Def="fixstr 挙動名[32]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>FcsID</DisplayName>
+    <Field Def="u32 FcsID">
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>グラフィッカー用パラメータID</DisplayName>
+    <Field Def="u32 グラフィッカー用パラメータID">
       <Description>グラフィッカー用パラメータID</Description>
       <Maximum>10000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>基本パラメータID</DisplayName>
+    <Field Def="u32 基本パラメータID">
       <Description>基本パラメータID</Description>
       <Maximum>10000</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>パフォーマンスID</DisplayName>
+    <Field Def="u16 パフォーマンスID">
       <Description>パフォーマンスID</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_00</DisplayName>
+    <Field Def="u16 武器ID_00">
       <Description>武器ID_00</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_01</DisplayName>
+    <Field Def="u16 武器ID_01">
       <Description>武器ID_01</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_02</DisplayName>
+    <Field Def="u16 武器ID_02">
       <Description>武器ID_02</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_03</DisplayName>
+    <Field Def="u16 武器ID_03">
       <Description>武器ID_03</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_04</DisplayName>
+    <Field Def="u16 武器ID_04">
       <Description>武器ID_04</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_05</DisplayName>
+    <Field Def="u16 武器ID_05">
       <Description>武器ID_05</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_06</DisplayName>
+    <Field Def="u16 武器ID_06">
       <Description>武器ID_06</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_07</DisplayName>
+    <Field Def="u16 武器ID_07">
       <Description>武器ID_07</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_08</DisplayName>
+    <Field Def="u16 武器ID_08">
       <Description>武器ID_08</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_09</DisplayName>
+    <Field Def="u16 武器ID_09">
       <Description>武器ID_09</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_10</DisplayName>
+    <Field Def="u16 武器ID_10">
       <Description>武器ID_10</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_11</DisplayName>
+    <Field Def="u16 武器ID_11">
       <Description>武器ID_11</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_12</DisplayName>
+    <Field Def="u16 武器ID_12">
       <Description>武器ID_12</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_13</DisplayName>
+    <Field Def="u16 武器ID_13">
       <Description>武器ID_13</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_14</DisplayName>
+    <Field Def="u16 武器ID_14">
       <Description>武器ID_14</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_15</DisplayName>
+    <Field Def="u16 武器ID_15">
       <Description>武器ID_15</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_16</DisplayName>
+    <Field Def="u16 武器ID_16">
       <Description>武器ID_16</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_17</DisplayName>
+    <Field Def="u16 武器ID_17">
       <Description>武器ID_17</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_18</DisplayName>
+    <Field Def="u16 武器ID_18">
       <Description>武器ID_18</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_19</DisplayName>
+    <Field Def="u16 武器ID_19">
       <Description>武器ID_19</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_20</DisplayName>
+    <Field Def="u16 武器ID_20">
       <Description>武器ID_20</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_21</DisplayName>
+    <Field Def="u16 武器ID_21">
       <Description>武器ID_21</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_22</DisplayName>
+    <Field Def="u16 武器ID_22">
       <Description>武器ID_22</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_23</DisplayName>
+    <Field Def="u16 武器ID_23">
       <Description>武器ID_23</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_24</DisplayName>
+    <Field Def="u16 武器ID_24">
       <Description>武器ID_24</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_25</DisplayName>
+    <Field Def="u16 武器ID_25">
       <Description>武器ID_25</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_26</DisplayName>
+    <Field Def="u16 武器ID_26">
       <Description>武器ID_26</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_27</DisplayName>
+    <Field Def="u16 武器ID_27">
       <Description>武器ID_27</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_28</DisplayName>
+    <Field Def="u16 武器ID_28">
       <Description>武器ID_28</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_29</DisplayName>
+    <Field Def="u16 武器ID_29">
       <Description>武器ID_29</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_30</DisplayName>
+    <Field Def="u16 武器ID_30">
       <Description>武器ID_30</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>武器ID_31</DisplayName>
+    <Field Def="u16 武器ID_31">
       <Description>武器ID_31</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="fixstr [18]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="fixstr 予約[18]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>

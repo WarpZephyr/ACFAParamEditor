@@ -6,8 +6,7 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="fixstr [32]">
-      <DisplayName>スクリプト名</DisplayName>
+    <Field Def="fixstr スクリプト名[32]">
       <Description>読み込むスクリプトファイル名</Description>
       <DisplayFormat />
       <EditFlags>None</EditFlags>
@@ -15,56 +14,47 @@
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>イベントパラメータ0</DisplayName>
+    <Field Def="f32 イベントパラメータ0">
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>イベントパラメータ1</DisplayName>
+    <Field Def="f32 イベントパラメータ1">
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>イベントパラメータ2</DisplayName>
+    <Field Def="f32 イベントパラメータ2">
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>イベントパラメータ3</DisplayName>
+    <Field Def="f32 イベントパラメータ3">
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>イベントパラメータ4</DisplayName>
+    <Field Def="f32 イベントパラメータ4">
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>イベントパラメータ5</DisplayName>
+    <Field Def="f32 イベントパラメータ5">
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>イベントパラメータ6</DisplayName>
+    <Field Def="f32 イベントパラメータ6">
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>イベントパラメータ7</DisplayName>
+    <Field Def="f32 イベントパラメータ7">
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="fixstr [64]">
-      <DisplayName>予約１</DisplayName>
+    <Field Def="fixstr 予約１[64]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>

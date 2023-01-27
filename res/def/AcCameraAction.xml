@@ -6,95 +6,81 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="s16 ">
-      <DisplayName>アクションID</DisplayName>
+    <Field Def="s16 アクションID">
       <Enum>AC_ACTION_ID</Enum>
       <EditFlags>Lock</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="fixstr [25]">
-      <DisplayName>--予約--</DisplayName>
+    <Field Def="fixstr --予約--[25]">
       <DisplayFormat />
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="u8  = 1">
-      <DisplayName>画角有効</DisplayName>
+    <Field Def="u8 画角有効 = 1">
       <Enum>ON_OFF</Enum>
       <EditFlags>None</EditFlags>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="s16  = 82">
-      <DisplayName>画角:最大画角</DisplayName>
+    <Field Def="s16 画角:最大画角 = 82">
       <Minimum>1</Minimum>
       <Maximum>180</Maximum>
     </Field>
-    <Field Def="s16  = 300">
-      <DisplayName>画角:増加フレーム</DisplayName>
+    <Field Def="s16 画角:増加フレーム = 300">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>2000</Maximum>
     </Field>
-    <Field Def="s16  = -1">
-      <DisplayName>画角:持続フレーム(-1=∞)</DisplayName>
+    <Field Def="s16 画角:持続フレーム(-1=∞) = -1">
       <EditFlags>None</EditFlags>
       <Minimum>-1</Minimum>
       <Maximum>2000</Maximum>
     </Field>
-    <Field Def="s16  = 30">
-      <DisplayName>画角:戻りフレーム</DisplayName>
+    <Field Def="s16 画角:戻りフレーム = 30">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>2000</Maximum>
     </Field>
-    <Field Def="fixstr [16]">
-      <DisplayName>--予約--</DisplayName>
+    <Field Def="fixstr --予約--[16]">
       <DisplayFormat />
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>揺れ:加速揺れ強度</DisplayName>
+    <Field Def="f32 揺れ:加速揺れ強度">
       <DisplayFormat>%.3f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>揺れ:開始加速度</DisplayName>
+    <Field Def="f32 揺れ:開始加速度">
       <DisplayFormat>%.1f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>500</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>揺れ:最大加速度</DisplayName>
+    <Field Def="f32 揺れ:最大加速度">
       <DisplayFormat>%.1f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>500</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="fixstr [16]">
-      <DisplayName>--予約--</DisplayName>
+    <Field Def="fixstr --予約--[16]">
       <DisplayFormat />
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>ブラー:ブラー影響度</DisplayName>
+    <Field Def="f32 ブラー:ブラー影響度">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="fixstr [32]">
-      <DisplayName>--予約--</DisplayName>
+    <Field Def="fixstr --予約--[32]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>

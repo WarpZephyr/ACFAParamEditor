@@ -6,36 +6,28 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u8 ">
-      <DisplayName>ID</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName>ランキングフラグ</DisplayName>
+    <Field Def="u8 ID" />
+    <Field Def="u8 ランキングフラグ">
       <EditFlags>Wrap, Lock</EditFlags>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>マップID</DisplayName>
+    <Field Def="u16 マップID">
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="fixstr [32]">
-      <DisplayName>マップ名</DisplayName>
+    <Field Def="fixstr マップ名[32]">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>サイズ：X</DisplayName>
+    <Field Def="f32 サイズ：X">
       <Minimum>0</Minimum>
       <Maximum>99999</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>サイズ：Y</DisplayName>
+    <Field Def="f32 サイズ：Y">
       <Minimum>0</Minimum>
       <Maximum>99999</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>サイズ：Z</DisplayName>
+    <Field Def="f32 サイズ：Z">
       <Minimum>0</Minimum>
       <Maximum>99999</Maximum>
       <Increment>1</Increment>

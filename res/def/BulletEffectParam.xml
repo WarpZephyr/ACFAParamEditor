@@ -6,177 +6,120 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="s16 ">
-      <DisplayName>SFX：石
-（弾)</DisplayName>
+    <Field Def="s16 SFX：石&#xA;（弾)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SFX：石
-(マップ)</DisplayName>
+    <Field Def="s16 SFX：石&#xA;(マップ)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SFX：水
-（弾)</DisplayName>
+    <Field Def="s16 SFX：水&#xA;（弾)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SFX：水
-(マップ)</DisplayName>
+    <Field Def="s16 SFX：水&#xA;(マップ)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SFX：ガラス
-（弾)</DisplayName>
+    <Field Def="s16 SFX：ガラス&#xA;（弾)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SFX：ガラス
-(マップ)</DisplayName>
+    <Field Def="s16 SFX：ガラス&#xA;(マップ)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SFX：ｺﾝｸﾘｰﾄ
-（弾)</DisplayName>
+    <Field Def="s16 SFX：ｺﾝｸﾘｰﾄ&#xA;（弾)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SFX：ｺﾝｸﾘｰﾄ
-(マップ)</DisplayName>
+    <Field Def="s16 SFX：ｺﾝｸﾘｰﾄ&#xA;(マップ)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SFX：PA
-（弾)</DisplayName>
+    <Field Def="s16 SFX：PA&#xA;（弾)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SFX：PA
-(マップ)</DisplayName>
+    <Field Def="s16 SFX：PA&#xA;(マップ)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SFX：AC
-（弾)</DisplayName>
+    <Field Def="s16 SFX：AC&#xA;（弾)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SFX：AC
-(マップ)</DisplayName>
+    <Field Def="s16 SFX：AC&#xA;(マップ)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ＳＦＸ：その他
-（弾)</DisplayName>
+    <Field Def="s16 ＳＦＸ：その他&#xA;（弾)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ＳＦＸ：その他
-(マップ)</DisplayName>
+    <Field Def="s16 ＳＦＸ：その他&#xA;(マップ)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="dummy8 [8]">
-      <DisplayName>--予約--</DisplayName>
+    <Field Def="dummy8 --予約--[8]">
       <DisplayFormat>%d</DisplayFormat>
       <Maximum>1</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SＥ：石
-（弾)</DisplayName>
+    <Field Def="s16 SＥ：石&#xA;（弾)">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SＥ：石
-(マップ)</DisplayName>
+    <Field Def="s16 SＥ：石&#xA;(マップ)">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SＥ：水
-（弾)</DisplayName>
+    <Field Def="s16 SＥ：水&#xA;（弾)">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SＥ：水
-(マップ)</DisplayName>
+    <Field Def="s16 SＥ：水&#xA;(マップ)">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SＥ：ガラス
-（弾)</DisplayName>
+    <Field Def="s16 SＥ：ガラス&#xA;（弾)">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SＥ：ガラス
-(マップ)</DisplayName>
+    <Field Def="s16 SＥ：ガラス&#xA;(マップ)">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SＥ：ｺﾝｸﾘｰﾄ
-（弾)</DisplayName>
+    <Field Def="s16 SＥ：ｺﾝｸﾘｰﾄ&#xA;（弾)">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SＥ：ｺﾝｸﾘｰﾄ
-(マップ)</DisplayName>
+    <Field Def="s16 SＥ：ｺﾝｸﾘｰﾄ&#xA;(マップ)">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SＥ：PA
-（弾)</DisplayName>
+    <Field Def="s16 SＥ：PA&#xA;（弾)">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SＥ：PA
-(マップ)</DisplayName>
+    <Field Def="s16 SＥ：PA&#xA;(マップ)">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SＥ：AC
-（弾)</DisplayName>
+    <Field Def="s16 SＥ：AC&#xA;（弾)">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>SＥ：AC
-(マップ)</DisplayName>
+    <Field Def="s16 SＥ：AC&#xA;(マップ)">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ＳＥ：その他
-（弾)</DisplayName>
+    <Field Def="s16 ＳＥ：その他&#xA;（弾)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ＳＥ：その他
-(マップ)</DisplayName>
+    <Field Def="s16 ＳＥ：その他&#xA;(マップ)">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>

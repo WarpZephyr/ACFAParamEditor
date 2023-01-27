@@ -6,64 +6,55 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="fixstr [16]">
-      <DisplayName>オブジェクト名</DisplayName>
+    <Field Def="fixstr オブジェクト名[16]">
       <DisplayFormat>%.2f</DisplayFormat>
       <Minimum>-180</Minimum>
       <Maximum>180</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>視点角度X</DisplayName>
+    <Field Def="f32 視点角度X">
       <DisplayFormat>%.2f</DisplayFormat>
       <Minimum>-180</Minimum>
       <Maximum>180</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>Y</DisplayName>
+    <Field Def="f32 Y">
       <DisplayFormat>%.2f</DisplayFormat>
       <Minimum>-180</Minimum>
       <Maximum>180</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 10">
-      <DisplayName>視点距離</DisplayName>
+    <Field Def="f32 視点距離 = 10">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>5000</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>注視位置X</DisplayName>
+    <Field Def="f32 注視位置X">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>-100</Minimum>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>Y</DisplayName>
+    <Field Def="f32 Y">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>-100</Minimum>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>Z</DisplayName>
+    <Field Def="f32 Z">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>-100</Minimum>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>パーツ：視点距離係数</DisplayName>
+    <Field Def="f32 パーツ：視点距離係数 = 1">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>パーツ：配置角度X</DisplayName>
+    <Field Def="f32 パーツ：配置角度X">
       <DisplayFormat>%.2f</DisplayFormat>
       <Minimum>-180</Minimum>
       <Maximum>180</Maximum>

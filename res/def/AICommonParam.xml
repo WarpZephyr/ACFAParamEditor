@@ -6,8 +6,7 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="fixstr [32]">
-      <DisplayName>名前</DisplayName>
+    <Field Def="fixstr 名前[32]">
       <Description>AIの名前・説明</Description>
       <DisplayFormat />
       <EditFlags>None</EditFlags>
@@ -15,8 +14,7 @@
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="fixstr [32]">
-      <DisplayName>スクリプト名</DisplayName>
+    <Field Def="fixstr スクリプト名[32]">
       <Description>ファイル名から拡張子を抜いた名前</Description>
       <DisplayFormat />
       <EditFlags>None</EditFlags>
@@ -24,8 +22,7 @@
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>忘れるまでの時間</DisplayName>
+    <Field Def="f32 忘れるまでの時間">
       <Description>認識してから忘れるまでの時間。マイナスで絶対忘れない</Description>
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
@@ -33,8 +30,7 @@
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 100">
-      <DisplayName>パスナビゲーションが失敗する距離</DisplayName>
+    <Field Def="f32 パスナビゲーションが失敗する距離 = 100">
       <Description>実際の目標位置からパスの目標位置がこの値ずれたら、パスは失敗する。</Description>
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
@@ -42,15 +38,13 @@
       <Maximum>9999</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>パス検索をあきらめる時間</DisplayName>
+    <Field Def="f32 パス検索をあきらめる時間 = 1">
       <Description>パス検索をあきらめる時間</Description>
       <DisplayFormat>%.2f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="f32  = 15">
-      <DisplayName>パス移動のノードに到着したか判定距離</DisplayName>
+    <Field Def="f32 パス移動のノードに到着したか判定距離 = 15">
       <Description>パス移動のノードに到着したか判定距離</Description>
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
@@ -58,153 +52,131 @@
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>壁をよけるのに割く力</DisplayName>
+    <Field Def="f32 壁をよけるのに割く力">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>動く障害物をよけるのに割く力</DisplayName>
+    <Field Def="f32 動く障害物をよけるのに割く力">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>弾をよけるのに割く力</DisplayName>
+    <Field Def="f32 弾をよけるのに割く力">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>目的地に移動するために割く力</DisplayName>
+    <Field Def="f32 目的地に移動するために割く力 = 1">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>ウロウロするために割く力</DisplayName>
+    <Field Def="f32 ウロウロするために割く力">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>仲間から離れようとするのに割く力</DisplayName>
+    <Field Def="f32 仲間から離れようとするのに割く力">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>仲間に近づこうとするのに割く力</DisplayName>
+    <Field Def="f32 仲間に近づこうとするのに割く力">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>仲間と同じ方向に向こうとするのに割く力</DisplayName>
+    <Field Def="f32 仲間と同じ方向に向こうとするのに割く力">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>群れ制御半径</DisplayName>
+    <Field Def="f32 群れ制御半径">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1000</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>群れ制御視界範囲</DisplayName>
+    <Field Def="f32 群れ制御視界範囲">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>180</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32  = 2">
-      <DisplayName>力の有効量</DisplayName>
+    <Field Def="f32 力の有効量 = 2">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>指定領域から出ないようにする力</DisplayName>
+    <Field Def="f32 指定領域から出ないようにする力">
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>地形認識を使用するか？</DisplayName>
+    <Field Def="u8 地形認識を使用するか？">
       <Enum>ON_OFF</Enum>
       <Description>地形認識を使用するか？</Description>
       <DisplayFormat>%.d</DisplayFormat>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>群れ制御を使用するか？</DisplayName>
+    <Field Def="u8 群れ制御を使用するか？">
       <Enum>ON_OFF</Enum>
       <DisplayFormat>%.d</DisplayFormat>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>力の分配方法</DisplayName>
+    <Field Def="u8 力の分配方法">
       <Enum>AI_COMBINING_STEEIRNG_METHOD</Enum>
       <Description>力の合成方法を選択する。</Description>
       <EditFlags>None</EditFlags>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>障害物回避制御を使用するか？</DisplayName>
+    <Field Def="u8 障害物回避制御を使用するか？">
       <Enum>ON_OFF</Enum>
       <Description>直線当たりを使用した障害物回避制御をONOFF</Description>
       <DisplayFormat>%.d</DisplayFormat>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>壁回避制御を使用するか？</DisplayName>
+    <Field Def="u8 壁回避制御を使用するか？">
       <Enum>ON_OFF</Enum>
       <Description>壁回避制御を使用するか？</Description>
       <DisplayFormat>%.d</DisplayFormat>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>地面チェックを行うか？</DisplayName>
+    <Field Def="u8 地面チェックを行うか？">
       <Enum>ON_OFF</Enum>
       <Description>地面チェックを行うか？</Description>
       <DisplayFormat>%.d</DisplayFormat>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>作戦領域外に出ないようにするか？</DisplayName>
+    <Field Def="u8 作戦領域外に出ないようにするか？">
       <Enum>ON_OFF</Enum>
       <Description>作戦領域外に出ないようにするか？</Description>
       <DisplayFormat>%.d</DisplayFormat>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>進入禁止領域に入らないようにするか？</DisplayName>
+    <Field Def="u8 進入禁止領域に入らないようにするか？">
       <Enum>ON_OFF</Enum>
       <Description>進入禁止領域に入らないようにするか？</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u16  = 200">
-      <DisplayName>進入禁止領域の判定を行うセンサーの長さ</DisplayName>
+    <Field Def="u16 進入禁止領域の判定を行うセンサーの長さ = 200">
       <Description>進入禁止領域の判定を行うセンサーの長さ</Description>
       <Maximum>1000</Maximum>
     </Field>
-    <Field Def="fixstr [22]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="fixstr 予約[22]">
       <Description>予約</Description>
       <DisplayFormat />
       <EditFlags>None</EditFlags>
@@ -212,32 +184,27 @@
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="u8  = 30">
-      <DisplayName>壁検出の当た線分の長さ</DisplayName>
+    <Field Def="u8 壁検出の当た線分の長さ = 30">
       <Description>壁検出用当たり線分の長さ</Description>
       <EditFlags>None</EditFlags>
       <Minimum>1</Minimum>
     </Field>
-    <Field Def="u8  = 45">
-      <DisplayName>補助壁検出当たり線分との角度</DisplayName>
+    <Field Def="u8 補助壁検出当たり線分との角度 = 45">
       <Description>補助壁検出当たり線分のメインとの角度（°）</Description>
       <EditFlags>None</EditFlags>
       <Maximum>180</Maximum>
     </Field>
-    <Field Def="u8  = 15">
-      <DisplayName>旋回時マージン</DisplayName>
+    <Field Def="u8 旋回時マージン = 15">
       <Description>旋回の際のマージン。旋回速度の速いキャラの場合、大きめに設定する事</Description>
       <EditFlags>None</EditFlags>
       <Maximum>90</Maximum>
     </Field>
-    <Field Def="u8  = 15">
-      <DisplayName>視線旋回時マージン</DisplayName>
+    <Field Def="u8 視線旋回時マージン = 15">
       <Description>視線旋回の際のマージン。旋回速度の速いキャラの場合、大きめに設定する事</Description>
       <EditFlags>None</EditFlags>
       <Maximum>90</Maximum>
     </Field>
-    <Field Def="fixstr [28]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="fixstr 予約[28]">
       <Description>予約</Description>
       <DisplayFormat />
       <EditFlags>None</EditFlags>
@@ -245,56 +212,47 @@
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>追加パラメータ０</DisplayName>
+    <Field Def="f32 追加パラメータ０">
       <Description>追加パラメータ０</Description>
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>追加パラメータ１</DisplayName>
+    <Field Def="f32 追加パラメータ１">
       <Description>追加パラメータ１</Description>
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>追加パラメータ２</DisplayName>
+    <Field Def="f32 追加パラメータ２">
       <Description>追加パラメータ２</Description>
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>追加パラメータ３</DisplayName>
+    <Field Def="f32 追加パラメータ３">
       <Description>追加パラメータ３</Description>
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>追加パラメータ４</DisplayName>
+    <Field Def="f32 追加パラメータ４">
       <Description>追加パラメータ４</Description>
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>追加パラメータ５</DisplayName>
+    <Field Def="f32 追加パラメータ５">
       <Description>追加パラメータ５</Description>
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>追加パラメータ６</DisplayName>
+    <Field Def="f32 追加パラメータ６">
       <Description>追加パラメータ６</Description>
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>追加パラメータ７</DisplayName>
+    <Field Def="f32 追加パラメータ７">
       <Description>追加パラメータ７</Description>
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="fixstr [32]">
-      <DisplayName>予約２</DisplayName>
+    <Field Def="fixstr 予約２[32]">
       <Description>予約</Description>
       <DisplayFormat />
       <EditFlags>None</EditFlags>

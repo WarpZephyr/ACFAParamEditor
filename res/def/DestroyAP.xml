@@ -6,20 +6,16 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u32 ">
-      <DisplayName>ＡＰ</DisplayName>
+    <Field Def="u32 ＡＰ">
       <Maximum>999999</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>最低有効ダメージ</DisplayName>
+    <Field Def="u32 最低有効ダメージ">
       <Maximum>999999</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>衝突防御力</DisplayName>
+    <Field Def="u8 衝突防御力">
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="fixstr [23]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="fixstr 予約[23]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>

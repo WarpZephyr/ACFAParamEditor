@@ -6,22 +6,16 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u8 ">
-      <DisplayName>ID</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName>ACテキストID</DisplayName>
-    </Field>
-    <Field Def="fixstr [2]">
-      <DisplayName>ダミー</DisplayName>
+    <Field Def="u8 ID" />
+    <Field Def="u8 ACテキストID" />
+    <Field Def="fixstr ダミー[2]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>機体構成ID</DisplayName>
+    <Field Def="u32 機体構成ID">
       <Maximum>99999</Maximum>
     </Field>
   </Fields>

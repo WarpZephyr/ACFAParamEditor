@@ -6,14 +6,12 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u32 ">
-      <DisplayName>テキストID１</DisplayName>
+    <Field Def="u32 テキストID１">
       <Description>テキストID１</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>テキストID２</DisplayName>
+    <Field Def="u32 テキストID２">
       <Description>テキストID２</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9000000</Maximum>

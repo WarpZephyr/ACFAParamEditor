@@ -6,243 +6,201 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="s32 ">
-      <DisplayName>基本報酬</DisplayName>
+    <Field Def="s32 基本報酬">
       <Minimum>0</Minimum>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>基本報酬の種類</DisplayName>
+    <Field Def="u8 基本報酬の種類">
       <Enum>REWARD_TYPE</Enum>
       <Maximum>5</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>弾薬費保障</DisplayName>
+    <Field Def="u8 弾薬費保障">
       <Enum>ON_OFF</Enum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>機体修理費保障</DisplayName>
+    <Field Def="u8 機体修理費保障">
       <Enum>ON_OFF</Enum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="dummy8 [1]">
-      <DisplayName>予約領域</DisplayName>
+    <Field Def="dummy8 予約領域[1]">
       <DisplayFormat>%.0f</DisplayFormat>
       <EditFlags>Wrap</EditFlags>
       <Minimum>-100</Minimum>
       <Maximum>100</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="s32 ">
-      <DisplayName>特別報酬</DisplayName>
+    <Field Def="s32 特別報酬">
       <Minimum>0</Minimum>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="u8  = 1">
-      <DisplayName>特別報酬の種類</DisplayName>
+    <Field Def="u8 特別報酬の種類 = 1">
       <Enum>REWARD_TYPE</Enum>
       <Minimum>1</Minimum>
       <Maximum>5</Maximum>
     </Field>
-    <Field Def="u8  = 3">
-      <DisplayName>評価対象の報酬</DisplayName>
+    <Field Def="u8 評価対象の報酬 = 3">
       <Enum>RATING_TARGET_REWARD</Enum>
       <Minimum>1</Minimum>
       <Maximum>3</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>評価D(報酬の割合)</DisplayName>
+    <Field Def="s16 評価D(報酬の割合)">
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>-100</Minimum>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>評価C(報酬の割合)</DisplayName>
+    <Field Def="s16 評価C(報酬の割合)">
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>-100</Minimum>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>評価B(報酬の割合)</DisplayName>
+    <Field Def="s16 評価B(報酬の割合)">
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>-100</Minimum>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>評価A(報酬の割合)</DisplayName>
+    <Field Def="s16 評価A(報酬の割合)">
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>-100</Minimum>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>評価S(報酬の割合)</DisplayName>
+    <Field Def="s16 評価S(報酬の割合)">
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>-100</Minimum>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>時間段階(100%)</DisplayName>
+    <Field Def="u16 時間段階(100%)">
       <Description>報酬を100%もらえる限界時間</Description>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>時間段階(90%)</DisplayName>
+    <Field Def="u16 時間段階(90%)">
       <Description>報酬を90%もらえる限界時間</Description>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>時間段階(80%)</DisplayName>
+    <Field Def="u16 時間段階(80%)">
       <Description>報酬を80%もらえる限界時間</Description>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>時間段階(70%)</DisplayName>
+    <Field Def="u16 時間段階(70%)">
       <Description>報酬を70%もらえる限界時間</Description>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>時間段階(60%)</DisplayName>
+    <Field Def="u16 時間段階(60%)">
       <Description>報酬を60%もらえる限界時間</Description>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>時間段階(50%)</DisplayName>
+    <Field Def="u16 時間段階(50%)">
       <Description>報酬を50%もらえる限界時間</Description>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>時間段階(40%)</DisplayName>
+    <Field Def="u16 時間段階(40%)">
       <Description>報酬を40%もらえる限界時間</Description>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>時間段階(30%)</DisplayName>
+    <Field Def="u16 時間段階(30%)">
       <Description>報酬を30%もらえる限界時間</Description>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>時間段階(20%)</DisplayName>
+    <Field Def="u16 時間段階(20%)">
       <Description>報酬を20%もらえる限界時間</Description>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>時間段階(10%)</DisplayName>
+    <Field Def="u16 時間段階(10%)">
       <Description>報酬を10%もらえる限界時間</Description>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>味方損害段階(100%)</DisplayName>
+    <Field Def="f32 味方損害段階(100%)">
       <Description>報酬を100%もらえる限界味方損害率</Description>
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>味方損害段階(90%)</DisplayName>
+    <Field Def="f32 味方損害段階(90%)">
       <Description>報酬を90%もらえる限界味方損害率</Description>
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>味方損害段階(80%)</DisplayName>
+    <Field Def="f32 味方損害段階(80%)">
       <Description>報酬を80%もらえる限界味方損害率</Description>
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>味方損害段階(70%)</DisplayName>
+    <Field Def="f32 味方損害段階(70%)">
       <Description>報酬を70%もらえる限界味方損害率</Description>
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>味方損害段階(60%)</DisplayName>
+    <Field Def="f32 味方損害段階(60%)">
       <Description>報酬を60%もらえる限界味方損害率</Description>
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>味方損害段階(50%)</DisplayName>
+    <Field Def="f32 味方損害段階(50%)">
       <Description>報酬を50%もらえる限界味方損害率</Description>
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>味方損害段階(40%)</DisplayName>
+    <Field Def="f32 味方損害段階(40%)">
       <Description>報酬を40%もらえる限界味方損害率</Description>
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>味方損害段階(30%)</DisplayName>
+    <Field Def="f32 味方損害段階(30%)">
       <Description>報酬を30%もらえる限界味方損害率</Description>
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>味方損害段階(20%)</DisplayName>
+    <Field Def="f32 味方損害段階(20%)">
       <Description>報酬を20%もらえる限界味方損害率</Description>
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>味方損害段階(10%)</DisplayName>
+    <Field Def="f32 味方損害段階(10%)">
       <Description>報酬を10%もらえる限界味方損害率</Description>
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="s32 ">
-      <DisplayName>報酬グループ0</DisplayName>
+    <Field Def="s32 報酬グループ0">
       <Minimum>-9000000</Minimum>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="s32 ">
-      <DisplayName>報酬グループ1</DisplayName>
+    <Field Def="s32 報酬グループ1">
       <Minimum>-9000000</Minimum>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="s32 ">
-      <DisplayName>報酬グループ2</DisplayName>
+    <Field Def="s32 報酬グループ2">
       <Minimum>-9000000</Minimum>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="s32 ">
-      <DisplayName>報酬グループ3</DisplayName>
+    <Field Def="s32 報酬グループ3">
       <Minimum>-9000000</Minimum>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="s32 ">
-      <DisplayName>報酬グループ4</DisplayName>
+    <Field Def="s32 報酬グループ4">
       <Minimum>-9000000</Minimum>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="s32 ">
-      <DisplayName>報酬グループ5</DisplayName>
+    <Field Def="s32 報酬グループ5">
       <Minimum>-9000000</Minimum>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="s32 ">
-      <DisplayName>報酬グループ6</DisplayName>
+    <Field Def="s32 報酬グループ6">
       <Minimum>-9000000</Minimum>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="s32 ">
-      <DisplayName>報酬グループ7</DisplayName>
+    <Field Def="s32 報酬グループ7">
       <Minimum>-9000000</Minimum>
       <Maximum>9000000</Maximum>
     </Field>
-    <Field Def="dummy8 [12]">
-      <DisplayName>予約領域2</DisplayName>
+    <Field Def="dummy8 予約領域2[12]">
       <DisplayFormat>%.0f</DisplayFormat>
       <EditFlags>Wrap</EditFlags>
       <Minimum>-100</Minimum>

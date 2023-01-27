@@ -6,131 +6,99 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u16  = 9000">
-      <DisplayName>武器ID</DisplayName>
+    <Field Def="u16 武器ID = 9000">
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16  = -1">
-      <DisplayName>関節制御</DisplayName>
+    <Field Def="s16 関節制御 = -1">
       <Enum>JOINTCTRL_ID</Enum>
       <Minimum>-1</Minimum>
       <Maximum>99</Maximum>
     </Field>
-    <Field Def="u16  = 110">
-      <DisplayName>ダミポリ</DisplayName>
+    <Field Def="u16 ダミポリ = 110">
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8  = 1">
-      <DisplayName>ロック敵に曲げる</DisplayName>
+    <Field Def="u8 ロック敵に曲げる = 1">
       <Enum>ON_OFF</Enum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>武器関節制御を使うか？</DisplayName>
+    <Field Def="u8 武器関節制御を使うか？">
       <Enum>ON_OFF</Enum>
       <Description>武器間制御を使用するか？</Description>
       <Maximum>0</Maximum>
     </Field>
-    <Field Def="u8  = 45">
-      <DisplayName>弾幕稼動範囲Ｘ　上限[deg]</DisplayName>
+    <Field Def="u8 弾幕稼動範囲Ｘ　上限[deg] = 45">
       <Maximum>90</Maximum>
     </Field>
-    <Field Def="u8  = 45">
-      <DisplayName>弾幕稼動範囲Ｙ[deg]</DisplayName>
+    <Field Def="u8 弾幕稼動範囲Ｙ[deg] = 45">
       <Maximum>180</Maximum>
     </Field>
-    <Field Def="u8  = 40">
-      <DisplayName>弾幕稼動角速度Ｘ[deg/sec]</DisplayName>
+    <Field Def="u8 弾幕稼動角速度Ｘ[deg/sec] = 40">
       <Maximum>180</Maximum>
     </Field>
-    <Field Def="u8  = 40">
-      <DisplayName>弾幕稼動角速度Y[deg/sec]</DisplayName>
+    <Field Def="u8 弾幕稼動角速度Y[deg/sec] = 40">
       <Maximum>180</Maximum>
     </Field>
-    <Field Def="u16  = 50">
-      <DisplayName>弾幕予測位置ずれ幅[m]</DisplayName>
+    <Field Def="u16 弾幕予測位置ずれ幅[m] = 50">
       <Maximum>1000</Maximum>
     </Field>
-    <Field Def="u8  = 50">
-      <DisplayName>弾幕拡散率[0～200]</DisplayName>
+    <Field Def="u8 弾幕拡散率[0～200] = 50">
       <Maximum>200</Maximum>
     </Field>
-    <Field Def="s8  = 45">
-      <DisplayName>弾幕稼動範囲Ｘ 下限[deg]</DisplayName>
+    <Field Def="s8 弾幕稼動範囲Ｘ 下限[deg] = 45">
       <Minimum>0</Minimum>
       <Maximum>90</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>ランダム最大遅延[frame]</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName>ランダム最小遅延[frame]</DisplayName>
-    </Field>
-    <Field Def="s16 ">
-      <DisplayName>予測ずれ：最大フレーム[frame]</DisplayName>
+    <Field Def="u8 ランダム最大遅延[frame]" />
+    <Field Def="u8 ランダム最小遅延[frame]" />
+    <Field Def="s16 予測ずれ：最大フレーム[frame]">
       <Minimum>-1000</Minimum>
       <Maximum>1000</Maximum>
       <Increment>5</Increment>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>予測ずれ：加算フレーム[frame]</DisplayName>
+    <Field Def="s16 予測ずれ：加算フレーム[frame]">
       <Minimum>-1000</Minimum>
       <Maximum>1000</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>予測ずれ：０フレーム距離[m]</DisplayName>
+    <Field Def="u16 予測ずれ：０フレーム距離[m]">
       <Maximum>30000</Maximum>
       <Increment>10</Increment>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>攻撃アニメグループ</DisplayName>
+    <Field Def="u16 攻撃アニメグループ">
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>ダミポリの数</DisplayName>
+    <Field Def="u16 ダミポリの数">
       <Description>0であれば従来どおり次の武器のダミポリまで作成 0以外ならダミポリから指定数ダミポリを作成</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8  = 15">
-      <DisplayName>ターゲットへ曲げる角度[deg]</DisplayName>
+    <Field Def="u8 ターゲットへ曲げる角度[deg] = 15">
       <EditFlags>None</EditFlags>
       <Maximum>90</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>弾丸射撃地点演出ランダム率</DisplayName>
+    <Field Def="u8 弾丸射撃地点演出ランダム率">
       <Description>ターゲットの背後から射撃するときに、ターゲットの視界に入るような弾丸を射撃するようにする初期割合。</Description>
       <EditFlags>None</EditFlags>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>強制弾幕拡散率</DisplayName>
+    <Field Def="u8 強制弾幕拡散率">
       <Description>0で無効 100で平行</Description>
       <Maximum>200</Maximum>
     </Field>
-    <Field Def="u8  = 50">
-      <DisplayName>弾丸演出：目標地点の最大半径[m]</DisplayName>
+    <Field Def="u8 弾丸演出：目標地点の最大半径[m] = 50">
       <EditFlags>None</EditFlags>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>弾丸演出：正確に当てるまでのロック時間[frame]</DisplayName>
+    <Field Def="u16 弾丸演出：正確に当てるまでのロック時間[frame]">
       <EditFlags>None</EditFlags>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>弾丸演出：ターゲットサイト内最低演出率[0-100]</DisplayName>
+    <Field Def="u8 弾丸演出：ターゲットサイト内最低演出率[0-100]">
       <EditFlags>None</EditFlags>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="dummy8 [1]">
-      <DisplayName>予約</DisplayName>
-    </Field>
-    <Field Def="u16 ">
-      <DisplayName>弾丸演出：演出を行わない距離[m]</DisplayName>
+    <Field Def="dummy8 予約[1]" />
+    <Field Def="u16 弾丸演出：演出を行わない距離[m]">
       <EditFlags>None</EditFlags>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="dummy8 [26]">
-      <DisplayName>予約</DisplayName>
-    </Field>
+    <Field Def="dummy8 予約[26]" />
   </Fields>
 </PARAMDEF>

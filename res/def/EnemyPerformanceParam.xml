@@ -6,122 +6,99 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u8 ">
-      <DisplayName>マップに当たらない</DisplayName>
+    <Field Def="u8 マップに当たらない">
       <Enum>ON_OFF</Enum>
       <Description>ONでマップとのあたりを取らない</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>通常の敵に当たらない</DisplayName>
+    <Field Def="u8 通常の敵に当たらない">
       <Enum>ON_OFF</Enum>
       <Description>ONで他のキャラクタとの接触をとらないで、自機との当たりのみを見る。</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>ターゲットは自機のみ</DisplayName>
+    <Field Def="u8 ターゲットは自機のみ">
       <Enum>ON_OFF</Enum>
       <Description>攻撃する対象が、自機のみ</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>自機のサイト内でしか動かない</DisplayName>
+    <Field Def="u8 自機のサイト内でしか動かない">
       <Enum>ON_OFF</Enum>
       <Description>自機のサイト内でしか動かないようにして、計算時間を稼ぐ。「制御を無効化する距離」と併用する事</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>IKを使用しない</DisplayName>
+    <Field Def="u8 IKを使用しない">
       <Enum>ON_OFF</Enum>
       <Description>IKを使用しない。</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>あたり無し弾丸含有率</DisplayName>
+    <Field Def="u8 あたり無し弾丸含有率">
       <Description>射撃時にあたりを持たない弾丸の率を設定</Description>
       <EditFlags>None</EditFlags>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>関節制御を使用しない</DisplayName>
+    <Field Def="u8 関節制御を使用しない">
       <Enum>ON_OFF</Enum>
       <Description>関節制御を使用しない</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>アニメーションしない</DisplayName>
+    <Field Def="u8 アニメーションしない">
       <Enum>ON_OFF</Enum>
       <Description>完全にアニメーションしない</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32  = 1000">
-      <DisplayName>制御を無効化する距離</DisplayName>
+    <Field Def="f32 制御を無効化する距離 = 1000">
       <Minimum>0</Minimum>
       <Maximum>10000</Maximum>
       <Increment>5</Increment>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>ＳＦＸに当たらない</DisplayName>
+    <Field Def="u8 ＳＦＸに当たらない">
       <Enum>ON_OFF</Enum>
       <Description>SFXに当たらないようにします。</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>見方のSFXにあたらない</DisplayName>
+    <Field Def="u8 見方のSFXにあたらない">
       <Enum>ON_OFF</Enum>
       <Description>見方のSFXにあたらない。</Description>
       <Maximum>1</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>自機に当たらない</DisplayName>
+    <Field Def="u8 自機に当たらない">
       <Enum>ON_OFF</Enum>
       <Description>自機に当たらないようにする</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>動くものに乗れるようにする。</DisplayName>
+    <Field Def="u8 動くものに乗れるようにする。">
       <Enum>ON_OFF</Enum>
       <Description>このフラグを立てると敵が動くものに乗れるようになる。（レイキャストをやるので重め）</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8  = 2">
-      <DisplayName>オートブースト更新間隔</DisplayName>
-    </Field>
-    <Field Def="u8  = 10">
-      <DisplayName>ＡI同期スキップフレーム</DisplayName>
+    <Field Def="u8 オートブースト更新間隔 = 2" />
+    <Field Def="u8 ＡI同期スキップフレーム = 10">
       <Description>制御側からAI側に情報を渡す間隔</Description>
     </Field>
-    <Field Def="u8  = 10">
-      <DisplayName>AIの操作をスキップするフレーム数</DisplayName>
+    <Field Def="u8 AIの操作をスキップするフレーム数 = 10">
       <Description>AI側の操作を解釈する間隔</Description>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>Fcsのターゲット検索の間隔（フレーム）</DisplayName>
+    <Field Def="u8 Fcsのターゲット検索の間隔（フレーム）">
       <Description>Fcsのターゲット検索の間隔（フレーム）</Description>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>関節制御の更新間隔</DisplayName>
+    <Field Def="u8 関節制御の更新間隔">
       <Description>関節制御の更新間隔</Description>
     </Field>
-    <Field Def="u8  = 5">
-      <DisplayName>IK用の当たり判定の間引きフレーム</DisplayName>
+    <Field Def="u8 IK用の当たり判定の間引きフレーム = 5">
       <Description>IK用の当たり判定の間引きフレーム</Description>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>ロックの遮蔽チェックを行わない</DisplayName>
+    <Field Def="u8 ロックの遮蔽チェックを行わない">
       <Enum>ON_OFF</Enum>
       <Description>ロックの遮蔽チェックを行わない</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>空中にいても、破壊する</DisplayName>
+    <Field Def="u8 空中にいても、破壊する">
       <Enum>ON_OFF</Enum>
       <Description>空中にいても、破壊する</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="dummy8 [8] = 1">
-      <DisplayName>--予約--</DisplayName>
+    <Field Def="dummy8 --予約--[8] = 1">
       <DisplayFormat>%f</DisplayFormat>
       <EditFlags>Wrap</EditFlags>
       <Maximum>1</Maximum>

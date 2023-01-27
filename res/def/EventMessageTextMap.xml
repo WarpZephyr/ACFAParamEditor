@@ -6,26 +6,22 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u32 ">
-      <DisplayName>メッセージID</DisplayName>
+    <Field Def="u32 メッセージID">
       <Description>この付加データを一意に決定するID</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>テキストID</DisplayName>
+    <Field Def="u32 テキストID">
       <Description>ミッションメッセージ.xlsのテキストID</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>サウンドＩＤ</DisplayName>
+    <Field Def="u32 サウンドＩＤ">
       <Description>サウンドＩＤ</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>ボイス終端からのフレーム数</DisplayName>
+    <Field Def="u32 ボイス終端からのフレーム数">
       <Description>ボイス終端からのフレーム数</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>

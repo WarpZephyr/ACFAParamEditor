@@ -6,48 +6,41 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u32 ">
-      <DisplayName>メッセージID</DisplayName>
+    <Field Def="u32 メッセージID">
       <Description>この付加データを一意に決定するID</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>テキストID</DisplayName>
+    <Field Def="u32 テキストID">
       <Description>ミッションメッセージ.xlsのテキストID</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>
     </Field>
-    <Field Def="s16  = 100">
-      <DisplayName>優先度</DisplayName>
+    <Field Def="s16 優先度 = 100">
       <Description>優先度（大きいほうが優先度高い）</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>200</Maximum>
     </Field>
-    <Field Def="s16  = -1">
-      <DisplayName>メッセージの表示制限</DisplayName>
+    <Field Def="s16 メッセージの表示制限 = -1">
       <Description>メッセージの表示回数制限（－１が無制限）</Description>
       <EditFlags>None</EditFlags>
       <Minimum>-1</Minimum>
       <Maximum>1000</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>メッセージの割り込み拒否</DisplayName>
+    <Field Def="u8 メッセージの割り込み拒否">
       <Enum>ON_OFF</Enum>
       <Description>このメッセージ再生中にどんな割り込みも拒否する</Description>
       <EditFlags>None</EditFlags>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>メッセージに割り込みをかける</DisplayName>
+    <Field Def="u8 メッセージに割り込みをかける">
       <Enum>ON_OFF</Enum>
       <Description>現在再生中のメッセージ以上の優先度をもつメッセージの場合、再生中のメッセージを停止し、再生する。</Description>
       <EditFlags>None</EditFlags>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="fixstr [2]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="fixstr 予約[2]">
       <Description>予約</Description>
       <DisplayFormat />
       <EditFlags>None</EditFlags>
@@ -55,78 +48,66 @@
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>メッセージの最低表示間隔</DisplayName>
+    <Field Def="f32 メッセージの最低表示間隔">
       <Description>２度続けざまにメッセージリクエストを出したとき、１度目のメッセージが表示されてから、２度目のメッセージが表示されるまでの時間</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1000</Maximum>
     </Field>
-    <Field Def="f32  = -1">
-      <DisplayName>メッセージ発行からの有効待ち時間</DisplayName>
+    <Field Def="f32 メッセージ発行からの有効待ち時間 = -1">
       <Description>同時表示数の制限で発行後待ち状態に入った場合、メッセージ表示を断念する時間</Description>
       <EditFlags>None</EditFlags>
       <Minimum>-1</Minimum>
       <Maximum>1000</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>メッセージ開始までの溜め時間</DisplayName>
+    <Field Def="f32 メッセージ開始までの溜め時間">
       <Description>メッセージ再生が決定されてから実際に再生されるまでの時間</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1000</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>メッセージ余韻時間</DisplayName>
+    <Field Def="f32 メッセージ余韻時間">
       <Description>メッセージ音声終了から実際に終了するまでの余韻時間</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>監視メッセージID0</DisplayName>
+    <Field Def="u32 監視メッセージID0">
       <Description>監視対象のメッセージID（あるメッセージを再生したら、別のメッセージを再生しないといった用途で使用する）</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>監視メッセージID1</DisplayName>
+    <Field Def="u32 監視メッセージID1">
       <Description>監視メッセージＩＤ</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>監視メッセージID2</DisplayName>
+    <Field Def="u32 監視メッセージID2">
       <Description>監視メッセージＩＤ</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>監視メッセージID3</DisplayName>
+    <Field Def="u32 監視メッセージID3">
       <Description>監視メッセージＩＤ</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>監視メッセージID4</DisplayName>
+    <Field Def="u32 監視メッセージID4">
       <Description>監視メッセージＩＤ</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>監視メッセージID5</DisplayName>
+    <Field Def="u32 監視メッセージID5">
       <Description>監視メッセージＩＤ</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>監視メッセージID6</DisplayName>
+    <Field Def="u32 監視メッセージID6">
       <Description>監視メッセージＩＤ</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>監視メッセージID7</DisplayName>
+    <Field Def="u32 監視メッセージID7">
       <Description>監視メッセージＩＤ</Description>
       <EditFlags>None</EditFlags>
       <Maximum>9900000</Maximum>

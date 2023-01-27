@@ -6,65 +6,47 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u8 ">
-      <DisplayName>ID</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName>所属アリーナID</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName>ACのデータID</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName>プロフィールデータID</DisplayName>
-    </Field>
-    <Field Def="fixstr [12]">
-      <DisplayName>AIの名前</DisplayName>
+    <Field Def="u8 ID" />
+    <Field Def="u8 所属アリーナID" />
+    <Field Def="u8 ACのデータID" />
+    <Field Def="u8 プロフィールデータID" />
+    <Field Def="fixstr AIの名前[12]">
       <Minimum>0</Minimum>
       <Maximum>127</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>報酬金額</DisplayName>
+    <Field Def="u32 報酬金額">
       <EditFlags>Wrap, Lock</EditFlags>
       <Maximum>999999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>GA貢献度</DisplayName>
+    <Field Def="s16 GA貢献度">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>インテリオル貢献度</DisplayName>
+    <Field Def="s16 インテリオル貢献度">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>オーメル貢献度</DisplayName>
+    <Field Def="s16 オーメル貢献度">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>企業連貢献度</DisplayName>
+    <Field Def="s16 企業連貢献度">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ORCA貢献度</DisplayName>
+    <Field Def="s16 ORCA貢献度">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>自治都市貢献度</DisplayName>
+    <Field Def="s16 自治都市貢献度">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>貢献度予備1</DisplayName>
+    <Field Def="s16 貢献度予備1">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>貢献度予備2</DisplayName>
+    <Field Def="s16 貢献度予備2">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>

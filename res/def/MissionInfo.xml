@@ -6,146 +6,117 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u8 ">
-      <DisplayName>ID</DisplayName>
+    <Field Def="u8 ID">
       <Description>1からの連番にすること</Description>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>チャプターID</DisplayName>
+    <Field Def="u8 チャプターID">
       <Description>チャプターID*10+サブチャプターID</Description>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>マップID</DisplayName>
+    <Field Def="u16 マップID">
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>ミッションタイプ</DisplayName>
+    <Field Def="u8 ミッションタイプ">
       <Enum>MISSION_TYPE</Enum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>遷移先チャプターID</DisplayName>
+    <Field Def="u8 遷移先チャプターID">
       <Description>クリアした場合指定チャプターへ遷移</Description>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>特殊ミッション出現条件</DisplayName>
+    <Field Def="u8 特殊ミッション出現条件">
       <Description>同じチャプターのクリア数がこの値のときのみ出現</Description>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>エンディングID</DisplayName>
+    <Field Def="u8 エンディングID">
       <Enum>ENDING_TYPE</Enum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>GA貢献度</DisplayName>
+    <Field Def="s16 GA貢献度">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>インテリオル貢献度</DisplayName>
+    <Field Def="s16 インテリオル貢献度">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>オーメル貢献度</DisplayName>
+    <Field Def="s16 オーメル貢献度">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>企業連貢献度</DisplayName>
+    <Field Def="s16 企業連貢献度">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ORCA貢献度</DisplayName>
+    <Field Def="s16 ORCA貢献度">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>自治都市貢献度</DisplayName>
+    <Field Def="s16 自治都市貢献度">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>貢献度予備1</DisplayName>
+    <Field Def="s16 貢献度予備1">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>貢献度予備2</DisplayName>
+    <Field Def="s16 貢献度予備2">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16  = 9999">
-      <DisplayName>出現貢献度タイプ</DisplayName>
+    <Field Def="u16 出現貢献度タイプ = 9999">
       <Enum>CP_TYPE</Enum>
       <Description>貢献度が出現条件のミッションのみ設定</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>必要貢献度</DisplayName>
+    <Field Def="s16 必要貢献度">
       <Minimum>-9999</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>ムービーID</DisplayName>
+    <Field Def="u8 ムービーID">
       <Description>ミッションクリア後に再生するミッションのみ設定</Description>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>ミッション出現条件 Sアリーナランク</DisplayName>
-    </Field>
-    <Field Def="u8 ">
-      <DisplayName>共同ミッション選択可能フラグ</DisplayName>
+    <Field Def="u8 ミッション出現条件 Sアリーナランク" />
+    <Field Def="u8 共同ミッション選択可能フラグ">
       <Enum>ON_OFF</Enum>
       <Description>ONで選択可能に</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>2週目ムービーID</DisplayName>
+    <Field Def="u8 2週目ムービーID">
       <Description>2週目以降再生</Description>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>AC対戦時メッセージシステムのID</DisplayName>
+    <Field Def="u16 AC対戦時メッセージシステムのID">
       <Description>AC対戦時メッセージシステムを使用かつ僚機がいないときにメッセージを再生したいときに設定</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16 ">
-      <DisplayName>依頼者</DisplayName>
+    <Field Def="u16 依頼者">
       <Enum>REQUESTER_TYPE</Enum>
       <EditFlags>Lock</EditFlags>
     </Field>
-    <Field Def="fixstrW [32]">
-      <DisplayName>ミッション名</DisplayName>
+    <Field Def="fixstrW ミッション名[32]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="fixstrW [32]">
-      <DisplayName>作戦目標</DisplayName>
+    <Field Def="fixstrW 作戦目標[32]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="fixstrW [32]">
-      <DisplayName>エリア名</DisplayName>
+    <Field Def="fixstrW エリア名[32]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="fixstrW [64]">
-      <DisplayName>ミッション説明</DisplayName>
+    <Field Def="fixstrW ミッション説明[64]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="fixstrW [64]">
-      <DisplayName>ミッション説明（Hard）</DisplayName>
+    <Field Def="fixstrW ミッション説明（Hard）[64]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>

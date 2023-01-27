@@ -6,387 +6,285 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="f32  = 5">
-      <DisplayName>石
-(サイズ)</DisplayName>
+    <Field Def="f32 石&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>水
-(サイズ)</DisplayName>
+    <Field Def="f32 水&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>ガラス
-(サイズ)</DisplayName>
+    <Field Def="f32 ガラス&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>ｺﾝｸﾘ
-(サイズ)</DisplayName>
+    <Field Def="f32 ｺﾝｸﾘ&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>氷
-(サイズ)</DisplayName>
+    <Field Def="f32 氷&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>砂
-(サイズ)</DisplayName>
+    <Field Def="f32 砂&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>鉄
-(サイズ)</DisplayName>
+    <Field Def="f32 鉄&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>金網
-(サイズ)</DisplayName>
+    <Field Def="f32 金網&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>土
-(サイズ)</DisplayName>
+    <Field Def="f32 土&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>雪
-(サイズ)</DisplayName>
+    <Field Def="f32 雪&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>PA
-(サイズ)</DisplayName>
+    <Field Def="f32 PA&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>AC
-(サイズ)</DisplayName>
+    <Field Def="f32 AC&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>VR
-(サイズ)</DisplayName>
+    <Field Def="f32 VR&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="s32  = 5">
-      <DisplayName>ビル
-(サイズ)</DisplayName>
+    <Field Def="s32 ビル&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 5">
-      <DisplayName>パイプ
-(サイズ)</DisplayName>
+    <Field Def="s32 パイプ&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 5">
-      <DisplayName>電気
-(サイズ)</DisplayName>
+    <Field Def="s32 電気&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>その他
-(サイズ)</DisplayName>
+    <Field Def="f32 その他&#xA;(サイズ) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>石
-(深度)</DisplayName>
+    <Field Def="f32 石&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>水
-(深度)</DisplayName>
+    <Field Def="f32 水&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>ガラス
-(深度)</DisplayName>
+    <Field Def="f32 ガラス&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>ｺﾝｸﾘ
-(深度)</DisplayName>
+    <Field Def="f32 ｺﾝｸﾘ&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>氷
-(深度)</DisplayName>
+    <Field Def="f32 氷&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>砂
-(深度)</DisplayName>
+    <Field Def="f32 砂&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>鉄
-(深度)</DisplayName>
+    <Field Def="f32 鉄&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>金網
-(深度)</DisplayName>
+    <Field Def="f32 金網&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>土
-(深度)</DisplayName>
+    <Field Def="f32 土&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>雪
-(深度)</DisplayName>
+    <Field Def="f32 雪&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>PA
-(深度)</DisplayName>
+    <Field Def="f32 PA&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>AC
-(深度)</DisplayName>
+    <Field Def="f32 AC&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>VR
-(深度)</DisplayName>
+    <Field Def="f32 VR&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="s32  = 5">
-      <DisplayName>ビル
-(深度)</DisplayName>
+    <Field Def="s32 ビル&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 5">
-      <DisplayName>パイプ
-(深度)</DisplayName>
+    <Field Def="s32 パイプ&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 5">
-      <DisplayName>電気
-(深度)</DisplayName>
+    <Field Def="s32 電気&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="f32  = 5">
-      <DisplayName>その他
-(深度)</DisplayName>
+    <Field Def="f32 その他&#xA;(深度) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="s32 ">
-      <DisplayName>石
-(TextureId)</DisplayName>
+    <Field Def="s32 石&#xA;(TextureId)">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 1">
-      <DisplayName>水
-(TextureId)</DisplayName>
+    <Field Def="s32 水&#xA;(TextureId) = 1">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 2">
-      <DisplayName>ガラス
-(TextureId)</DisplayName>
+    <Field Def="s32 ガラス&#xA;(TextureId) = 2">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 3">
-      <DisplayName>ｺﾝｸﾘ
-(TextureId)</DisplayName>
+    <Field Def="s32 ｺﾝｸﾘ&#xA;(TextureId) = 3">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 4">
-      <DisplayName>氷
-(TextureId)</DisplayName>
+    <Field Def="s32 氷&#xA;(TextureId) = 4">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 5">
-      <DisplayName>砂
-(TextureId)</DisplayName>
+    <Field Def="s32 砂&#xA;(TextureId) = 5">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 6">
-      <DisplayName>鉄
-(TextureId)</DisplayName>
+    <Field Def="s32 鉄&#xA;(TextureId) = 6">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 7">
-      <DisplayName>金網
-(TextureId)</DisplayName>
+    <Field Def="s32 金網&#xA;(TextureId) = 7">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 8">
-      <DisplayName>土
-(TextureId)</DisplayName>
+    <Field Def="s32 土&#xA;(TextureId) = 8">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 9">
-      <DisplayName>雪
-(TextureId)</DisplayName>
+    <Field Def="s32 雪&#xA;(TextureId) = 9">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 10">
-      <DisplayName>PA
-(TextureId)</DisplayName>
+    <Field Def="s32 PA&#xA;(TextureId) = 10">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 11">
-      <DisplayName>AC
-(TextureId)</DisplayName>
+    <Field Def="s32 AC&#xA;(TextureId) = 11">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 12">
-      <DisplayName>VR
-(TextureId)</DisplayName>
+    <Field Def="s32 VR&#xA;(TextureId) = 12">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 13">
-      <DisplayName>ビル
-(TextureId)</DisplayName>
+    <Field Def="s32 ビル&#xA;(TextureId) = 13">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 14">
-      <DisplayName>パイプ
-(TextureId)</DisplayName>
+    <Field Def="s32 パイプ&#xA;(TextureId) = 14">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 15">
-      <DisplayName>電気
-(TextureId)</DisplayName>
+    <Field Def="s32 電気&#xA;(TextureId) = 15">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>
     </Field>
-    <Field Def="s32  = 13">
-      <DisplayName>その他
-(TextureId)</DisplayName>
+    <Field Def="s32 その他&#xA;(TextureId) = 13">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>15</Maximum>

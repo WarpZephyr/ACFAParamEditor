@@ -6,74 +6,62 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="f32  = 15">
-      <DisplayName>最大振幅</DisplayName>
+    <Field Def="f32 最大振幅 = 15">
       <DisplayFormat>%.2f</DisplayFormat>
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>最小インターバル</DisplayName>
+    <Field Def="f32 最小インターバル = 1">
       <DisplayFormat>%.2f</DisplayFormat>
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 4">
-      <DisplayName>最大インターバル</DisplayName>
+    <Field Def="f32 最大インターバル = 4">
       <DisplayFormat>%.2f</DisplayFormat>
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 120">
-      <DisplayName>振幅増幅速度</DisplayName>
+    <Field Def="f32 振幅増幅速度 = 120">
       <DisplayFormat>%.2f</DisplayFormat>
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 0.03">
-      <DisplayName>ノイズスクロール</DisplayName>
+    <Field Def="f32 ノイズスクロール = 0.03">
       <DisplayFormat>%.2f</DisplayFormat>
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>固執性</DisplayName>
+    <Field Def="f32 固執性 = 1">
       <DisplayFormat>%.f</DisplayFormat>
       <Minimum>-360</Minimum>
       <Maximum>360</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32  = 64">
-      <DisplayName>空隙性</DisplayName>
+    <Field Def="f32 空隙性 = 64">
       <DisplayFormat>%.f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>180</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>滑らかさ</DisplayName>
+    <Field Def="f32 滑らかさ">
       <DisplayFormat>%.f</DisplayFormat>
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>振幅</DisplayName>
+    <Field Def="f32 振幅">
       <DisplayFormat>%.f</DisplayFormat>
       <Minimum>-999</Minimum>
       <Maximum>999</Maximum>
     </Field>
-    <Field Def="s8 ">
-      <DisplayName>アニメーションステータス</DisplayName>
+    <Field Def="s8 アニメーションステータス">
       <DisplayFormat>%.d</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="dummy8 [27]">
-      <DisplayName>要約</DisplayName>
-    </Field>
+    <Field Def="dummy8 要約[27]" />
   </Fields>
 </PARAMDEF>

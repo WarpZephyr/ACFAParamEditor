@@ -6,42 +6,36 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="s32  = 7">
-      <DisplayName>プログラム</DisplayName>
+    <Field Def="s32 プログラム = 7">
       <Enum>BULLET_BEHAVIOR_ID</Enum>
       <EditFlags>Wrap, Lock</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>撃墜可</DisplayName>
+    <Field Def="u8 撃墜可">
       <Enum>ON_OFF</Enum>
       <Description>使用しません</Description>
       <EditFlags>None</EditFlags>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>水中可</DisplayName>
+    <Field Def="u8 水中可">
       <Enum>ON_OFF</Enum>
       <Description>使用しません</Description>
       <EditFlags>None</EditFlags>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>金網貫通</DisplayName>
+    <Field Def="u8 金網貫通">
       <Enum>ON_OFF</Enum>
       <EditFlags>None</EditFlags>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8  = 1">
-      <DisplayName>迎撃可</DisplayName>
+    <Field Def="u8 迎撃可 = 1">
       <Enum>ON_OFF</Enum>
       <Description>使用しません</Description>
       <EditFlags>None</EditFlags>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>当たり半径</DisplayName>
+    <Field Def="f32 当たり半径">
       <Description>0 なら直線当たり</Description>
       <DisplayFormat>%.1f</DisplayFormat>
       <EditFlags>None</EditFlags>
@@ -49,54 +43,46 @@
       <Maximum>99</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>近接信管距離</DisplayName>
+    <Field Def="f32 近接信管距離">
       <DisplayFormat>%.1f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>減衰：威力</DisplayName>
+    <Field Def="f32 減衰：威力">
       <Description>使用しません</Description>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
       <Increment>0.05</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>減衰：反動</DisplayName>
+    <Field Def="f32 減衰：反動">
       <Description>使用しません</Description>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
       <Increment>0.05</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>減衰：拡散力</DisplayName>
+    <Field Def="f32 減衰：拡散力">
       <Description>使用しません</Description>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
       <Increment>0.05</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>減衰：貫通力</DisplayName>
+    <Field Def="f32 減衰：貫通力">
       <Description>使用しません</Description>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
       <Increment>0.05</Increment>
     </Field>
-    <Field Def="s16  = 50">
-      <DisplayName>ECM濃度</DisplayName>
+    <Field Def="s16 ECM濃度 = 50">
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="s16  = 180">
-      <DisplayName>ECM 効果フレーム</DisplayName>
+    <Field Def="s16 ECM 効果フレーム = 180">
       <Minimum>-1</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="f32  = 100">
-      <DisplayName>ECM 効果範囲</DisplayName>
+    <Field Def="f32 ECM 効果範囲 = 100">
       <DisplayFormat>%.0f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>

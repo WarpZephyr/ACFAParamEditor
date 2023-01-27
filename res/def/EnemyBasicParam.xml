@@ -6,282 +6,233 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="s32  = 1">
-      <DisplayName>プログラム</DisplayName>
+    <Field Def="s32 プログラム = 1">
       <Enum>ENEMY_BEHAVIOR_ID</Enum>
       <DisplayFormat>%f</DisplayFormat>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8  = 1">
-      <DisplayName>ロック可能</DisplayName>
+    <Field Def="u8 ロック可能 = 1">
       <Enum>ON_OFF</Enum>
       <DisplayFormat>%f</DisplayFormat>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8  = 2">
-      <DisplayName>レーダー形状ID</DisplayName>
+    <Field Def="u8 レーダー形状ID = 2">
       <Description>敵は２がデフォルト値。IDは、レーダー.xls参照の事。</Description>
     </Field>
-    <Field Def="u8  = 1">
-      <DisplayName>上下移動固定</DisplayName>
+    <Field Def="u8 上下移動固定 = 1">
       <Enum>ON_OFF</Enum>
       <DisplayFormat>%f</DisplayFormat>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8  = 1">
-      <DisplayName>押されやすさ</DisplayName>
+    <Field Def="u8 押されやすさ = 1">
       <Enum>COLLIDE_LV</Enum>
       <DisplayFormat>%f</DisplayFormat>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>AP</DisplayName>
+    <Field Def="f32 AP = 1">
       <Minimum>0</Minimum>
       <Maximum>999999</Maximum>
       <Increment>10</Increment>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>機体重量</DisplayName>
+    <Field Def="f32 機体重量 = 1">
       <Minimum>0</Minimum>
       <Maximum>999</Maximum>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>実弾防御</DisplayName>
+    <Field Def="f32 実弾防御 = 1">
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>EN防御</DisplayName>
+    <Field Def="f32 EN防御 = 1">
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>衝突防御</DisplayName>
+    <Field Def="f32 衝突防御 = 1">
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>脚部衝突防御</DisplayName>
+    <Field Def="f32 脚部衝突防御 = 1">
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32  = 100">
-      <DisplayName>通常最高速</DisplayName>
+    <Field Def="f32 通常最高速 = 100">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32  = 100">
-      <DisplayName>後方通常最高速</DisplayName>
+    <Field Def="f32 後方通常最高速 = 100">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32  = 0.5">
-      <DisplayName>地上抵抗</DisplayName>
+    <Field Def="f32 地上抵抗 = 0.5">
       <Minimum>0</Minimum>
       <Maximum>999</Maximum>
     </Field>
-    <Field Def="f32  = 0.5">
-      <DisplayName>旋回推力</DisplayName>
+    <Field Def="f32 旋回推力 = 0.5">
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32  = 0.5">
-      <DisplayName>旋回抵抗</DisplayName>
+    <Field Def="f32 旋回抵抗 = 0.5">
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
     </Field>
-    <Field Def="f32  = 0.2">
-      <DisplayName>ジャンプ上昇推力</DisplayName>
+    <Field Def="f32 ジャンプ上昇推力 = 0.2">
       <Minimum>0</Minimum>
       <Maximum>999</Maximum>
     </Field>
-    <Field Def="f32  = 200">
-      <DisplayName>地上ブースト最高速</DisplayName>
+    <Field Def="f32 地上ブースト最高速 = 200">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32  = 200">
-      <DisplayName>空中ブースト最高速</DisplayName>
+    <Field Def="f32 空中ブースト最高速 = 200">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32  = 0.2">
-      <DisplayName>ブースタ上昇力</DisplayName>
+    <Field Def="f32 ブースタ上昇力 = 0.2">
       <Minimum>0</Minimum>
       <Maximum>999</Maximum>
     </Field>
-    <Field Def="f32  = 0.2">
-      <DisplayName>ブースタ上昇力（ニュートラル）</DisplayName>
+    <Field Def="f32 ブースタ上昇力（ニュートラル） = 0.2">
       <Minimum>0</Minimum>
       <Maximum>999</Maximum>
     </Field>
-    <Field Def="f32  = 0.1">
-      <DisplayName>上昇推力(ヘリ用)</DisplayName>
+    <Field Def="f32 上昇推力(ヘリ用) = 0.1">
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32  = 0.1">
-      <DisplayName>下降推力(ヘリ用)</DisplayName>
+    <Field Def="f32 下降推力(ヘリ用) = 0.1">
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>空力係数（水平）</DisplayName>
+    <Field Def="f32 空力係数（水平） = 1">
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32  = 1">
-      <DisplayName>空力係数（垂直）</DisplayName>
+    <Field Def="f32 空力係数（垂直） = 1">
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="f32  = -1">
-      <DisplayName>水平視線範囲（-1=∞)</DisplayName>
+    <Field Def="f32 水平視線範囲（-1=∞) = -1">
       <DisplayFormat>%.1f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>-1</Minimum>
       <Maximum>180</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32  = -70">
-      <DisplayName>下方視線範囲</DisplayName>
+    <Field Def="f32 下方視線範囲 = -70">
       <DisplayFormat>%.1f</DisplayFormat>
       <Minimum>-180</Minimum>
       <Maximum>180</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32  = 70">
-      <DisplayName>上方視線範囲</DisplayName>
+    <Field Def="f32 上方視線範囲 = 70">
       <DisplayFormat>%.1f</DisplayFormat>
       <Minimum>-180</Minimum>
       <Maximum>180</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32  = 0.02">
-      <DisplayName>視線速度</DisplayName>
+    <Field Def="f32 視線速度 = 0.02">
       <DisplayFormat>%.3f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10</Maximum>
       <Increment>0.001</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>エネルギー許容量</DisplayName>
+    <Field Def="f32 エネルギー許容量">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>10000</Maximum>
       <Increment>1</Increment>
     </Field>
-    <Field Def="f32  = 4">
-      <DisplayName>反動抑制</DisplayName>
+    <Field Def="f32 反動抑制 = 4">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1000</Maximum>
       <Increment>0.1</Increment>
     </Field>
-    <Field Def="f32 ">
-      <DisplayName>貫通具合</DisplayName>
+    <Field Def="f32 貫通具合">
       <Description>弾丸の貫通しやすさ( 死亡時 )</Description>
       <DisplayFormat>%.2f</DisplayFormat>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>当たりタイプ</DisplayName>
+    <Field Def="u8 当たりタイプ">
       <Enum>ENEMY_COLLISION_TYPE</Enum>
       <Description>当たりの形状を指定します。</Description>
     </Field>
-    <Field Def="s8 ">
-      <DisplayName>ロックオン方式</DisplayName>
+    <Field Def="s8 ロックオン方式">
       <Enum>LOCKON_TYPE</Enum>
       <Description>ロックのされ方</Description>
       <Minimum>0</Minimum>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>AntiWaterBoostStartDepth</DisplayName>
+    <Field Def="u8 AntiWaterBoostStartDepth">
       <EditFlags>None</EditFlags>
       <Maximum>99</Maximum>
     </Field>
-    <Field Def="u8  = 4">
-      <DisplayName>AntiWaterBoostMaxDepth</DisplayName>
+    <Field Def="u8 AntiWaterBoostMaxDepth = 4">
       <EditFlags>None</EditFlags>
       <Maximum>99</Maximum>
     </Field>
-    <Field Def="u8  = 4">
-      <DisplayName>AntiWaterBoostShallowDepth</DisplayName>
+    <Field Def="u8 AntiWaterBoostShallowDepth = 4">
       <EditFlags>None</EditFlags>
       <Maximum>99</Maximum>
     </Field>
-    <Field Def="fixstr [1]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="fixstr 予約[1]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>0</Maximum>
       <Increment>0</Increment>
     </Field>
-    <Field Def="u16  = 10000">
-      <DisplayName>衝突ダメージの敷居値</DisplayName>
+    <Field Def="u16 衝突ダメージの敷居値 = 10000">
       <EditFlags>None</EditFlags>
     </Field>
-    <Field Def="f32  = 0.8">
-      <DisplayName>AntiWaterBoostMaxRate</DisplayName>
+    <Field Def="f32 AntiWaterBoostMaxRate = 0.8">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>99</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>水没死亡処理を使用するか？</DisplayName>
+    <Field Def="u8 水没死亡処理を使用するか？">
       <Enum>ON_OFF</Enum>
       <Description>水没死亡処理を使用するか？</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>ＡＩからのターゲット設定を受け付けるか</DisplayName>
+    <Field Def="u8 ＡＩからのターゲット設定を受け付けるか">
       <Enum>ON_OFF</Enum>
       <Description>ＡＩからのターゲット設定を受け付けるか</Description>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u16  = 200">
-      <DisplayName>地上バックブースト最高速</DisplayName>
+    <Field Def="u16 地上バックブースト最高速 = 200">
       <Description>地上バックブースト最高速</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u16  = 200">
-      <DisplayName>空中バックブースト最高速</DisplayName>
+    <Field Def="u16 空中バックブースト最高速 = 200">
       <Description>空中バックブースト最高速</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s8 ">
-      <DisplayName>視線上下速度[deg/sec]</DisplayName>
+    <Field Def="s8 視線上下速度[deg/sec]">
       <Description>マイナス値で水平視線旋回速度を使用する。！注意！単位は、度/secです</Description>
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>100</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>部屋ID更新しない</DisplayName>
+    <Field Def="u8 部屋ID更新しない">
       <Enum>ON_OFF</Enum>
       <EditFlags>None</EditFlags>
       <Maximum>1</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>PAのID</DisplayName>
+    <Field Def="u32 PAのID">
       <Maximum>8999999</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>アサルトアーマーID</DisplayName>
+    <Field Def="u32 アサルトアーマーID">
       <Maximum>8999999</Maximum>
     </Field>
-    <Field Def="fixstr [16]">
-      <DisplayName>予約</DisplayName>
+    <Field Def="fixstr 予約[16]">
       <DisplayFormat />
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>

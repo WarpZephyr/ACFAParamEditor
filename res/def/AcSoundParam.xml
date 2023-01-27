@@ -6,45 +6,31 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="s16 ">
-      <DisplayName>ＳＥ
-はじめの一歩</DisplayName>
+    <Field Def="s16 ＳＥ&#xA;はじめの一歩">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ＳＥ
-歩行</DisplayName>
+    <Field Def="s16 ＳＥ&#xA;歩行">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ＳＥ
-旋回</DisplayName>
+    <Field Def="s16 ＳＥ&#xA;旋回">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ＳＥ
-着地</DisplayName>
+    <Field Def="s16 ＳＥ&#xA;着地">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ＳＥ
-ブレーキ</DisplayName>
+    <Field Def="s16 ＳＥ&#xA;ブレーキ">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ＳＥ
-ジャンプ</DisplayName>
+    <Field Def="s16 ＳＥ&#xA;ジャンプ">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="s16 ">
-      <DisplayName>ＳＥ
-死亡</DisplayName>
+    <Field Def="s16 ＳＥ&#xA;死亡">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>

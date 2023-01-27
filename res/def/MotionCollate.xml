@@ -6,34 +6,28 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u8 ">
-      <DisplayName>コアモーションID</DisplayName>
+    <Field Def="u8 コアモーションID">
       <DisplayFormat>%3d</DisplayFormat>
       <EditFlags>None</EditFlags>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>腕部モーションID</DisplayName>
+    <Field Def="u8 腕部モーションID">
       <DisplayFormat>%3d</DisplayFormat>
       <EditFlags>None</EditFlags>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>脚部モーションID</DisplayName>
+    <Field Def="u8 脚部モーションID">
       <DisplayFormat>%3d</DisplayFormat>
       <EditFlags>None</EditFlags>
     </Field>
-    <Field Def="fixstr [17]">
-      <DisplayName>モーションファイル名</DisplayName>
+    <Field Def="fixstr モーションファイル名[17]">
       <EditFlags>None</EditFlags>
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>補間データID</DisplayName>
+    <Field Def="u32 補間データID">
       <EditFlags>None</EditFlags>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u32 ">
-      <DisplayName>サウンドパラメータID</DisplayName>
+    <Field Def="u32 サウンドパラメータID">
       <EditFlags>None</EditFlags>
       <Maximum>9999</Maximum>
     </Field>

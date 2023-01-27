@@ -6,21 +6,17 @@
   <Unicode>False</Unicode>
   <FormatVersion>101</FormatVersion>
   <Fields>
-    <Field Def="u8 ">
-      <DisplayName>チャプターID</DisplayName>
+    <Field Def="u8 チャプターID">
       <Description>キーミッションの無いチャプター用設定</Description>
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>クリアミッション数</DisplayName>
+    <Field Def="u8 クリアミッション数">
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="u8 ">
-      <DisplayName>遷移先チャプターID</DisplayName>
+    <Field Def="u8 遷移先チャプターID">
       <Maximum>9999</Maximum>
     </Field>
-    <Field Def="fixstr [1]">
-      <DisplayName>ダミー</DisplayName>
+    <Field Def="fixstr ダミー[1]">
       <Minimum>0</Minimum>
       <Maximum>9999</Maximum>
     </Field>
