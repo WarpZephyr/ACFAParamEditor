@@ -1,26 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using ACFAParamEditor.Properties;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using SoulsFormats;
 
-namespace ArmoredCorePDR
+namespace ACFAParamEditor
 {
     public partial class MainForm : Form
     {
+        private BindingSource rowSource;
         public MainForm()
         {
             InitializeComponent();
+            rowSource = new BindingSource();
         }
 
+
+        // On Form Load
         private void MainForm_Load(object sender, EventArgs e)
         {
-            CellDGV.Columns.Add("displayname", "Display Name");
+            ParamDGV.Columns.Add("param", "Param");
+            RowDGV.Columns.Add("rowid", "Row ID");
+            RowDGV.Columns.Add("name", "Name");
+            CellDGV.Columns.Add("name", "Name");
             CellDGV.Columns.Add("value", "Value");
         }
 
+        // When Edit Params button is pressed
         private void EditParamsBtn_click(object sender, EventArgs e)
         {
             // Prompt the user for folders containing files
@@ -83,36 +93,44 @@ namespace ArmoredCorePDR
             // Process gathered data
             foreach (PARAM param in paramList) 
             {
-                foreach (var row in param.Rows)
-                {
-                    try 
-                    {
-                        string[] newrow = {"displayname", "value"};
-                        CellDGV.Rows.Add(newrow);
-
-                        if (row.Cells == null)
-                            Debug.WriteLine($"Cell at {row} is null");
-                        if (row.Cells != null)
-                            try
-                            {
-                                foreach (var cell in row.Cells)
-                                {
-                                    
-                                    //ParamRichTextBox.AppendText($"{cell.Def.DisplayName}: {cell.Value}");
-                                    //ParamRichTextBox.AppendText("\r\n");
-                                }
-                            }
-                            catch 
-                            {
-                                Debug.WriteLine($"DataGridView adding failed");
-                            } 
-                    }
-                    catch
-                    {
-                        Debug.WriteLine($"Failed to parse cell at {row.ID} in {param}");
-                    }
-                }
+                string[] newParamRow = {$"{param.ParamType}"};
+                ParamDGV.Rows.Add(newParamRow);
             }
+
+            /*foreach (var row in param.Rows)
+            {
+                string[] newRowRow = { $"{row.ID}", $"{row.Name}" };
+                RowDGV.Rows.Add(newRowRow);
+                try
+                {
+                    if (row.Cells == null)
+                        Debug.WriteLine($"Cell at {row} is null");
+                    if (row.Cells != null)
+                        try
+                        {
+                            foreach (var cell in row.Cells)
+                            {
+                                string[] newCellRow = { $"{cell.Def.DisplayName}", $"{cell.Value}" };
+                                CellDGV.Rows.Add(newCellRow);
+                            }
+                        }
+                        catch
+                        {
+                            Debug.WriteLine($"DataGridView adding failed");
+                        }
+                }
+                catch
+                {
+                    Debug.WriteLine($"Failed to parse cell at {row.ID}");
+                }
+            }*/
+        }
+
+
+
+        private void ParamDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            MessageBox.Show("You clicked on a cell!");
         }
     }
 }
