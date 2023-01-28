@@ -140,6 +140,8 @@ namespace ACFAParamEditor
         {
             if (ParamDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
+                CellDGV.Rows.Clear();
+                RowDGV.Rows.Clear();
                 var selectedDGVCellIndex = ParamDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 var retrievedRowDict = getParamData.GetRow(paramDict[selectedDGVCellIndex]);
                 rowDict = retrievedRowDict;
@@ -154,6 +156,7 @@ namespace ACFAParamEditor
         {
             if (RowDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
+                CellDGV.Rows.Clear();
                 var selectedDGVCellIndex = RowDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 var cellList = getParamData.GetCell(rowDict[selectedDGVCellIndex]);
                 foreach (var cell in cellList)
