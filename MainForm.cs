@@ -78,7 +78,7 @@ namespace ACFAParamEditor
                     };
 
                     param.Param.ApplyParamdefCarefully(defList);
-                    object[] newParamRow = { param, $"{param.Param.ParamType}" };
+                    object[] newParamRow = {param, $"{param.Param.ParamType}" };
                     ParamDGV.Rows.Add(newParamRow);
                 }
                 catch
@@ -136,11 +136,18 @@ namespace ACFAParamEditor
 
         private void ParamDGV_SelectionChanged(object sender, EventArgs e)
         {
-            RowDGV.Rows.Clear();
+            //RowDGV.Rows.Clear();
             var selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
+
             foreach (var row in selectedParam.Param.Rows)
             {
-                string[] newRow = { $"{row.ID}", $"{row.Name}", $"{row}"};
+                var rowWrapper = new RowWrapper()
+                {      
+                    RowName = row.Name,
+                    Row = row
+                };
+
+                object[] newRow = {rowWrapper.Row.ID, row};
                 RowDGV.Rows.Add(newRow);
             }
         }
@@ -148,7 +155,7 @@ namespace ACFAParamEditor
         private void RowDGV_SelectionChanged(object sender, EventArgs e)
         {
             CellDGV.Rows.Clear();
-            var selectedRow = RowDGV.CurrentRow.Cells[0].Value as RowWrapper;
+            var selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
             foreach (var cell in selectedRow.Row.Cells)
             {
                 string[] newCellRow = { $"{cell.Def.DisplayName}", $"{cell.Value}" };
