@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using System.Linq;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using SoulsFormats;
 
@@ -11,6 +12,7 @@ namespace ACFAParamEditor
     public partial class MainForm : Form
     {
         private Dictionary<string, PARAM> paramDict = new Dictionary<string, PARAM>();
+        private Dictionary<string, PARAM.Row> rowDict = new Dictionary<string, PARAM.Row>();
         private List<PARAMDEF> defList = new List<PARAMDEF>();
         internal GetParamData getParamData { get; private set; } = new GetParamData();
         public MainForm()
@@ -21,7 +23,12 @@ namespace ACFAParamEditor
         // On Form Load
         private void MainForm_Load(object sender, EventArgs e)
         {
-            
+            ParamDGV.Columns.Add("paramname", "Param Name");
+            ParamDGV.Columns.Add("paramtype", "Param Type");
+            RowDGV.Columns.Add("rowid", "Row ID");
+            RowDGV.Columns.Add("name", "Name");
+            CellDGV.Columns.Add("name", "Name");
+            CellDGV.Columns.Add("value", "Value");
         }
 
         // When Edit Params button is pressed
@@ -65,15 +72,10 @@ namespace ACFAParamEditor
             {
                 try
                 {
-                    var param = new ParamWrapper() 
-                    { 
-                        Param = PARAM.Read(binPath),
-                        ParamName = Path.GetFileNameWithoutExtension(binPath)
-                    };
-
+                    var param = PARAM.Read(binPath);
                     var paramName = Path.GetFileNameWithoutExtension(binPath);
 
-                    param.Param.ApplyParamdefCarefully(defList);
+                    param.ApplyParamdefCarefully(defList);
                     paramDict.Add(paramName, param);
                 }
                 catch
@@ -83,42 +85,11 @@ namespace ACFAParamEditor
                 }
             }
 
-            // Process gathered data
-            ParamDGV.Columns.Add("paramname", "Param Name");
-            ParamDGV.Columns.Add("paramtype", "Param Type");
-            RowDGV.Columns.Add("rowid", "Row ID");
-            RowDGV.Columns.Add("name", "Name");
-            CellDGV.Columns.Add("name", "Name");
-            CellDGV.Columns.Add("value", "Value");
-
-            var paramNameCounter = 0;
-            foreach (ParamWrapper param in paramDict.Values) 
+            // Create Param Rows
+            foreach (string param in paramDict.Keys) 
             {
-                string[] newParamRow = { $"{param.ParamName}", $"{param.Param.ParamType}" };
+                string[] newParamRow = { $"{param}", $"{paramDict[param].ParamType}" };
                 ParamDGV.Rows.Add(newParamRow);
-
-                paramNameCounter++;
-                foreach (var row in param.Param.Rows)
-                {
-                    string[] newRowRow = { $"{row.ID}", $"{row.Name}" };
-                    RowDGV.Rows.Add(newRowRow);
-                    try
-                    {
-                        if (row.Cells == null)
-                            Debug.WriteLine($"Cell at {row} is null in {param.Param.ParamType}");
-                        if (row.Cells != null)
-                            foreach (var cell in row.Cells)
-                            {
-                                string[] newCellRow = { $"{cell.Def.DisplayName}", $"{cell.Value}" };
-                                CellDGV.Rows.Add(newCellRow);
-                            }
-                    }
-                    catch
-                    {
-                        Debug.WriteLine($"Failed to parse cell at {row.ID}");
-                        throw;
-                    }
-                }
             }
         }
 
@@ -162,7 +133,7 @@ namespace ACFAParamEditor
 
         private void ConvertParamsTSVBtn_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void ParamDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -170,10 +141,12 @@ namespace ACFAParamEditor
             if (ParamDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
                 var selectedDGVCellIndex = ParamDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                var rowList = getParamData.GetRow(paramDict[selectedDGVCellIndex].Param);
-                foreach (var row in rowList)
+                var retrievedRowDict = getParamData.GetRow(paramDict[selectedDGVCellIndex]);
+                rowDict = retrievedRowDict;
+                foreach (var row in rowDict.Values)
                 {
-                    RowDGV.Rows.Add(row);
+                    string[] newRow = { $"{row.ID}", $"{row.Name}"};
+                    RowDGV.Rows.Add(newRow);
                 }
             }
         }
@@ -182,10 +155,11 @@ namespace ACFAParamEditor
             if (RowDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
                 var selectedDGVCellIndex = RowDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                var cellList = getParamData.GetRow(paramDict[selectedDGVCellIndex].Param);
+                var cellList = getParamData.GetCell(rowDict[selectedDGVCellIndex]);
                 foreach (var cell in cellList)
                 {
-                    CellDGV.Rows.Add(cell);
+                    string[] newCellRow = { $"{cell.Def.DisplayName}", $"{cell.Value}" };
+                    CellDGV.Rows.Add(newCellRow);
                 }
             }
         }

@@ -5,25 +5,23 @@ namespace ACFAParamEditor
 {
     internal class GetParamData
     {
-        public List<string[]> GetRow(PARAM param) 
+        public Dictionary<string, PARAM.Row> GetRow(PARAM param) 
         {
-            List<string[]> paramRows = new List<string[]>();
+            Dictionary<string, PARAM.Row> rowDict = new Dictionary<string, PARAM.Row>();
             foreach (var row in param.Rows) {
-                string[] newRowRow = { $"{row.ID}", $"{row.Name}"};
-                paramRows.Add(newRowRow);
+                rowDict.Add(row.Name, row);
             }
-            return paramRows;
+            return rowDict;
         }
 
-        public List<string[]> GetCell(PARAM.Row row)
+        public List<PARAM.Cell> GetCell(PARAM.Row row)
         {
-            List<string[]> rowCells = new List<string[]>();
+            List<PARAM.Cell> cellList = new List<PARAM.Cell>();
             foreach (var cell in row.Cells)
             {
-                string[] newCellRow = { $"{row.ID}", $"{row.Name}" };
-                rowCells.Add(newCellRow);
+                cellList.Add(cell);
             }
-            return rowCells;
+            return cellList;
         }
     }
 }
