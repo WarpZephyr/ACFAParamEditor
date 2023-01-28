@@ -143,11 +143,10 @@ namespace ACFAParamEditor
             {
                 var rowWrapper = new RowWrapper()
                 {      
-                    RowName = row.Name,
                     Row = row
                 };
 
-                object[] newRow = {rowWrapper.Row.ID, row};
+                object[] newRow = {rowWrapper.Row.ID, rowWrapper};
                 RowDGV.Rows.Add(newRow);
             }
         }

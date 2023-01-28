@@ -4,8 +4,7 @@ namespace ACFAParamEditor
 {
     internal class RowWrapper
     {
-        internal string RowName { get; init; }
         internal PARAM.Row Row { get; init; }
-        public override string ToString() => RowName;
+        public override string ToString() => Row.Name;
     }
 }
