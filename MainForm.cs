@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Diagnostics;
 using System.IO;
-using System.Security.Cryptography;
 using System.Windows.Forms;
-using ACFAParamEditor.Properties;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using SoulsFormats;
 
@@ -15,6 +12,8 @@ namespace ACFAParamEditor
     {
         private List<PARAM> paramList = new List<PARAM>();
         private List<PARAMDEF> defList = new List<PARAMDEF>();
+        //internal GetParamData getParamData = new GetParamData();
+        internal GetParamData getParamData { get; private set; } = new GetParamData();
         public MainForm()
         {
             InitializeComponent();
@@ -43,21 +42,18 @@ namespace ACFAParamEditor
                 return;
             }
 
-
-            var defResFolderPath = $"{Environment.CurrentDirectory}/res/def/";
-            //var xmlResFolderPath = $"{Environment.CurrentDirectory}/res/xml/";
+            //var xmlResFolderPath = $"{Environment.CurrentDirectory}/res/xml/";    // Comment/Uncomment this line to test xml
+            var defResFolderPath = $"{Environment.CurrentDirectory}/res/def/";      // Comment/Uncomment this line to test Def
             var binFolderPath = binFolderPathDialog.FileName;
 
-            // Create lists and add data to lists
-            
-
-            string[] defFiles = Directory.GetFiles(defResFolderPath, "*.def");
+            // Add data to lists
+            string[] defFiles = Directory.GetFiles(defResFolderPath, "*.def");      // Switch to *.xml to test xml, *.def to test def
             foreach (string defPath in defFiles)
             {
                 try
                 {
-                    defList.Add(PARAMDEF.Read(defPath));
-                    //defList.Add(PARAMDEF.XmlDeserialize(defPath));
+                    defList.Add(PARAMDEF.Read(defPath));                            // Comment/Uncomment this line to test Def
+                    //defList.Add(PARAMDEF.XmlDeserialize(defPath));                // Comment/Uncomment this line to test xml
                 }
                 catch
                 {
@@ -66,16 +62,11 @@ namespace ACFAParamEditor
                 }
             }
 
-            List<string> paramNameList = new List<string>();
-
             string[] binFiles = Directory.GetFiles(binFolderPath, "*.*");
             foreach (string binPath in binFiles)
             {
                 try
                 {
-                    var paramName = Path.GetFileNameWithoutExtension(binPath);
-                    paramNameList.Add(paramName);
-
                     var param = PARAM.Read(binPath);
                     param.ApplyParamdefCarefully(defList);
                     paramList.Add(param);
@@ -88,18 +79,15 @@ namespace ACFAParamEditor
             }
 
             // Process gathered data
-            ParamDGV.Columns.Add("paramname", "Param Name");
             ParamDGV.Columns.Add("paramtype", "Param Type");
             RowDGV.Columns.Add("rowid", "Row ID");
             RowDGV.Columns.Add("name", "Name");
             CellDGV.Columns.Add("name", "Name");
             CellDGV.Columns.Add("value", "Value");
 
-            var paramNameCounter = 0;
             foreach (PARAM param in paramList) 
             {
-                string[] newParamRow = { $"{paramNameList[paramNameCounter]}", $"{param.ParamType}"};
-                paramNameCounter++;
+                string[] newParamRow = {$"{param.ParamType}"};
                 ParamDGV.Rows.Add(newParamRow);
                 foreach (var row in param.Rows)
                 {
