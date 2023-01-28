@@ -242,6 +242,7 @@
             this.CellDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.CellDGV.Size = new System.Drawing.Size(370, 606);
             this.CellDGV.TabIndex = 2;
+            this.CellDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellDGV_CellValueChanged);
             // 
             // SplitContainerA
             // 

@@ -22,9 +22,14 @@ namespace ACFAParamEditor
         {
             ParamDGV.Columns.Add("paramname", "Param Name");
             ParamDGV.Columns.Add("paramtype", "Param Type");
+            ParamDGV.Columns[0].ReadOnly = true;
+            ParamDGV.Columns[1].ReadOnly = true;
             RowDGV.Columns.Add("rowid", "Row ID");
             RowDGV.Columns.Add("name", "Name");
+            CellDGV.Columns.Add("celltype", "Cell Type");
             CellDGV.Columns.Add("name", "Name");
+            CellDGV.Columns[0].ReadOnly = true;
+            CellDGV.Columns[1].ReadOnly = true;
             CellDGV.Columns.Add("value", "Value");
         }
 
@@ -60,7 +65,7 @@ namespace ACFAParamEditor
                 catch
                 {
                     Debug.WriteLine($"Failed to parse Paramdef at {defPath}");
-                    throw;
+                    //throw;
                 }
             }
 
@@ -136,7 +141,8 @@ namespace ACFAParamEditor
 
         private void ParamDGV_SelectionChanged(object sender, EventArgs e)
         {
-            //RowDGV.Rows.Clear();
+            RowDGV.Rows.Clear();
+            CellDGV.Rows.Clear();
             var selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
 
             foreach (var row in selectedParam.Param.Rows)
@@ -157,9 +163,14 @@ namespace ACFAParamEditor
             var selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
             foreach (var cell in selectedRow.Row.Cells)
             {
-                string[] newCellRow = { $"{cell.Def.DisplayName}", $"{cell.Value}" };
+                string[] newCellRow = { $"{cell.Def.DisplayType}", $"{cell.Def.DisplayName}", $"{cell.Value}" };
                 CellDGV.Rows.Add(newCellRow);
             }
+        }
+
+        private void CellDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
