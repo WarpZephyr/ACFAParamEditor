@@ -10,15 +10,13 @@ namespace ACFAParamEditor
 {
     public partial class MainForm : Form
     {
-        private List<PARAM> paramList = new List<PARAM>();
+        private List<ParamWrapper> paramList = new List<ParamWrapper>();
         private List<PARAMDEF> defList = new List<PARAMDEF>();
-        //internal GetParamData getParamData = new GetParamData();
         internal GetParamData getParamData { get; private set; } = new GetParamData();
         public MainForm()
         {
             InitializeComponent();
         }
-
 
         // On Form Load
         private void MainForm_Load(object sender, EventArgs e)
@@ -67,8 +65,12 @@ namespace ACFAParamEditor
             {
                 try
                 {
-                    var param = PARAM.Read(binPath);
-                    param.ApplyParamdefCarefully(defList);
+                    var param = new ParamWrapper() {
+                        ParamName = Path.GetFileNameWithoutExtension(binPath), 
+                        Param = PARAM.Read(binPath) 
+                    };
+
+                    param.Param.ApplyParamdefCarefully(defList);
                     paramList.Add(param);
                 }
                 catch 
@@ -79,37 +81,33 @@ namespace ACFAParamEditor
             }
 
             // Process gathered data
+            ParamDGV.Columns.Add("paramname", "Param Name");
             ParamDGV.Columns.Add("paramtype", "Param Type");
             RowDGV.Columns.Add("rowid", "Row ID");
             RowDGV.Columns.Add("name", "Name");
             CellDGV.Columns.Add("name", "Name");
             CellDGV.Columns.Add("value", "Value");
 
-            foreach (PARAM param in paramList) 
+            var paramNameCounter = 0;
+            foreach (ParamWrapper param in paramList) 
             {
-                string[] newParamRow = {$"{param.ParamType}"};
+                string[] newParamRow = { $"{param.ParamName}", $"{param.Param.ParamType}" };
                 ParamDGV.Rows.Add(newParamRow);
-                foreach (var row in param.Rows)
+
+                paramNameCounter++;
+                foreach (var row in param.Param.Rows)
                 {
                     string[] newRowRow = { $"{row.ID}", $"{row.Name}" };
                     RowDGV.Rows.Add(newRowRow);
                     try
                     {
                         if (row.Cells == null)
-                            Debug.WriteLine($"Cell at {row} is null in {param.ParamType}");
+                            Debug.WriteLine($"Cell at {row} is null in {param.Param.ParamType}");
                         if (row.Cells != null)
-                            try
+                            foreach (var cell in row.Cells)
                             {
-                                foreach (var cell in row.Cells)
-                                {
-                                    string[] newCellRow = { $"{cell.Def.DisplayName}", $"{cell.Value}" };
-                                    CellDGV.Rows.Add(newCellRow);
-                                }
-                            }
-                            catch
-                            {
-                                Debug.WriteLine($"DataGridView adding failed");
-                                throw;
+                                string[] newCellRow = { $"{cell.Def.DisplayName}", $"{cell.Value}" };
+                                CellDGV.Rows.Add(newCellRow);
                             }
                     }
                     catch

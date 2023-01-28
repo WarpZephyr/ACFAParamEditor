@@ -35,6 +35,9 @@
   <PropertyGroup>
     <StartupObject>ACFAParamEditor.Program</StartupObject>
   </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.WindowsAPICodePack-Core.1.1.0.0\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
@@ -58,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IsExternalInit.cs" />
     <Compile Include="GetParamData.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
