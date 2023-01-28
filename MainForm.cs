@@ -10,7 +10,7 @@ namespace ACFAParamEditor
 {
     public partial class MainForm : Form
     {
-        private List<ParamWrapper> paramList = new List<ParamWrapper>();
+        private Dictionary<string, PARAM> paramDict = new Dictionary<string, PARAM>();
         private List<PARAMDEF> defList = new List<PARAMDEF>();
         internal GetParamData getParamData { get; private set; } = new GetParamData();
         public MainForm()
@@ -65,15 +65,18 @@ namespace ACFAParamEditor
             {
                 try
                 {
-                    var param = new ParamWrapper() {
-                        ParamName = Path.GetFileNameWithoutExtension(binPath), 
-                        Param = PARAM.Read(binPath) 
+                    var param = new ParamWrapper() 
+                    { 
+                        Param = PARAM.Read(binPath),
+                        ParamName = Path.GetFileNameWithoutExtension(binPath)
                     };
 
+                    var paramName = Path.GetFileNameWithoutExtension(binPath);
+
                     param.Param.ApplyParamdefCarefully(defList);
-                    paramList.Add(param);
+                    paramDict.Add(paramName, param);
                 }
-                catch 
+                catch
                 {
                     Debug.WriteLine($"Failed to parse Param at {binPath}");
                     throw;
@@ -89,7 +92,7 @@ namespace ACFAParamEditor
             CellDGV.Columns.Add("value", "Value");
 
             var paramNameCounter = 0;
-            foreach (ParamWrapper param in paramList) 
+            foreach (ParamWrapper param in paramDict.Values) 
             {
                 string[] newParamRow = { $"{param.ParamName}", $"{param.Param.ParamType}" };
                 ParamDGV.Rows.Add(newParamRow);
@@ -166,8 +169,30 @@ namespace ACFAParamEditor
         {
             if (ParamDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
-                MessageBox.Show(ParamDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
+                var selectedDGVCellIndex = ParamDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                var rowList = getParamData.GetRow(paramDict[selectedDGVCellIndex].Param);
+                foreach (var row in rowList)
+                {
+                    RowDGV.Rows.Add(row);
+                }
             }
+        }
+        private void RowDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (RowDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
+            {
+                var selectedDGVCellIndex = RowDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+                var cellList = getParamData.GetRow(paramDict[selectedDGVCellIndex].Param);
+                foreach (var cell in cellList)
+                {
+                    CellDGV.Rows.Add(cell);
+                }
+            }
+        }
+
+        private void ParamDGV_SelectionChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
