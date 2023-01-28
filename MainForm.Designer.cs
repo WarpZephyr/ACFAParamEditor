@@ -156,7 +156,7 @@
             this.RowDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.RowDGV.Size = new System.Drawing.Size(370, 606);
             this.RowDGV.TabIndex = 1;
-            this.RowDGV.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.RowDGV_CellDoubleClick);
+            this.RowDGV.SelectionChanged += new System.EventHandler(this.RowDGV_SelectionChanged);
             // 
             // ParamDGV
             // 
@@ -199,7 +199,6 @@
             this.ParamDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.ParamDGV.Size = new System.Drawing.Size(370, 606);
             this.ParamDGV.TabIndex = 0;
-            this.ParamDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ParamDGV_CellDoubleClick);
             this.ParamDGV.SelectionChanged += new System.EventHandler(this.ParamDGV_SelectionChanged);
             // 
             // CellDGV

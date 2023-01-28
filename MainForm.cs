@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
-using System.Linq;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using SoulsFormats;
 
@@ -11,10 +10,8 @@ namespace ACFAParamEditor
 {
     public partial class MainForm : Form
     {
-        private Dictionary<string, PARAM> paramDict = new Dictionary<string, PARAM>();
-        private Dictionary<string, PARAM.Row> rowDict = new Dictionary<string, PARAM.Row>();
+        
         private List<PARAMDEF> defList = new List<PARAMDEF>();
-        internal GetParamData getParamData { get; private set; } = new GetParamData();
         public MainForm()
         {
             InitializeComponent();
@@ -67,16 +64,22 @@ namespace ACFAParamEditor
                 }
             }
 
+
+
             string[] binFiles = Directory.GetFiles(binFolderPath, "*.*");
             foreach (string binPath in binFiles)
             {
                 try
-                {
-                    var param = PARAM.Read(binPath);
-                    var paramName = Path.GetFileNameWithoutExtension(binPath);
+                {  
+                    var param = new ParamWrapper()
+                    {
+                        ParamName = Path.GetFileNameWithoutExtension(binPath),
+                        Param = PARAM.Read(binPath)
+                    };
 
-                    param.ApplyParamdefCarefully(defList);
-                    paramDict.Add(paramName, param);
+                    param.Param.ApplyParamdefCarefully(defList);
+                    object[] newParamRow = { param, $"{param.Param.ParamType}" };
+                    ParamDGV.Rows.Add(newParamRow);
                 }
                 catch
                 {
@@ -85,12 +88,7 @@ namespace ACFAParamEditor
                 }
             }
 
-            // Create Param Rows
-            foreach (string param in paramDict.Keys) 
-            {
-                string[] newParamRow = { $"{param}", $"{paramDict[param].ParamType}" };
-                ParamDGV.Rows.Add(newParamRow);
-            }
+            
         }
 
         private void ConvertDefsBtn_Click(object sender, EventArgs e)
@@ -136,40 +134,26 @@ namespace ACFAParamEditor
 
         }
 
-        private void ParamDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (ParamDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                CellDGV.Rows.Clear();
-                RowDGV.Rows.Clear();
-                var selectedDGVCellIndex = ParamDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                var retrievedRowDict = getParamData.GetRow(paramDict[selectedDGVCellIndex]);
-                rowDict = retrievedRowDict;
-                foreach (var row in rowDict.Values)
-                {
-                    string[] newRow = { $"{row.ID}", $"{row.Name}"};
-                    RowDGV.Rows.Add(newRow);
-                }
-            }
-        }
-        private void RowDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (RowDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            {
-                CellDGV.Rows.Clear();
-                var selectedDGVCellIndex = RowDGV.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                var cellList = getParamData.GetCell(rowDict[selectedDGVCellIndex]);
-                foreach (var cell in cellList)
-                {
-                    string[] newCellRow = { $"{cell.Def.DisplayName}", $"{cell.Value}" };
-                    CellDGV.Rows.Add(newCellRow);
-                }
-            }
-        }
-
         private void ParamDGV_SelectionChanged(object sender, EventArgs e)
         {
+            RowDGV.Rows.Clear();
+            var selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
+            foreach (var row in selectedParam.Param.Rows)
+            {
+                string[] newRow = { $"{row.ID}", $"{row.Name}", $"{row}"};
+                RowDGV.Rows.Add(newRow);
+            }
+        }
 
+        private void RowDGV_SelectionChanged(object sender, EventArgs e)
+        {
+            CellDGV.Rows.Clear();
+            var selectedRow = RowDGV.CurrentRow.Cells[0].Value as RowWrapper;
+            foreach (var cell in selectedRow.Row.Cells)
+            {
+                string[] newCellRow = { $"{cell.Def.DisplayName}", $"{cell.Value}" };
+                CellDGV.Rows.Add(newCellRow);
+            }
         }
     }
 }
