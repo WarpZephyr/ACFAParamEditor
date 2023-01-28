@@ -81,7 +81,7 @@ namespace ACFAParamEditor
                 catch
                 {
                     Debug.WriteLine($"Failed to parse Param at {binPath}");
-                    throw;
+                    //throw;
                 }
             }
 
