@@ -63,6 +63,7 @@
   <ItemGroup>
     <Compile Include="CellWrapper.cs" />
     <Compile Include="IsExternalInit.cs" />
+    <Compile Include="Logger.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +71,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ParamWrapper.cs" />
+    <Compile Include="Util.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RowWrapper.cs" />

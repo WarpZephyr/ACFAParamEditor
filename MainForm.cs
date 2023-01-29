@@ -20,6 +20,26 @@ namespace ACFAParamEditor
         // On Form Load
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Logger.createLog();
+
+            // Create def list on form load
+            string[] defFiles = Directory.GetFiles($"{Util.resFolderPath}/def/", "*.def");      // Switch xml/def to test either
+            foreach (string defPath in defFiles)
+            {
+                try
+                {
+                    defList.Add(PARAMDEF.Read(defPath));                            // Comment/Uncomment this line to test Def
+                    //defList.Add(PARAMDEF.XmlDeserialize(defPath));                // Comment/Uncomment this line to test xml
+                }
+                catch (InvalidDataException IDEx)
+                {
+                    string description = $"Failed to parse Paramdef at {defPath}";
+                    TSSLDefReading.Text = $"DEBUG: {description}, see parameditor.log";
+                    Debug.WriteLine($"{description}");
+                    Logger.LogExceptionWithDate(IDEx, description);
+                }
+            }
+
             ParamDGV.Columns.Add("paramname", "Param Name");
             ParamDGV.Columns.Add("paramtype", "Param Type");
             ParamDGV.Columns[0].ReadOnly = true;
@@ -49,48 +69,45 @@ namespace ACFAParamEditor
                 return;
             }
 
-            //var xmlResFolderPath = $"{Environment.CurrentDirectory}/res/xml/";    // Comment/Uncomment this line to test xml
-            var defResFolderPath = $"{Environment.CurrentDirectory}/res/def/";      // Comment/Uncomment this line to test Def
             var binFolderPath = binFolderPathDialog.FileName;
 
-            // Add data to lists
-            string[] defFiles = Directory.GetFiles(defResFolderPath, "*.def");      // Switch to *.xml to test xml, *.def to test def
-            foreach (string defPath in defFiles)
-            {
-                try
-                {
-                    defList.Add(PARAMDEF.Read(defPath));                            // Comment/Uncomment this line to test Def
-                    //defList.Add(PARAMDEF.XmlDeserialize(defPath));                // Comment/Uncomment this line to test xml
-                }
-                catch
-                {
-                    Debug.WriteLine($"Failed to parse Paramdef at {defPath}");
-                    //throw;
-                }
-            }
-
-            string[] binFiles = Directory.GetFiles(binFolderPath, "*.*");
             ParamDGV.Rows.Clear();
+            string[] binFiles = Directory.GetFiles(binFolderPath, "*.*");
             foreach (string binPath in binFiles)
             {
                 try
-                { 
-                    var param = new ParamWrapper()
-                    {
-                        ParamName = Path.GetFileNameWithoutExtension(binPath),
-                        Param = PARAM.Read(binPath)
-                    };
-
-                    param.Param.ApplyParamdefCarefully(defList);
-                    object[] newParamRow = {param, $"{param.Param.ParamType}" };
-                    ParamDGV.Rows.Add(newParamRow);
-                }
-                catch
                 {
-                    TSSLParamReading.Text = $"Failed to parse Param at {binPath}";
-                    Debug.WriteLine($"Failed to parse Param at {binPath}");
-                    //throw;
+                    try
+                    {
+                        var param = new ParamWrapper()
+                        {
+                            ParamName = Path.GetFileNameWithoutExtension(binPath),
+                            Param = PARAM.Read(binPath)
+                        };
+
+                        var applyDef = param.Param.ApplyParamdefCarefully(defList);
+                        if (applyDef == true)
+                        {
+                            object[] newParamRow = { param, $"{param.Param.ParamType}" };
+                            ParamDGV.Rows.Add(newParamRow);
+                        }
+                    }
+                    catch (EndOfStreamException EOSe)
+                    {
+                        string description = $"Failed to parse Param at {binPath},";
+                        TSSLParamReading.Text = $"DEBUG: {description}, see parameditor.log";
+                        Debug.WriteLine($"{description}");
+                        Logger.LogExceptionWithDate(EOSe, description);
+                    }
                 }
+                catch (InvalidDataException IDEx)
+                {
+                    string description = $"Failed to parse Param at {binPath}";
+                    TSSLParamReading.Text = $"DEBUG: {description}, see parameditor.log";
+                    Debug.WriteLine($"{description}");
+                    Logger.LogExceptionWithDate(IDEx, description);
+                }
+
             }
 
             
@@ -98,8 +115,6 @@ namespace ACFAParamEditor
 
         private void ParamDGV_SelectionChanged(object sender, EventArgs e)
         {
-            TSSLParamReading.Text = "";
-            TSSLCellReading.Text = "";
             RowDGV.Rows.Clear();
             CellDGV.Rows.Clear();    
             var selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
@@ -118,8 +133,6 @@ namespace ACFAParamEditor
 
         private void RowDGV_SelectionChanged(object sender, EventArgs e)
         {
-            TSSLParamReading.Text = "";
-            TSSLCellReading.Text = "";
             CellDGV.Rows.Clear();
             var selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
             if (selectedRow.Row.Cells != null)
@@ -132,7 +145,9 @@ namespace ACFAParamEditor
             }
             else 
             {
+                ReaderStatusStrip.Items.Clear();
                 TSSLCellReading.Text = $"Row {selectedRow.Row.ID} in {ParamDGV.CurrentRow.Cells[0].Value} has Null Cells";
+                Logger.LogErrorWithDate(TSSLCellReading.Text);
                 return;
             }        
         }
@@ -157,7 +172,6 @@ namespace ACFAParamEditor
                 return;
             }
 
-            var defResFolderPath = $"{Environment.CurrentDirectory}/res/def/";
             var defUserFolderPath = defFolderPathDialog.FileName;
 
             string[] defFiles = Directory.GetFiles(defUserFolderPath, "*.*");
@@ -170,12 +184,15 @@ namespace ACFAParamEditor
                     {
                         field.InternalName = field.DisplayName;
                     }
-                    paramdef.XmlSerialize($"{defResFolderPath}/{Path.GetFileNameWithoutExtension(defPath)}.xml");
+                    paramdef.XmlSerialize($"{Util.resFolderPath}/xml/{Path.GetFileNameWithoutExtension(defPath)}.xml");
                 }
-                catch
+                catch(InvalidDataException IDEx)
                 {
-                    Debug.WriteLine($"Failed to parse Paramdef at {defPath}");
-                    throw;
+                    ReaderStatusStrip.Items.Clear();
+                    string description = $"Failed to parse Paramdef at {defPath}";
+                    TSSLDefReading.Text = $"DEBUG: {description}, see parameditor.log";
+                    Debug.WriteLine($"{description}");
+                    Logger.LogExceptionWithDate(IDEx, description);
                 }
             }
         }
