@@ -113,9 +113,6 @@
     <Content Include="res\def\AaParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="res\def\AcActRestrictionParam.def">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <Content Include="res\def\ACAIParam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
