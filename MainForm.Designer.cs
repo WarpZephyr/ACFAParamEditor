@@ -160,7 +160,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.RowDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.RowDGV.Size = new System.Drawing.Size(370, 618);
+            this.RowDGV.Size = new System.Drawing.Size(370, 606);
             this.RowDGV.TabIndex = 1;
             this.RowDGV.SelectionChanged += new System.EventHandler(this.RowDGV_SelectionChanged);
             // 
@@ -203,7 +203,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ParamDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.ParamDGV.Size = new System.Drawing.Size(370, 618);
+            this.ParamDGV.Size = new System.Drawing.Size(370, 606);
             this.ParamDGV.TabIndex = 0;
             this.ParamDGV.SelectionChanged += new System.EventHandler(this.ParamDGV_SelectionChanged);
             // 
@@ -246,13 +246,13 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.CellDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.CellDGV.Size = new System.Drawing.Size(370, 618);
+            this.CellDGV.Size = new System.Drawing.Size(370, 606);
             this.CellDGV.TabIndex = 2;
             this.CellDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellDGV_CellValueChanged);
             // 
             // SplitContainerA
             // 
-            this.SplitContainerA.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitContainerA.Dock = System.Windows.Forms.DockStyle.Top;
             this.SplitContainerA.ForeColor = System.Drawing.SystemColors.Control;
             this.SplitContainerA.Location = new System.Drawing.Point(0, 33);
             this.SplitContainerA.Name = "SplitContainerA";
@@ -266,7 +266,7 @@
             // 
             this.SplitContainerA.Panel2.Controls.Add(this.SplitContainerB);
             this.SplitContainerA.Panel2.ForeColor = System.Drawing.SystemColors.Control;
-            this.SplitContainerA.Size = new System.Drawing.Size(1118, 618);
+            this.SplitContainerA.Size = new System.Drawing.Size(1118, 606);
             this.SplitContainerA.SplitterDistance = 370;
             this.SplitContainerA.TabIndex = 4;
             // 
@@ -284,7 +284,7 @@
             // SplitContainerB.Panel2
             // 
             this.SplitContainerB.Panel2.Controls.Add(this.CellDGV);
-            this.SplitContainerB.Size = new System.Drawing.Size(744, 618);
+            this.SplitContainerB.Size = new System.Drawing.Size(744, 606);
             this.SplitContainerB.SplitterDistance = 370;
             this.SplitContainerB.TabIndex = 1;
             // 

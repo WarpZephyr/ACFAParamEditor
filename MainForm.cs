@@ -94,7 +94,7 @@ namespace ACFAParamEditor
                     }
                     catch (EndOfStreamException EOSe)
                     {
-                        string description = $"Failed to parse Param at {binPath},";
+                        string description = $"Failed to parse Param at {binPath}";
                         TSSLParamReading.Text = $"DEBUG: {description}, see parameditor.log";
                         Debug.WriteLine($"{description}");
                         Logger.LogExceptionWithDate(EOSe, description);
