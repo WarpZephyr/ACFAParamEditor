@@ -22,7 +22,7 @@ namespace ACFAParamEditor
         {
             using (StreamWriter sw = File.AppendText(Util.paramEditorLog))
             {
-                sw.WriteLine($"{description} on {DateTime.Today}");
+                sw.WriteLine($"{description} on {DateTime.Now}");
                 //sw.WriteLine($"Exception: \"{ex.Message}\", Time: {DateTime.Today}, Description: \"{description}\"");
                 //sw.WriteLine($"Stacktrace: {ex}");
             }
@@ -32,7 +32,7 @@ namespace ACFAParamEditor
         {
             using (StreamWriter sw = File.AppendText(Util.paramEditorLog))
             {
-                sw.WriteLine($"{description} on {DateTime.Today}");
+                sw.WriteLine($"{description} on {DateTime.Now}");
             }
         }
     }

@@ -42,8 +42,15 @@
             this.TopBarPanel = new System.Windows.Forms.Panel();
             this.ConvertParamsTSVBtn = new System.Windows.Forms.Button();
             this.RowDGV = new System.Windows.Forms.DataGridView();
+            this.rowid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rowname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ParamDGV = new System.Windows.Forms.DataGridView();
+            this.paramname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paramtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CellDGV = new System.Windows.Forms.DataGridView();
+            this.celltype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellvalue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SplitContainerA = new System.Windows.Forms.SplitContainer();
             this.SplitContainerB = new System.Windows.Forms.SplitContainer();
             this.ReaderStatusStrip = new System.Windows.Forms.StatusStrip();
@@ -51,13 +58,6 @@
             this.TSSLRowReading = new System.Windows.Forms.ToolStripStatusLabel();
             this.TSSLCellReading = new System.Windows.Forms.ToolStripStatusLabel();
             this.TSSLDefReading = new System.Windows.Forms.ToolStripStatusLabel();
-            this.paramname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paramtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.celltype = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cellname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cellvalue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rowid = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rowname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TopBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RowDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ParamDGV)).BeginInit();
@@ -170,9 +170,21 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.RowDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.RowDGV.Size = new System.Drawing.Size(370, 593);
+            this.RowDGV.Size = new System.Drawing.Size(370, 596);
             this.RowDGV.TabIndex = 1;
             this.RowDGV.SelectionChanged += new System.EventHandler(this.RowDGV_SelectionChanged);
+            // 
+            // rowid
+            // 
+            this.rowid.FillWeight = 48.63222F;
+            this.rowid.HeaderText = "Row ID";
+            this.rowid.Name = "rowid";
+            // 
+            // rowname
+            // 
+            this.rowname.FillWeight = 151.3678F;
+            this.rowname.HeaderText = "Row Name";
+            this.rowname.Name = "rowname";
             // 
             // ParamDGV
             // 
@@ -216,9 +228,21 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ParamDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.ParamDGV.Size = new System.Drawing.Size(370, 593);
+            this.ParamDGV.Size = new System.Drawing.Size(370, 596);
             this.ParamDGV.TabIndex = 0;
             this.ParamDGV.SelectionChanged += new System.EventHandler(this.ParamDGV_SelectionChanged);
+            // 
+            // paramname
+            // 
+            this.paramname.HeaderText = "Param Name";
+            this.paramname.Name = "paramname";
+            this.paramname.ReadOnly = true;
+            // 
+            // paramtype
+            // 
+            this.paramtype.HeaderText = "Param Type";
+            this.paramtype.Name = "paramtype";
+            this.paramtype.ReadOnly = true;
             // 
             // CellDGV
             // 
@@ -263,13 +287,30 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.CellDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.CellDGV.Size = new System.Drawing.Size(370, 593);
+            this.CellDGV.Size = new System.Drawing.Size(370, 596);
             this.CellDGV.TabIndex = 2;
             this.CellDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellDGV_CellValueChanged);
             // 
+            // celltype
+            // 
+            this.celltype.HeaderText = "Cell Type";
+            this.celltype.Name = "celltype";
+            this.celltype.ReadOnly = true;
+            // 
+            // cellname
+            // 
+            this.cellname.HeaderText = "Cell Name";
+            this.cellname.Name = "cellname";
+            this.cellname.ReadOnly = true;
+            // 
+            // cellvalue
+            // 
+            this.cellvalue.HeaderText = "Cell Value";
+            this.cellvalue.Name = "cellvalue";
+            // 
             // SplitContainerA
             // 
-            this.SplitContainerA.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SplitContainerA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SplitContainerA.ForeColor = System.Drawing.SystemColors.Control;
             this.SplitContainerA.Location = new System.Drawing.Point(0, 33);
             this.SplitContainerA.Name = "SplitContainerA";
@@ -283,7 +324,7 @@
             // 
             this.SplitContainerA.Panel2.Controls.Add(this.SplitContainerB);
             this.SplitContainerA.Panel2.ForeColor = System.Drawing.SystemColors.Control;
-            this.SplitContainerA.Size = new System.Drawing.Size(1118, 593);
+            this.SplitContainerA.Size = new System.Drawing.Size(1118, 596);
             this.SplitContainerA.SplitterDistance = 370;
             this.SplitContainerA.TabIndex = 4;
             // 
@@ -301,7 +342,7 @@
             // SplitContainerB.Panel2
             // 
             this.SplitContainerB.Panel2.Controls.Add(this.CellDGV);
-            this.SplitContainerB.Size = new System.Drawing.Size(744, 593);
+            this.SplitContainerB.Size = new System.Drawing.Size(744, 596);
             this.SplitContainerB.SplitterDistance = 370;
             this.SplitContainerB.TabIndex = 1;
             // 
@@ -342,56 +383,15 @@
             this.TSSLDefReading.Name = "TSSLDefReading";
             this.TSSLDefReading.Size = new System.Drawing.Size(0, 17);
             // 
-            // paramname
-            // 
-            this.paramname.HeaderText = "Param Name";
-            this.paramname.Name = "paramname";
-            this.paramname.ReadOnly = true;
-            // 
-            // paramtype
-            // 
-            this.paramtype.HeaderText = "Param Type";
-            this.paramtype.Name = "paramtype";
-            this.paramtype.ReadOnly = true;
-            // 
-            // celltype
-            // 
-            this.celltype.HeaderText = "Cell Type";
-            this.celltype.Name = "celltype";
-            this.celltype.ReadOnly = true;
-            // 
-            // cellname
-            // 
-            this.cellname.HeaderText = "Cell Name";
-            this.cellname.Name = "cellname";
-            this.cellname.ReadOnly = true;
-            // 
-            // cellvalue
-            // 
-            this.cellvalue.HeaderText = "Cell Value";
-            this.cellvalue.Name = "cellvalue";
-            // 
-            // rowid
-            // 
-            this.rowid.FillWeight = 48.63222F;
-            this.rowid.HeaderText = "Row ID";
-            this.rowid.Name = "rowid";
-            // 
-            // rowname
-            // 
-            this.rowname.FillWeight = 151.3678F;
-            this.rowname.HeaderText = "Row Name";
-            this.rowname.Name = "rowname";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1118, 651);
-            this.Controls.Add(this.ReaderStatusStrip);
             this.Controls.Add(this.SplitContainerA);
             this.Controls.Add(this.TopBarPanel);
+            this.Controls.Add(this.ReaderStatusStrip);
             this.Name = "MainForm";
             this.Text = "Armored Core For Answer Param Editor";
             this.Load += new System.EventHandler(this.MainForm_Load);
