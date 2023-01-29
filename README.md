@@ -8,4 +8,4 @@ Currently if you want to build the project you should clone it with this command
 ```
 git clone --recurse-submodules https://github.com/WarpZephyr/ACFAParamEditor.git  
 ```
-Then build it in visual studio  
+Then build it in visual studio
