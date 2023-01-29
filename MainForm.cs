@@ -39,18 +39,6 @@ namespace ACFAParamEditor
                     Logger.LogExceptionWithDate(IDEx, description);
                 }
             }
-
-            ParamDGV.Columns.Add("paramname", "Param Name");
-            ParamDGV.Columns.Add("paramtype", "Param Type");
-            ParamDGV.Columns[0].ReadOnly = true;
-            ParamDGV.Columns[1].ReadOnly = true;
-            RowDGV.Columns.Add("rowid", "Row ID");
-            RowDGV.Columns.Add("name", "Name");
-            CellDGV.Columns.Add("celltype", "Cell Type");
-            CellDGV.Columns.Add("name", "Name");
-            CellDGV.Columns[0].ReadOnly = true;
-            CellDGV.Columns[1].ReadOnly = true;
-            CellDGV.Columns.Add("value", "Value");
         }
 
         // When Edit Params button is pressed

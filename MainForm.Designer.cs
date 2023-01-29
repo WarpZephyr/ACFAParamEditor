@@ -51,6 +51,13 @@
             this.TSSLRowReading = new System.Windows.Forms.ToolStripStatusLabel();
             this.TSSLCellReading = new System.Windows.Forms.ToolStripStatusLabel();
             this.TSSLDefReading = new System.Windows.Forms.ToolStripStatusLabel();
+            this.paramname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.paramtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.celltype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cellvalue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rowid = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rowname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TopBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RowDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ParamDGV)).BeginInit();
@@ -140,6 +147,9 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.RowDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.RowDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.RowDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.rowid,
+            this.rowname});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -160,7 +170,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.RowDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.RowDGV.Size = new System.Drawing.Size(370, 606);
+            this.RowDGV.Size = new System.Drawing.Size(370, 593);
             this.RowDGV.TabIndex = 1;
             this.RowDGV.SelectionChanged += new System.EventHandler(this.RowDGV_SelectionChanged);
             // 
@@ -183,6 +193,9 @@
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ParamDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.ParamDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ParamDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.paramname,
+            this.paramtype});
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -203,7 +216,7 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.ParamDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.ParamDGV.Size = new System.Drawing.Size(370, 606);
+            this.ParamDGV.Size = new System.Drawing.Size(370, 593);
             this.ParamDGV.TabIndex = 0;
             this.ParamDGV.SelectionChanged += new System.EventHandler(this.ParamDGV_SelectionChanged);
             // 
@@ -226,6 +239,10 @@
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.CellDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.CellDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CellDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.celltype,
+            this.cellname,
+            this.cellvalue});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -246,7 +263,7 @@
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.CellDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.CellDGV.Size = new System.Drawing.Size(370, 606);
+            this.CellDGV.Size = new System.Drawing.Size(370, 593);
             this.CellDGV.TabIndex = 2;
             this.CellDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellDGV_CellValueChanged);
             // 
@@ -266,7 +283,7 @@
             // 
             this.SplitContainerA.Panel2.Controls.Add(this.SplitContainerB);
             this.SplitContainerA.Panel2.ForeColor = System.Drawing.SystemColors.Control;
-            this.SplitContainerA.Size = new System.Drawing.Size(1118, 606);
+            this.SplitContainerA.Size = new System.Drawing.Size(1118, 593);
             this.SplitContainerA.SplitterDistance = 370;
             this.SplitContainerA.TabIndex = 4;
             // 
@@ -284,7 +301,7 @@
             // SplitContainerB.Panel2
             // 
             this.SplitContainerB.Panel2.Controls.Add(this.CellDGV);
-            this.SplitContainerB.Size = new System.Drawing.Size(744, 606);
+            this.SplitContainerB.Size = new System.Drawing.Size(744, 593);
             this.SplitContainerB.SplitterDistance = 370;
             this.SplitContainerB.TabIndex = 1;
             // 
@@ -324,6 +341,47 @@
             this.TSSLDefReading.ForeColor = System.Drawing.SystemColors.Control;
             this.TSSLDefReading.Name = "TSSLDefReading";
             this.TSSLDefReading.Size = new System.Drawing.Size(0, 17);
+            // 
+            // paramname
+            // 
+            this.paramname.HeaderText = "Param Name";
+            this.paramname.Name = "paramname";
+            this.paramname.ReadOnly = true;
+            // 
+            // paramtype
+            // 
+            this.paramtype.HeaderText = "Param Type";
+            this.paramtype.Name = "paramtype";
+            this.paramtype.ReadOnly = true;
+            // 
+            // celltype
+            // 
+            this.celltype.HeaderText = "Cell Type";
+            this.celltype.Name = "celltype";
+            this.celltype.ReadOnly = true;
+            // 
+            // cellname
+            // 
+            this.cellname.HeaderText = "Cell Name";
+            this.cellname.Name = "cellname";
+            this.cellname.ReadOnly = true;
+            // 
+            // cellvalue
+            // 
+            this.cellvalue.HeaderText = "Cell Value";
+            this.cellvalue.Name = "cellvalue";
+            // 
+            // rowid
+            // 
+            this.rowid.FillWeight = 48.63222F;
+            this.rowid.HeaderText = "Row ID";
+            this.rowid.Name = "rowid";
+            // 
+            // rowname
+            // 
+            this.rowname.FillWeight = 151.3678F;
+            this.rowname.HeaderText = "Row Name";
+            this.rowname.Name = "rowname";
             // 
             // MainForm
             // 
@@ -372,6 +430,13 @@
         private System.Windows.Forms.ToolStripStatusLabel TSSLRowReading;
         private System.Windows.Forms.ToolStripStatusLabel TSSLCellReading;
         private System.Windows.Forms.ToolStripStatusLabel TSSLDefReading;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paramname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paramtype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn celltype;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellname;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cellvalue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rowid;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rowname;
     }
 }
 
