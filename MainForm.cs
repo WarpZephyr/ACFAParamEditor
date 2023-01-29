@@ -69,13 +69,12 @@ namespace ACFAParamEditor
                 }
             }
 
-
-
             string[] binFiles = Directory.GetFiles(binFolderPath, "*.*");
+            ParamDGV.Rows.Clear();
             foreach (string binPath in binFiles)
             {
                 try
-                {  
+                { 
                     var param = new ParamWrapper()
                     {
                         ParamName = Path.GetFileNameWithoutExtension(binPath),
@@ -88,12 +87,59 @@ namespace ACFAParamEditor
                 }
                 catch
                 {
+                    TSSLParamReading.Text = $"Failed to parse Param at {binPath}";
                     Debug.WriteLine($"Failed to parse Param at {binPath}");
                     //throw;
                 }
             }
 
             
+        }
+
+        private void ParamDGV_SelectionChanged(object sender, EventArgs e)
+        {
+            TSSLParamReading.Text = "";
+            TSSLCellReading.Text = "";
+            RowDGV.Rows.Clear();
+            CellDGV.Rows.Clear();    
+            var selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
+
+            foreach (var row in selectedParam.Param.Rows)
+            {
+                var rowWrapper = new RowWrapper()
+                {      
+                    Row = row
+                };
+
+                object[] newRow = {rowWrapper.Row.ID, rowWrapper};
+                RowDGV.Rows.Add(newRow);
+            }
+        }
+
+        private void RowDGV_SelectionChanged(object sender, EventArgs e)
+        {
+            TSSLParamReading.Text = "";
+            TSSLCellReading.Text = "";
+            CellDGV.Rows.Clear();
+            var selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
+            if (selectedRow.Row.Cells != null)
+            {
+                foreach (var cell in selectedRow.Row.Cells)
+                {
+                    string[] newCellRow = { $"{cell.Def.DisplayType}", $"{cell.Def.DisplayName}", $"{cell.Value}" };
+                    CellDGV.Rows.Add(newCellRow);
+                }
+            }
+            else 
+            {
+                TSSLCellReading.Text = $"Row {selectedRow.Row.ID} in {ParamDGV.CurrentRow.Cells[0].Value} has Null Cells";
+                return;
+            }        
+        }
+
+        private void CellDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void ConvertDefsBtn_Click(object sender, EventArgs e)
@@ -135,40 +181,6 @@ namespace ACFAParamEditor
         }
 
         private void ConvertParamsTSVBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ParamDGV_SelectionChanged(object sender, EventArgs e)
-        {
-            RowDGV.Rows.Clear();
-            CellDGV.Rows.Clear();
-            var selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
-
-            foreach (var row in selectedParam.Param.Rows)
-            {
-                var rowWrapper = new RowWrapper()
-                {      
-                    Row = row
-                };
-
-                object[] newRow = {rowWrapper.Row.ID, rowWrapper};
-                RowDGV.Rows.Add(newRow);
-            }
-        }
-
-        private void RowDGV_SelectionChanged(object sender, EventArgs e)
-        {
-            CellDGV.Rows.Clear();
-            var selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-            foreach (var cell in selectedRow.Row.Cells)
-            {
-                string[] newCellRow = { $"{cell.Def.DisplayType}", $"{cell.Def.DisplayName}", $"{cell.Value}" };
-                CellDGV.Rows.Add(newCellRow);
-            }
-        }
-
-        private void CellDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
 
         }
