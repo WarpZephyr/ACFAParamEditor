@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
@@ -13,16 +14,21 @@ namespace ACFAParamEditor
     {
         // Initialize global def list
         private List<PARAMDEF> defList = new List<PARAMDEF>();
+        private bool AllowRowExecute = false;
+        private bool AllowCellExecute = false;
         public MainForm()
         {
             InitializeComponent();
             // Use override to change colors of selected Menu Strip items to dark mode and disable shadows
-            MainFormMenuStrip.Renderer = new ToolStripProfessionalRenderer(new OverrideMenuStripSelectedColorTable());
-            // TODO: Fix random location changing when shadow is disabled
-            //FileMS.DropDown.DropShadowEnabled= false;
+            MainFormMenuStrip.Renderer = new OverrideToolStripRenderer();
+
+            // Disable Shadows on Dropdowns
+            //FileMS.DropDown.DropShadowEnabled= false; // TODO: Fix random location changing when shadow is disabled
             ExportFMS.DropDown.DropShadowEnabled = false;
             RowMS.DropDown.DropShadowEnabled = false;
             HelpMS.DropDown.DropShadowEnabled = false;
+
+            // Disable image beside menu strip sub items
             ((ToolStripDropDownMenu)FileMS.DropDown).ShowImageMargin = false;
             ((ToolStripDropDownMenu)ExportFMS.DropDown).ShowImageMargin = false;
             ((ToolStripDropDownMenu)RowMS.DropDown).ShowImageMargin = false;
@@ -35,8 +41,8 @@ namespace ACFAParamEditor
             Logger.createLog();
             Directory.CreateDirectory($"{Util.resFolderPath}/def/");
 
-            
-
+            AllowRowExecute = true;
+            AllowCellExecute = true;
             // Create def list on form load
             string[] defFiles = Directory.GetFiles($"{Util.resFolderPath}/def/", "*.def");      // Switch xml/def to test either
             foreach (string defPath in defFiles)
@@ -128,7 +134,11 @@ namespace ACFAParamEditor
         // TODO: Save the user's changes to params when they press save
         private void SaveFMS_Click(object sender, EventArgs e)
         {
-
+            var selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
+            foreach (var cell in selectedRow.Row.Cells)
+            {
+                MessageBox.Show($"{cell.Def.DisplayName}");
+            }
         }
 
         // Convert defs to xmls - Does not convert properly yet and leads to more null cells
@@ -247,7 +257,12 @@ namespace ACFAParamEditor
             {
                 foreach (var cell in selectedRow.Row.Cells)
                 {
-                    string[] newCellRow = { $"{cell.Def.DisplayType}", $"{cell.Def.DisplayName}", $"{cell.Value}" };
+                    var cellWrapper = new CellWrapper()
+                    {
+                        Cell = cell
+                    };
+
+                    object[] newCellRow = { cellWrapper.Cell.Def.DisplayType, cellWrapper, cellWrapper.Cell.Value };
                     CellDGV.Rows.Add(newCellRow);
                 }
             }
@@ -260,7 +275,7 @@ namespace ACFAParamEditor
                 return;
             }        
         }
-
+        
         // TODO: Make error messages on status strip disappear when switching cells
         #endregion DataGridViewSelectionChanges
 
@@ -268,13 +283,26 @@ namespace ACFAParamEditor
         // TODO: Save a row's state when the DataGridView cell's value changes
         private void RowDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            if (AllowRowExecute) 
+            {
+                //var cellWrapper = new CellWrapper()
+                //{
+                //    Cell = (PARAM.Cell)CellDGV.CurrentRow.Cells[1].Value
+                //};
 
+                //MessageBox.Show($"{cellWrapper.Cell.Def.DisplayName}");
+            }
         }
 
         // TODO: Save a cell's state when a DataGridView cell's value changes
         private void CellDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (CellDGV.CurrentRow != null)
+            {
+                CellWrapper selectedCell = CellDGV.CurrentRow.Cells[1].Value as CellWrapper;
+                ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
+                selectedParam.Param.Write();
+            }
         }
         #endregion DataGridViewSaveState
 

@@ -53,7 +53,6 @@ namespace ACFAParamEditor
             get { return ColorTranslator.FromHtml("#4B4B4B"); }
         }
 
-        //public override Color 
 
         // Gradient top of unused image that gets turned into a line beside menustrip items
         public override Color ImageMarginGradientBegin
