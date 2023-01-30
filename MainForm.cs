@@ -10,17 +10,25 @@ namespace ACFAParamEditor
 {
     public partial class MainForm : Form
     {
-        
+        // Initialize global def list
         private List<PARAMDEF> defList = new List<PARAMDEF>();
         public MainForm()
         {
             InitializeComponent();
         }
 
-        // On Form Load
+        // On Main Form Load, add the defs to the global def list
         private void MainForm_Load(object sender, EventArgs e)
         {
             Logger.createLog();
+            Directory.CreateDirectory($"{Util.resFolderPath}/def/");
+
+            // Use override to change colors of selected Menu Strip items to dark mode and disable shadows
+            MainFormMenuStrip.Renderer = new ToolStripProfessionalRenderer(new OverrideMenuStripSelectedColorTable());
+            FileMS.DropDown.DropShadowEnabled = false;
+            ConvertMS.DropDown.DropShadowEnabled = false;
+            RowMS.DropDown.DropShadowEnabled = false;
+            HelpMS.DropDown.DropShadowEnabled = false;
 
             // Create def list on form load
             string[] defFiles = Directory.GetFiles($"{Util.resFolderPath}/def/", "*.def");      // Switch xml/def to test either
@@ -39,12 +47,23 @@ namespace ACFAParamEditor
                     Logger.LogExceptionWithDate(IDEx, description);
                 }
             }
+
+            // If the def resource folder is empty for some reason
+            if (defList.Count == 0)
+            {
+                OpenParamsFMS.Enabled = false;
+                string description = "WARNING: No defs found in resource folder";
+                TSSLDefReading.Text = description;
+                Debug.WriteLine(description);
+                Logger.LogErrorWithDate(description);
+            }
         }
 
-        // When Edit Params button is pressed
-        private void EditParamsBtn_click(object sender, EventArgs e)
+        #region MenuItems
+        // Open Params
+        private void OpenParamsFMS_click(object sender, EventArgs e)
         {
-            // Prompt the user for folders containing files
+            // Prompt the user for folders containing param files
             CommonOpenFileDialog binFolderPathDialog = new CommonOpenFileDialog
             {
                 InitialDirectory = "C:\\Users",
@@ -59,6 +78,7 @@ namespace ACFAParamEditor
 
             var binFolderPath = binFolderPathDialog.FileName;
 
+            // Apply defs to params
             ParamDGV.Rows.Clear();
             string[] binFiles = Directory.GetFiles(binFolderPath, "*.*");
             foreach (string binPath in binFiles)
@@ -95,12 +115,99 @@ namespace ACFAParamEditor
                     Debug.WriteLine($"{description}");
                     Logger.LogExceptionWithDate(IDEx, description);
                 }
-
-            }
-
-            
+            }  
         }
 
+        // Save the user's changes to params when they press save
+        private void SaveFMS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Convert defs to xmls - Does not convert properly yet and leads to more null cells
+        private void ConvertDefXmlCMS_Click(object sender, EventArgs e)
+        {
+            Directory.CreateDirectory($"{Util.resFolderPath}/xml/");
+
+            // Prompt the user for folders containing def files to be serialized into Paramdef Xmls
+            CommonOpenFileDialog defFolderPathDialog = new CommonOpenFileDialog
+            {
+                InitialDirectory = "C:\\Users",
+                IsFolderPicker = true,
+                Title = "Select the Folder containing your Defs to convert them into XMLs"
+            };
+
+            if (defFolderPathDialog.ShowDialog() != CommonFileDialogResult.Ok)
+            {
+                return;
+            }
+
+            // Convert defs to xmls
+            var defUserFolderPath = defFolderPathDialog.FileName;
+            string[] defFiles = Directory.GetFiles(defUserFolderPath, "*.*");
+            foreach (string defPath in defFiles)
+            {
+                try
+                {
+                    PARAMDEF paramdef = PARAMDEF.Read(defPath);
+                    paramdef.XmlSerialize($"{Util.resFolderPath}/xml/{Path.GetFileNameWithoutExtension(defPath)}.xml");
+                }
+                catch (InvalidDataException IDEx)
+                {
+                    ReaderStatusStrip.Items.Clear();
+                    string description = $"Failed to serialize file into Paramdef Xml at {defPath}";
+                    TSSLDefReading.Text = $"DEBUG: {description}, see parameditor.log";
+                    Debug.WriteLine($"{description}");
+                    Logger.LogExceptionWithDate(IDEx, description);
+                }
+            }
+        }
+
+        // Convert Params to CSVs - Not yet implemented
+        private void ConvertParamCSVCMS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Convert CSVs to Params - Not yet implemented
+        private void ConvertCSVParamCMS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Convert Params to TSVs - Not yet implemented
+        private void ConvertParamTSVCMS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Convert TSVs to Params - Not yet implemented
+        private void ConvertTSVParamCMS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Copy the currently selected row - Not yet implemented
+        private void CopyRowRMS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Delete the currently selected row - Not yet implemented
+        private void DeleteRowRMS_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        // Show about form message - Not yet implemented
+        private void AboutHMS_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion MenuItems
+
+        #region DataGridViewSelectionChanges
+        // Show newly selected Param's Rows when Param DataGridView selection changes
         private void ParamDGV_SelectionChanged(object sender, EventArgs e)
         {
             RowDGV.Rows.Clear();
@@ -119,6 +226,7 @@ namespace ACFAParamEditor
             }
         }
 
+        // Show newly selected Row's Cells when Row DataGridView selection changes
         private void RowDGV_SelectionChanged(object sender, EventArgs e)
         {
             CellDGV.Rows.Clear();
@@ -134,60 +242,34 @@ namespace ACFAParamEditor
             else 
             {
                 ReaderStatusStrip.Items.Clear();
-                TSSLCellReading.Text = $"Row {selectedRow.Row.ID} in {ParamDGV.CurrentRow.Cells[0].Value} has Null Cells";
-                Logger.LogErrorWithDate(TSSLCellReading.Text);
+                string description = $"Row {selectedRow.Row.ID} in {ParamDGV.CurrentRow.Cells[0].Value} has Null Cells";
+                TSSLCellReading.Text = description;
+                Logger.LogErrorWithDate(description);
                 return;
             }        
         }
+        #endregion DataGridViewSelectionChanges
 
+        #region DataGridViewSaveState
+        // Save a cell's state when a DataGridView cell's value changes
         private void CellDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
 
         }
+        #endregion DataGridViewSaveState
 
-        private void ConvertDefsBtn_Click(object sender, EventArgs e)
+        // When someone attempts to drag a file into the window's Param viewing area - Not yet implemented
+        private void SplitContainerA_DragEnter(object sender, DragEventArgs e)
         {
-            // Prompt the user for folders containing files
-            CommonOpenFileDialog defFolderPathDialog = new CommonOpenFileDialog
-            {
-                InitialDirectory = "C:\\Users",
-                IsFolderPicker = true,
-                Title = "Select the Folder containing your Defs to convert them into XMLs"
-            };
-
-            if (defFolderPathDialog.ShowDialog() != CommonFileDialogResult.Ok)
-            {
-                return;
-            }
-
-            var defUserFolderPath = defFolderPathDialog.FileName;
-
-            string[] defFiles = Directory.GetFiles(defUserFolderPath, "*.*");
-            foreach (string defPath in defFiles)
-            {
-                try
-                {
-                    var paramdef = PARAMDEF.Read(defPath);
-                    foreach (var field in paramdef.Fields)
-                    {
-                        field.InternalName = field.DisplayName;
-                    }
-                    paramdef.XmlSerialize($"{Util.resFolderPath}/xml/{Path.GetFileNameWithoutExtension(defPath)}.xml");
-                }
-                catch(InvalidDataException IDEx)
-                {
-                    ReaderStatusStrip.Items.Clear();
-                    string description = $"Failed to parse Paramdef at {defPath}";
-                    TSSLDefReading.Text = $"DEBUG: {description}, see parameditor.log";
-                    Debug.WriteLine($"{description}");
-                    Logger.LogExceptionWithDate(IDEx, description);
-                }
-            }
+            //if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
         }
 
-        private void ConvertParamsTSVBtn_Click(object sender, EventArgs e)
+        // Check the dropped item - Not yet implemented
+        private void SplitContainerA_DragDrop(object sender, DragEventArgs e)
         {
 
         }
+
+        
     }
 }

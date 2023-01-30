@@ -28,19 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.EditParamsBtn = new System.Windows.Forms.Button();
-            this.ConvertDefsBtn = new System.Windows.Forms.Button();
-            this.TopBarPanel = new System.Windows.Forms.Panel();
-            this.ConvertParamsTSVBtn = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             this.RowDGV = new System.Windows.Forms.DataGridView();
             this.rowid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rowname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +54,21 @@
             this.TSSLRowReading = new System.Windows.Forms.ToolStripStatusLabel();
             this.TSSLCellReading = new System.Windows.Forms.ToolStripStatusLabel();
             this.TSSLDefReading = new System.Windows.Forms.ToolStripStatusLabel();
-            this.TopBarPanel.SuspendLayout();
+            this.MainFormMenuStrip = new System.Windows.Forms.MenuStrip();
+            this.FileMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConvertMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenParamsFMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.SaveFMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConvertDefXmlCMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConvertParamTSVCMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConvertTSVParamCMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConvertParamCSVCMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConvertCSVParamCMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.RowMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteRowRMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutHMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.CopyRowRMS = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.RowDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ParamDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CellDGV)).BeginInit();
@@ -71,62 +81,8 @@
             this.SplitContainerB.Panel2.SuspendLayout();
             this.SplitContainerB.SuspendLayout();
             this.ReaderStatusStrip.SuspendLayout();
+            this.MainFormMenuStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // EditParamsBtn
-            // 
-            this.EditParamsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.EditParamsBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.EditParamsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditParamsBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.EditParamsBtn.Location = new System.Drawing.Point(13, 5);
-            this.EditParamsBtn.Name = "EditParamsBtn";
-            this.EditParamsBtn.Size = new System.Drawing.Size(75, 23);
-            this.EditParamsBtn.TabIndex = 0;
-            this.EditParamsBtn.Text = "Edit Params";
-            this.EditParamsBtn.UseVisualStyleBackColor = false;
-            this.EditParamsBtn.Click += new System.EventHandler(this.EditParamsBtn_click);
-            // 
-            // ConvertDefsBtn
-            // 
-            this.ConvertDefsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.ConvertDefsBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.ConvertDefsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConvertDefsBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.ConvertDefsBtn.Location = new System.Drawing.Point(94, 5);
-            this.ConvertDefsBtn.Name = "ConvertDefsBtn";
-            this.ConvertDefsBtn.Size = new System.Drawing.Size(90, 23);
-            this.ConvertDefsBtn.TabIndex = 2;
-            this.ConvertDefsBtn.Text = "Convert Defs";
-            this.ConvertDefsBtn.UseVisualStyleBackColor = false;
-            this.ConvertDefsBtn.Click += new System.EventHandler(this.ConvertDefsBtn_Click);
-            // 
-            // TopBarPanel
-            // 
-            this.TopBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.TopBarPanel.Controls.Add(this.ConvertParamsTSVBtn);
-            this.TopBarPanel.Controls.Add(this.ConvertDefsBtn);
-            this.TopBarPanel.Controls.Add(this.EditParamsBtn);
-            this.TopBarPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TopBarPanel.ForeColor = System.Drawing.SystemColors.Control;
-            this.TopBarPanel.Location = new System.Drawing.Point(0, 0);
-            this.TopBarPanel.Name = "TopBarPanel";
-            this.TopBarPanel.Size = new System.Drawing.Size(1118, 33);
-            this.TopBarPanel.TabIndex = 3;
-            // 
-            // ConvertParamsTSVBtn
-            // 
-            this.ConvertParamsTSVBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(65)))), ((int)(((byte)(65)))));
-            this.ConvertParamsTSVBtn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.ConvertParamsTSVBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ConvertParamsTSVBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.ConvertParamsTSVBtn.Location = new System.Drawing.Point(190, 5);
-            this.ConvertParamsTSVBtn.Name = "ConvertParamsTSVBtn";
-            this.ConvertParamsTSVBtn.Size = new System.Drawing.Size(134, 23);
-            this.ConvertParamsTSVBtn.TabIndex = 3;
-            this.ConvertParamsTSVBtn.Text = "Convert Params to TSV";
-            this.ConvertParamsTSVBtn.UseVisualStyleBackColor = false;
-            this.ConvertParamsTSVBtn.Click += new System.EventHandler(this.ConvertParamsTSVBtn_Click);
             // 
             // RowDGV
             // 
@@ -137,40 +93,40 @@
             this.RowDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.RowDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RowDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.NullValue = "null";
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RowDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.NullValue = "null";
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RowDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.RowDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RowDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.rowid,
             this.rowname});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.NullValue = "null";
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RowDGV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.NullValue = "null";
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.RowDGV.DefaultCellStyle = dataGridViewCellStyle20;
             this.RowDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RowDGV.Location = new System.Drawing.Point(0, 0);
             this.RowDGV.Name = "RowDGV";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RowDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.RowDGV.Size = new System.Drawing.Size(370, 596);
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.RowDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.RowDGV.Size = new System.Drawing.Size(370, 605);
             this.RowDGV.TabIndex = 1;
             this.RowDGV.SelectionChanged += new System.EventHandler(this.RowDGV_SelectionChanged);
             // 
@@ -195,40 +151,40 @@
             this.ParamDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.ParamDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.ParamDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.NullValue = "null";
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ParamDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle22.NullValue = "null";
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ParamDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.ParamDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ParamDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.paramname,
             this.paramtype});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.NullValue = "null";
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ParamDGV.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.NullValue = "null";
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.ParamDGV.DefaultCellStyle = dataGridViewCellStyle23;
             this.ParamDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ParamDGV.Location = new System.Drawing.Point(0, 0);
             this.ParamDGV.Name = "ParamDGV";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ParamDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.ParamDGV.Size = new System.Drawing.Size(370, 596);
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ParamDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            this.ParamDGV.Size = new System.Drawing.Size(370, 605);
             this.ParamDGV.TabIndex = 0;
             this.ParamDGV.SelectionChanged += new System.EventHandler(this.ParamDGV_SelectionChanged);
             // 
@@ -253,41 +209,41 @@
             this.CellDGV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.CellDGV.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CellDGV.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.NullValue = "null";
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CellDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.NullValue = "null";
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CellDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.CellDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CellDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.celltype,
             this.cellname,
             this.cellvalue});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.NullValue = "null";
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.CellDGV.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle26.NullValue = "null";
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CellDGV.DefaultCellStyle = dataGridViewCellStyle26;
             this.CellDGV.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CellDGV.Location = new System.Drawing.Point(0, 0);
             this.CellDGV.Name = "CellDGV";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.CellDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.CellDGV.Size = new System.Drawing.Size(370, 596);
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CellDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            this.CellDGV.Size = new System.Drawing.Size(370, 605);
             this.CellDGV.TabIndex = 2;
             this.CellDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellDGV_CellValueChanged);
             // 
@@ -312,7 +268,7 @@
             // 
             this.SplitContainerA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SplitContainerA.ForeColor = System.Drawing.SystemColors.Control;
-            this.SplitContainerA.Location = new System.Drawing.Point(0, 33);
+            this.SplitContainerA.Location = new System.Drawing.Point(0, 24);
             this.SplitContainerA.Name = "SplitContainerA";
             // 
             // SplitContainerA.Panel1
@@ -324,7 +280,7 @@
             // 
             this.SplitContainerA.Panel2.Controls.Add(this.SplitContainerB);
             this.SplitContainerA.Panel2.ForeColor = System.Drawing.SystemColors.Control;
-            this.SplitContainerA.Size = new System.Drawing.Size(1118, 596);
+            this.SplitContainerA.Size = new System.Drawing.Size(1118, 605);
             this.SplitContainerA.SplitterDistance = 370;
             this.SplitContainerA.TabIndex = 4;
             // 
@@ -342,7 +298,7 @@
             // SplitContainerB.Panel2
             // 
             this.SplitContainerB.Panel2.Controls.Add(this.CellDGV);
-            this.SplitContainerB.Size = new System.Drawing.Size(744, 596);
+            this.SplitContainerB.Size = new System.Drawing.Size(744, 605);
             this.SplitContainerB.SplitterDistance = 370;
             this.SplitContainerB.TabIndex = 1;
             // 
@@ -383,6 +339,165 @@
             this.TSSLDefReading.Name = "TSSLDefReading";
             this.TSSLDefReading.Size = new System.Drawing.Size(0, 17);
             // 
+            // MainFormMenuStrip
+            // 
+            this.MainFormMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.MainFormMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileMS,
+            this.ConvertMS,
+            this.RowMS,
+            this.HelpMS});
+            this.MainFormMenuStrip.Location = new System.Drawing.Point(0, 0);
+            this.MainFormMenuStrip.Name = "MainFormMenuStrip";
+            this.MainFormMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.MainFormMenuStrip.Size = new System.Drawing.Size(1118, 24);
+            this.MainFormMenuStrip.TabIndex = 1;
+            this.MainFormMenuStrip.Text = "MainFormMenuStrip";
+            // 
+            // FileMS
+            // 
+            this.FileMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.FileMS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.OpenParamsFMS,
+            this.SaveFMS});
+            this.FileMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.FileMS.Name = "FileMS";
+            this.FileMS.Size = new System.Drawing.Size(37, 20);
+            this.FileMS.Text = "File";
+            // 
+            // ConvertMS
+            // 
+            this.ConvertMS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ConvertDefXmlCMS,
+            this.ConvertParamCSVCMS,
+            this.ConvertCSVParamCMS,
+            this.ConvertParamTSVCMS,
+            this.ConvertTSVParamCMS});
+            this.ConvertMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.ConvertMS.Name = "ConvertMS";
+            this.ConvertMS.Size = new System.Drawing.Size(61, 20);
+            this.ConvertMS.Text = "Convert";
+            // 
+            // HelpMS
+            // 
+            this.HelpMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.HelpMS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AboutHMS});
+            this.HelpMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.HelpMS.Name = "HelpMS";
+            this.HelpMS.Size = new System.Drawing.Size(44, 20);
+            this.HelpMS.Text = "Help";
+            // 
+            // OpenParamsFMS
+            // 
+            this.OpenParamsFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.OpenParamsFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.OpenParamsFMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.OpenParamsFMS.Name = "OpenParamsFMS";
+            this.OpenParamsFMS.Size = new System.Drawing.Size(180, 22);
+            this.OpenParamsFMS.Text = "Open Params";
+            this.OpenParamsFMS.Click += new System.EventHandler(this.OpenParamsFMS_click);
+            // 
+            // SaveFMS
+            // 
+            this.SaveFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.SaveFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SaveFMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.SaveFMS.Name = "SaveFMS";
+            this.SaveFMS.Size = new System.Drawing.Size(180, 22);
+            this.SaveFMS.Text = "Save";
+            this.SaveFMS.Click += new System.EventHandler(this.SaveFMS_Click);
+            // 
+            // ConvertDefXmlCMS
+            // 
+            this.ConvertDefXmlCMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ConvertDefXmlCMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ConvertDefXmlCMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.ConvertDefXmlCMS.Name = "ConvertDefXmlCMS";
+            this.ConvertDefXmlCMS.Size = new System.Drawing.Size(206, 22);
+            this.ConvertDefXmlCMS.Text = "Convert Defs to Xml Defs";
+            this.ConvertDefXmlCMS.Click += new System.EventHandler(this.ConvertDefXmlCMS_Click);
+            // 
+            // ConvertParamTSVCMS
+            // 
+            this.ConvertParamTSVCMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ConvertParamTSVCMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ConvertParamTSVCMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.ConvertParamTSVCMS.Name = "ConvertParamTSVCMS";
+            this.ConvertParamTSVCMS.Size = new System.Drawing.Size(206, 22);
+            this.ConvertParamTSVCMS.Text = "Convert Params to TSV";
+            this.ConvertParamTSVCMS.Click += new System.EventHandler(this.ConvertParamTSVCMS_Click);
+            // 
+            // ConvertTSVParamCMS
+            // 
+            this.ConvertTSVParamCMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ConvertTSVParamCMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ConvertTSVParamCMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.ConvertTSVParamCMS.Name = "ConvertTSVParamCMS";
+            this.ConvertTSVParamCMS.Size = new System.Drawing.Size(206, 22);
+            this.ConvertTSVParamCMS.Text = "Convert TSV to Params";
+            this.ConvertTSVParamCMS.Click += new System.EventHandler(this.ConvertTSVParamCMS_Click);
+            // 
+            // ConvertParamCSVCMS
+            // 
+            this.ConvertParamCSVCMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ConvertParamCSVCMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ConvertParamCSVCMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.ConvertParamCSVCMS.Name = "ConvertParamCSVCMS";
+            this.ConvertParamCSVCMS.Size = new System.Drawing.Size(206, 22);
+            this.ConvertParamCSVCMS.Text = "Convert Params to CSV";
+            this.ConvertParamCSVCMS.Click += new System.EventHandler(this.ConvertParamCSVCMS_Click);
+            // 
+            // ConvertCSVParamCMS
+            // 
+            this.ConvertCSVParamCMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ConvertCSVParamCMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ConvertCSVParamCMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.ConvertCSVParamCMS.Name = "ConvertCSVParamCMS";
+            this.ConvertCSVParamCMS.Size = new System.Drawing.Size(206, 22);
+            this.ConvertCSVParamCMS.Text = "Convert CSV to Params";
+            this.ConvertCSVParamCMS.Click += new System.EventHandler(this.ConvertCSVParamCMS_Click);
+            // 
+            // RowMS
+            // 
+            this.RowMS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CopyRowRMS,
+            this.DeleteRowRMS});
+            this.RowMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.RowMS.Name = "RowMS";
+            this.RowMS.Size = new System.Drawing.Size(47, 20);
+            this.RowMS.Text = "Rows";
+            // 
+            // DeleteRowRMS
+            // 
+            this.DeleteRowRMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.DeleteRowRMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.DeleteRowRMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.DeleteRowRMS.Name = "DeleteRowRMS";
+            this.DeleteRowRMS.Size = new System.Drawing.Size(180, 22);
+            this.DeleteRowRMS.Text = "Delete Row";
+            this.DeleteRowRMS.Click += new System.EventHandler(this.DeleteRowRMS_Click);
+            // 
+            // AboutHMS
+            // 
+            this.AboutHMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.AboutHMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.AboutHMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.AboutHMS.Name = "AboutHMS";
+            this.AboutHMS.Size = new System.Drawing.Size(180, 22);
+            this.AboutHMS.Text = "About";
+            this.AboutHMS.Click += new System.EventHandler(this.AboutHMS_Click);
+            // 
+            // CopyRowRMS
+            // 
+            this.CopyRowRMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.CopyRowRMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.CopyRowRMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.CopyRowRMS.Name = "CopyRowRMS";
+            this.CopyRowRMS.Size = new System.Drawing.Size(180, 22);
+            this.CopyRowRMS.Text = "Copy Row";
+            this.CopyRowRMS.Click += new System.EventHandler(this.CopyRowRMS_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -390,12 +505,12 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ClientSize = new System.Drawing.Size(1118, 651);
             this.Controls.Add(this.SplitContainerA);
-            this.Controls.Add(this.TopBarPanel);
             this.Controls.Add(this.ReaderStatusStrip);
+            this.Controls.Add(this.MainFormMenuStrip);
+            this.MainMenuStrip = this.MainFormMenuStrip;
             this.Name = "MainForm";
             this.Text = "Armored Core For Answer Param Editor";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.TopBarPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.RowDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ParamDGV)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CellDGV)).EndInit();
@@ -409,20 +524,17 @@
             this.SplitContainerB.ResumeLayout(false);
             this.ReaderStatusStrip.ResumeLayout(false);
             this.ReaderStatusStrip.PerformLayout();
+            this.MainFormMenuStrip.ResumeLayout(false);
+            this.MainFormMenuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button EditParamsBtn;
-        private System.Windows.Forms.Button ConvertDefsBtn;
-        private System.Windows.Forms.Panel TopBarPanel;
         private System.Windows.Forms.DataGridView CellDGV;
         private System.Windows.Forms.DataGridView RowDGV;
         private System.Windows.Forms.DataGridView ParamDGV;
-        private System.Windows.Forms.Button ConvertParamsTSVBtn;
         private System.Windows.Forms.SplitContainer SplitContainerA;
         private System.Windows.Forms.SplitContainer SplitContainerB;
         private System.Windows.Forms.StatusStrip ReaderStatusStrip;
@@ -437,6 +549,21 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cellvalue;
         private System.Windows.Forms.DataGridViewTextBoxColumn rowid;
         private System.Windows.Forms.DataGridViewTextBoxColumn rowname;
+        private System.Windows.Forms.MenuStrip MainFormMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem FileMS;
+        private System.Windows.Forms.ToolStripMenuItem OpenParamsFMS;
+        private System.Windows.Forms.ToolStripMenuItem SaveFMS;
+        private System.Windows.Forms.ToolStripMenuItem ConvertMS;
+        private System.Windows.Forms.ToolStripMenuItem ConvertDefXmlCMS;
+        private System.Windows.Forms.ToolStripMenuItem ConvertParamCSVCMS;
+        private System.Windows.Forms.ToolStripMenuItem ConvertCSVParamCMS;
+        private System.Windows.Forms.ToolStripMenuItem ConvertParamTSVCMS;
+        private System.Windows.Forms.ToolStripMenuItem ConvertTSVParamCMS;
+        private System.Windows.Forms.ToolStripMenuItem RowMS;
+        private System.Windows.Forms.ToolStripMenuItem DeleteRowRMS;
+        private System.Windows.Forms.ToolStripMenuItem HelpMS;
+        private System.Windows.Forms.ToolStripMenuItem AboutHMS;
+        private System.Windows.Forms.ToolStripMenuItem CopyRowRMS;
     }
 }
 
