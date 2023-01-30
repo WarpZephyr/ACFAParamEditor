@@ -56,19 +56,20 @@
             this.TSSLDefReading = new System.Windows.Forms.ToolStripStatusLabel();
             this.MainFormMenuStrip = new System.Windows.Forms.MenuStrip();
             this.FileMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.ConvertMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.HelpMS = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenParamsFMS = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveFMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.ConvertDefXmlCMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.ConvertParamTSVCMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.ConvertTSVParamCMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.ConvertParamCSVCMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.ConvertCSVParamCMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileSaveSeparatorMS = new System.Windows.Forms.ToolStripSeparator();
+            this.ExportFMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConvertDefXmlEFMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConvertParamCsvEFMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConvertCsvParamEFMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConvertParamTsvEFMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ConvertTsvParamEFMS = new System.Windows.Forms.ToolStripMenuItem();
             this.RowMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.DeleteRowRMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.AboutHMS = new System.Windows.Forms.ToolStripMenuItem();
             this.CopyRowRMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteRowRMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.HelpMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.AboutHMS = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.RowDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ParamDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CellDGV)).BeginInit();
@@ -345,7 +346,6 @@
             this.MainFormMenuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.MainFormMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.FileMS,
-            this.ConvertMS,
             this.RowMS,
             this.HelpMS});
             this.MainFormMenuStrip.Location = new System.Drawing.Point(0, 0);
@@ -358,41 +358,23 @@
             // FileMS
             // 
             this.FileMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.FileMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.FileMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.FileMS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.OpenParamsFMS,
-            this.SaveFMS});
+            this.SaveFMS,
+            this.FileSaveSeparatorMS,
+            this.ExportFMS});
             this.FileMS.ForeColor = System.Drawing.SystemColors.Control;
             this.FileMS.Name = "FileMS";
             this.FileMS.Size = new System.Drawing.Size(37, 20);
             this.FileMS.Text = "File";
             // 
-            // ConvertMS
-            // 
-            this.ConvertMS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ConvertDefXmlCMS,
-            this.ConvertParamCSVCMS,
-            this.ConvertCSVParamCMS,
-            this.ConvertParamTSVCMS,
-            this.ConvertTSVParamCMS});
-            this.ConvertMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.ConvertMS.Name = "ConvertMS";
-            this.ConvertMS.Size = new System.Drawing.Size(61, 20);
-            this.ConvertMS.Text = "Convert";
-            // 
-            // HelpMS
-            // 
-            this.HelpMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.HelpMS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AboutHMS});
-            this.HelpMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.HelpMS.Name = "HelpMS";
-            this.HelpMS.Size = new System.Drawing.Size(44, 20);
-            this.HelpMS.Text = "Help";
-            // 
             // OpenParamsFMS
             // 
             this.OpenParamsFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.OpenParamsFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.OpenParamsFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.OpenParamsFMS.ForeColor = System.Drawing.SystemColors.Control;
             this.OpenParamsFMS.Name = "OpenParamsFMS";
             this.OpenParamsFMS.Size = new System.Drawing.Size(180, 22);
@@ -403,64 +385,89 @@
             // 
             this.SaveFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.SaveFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.SaveFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.SaveFMS.ForeColor = System.Drawing.SystemColors.Control;
             this.SaveFMS.Name = "SaveFMS";
             this.SaveFMS.Size = new System.Drawing.Size(180, 22);
             this.SaveFMS.Text = "Save";
             this.SaveFMS.Click += new System.EventHandler(this.SaveFMS_Click);
             // 
-            // ConvertDefXmlCMS
+            // FileSaveSeparatorMS
             // 
-            this.ConvertDefXmlCMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.ConvertDefXmlCMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ConvertDefXmlCMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.ConvertDefXmlCMS.Name = "ConvertDefXmlCMS";
-            this.ConvertDefXmlCMS.Size = new System.Drawing.Size(206, 22);
-            this.ConvertDefXmlCMS.Text = "Convert Defs to Xml Defs";
-            this.ConvertDefXmlCMS.Click += new System.EventHandler(this.ConvertDefXmlCMS_Click);
+            this.FileSaveSeparatorMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.FileSaveSeparatorMS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.FileSaveSeparatorMS.Name = "FileSaveSeparatorMS";
+            this.FileSaveSeparatorMS.Size = new System.Drawing.Size(177, 6);
             // 
-            // ConvertParamTSVCMS
+            // ExportFMS
             // 
-            this.ConvertParamTSVCMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.ConvertParamTSVCMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ConvertParamTSVCMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.ConvertParamTSVCMS.Name = "ConvertParamTSVCMS";
-            this.ConvertParamTSVCMS.Size = new System.Drawing.Size(206, 22);
-            this.ConvertParamTSVCMS.Text = "Convert Params to TSV";
-            this.ConvertParamTSVCMS.Click += new System.EventHandler(this.ConvertParamTSVCMS_Click);
+            this.ExportFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ExportFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ExportFMS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ConvertDefXmlEFMS,
+            this.ConvertParamCsvEFMS,
+            this.ConvertCsvParamEFMS,
+            this.ConvertParamTsvEFMS,
+            this.ConvertTsvParamEFMS});
+            this.ExportFMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.ExportFMS.Name = "ExportFMS";
+            this.ExportFMS.Size = new System.Drawing.Size(180, 22);
+            this.ExportFMS.Text = "Export";
             // 
-            // ConvertTSVParamCMS
+            // ConvertDefXmlEFMS
             // 
-            this.ConvertTSVParamCMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.ConvertTSVParamCMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ConvertTSVParamCMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.ConvertTSVParamCMS.Name = "ConvertTSVParamCMS";
-            this.ConvertTSVParamCMS.Size = new System.Drawing.Size(206, 22);
-            this.ConvertTSVParamCMS.Text = "Convert TSV to Params";
-            this.ConvertTSVParamCMS.Click += new System.EventHandler(this.ConvertTSVParamCMS_Click);
+            this.ConvertDefXmlEFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ConvertDefXmlEFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ConvertDefXmlEFMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.ConvertDefXmlEFMS.Name = "ConvertDefXmlEFMS";
+            this.ConvertDefXmlEFMS.Size = new System.Drawing.Size(206, 22);
+            this.ConvertDefXmlEFMS.Text = "Convert Defs to Xml Defs";
+            this.ConvertDefXmlEFMS.Click += new System.EventHandler(this.ConvertDefXmlEFMS_Click);
             // 
-            // ConvertParamCSVCMS
+            // ConvertParamCsvEFMS
             // 
-            this.ConvertParamCSVCMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.ConvertParamCSVCMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ConvertParamCSVCMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.ConvertParamCSVCMS.Name = "ConvertParamCSVCMS";
-            this.ConvertParamCSVCMS.Size = new System.Drawing.Size(206, 22);
-            this.ConvertParamCSVCMS.Text = "Convert Params to CSV";
-            this.ConvertParamCSVCMS.Click += new System.EventHandler(this.ConvertParamCSVCMS_Click);
+            this.ConvertParamCsvEFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ConvertParamCsvEFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ConvertParamCsvEFMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.ConvertParamCsvEFMS.Name = "ConvertParamCsvEFMS";
+            this.ConvertParamCsvEFMS.Size = new System.Drawing.Size(206, 22);
+            this.ConvertParamCsvEFMS.Text = "Convert Params to CSV";
+            this.ConvertParamCsvEFMS.Click += new System.EventHandler(this.ConvertParamCsvEFMS_Click);
             // 
-            // ConvertCSVParamCMS
+            // ConvertCsvParamEFMS
             // 
-            this.ConvertCSVParamCMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.ConvertCSVParamCMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ConvertCSVParamCMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.ConvertCSVParamCMS.Name = "ConvertCSVParamCMS";
-            this.ConvertCSVParamCMS.Size = new System.Drawing.Size(206, 22);
-            this.ConvertCSVParamCMS.Text = "Convert CSV to Params";
-            this.ConvertCSVParamCMS.Click += new System.EventHandler(this.ConvertCSVParamCMS_Click);
+            this.ConvertCsvParamEFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ConvertCsvParamEFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ConvertCsvParamEFMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.ConvertCsvParamEFMS.Name = "ConvertCsvParamEFMS";
+            this.ConvertCsvParamEFMS.Size = new System.Drawing.Size(206, 22);
+            this.ConvertCsvParamEFMS.Text = "Convert CSV to Params";
+            this.ConvertCsvParamEFMS.Click += new System.EventHandler(this.ConvertCsvParamEFMS_Click);
+            // 
+            // ConvertParamTsvEFMS
+            // 
+            this.ConvertParamTsvEFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ConvertParamTsvEFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ConvertParamTsvEFMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.ConvertParamTsvEFMS.Name = "ConvertParamTsvEFMS";
+            this.ConvertParamTsvEFMS.Size = new System.Drawing.Size(206, 22);
+            this.ConvertParamTsvEFMS.Text = "Convert Params to TSV";
+            this.ConvertParamTsvEFMS.Click += new System.EventHandler(this.ConvertParamTsvEFMS_Click);
+            // 
+            // ConvertTsvParamEFMS
+            // 
+            this.ConvertTsvParamEFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ConvertTsvParamEFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ConvertTsvParamEFMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.ConvertTsvParamEFMS.Name = "ConvertTsvParamEFMS";
+            this.ConvertTsvParamEFMS.Size = new System.Drawing.Size(206, 22);
+            this.ConvertTsvParamEFMS.Text = "Convert TSV to Params";
+            this.ConvertTsvParamEFMS.Click += new System.EventHandler(this.ConvertTsvParamEFMS_Click);
             // 
             // RowMS
             // 
+            this.RowMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RowMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.RowMS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CopyRowRMS,
             this.DeleteRowRMS});
@@ -469,35 +476,48 @@
             this.RowMS.Size = new System.Drawing.Size(47, 20);
             this.RowMS.Text = "Rows";
             // 
-            // DeleteRowRMS
-            // 
-            this.DeleteRowRMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.DeleteRowRMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.DeleteRowRMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeleteRowRMS.Name = "DeleteRowRMS";
-            this.DeleteRowRMS.Size = new System.Drawing.Size(180, 22);
-            this.DeleteRowRMS.Text = "Delete Row";
-            this.DeleteRowRMS.Click += new System.EventHandler(this.DeleteRowRMS_Click);
-            // 
-            // AboutHMS
-            // 
-            this.AboutHMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.AboutHMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.AboutHMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.AboutHMS.Name = "AboutHMS";
-            this.AboutHMS.Size = new System.Drawing.Size(180, 22);
-            this.AboutHMS.Text = "About";
-            this.AboutHMS.Click += new System.EventHandler(this.AboutHMS_Click);
-            // 
             // CopyRowRMS
             // 
             this.CopyRowRMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.CopyRowRMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CopyRowRMS.ForeColor = System.Drawing.SystemColors.Control;
             this.CopyRowRMS.Name = "CopyRowRMS";
-            this.CopyRowRMS.Size = new System.Drawing.Size(180, 22);
+            this.CopyRowRMS.Size = new System.Drawing.Size(133, 22);
             this.CopyRowRMS.Text = "Copy Row";
             this.CopyRowRMS.Click += new System.EventHandler(this.CopyRowRMS_Click);
+            // 
+            // DeleteRowRMS
+            // 
+            this.DeleteRowRMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.DeleteRowRMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.DeleteRowRMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.DeleteRowRMS.Name = "DeleteRowRMS";
+            this.DeleteRowRMS.Size = new System.Drawing.Size(133, 22);
+            this.DeleteRowRMS.Text = "Delete Row";
+            this.DeleteRowRMS.Click += new System.EventHandler(this.DeleteRowRMS_Click);
+            // 
+            // HelpMS
+            // 
+            this.HelpMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.HelpMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.HelpMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.HelpMS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AboutHMS});
+            this.HelpMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.HelpMS.Name = "HelpMS";
+            this.HelpMS.Size = new System.Drawing.Size(44, 20);
+            this.HelpMS.Text = "Help";
+            // 
+            // AboutHMS
+            // 
+            this.AboutHMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.AboutHMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.AboutHMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.AboutHMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.AboutHMS.Name = "AboutHMS";
+            this.AboutHMS.Size = new System.Drawing.Size(107, 22);
+            this.AboutHMS.Text = "About";
+            this.AboutHMS.Click += new System.EventHandler(this.AboutHMS_Click);
             // 
             // MainForm
             // 
@@ -554,17 +574,18 @@
         private System.Windows.Forms.ToolStripMenuItem FileMS;
         private System.Windows.Forms.ToolStripMenuItem OpenParamsFMS;
         private System.Windows.Forms.ToolStripMenuItem SaveFMS;
-        private System.Windows.Forms.ToolStripMenuItem ConvertMS;
-        private System.Windows.Forms.ToolStripMenuItem ConvertDefXmlCMS;
-        private System.Windows.Forms.ToolStripMenuItem ConvertParamCSVCMS;
-        private System.Windows.Forms.ToolStripMenuItem ConvertCSVParamCMS;
-        private System.Windows.Forms.ToolStripMenuItem ConvertParamTSVCMS;
-        private System.Windows.Forms.ToolStripMenuItem ConvertTSVParamCMS;
         private System.Windows.Forms.ToolStripMenuItem RowMS;
         private System.Windows.Forms.ToolStripMenuItem DeleteRowRMS;
         private System.Windows.Forms.ToolStripMenuItem HelpMS;
         private System.Windows.Forms.ToolStripMenuItem AboutHMS;
         private System.Windows.Forms.ToolStripMenuItem CopyRowRMS;
+        private System.Windows.Forms.ToolStripMenuItem ExportFMS;
+        private System.Windows.Forms.ToolStripMenuItem ConvertDefXmlEFMS;
+        private System.Windows.Forms.ToolStripMenuItem ConvertParamCsvEFMS;
+        private System.Windows.Forms.ToolStripMenuItem ConvertCsvParamEFMS;
+        private System.Windows.Forms.ToolStripMenuItem ConvertParamTsvEFMS;
+        private System.Windows.Forms.ToolStripMenuItem ConvertTsvParamEFMS;
+        private System.Windows.Forms.ToolStripSeparator FileSaveSeparatorMS;
     }
 }
 

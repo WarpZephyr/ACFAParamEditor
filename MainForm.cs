@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
 using Microsoft.WindowsAPICodePack.Dialogs;
@@ -15,6 +16,17 @@ namespace ACFAParamEditor
         public MainForm()
         {
             InitializeComponent();
+            // Use override to change colors of selected Menu Strip items to dark mode and disable shadows
+            MainFormMenuStrip.Renderer = new ToolStripProfessionalRenderer(new OverrideMenuStripSelectedColorTable());
+            // TODO: Fix random location changing when shadow is disabled
+            //FileMS.DropDown.DropShadowEnabled= false;
+            ExportFMS.DropDown.DropShadowEnabled = false;
+            RowMS.DropDown.DropShadowEnabled = false;
+            HelpMS.DropDown.DropShadowEnabled = false;
+            ((ToolStripDropDownMenu)FileMS.DropDown).ShowImageMargin = false;
+            ((ToolStripDropDownMenu)ExportFMS.DropDown).ShowImageMargin = false;
+            ((ToolStripDropDownMenu)RowMS.DropDown).ShowImageMargin = false;
+            ((ToolStripDropDownMenu)HelpMS.DropDown).ShowImageMargin = false;
         }
 
         // On Main Form Load, add the defs to the global def list
@@ -23,12 +35,7 @@ namespace ACFAParamEditor
             Logger.createLog();
             Directory.CreateDirectory($"{Util.resFolderPath}/def/");
 
-            // Use override to change colors of selected Menu Strip items to dark mode and disable shadows
-            MainFormMenuStrip.Renderer = new ToolStripProfessionalRenderer(new OverrideMenuStripSelectedColorTable());
-            FileMS.DropDown.DropShadowEnabled = false;
-            ConvertMS.DropDown.DropShadowEnabled = false;
-            RowMS.DropDown.DropShadowEnabled = false;
-            HelpMS.DropDown.DropShadowEnabled = false;
+            
 
             // Create def list on form load
             string[] defFiles = Directory.GetFiles($"{Util.resFolderPath}/def/", "*.def");      // Switch xml/def to test either
@@ -126,7 +133,7 @@ namespace ACFAParamEditor
 
         // Convert defs to xmls - Does not convert properly yet and leads to more null cells
         // TODO: Fix def to xml conversion
-        private void ConvertDefXmlCMS_Click(object sender, EventArgs e)
+        private void ConvertDefXmlEFMS_Click(object sender, EventArgs e)
         {
             Directory.CreateDirectory($"{Util.resFolderPath}/xml/");
 
@@ -165,25 +172,25 @@ namespace ACFAParamEditor
         }
 
         // TODO: Convert Params to CSVs
-        private void ConvertParamCSVCMS_Click(object sender, EventArgs e)
+        private void ConvertParamCsvEFMS_Click(object sender, EventArgs e)
         {
 
         }
 
         // TODO: Convert CSVs to Params
-        private void ConvertCSVParamCMS_Click(object sender, EventArgs e)
+        private void ConvertCsvParamEFMS_Click(object sender, EventArgs e)
         {
 
         }
 
         // TODO: Convert Params to TSVs
-        private void ConvertParamTSVCMS_Click(object sender, EventArgs e)
+        private void ConvertParamTsvEFMS_Click(object sender, EventArgs e)
         {
 
         }
 
         // TODO: Convert TSVs to Params
-        private void ConvertTSVParamCMS_Click(object sender, EventArgs e)
+        private void ConvertTsvParamEFMS_Click(object sender, EventArgs e)
         {
 
         }
@@ -282,7 +289,5 @@ namespace ACFAParamEditor
         {
 
         }
-
-        
     }
 }
