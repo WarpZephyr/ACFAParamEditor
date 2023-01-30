@@ -118,13 +118,14 @@ namespace ACFAParamEditor
             }  
         }
 
-        // Save the user's changes to params when they press save
+        // TODO: Save the user's changes to params when they press save
         private void SaveFMS_Click(object sender, EventArgs e)
         {
 
         }
 
         // Convert defs to xmls - Does not convert properly yet and leads to more null cells
+        // TODO: Fix def to xml conversion
         private void ConvertDefXmlCMS_Click(object sender, EventArgs e)
         {
             Directory.CreateDirectory($"{Util.resFolderPath}/xml/");
@@ -163,43 +164,43 @@ namespace ACFAParamEditor
             }
         }
 
-        // Convert Params to CSVs - Not yet implemented
+        // TODO: Convert Params to CSVs
         private void ConvertParamCSVCMS_Click(object sender, EventArgs e)
         {
 
         }
 
-        // Convert CSVs to Params - Not yet implemented
+        // TODO: Convert CSVs to Params
         private void ConvertCSVParamCMS_Click(object sender, EventArgs e)
         {
 
         }
 
-        // Convert Params to TSVs - Not yet implemented
+        // TODO: Convert Params to TSVs
         private void ConvertParamTSVCMS_Click(object sender, EventArgs e)
         {
 
         }
 
-        // Convert TSVs to Params - Not yet implemented
+        // TODO: Convert TSVs to Params
         private void ConvertTSVParamCMS_Click(object sender, EventArgs e)
         {
 
         }
 
-        // Copy the currently selected row - Not yet implemented
+        // TODO: Copy the currently selected row
         private void CopyRowRMS_Click(object sender, EventArgs e)
         {
 
         }
 
-        // Delete the currently selected row - Not yet implemented
+        // TODO: Delete the currently selected row
         private void DeleteRowRMS_Click(object sender, EventArgs e)
         {
 
         }
 
-        // Show about form message - Not yet implemented
+        // TODO: Show About form message
         private void AboutHMS_Click(object sender, EventArgs e)
         {
 
@@ -208,6 +209,7 @@ namespace ACFAParamEditor
 
         #region DataGridViewSelectionChanges
         // Show newly selected Param's Rows when Param DataGridView selection changes
+        // TODO: Save added rows and potentially have to make sure row state is saved
         private void ParamDGV_SelectionChanged(object sender, EventArgs e)
         {
             RowDGV.Rows.Clear();
@@ -227,6 +229,7 @@ namespace ACFAParamEditor
         }
 
         // Show newly selected Row's Cells when Row DataGridView selection changes
+        // TODO: Potentially have to make sure cell states are saved
         private void RowDGV_SelectionChanged(object sender, EventArgs e)
         {
             CellDGV.Rows.Clear();
@@ -251,20 +254,26 @@ namespace ACFAParamEditor
         #endregion DataGridViewSelectionChanges
 
         #region DataGridViewSaveState
-        // Save a cell's state when a DataGridView cell's value changes
+        // TODO: Save a row's state when the DataGridView cell's value changes
+        private void RowDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        // TODO: Save a cell's state when a DataGridView cell's value changes
         private void CellDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
 
         }
         #endregion DataGridViewSaveState
 
-        // When someone attempts to drag a file into the window's Param viewing area - Not yet implemented
+        // TODO: When someone attempts to drag a file into the window's Param viewing area
         private void SplitContainerA_DragEnter(object sender, DragEventArgs e)
         {
             //if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
         }
 
-        // Check the dropped item - Not yet implemented
+        // TODO: Check the dropped item
         private void SplitContainerA_DragDrop(object sender, DragEventArgs e)
         {
 
