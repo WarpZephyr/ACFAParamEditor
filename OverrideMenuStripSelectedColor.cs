@@ -3,37 +3,24 @@ using System.Windows.Forms;
 
 namespace ACFAParamEditor
 {
-    // 70 70 70 = 464646
-    // 75 75 75 = 4B4B4B
-    // 80 80 80 = 505050
     public class OverrideMenuStripSelectedColorTable : ProfessionalColorTable
     {
-        // Selected Main Menu Strip Item Outer Border
+        // Selected Main Menu Item Outer Border
         public override Color MenuBorder
         {
             get { return Color.FromArgb(90, 90, 90); }
         }
 
+        // Highlighted item in Main Menu Item
         public override Color MenuItemSelected
         {
             get { return Color.FromArgb(82, 82, 82); }
         }
 
+        // Highlighted Item borders
         public override Color MenuItemBorder
         {
             get { return Color.FromArgb(90, 90, 90); }
-        }
-
-        // Opened Main Menu Item Gradient Top
-        public override Color MenuItemPressedGradientBegin
-        {
-            get { return ColorTranslator.FromHtml("#4B4B4B"); }
-        }
-
-        // Opened Main Menu Item Gradient Bottom
-        public override Color MenuItemPressedGradientEnd
-        {
-            get { return ColorTranslator.FromHtml("#4B4B4B"); }
         }
 
         // Hovered over Main Menu Item Gradient Top
@@ -44,6 +31,18 @@ namespace ACFAParamEditor
 
         // Hovered over Main Menu Item Gradient Bottom
         public override Color MenuItemSelectedGradientEnd
+        {
+            get { return ColorTranslator.FromHtml("#4B4B4B"); }
+        }
+
+        // Opened Main Menu Item Gradient Top
+        public override Color MenuItemPressedGradientBegin
+        {
+            get { return ColorTranslator.FromHtml("#4B4B4B"); }
+        }
+
+        // Opened Main Menu Item Gradient Bottom
+        public override Color MenuItemPressedGradientEnd
         {
             get { return ColorTranslator.FromHtml("#4B4B4B"); }
         }
@@ -65,7 +64,5 @@ namespace ACFAParamEditor
         {
             get { return ColorTranslator.FromHtml("#4B4B4B"); }
         }
-
-        //public override Color 
     }
 }

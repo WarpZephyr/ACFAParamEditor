@@ -210,6 +210,7 @@ namespace ACFAParamEditor
         #region DataGridViewSelectionChanges
         // Show newly selected Param's Rows when Param DataGridView selection changes
         // TODO: Save added rows and potentially have to make sure row state is saved
+        // TODO: Make error messages on status strip disappear when switching params
         private void ParamDGV_SelectionChanged(object sender, EventArgs e)
         {
             RowDGV.Rows.Clear();
@@ -230,6 +231,7 @@ namespace ACFAParamEditor
 
         // Show newly selected Row's Cells when Row DataGridView selection changes
         // TODO: Potentially have to make sure cell states are saved
+        // TODO: Make error messages on status strip disappear when switching rows
         private void RowDGV_SelectionChanged(object sender, EventArgs e)
         {
             CellDGV.Rows.Clear();
@@ -251,6 +253,8 @@ namespace ACFAParamEditor
                 return;
             }        
         }
+
+        // TODO: Make error messages on status strip disappear when switching cells
         #endregion DataGridViewSelectionChanges
 
         #region DataGridViewSaveState
