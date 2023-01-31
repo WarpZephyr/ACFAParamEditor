@@ -131,8 +131,9 @@ namespace ACFAParamEditor
         // TODO: Save the user's changes to params when they press save
         private void SaveFMS_Click(object sender, EventArgs e)
         {
-            foreach (ParamWrapper param in ParamDGV.Rows) 
+            foreach (DataGridViewRow row in ParamDGV.Rows) 
             {
+                ParamWrapper param = row.Cells[0].Value as ParamWrapper;
                 param.Param.Write($"{paramPath}/{param.ParamName}");
             }
         }
