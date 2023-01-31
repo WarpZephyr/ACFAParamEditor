@@ -257,15 +257,6 @@ namespace ACFAParamEditor
             RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
             rowStore = selectedRow;
 
-            // REMOVE LATER
-            TSSLParamReading.Text = "";
-            TSSLRowReading.Text = $"{RowDGV.CurrentRow.Cells[1].Value.GetType().ToString()}";
-            if (selectedRow == null) 
-            {
-                return;
-            }
-
-
             if (selectedRow.Row.Cells != null)
             {
                 foreach (var cell in selectedRow.Row.Cells)
@@ -293,7 +284,6 @@ namespace ACFAParamEditor
         #endregion DataGridViewSelectionChanges
 
         #region DataGridViewSaveState
-        // TODO: Save a row's name state when the DataGridView cell's value changes
         private void RowDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (RowDGV.CurrentRow != null)
