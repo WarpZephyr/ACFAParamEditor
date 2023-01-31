@@ -99,7 +99,7 @@ namespace ACFAParamEditor
                     {
                         var param = new ParamWrapper()
                         {
-                            ParamName = Path.GetFileNameWithoutExtension(binPath),
+                            ParamName = Path.GetFileName(binPath),
                             Param = PARAM.Read(binPath)
                         };
 
@@ -131,18 +131,10 @@ namespace ACFAParamEditor
         // TODO: Save the user's changes to params when they press save
         private void SaveFMS_Click(object sender, EventArgs e)
         {
-            /*string[] paramFiles = Directory.GetFiles(paramPath, "*.*");
-            foreach (string filePath in paramFiles) {
-                foreach (DataGridViewRow param in ParamDGV.Rows)
-                {
-                    ParamWrapper paramFile = param. as ParamWrapper;
-                    if (Path.GetFileNameWithoutExtension(filePath) == paramFile.ParamName)
-                    {
-                        filePath.Bytes = paramFile.Param.Write();
-                        File.WriteAllBytes(filePath, );
-                    }
-                }
-            }*/
+            foreach (ParamWrapper param in ParamDGV.Rows) 
+            {
+                param.Param.Write($"{paramPath}/{param.ParamName}");
+            }
         }
 
         // Convert defs to xmls - Does not convert properly yet and leads to more null cells
