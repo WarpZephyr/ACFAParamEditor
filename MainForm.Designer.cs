@@ -132,7 +132,6 @@
             this.RowDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.RowDGV.Size = new System.Drawing.Size(370, 605);
             this.RowDGV.TabIndex = 1;
-            this.RowDGV.CellContextMenuStripChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellDGV_CellValueChanged);
             this.RowDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.RowDGV_CellValueChanged);
             this.RowDGV.SelectionChanged += new System.EventHandler(this.RowDGV_SelectionChanged);
             // 
@@ -195,7 +194,6 @@
             this.ParamDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.ParamDGV.Size = new System.Drawing.Size(370, 605);
             this.ParamDGV.TabIndex = 0;
-            this.ParamDGV.CellContextMenuStripChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellDGV_CellValueChanged);
             this.ParamDGV.SelectionChanged += new System.EventHandler(this.ParamDGV_SelectionChanged);
             // 
             // paramname
@@ -258,7 +256,6 @@
             this.CellDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.CellDGV.Size = new System.Drawing.Size(370, 605);
             this.CellDGV.TabIndex = 2;
-            this.CellDGV.CellContextMenuStripChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellDGV_CellValueChanged);
             this.CellDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellDGV_CellValueChanged);
             // 
             // celltype
@@ -494,7 +491,7 @@
             this.CopyRowRMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CopyRowRMS.ForeColor = System.Drawing.SystemColors.Control;
             this.CopyRowRMS.Name = "CopyRowRMS";
-            this.CopyRowRMS.Size = new System.Drawing.Size(180, 22);
+            this.CopyRowRMS.Size = new System.Drawing.Size(133, 22);
             this.CopyRowRMS.Text = "Copy Row";
             this.CopyRowRMS.Click += new System.EventHandler(this.CopyRowRMS_Click);
             // 
@@ -504,7 +501,7 @@
             this.DeleteRowRMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.DeleteRowRMS.ForeColor = System.Drawing.SystemColors.Control;
             this.DeleteRowRMS.Name = "DeleteRowRMS";
-            this.DeleteRowRMS.Size = new System.Drawing.Size(180, 22);
+            this.DeleteRowRMS.Size = new System.Drawing.Size(133, 22);
             this.DeleteRowRMS.Text = "Delete Row";
             this.DeleteRowRMS.Click += new System.EventHandler(this.DeleteRowRMS_Click);
             // 
@@ -527,7 +524,7 @@
             this.AboutHMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.AboutHMS.ForeColor = System.Drawing.SystemColors.Control;
             this.AboutHMS.Name = "AboutHMS";
-            this.AboutHMS.Size = new System.Drawing.Size(180, 22);
+            this.AboutHMS.Size = new System.Drawing.Size(107, 22);
             this.AboutHMS.Text = "About";
             this.AboutHMS.Click += new System.EventHandler(this.AboutHMS_Click);
             // 
