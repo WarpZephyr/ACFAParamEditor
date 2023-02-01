@@ -13,7 +13,7 @@ namespace ACFAParamEditor
         // Initialize global def list
         private List<PARAMDEF> defList = new List<PARAMDEF>();
         private RowWrapper rowStore;
-        private object cellValueStore;
+        private object[] rowPaste;
         private string paramPath;
         public MainForm()
         {
@@ -135,7 +135,6 @@ namespace ACFAParamEditor
             }
         }
 
-        // TODO: Save the user's changes to params when they press save
         private void SaveFMS_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in ParamDGV.Rows) 
@@ -209,10 +208,23 @@ namespace ACFAParamEditor
 
         }
 
-        // TODO: Copy the currently selected row
+        // Duplicate the currently selected row
+        private void DuplicateRowRMS_Click(object sender, EventArgs e)
+        {
+            RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
+            object[] newRow = { selectedRow.Row.ID, selectedRow };
+            RowDGV.Rows.Add(newRow);
+        }
+
         private void CopyRowRMS_Click(object sender, EventArgs e)
         {
-
+            RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
+            object[] newRow = { selectedRow.Row.ID, selectedRow };
+            rowPaste = newRow;
+        }
+        private void PasteRowRMS_Click(object sender, EventArgs e)
+        {
+            RowDGV.Rows.Add(rowPaste);
         }
 
         // TODO: Delete the currently selected row
@@ -313,7 +325,10 @@ namespace ACFAParamEditor
             {
                 object dgvValue = CellDGV.CurrentRow.Cells[2].Value;
                 CellWrapper selectedCell = CellDGV.CurrentRow.Cells[1].Value as CellWrapper;
-                selectedCell.Cell.Value = dgvValue;
+                //if (CheckTypeSize.CheckSize())
+                //{
+                    selectedCell.Cell.Value = dgvValue;
+                //}
             }
         }
         #endregion DataGridViewSaveState

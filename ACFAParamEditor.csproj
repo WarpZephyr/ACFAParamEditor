@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CellWrapper.cs" />
+    <Compile Include="CheckTypeSize.cs" />
     <Compile Include="IsExternalInit.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="MainForm.cs">
