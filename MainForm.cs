@@ -24,6 +24,7 @@ namespace ACFAParamEditor
             var toolStripOverrideRenderer = new OverrideToolStripRenderer();
             MainFormMenuStrip.Renderer = toolStripOverrideRenderer;
             RowDGVContextMenu.Renderer = toolStripOverrideRenderer;
+            ParamDGVContextMenu.Renderer = toolStripOverrideRenderer;
 
             // Disable Shadows on Dropdowns
             //FileMS.DropDown.DropShadowEnabled= false; // TODO: Fix random location changing when shadow is disabled
@@ -37,6 +38,7 @@ namespace ACFAParamEditor
             ((ToolStripDropDownMenu)EditMS.DropDown).ShowImageMargin = false;
             ((ToolStripDropDownMenu)HelpMS.DropDown).ShowImageMargin = false;
             RowDGVContextMenu.ShowImageMargin=false;
+            ParamDGVContextMenu.ShowImageMargin=false;
         }
 
         // On Main Form Load, add the defs to the global def list
@@ -124,12 +126,12 @@ namespace ACFAParamEditor
         // Remove the currently selected param
         private void RemoveParamFMS_Click(object sender, EventArgs e)
         {
+            if (ParamDGV.CurrentRow == null) { return; }
             if (VerifyParamRemovalOMS.Checked == true)
             {
                 DialogResult saveDialog = MessageBox.Show("Are you sure you want to remove the currently selected param?", "Remove Selected Param", MessageBoxButtons.YesNo);
                 if (saveDialog != DialogResult.Yes) { return; }
             }
-            if (ParamDGV.CurrentRow == null) { return; }
             if (ParamDGV.Rows.Count == 1) { RowDGV.Rows.Clear(); CellDGV.Rows.Clear(); }
             ParamDGV.Rows.Remove(ParamDGV.CurrentRow);
         }
@@ -396,13 +398,37 @@ namespace ACFAParamEditor
         // TODO: When someone attempts to drag a file into the window's Param viewing area
         private void SplitContainerA_DragEnter(object sender, DragEventArgs e)
         {
-            //if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
+            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
         }
 
         // TODO: Check the dropped item
         private void SplitContainerA_DragDrop(object sender, DragEventArgs e)
         {
-
+            List<string> filepaths = new List<string>();
+            foreach (string path in (string[])e.Data.GetData(DataFormats.FileDrop, false))
+            {
+                if (Directory.Exists(path))
+                {
+                    paramPath = path;
+                    ParamDGV.Rows.Clear();
+                    string[] paramFiles = Directory.GetFiles(path, "*.*");
+                    foreach (string paramPath in paramFiles)
+                    {
+                        if (Util.CheckIfParam(paramPath))
+                        {
+                            object[] newParam = MakeObjectArray.MakeParamObject(paramPath, defList);
+                            if (newParam == null) { continue; }
+                            ParamDGV.Rows.Add(newParam);
+                        }
+                    }
+                }
+                else
+                {
+                    object[] newParam = MakeObjectArray.MakeParamObject(path, defList);
+                    if (newParam == null) { MessageBox.Show("Invalid file, not a usable param"); return; }
+                    ParamDGV.Rows.Add(newParam);
+                }
+            }
         }
 
         private void RowDGV_KeyDown(object sender, KeyEventArgs e)
