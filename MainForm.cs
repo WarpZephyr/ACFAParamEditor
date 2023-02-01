@@ -238,6 +238,9 @@ namespace ACFAParamEditor
                 DialogResult deleteDialog = MessageBox.Show("Are you sure you want to delete this row?", "Delete Row", MessageBoxButtons.YesNo);
                 if (deleteDialog == DialogResult.Yes)
                 {
+                    ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
+                    RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
+                    selectedParam.Param.Rows.Remove(selectedRow.Row);
                     RowDGV.Rows.Remove(RowDGV.CurrentRow);
                 }
             }

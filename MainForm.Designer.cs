@@ -78,6 +78,7 @@
             this.DeleteRowRMS = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpMS = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutHMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteRowRowConMenu = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.RowDGV)).BeginInit();
             this.RowDGVContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParamDGV)).BeginInit();
@@ -163,16 +164,17 @@
             this.RowDGVContextMenu.DropShadowEnabled = false;
             this.RowDGVContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CopyRowRowConMenu,
-            this.PasteRowRowConMenu});
+            this.PasteRowRowConMenu,
+            this.DeleteRowRowConMenu});
             this.RowDGVContextMenu.Name = "RowDGVContextMenu";
             this.RowDGVContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.RowDGVContextMenu.Size = new System.Drawing.Size(129, 48);
+            this.RowDGVContextMenu.Size = new System.Drawing.Size(181, 92);
             // 
             // CopyRowRowConMenu
             // 
             this.CopyRowRowConMenu.ForeColor = System.Drawing.SystemColors.Control;
             this.CopyRowRowConMenu.Name = "CopyRowRowConMenu";
-            this.CopyRowRowConMenu.Size = new System.Drawing.Size(128, 22);
+            this.CopyRowRowConMenu.Size = new System.Drawing.Size(180, 22);
             this.CopyRowRowConMenu.Text = "Copy Row";
             this.CopyRowRowConMenu.Click += new System.EventHandler(this.CopyRowRMS_Click);
             // 
@@ -180,7 +182,7 @@
             // 
             this.PasteRowRowConMenu.ForeColor = System.Drawing.SystemColors.Control;
             this.PasteRowRowConMenu.Name = "PasteRowRowConMenu";
-            this.PasteRowRowConMenu.Size = new System.Drawing.Size(128, 22);
+            this.PasteRowRowConMenu.Size = new System.Drawing.Size(180, 22);
             this.PasteRowRowConMenu.Text = "Paste Row";
             this.PasteRowRowConMenu.Click += new System.EventHandler(this.PasteRowRMS_Click);
             // 
@@ -554,7 +556,7 @@
             this.DuplicateRowRMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.DuplicateRowRMS.ForeColor = System.Drawing.SystemColors.Control;
             this.DuplicateRowRMS.Name = "DuplicateRowRMS";
-            this.DuplicateRowRMS.Size = new System.Drawing.Size(150, 22);
+            this.DuplicateRowRMS.Size = new System.Drawing.Size(180, 22);
             this.DuplicateRowRMS.Text = "Duplicate Row";
             this.DuplicateRowRMS.Click += new System.EventHandler(this.DuplicateRowRMS_Click);
             // 
@@ -564,7 +566,7 @@
             this.CopyRowRMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CopyRowRMS.ForeColor = System.Drawing.SystemColors.Control;
             this.CopyRowRMS.Name = "CopyRowRMS";
-            this.CopyRowRMS.Size = new System.Drawing.Size(150, 22);
+            this.CopyRowRMS.Size = new System.Drawing.Size(180, 22);
             this.CopyRowRMS.Text = "Copy Row";
             this.CopyRowRMS.Click += new System.EventHandler(this.CopyRowRMS_Click);
             // 
@@ -574,7 +576,7 @@
             this.PasteRowRMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.PasteRowRMS.ForeColor = System.Drawing.SystemColors.Control;
             this.PasteRowRMS.Name = "PasteRowRMS";
-            this.PasteRowRMS.Size = new System.Drawing.Size(150, 22);
+            this.PasteRowRMS.Size = new System.Drawing.Size(180, 22);
             this.PasteRowRMS.Text = "Paste Row";
             this.PasteRowRMS.Click += new System.EventHandler(this.PasteRowRMS_Click);
             // 
@@ -584,7 +586,7 @@
             this.DeleteRowRMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.DeleteRowRMS.ForeColor = System.Drawing.SystemColors.Control;
             this.DeleteRowRMS.Name = "DeleteRowRMS";
-            this.DeleteRowRMS.Size = new System.Drawing.Size(150, 22);
+            this.DeleteRowRMS.Size = new System.Drawing.Size(180, 22);
             this.DeleteRowRMS.Text = "Delete Row";
             this.DeleteRowRMS.Click += new System.EventHandler(this.DeleteRowRMS_Click);
             // 
@@ -610,6 +612,14 @@
             this.AboutHMS.Size = new System.Drawing.Size(107, 22);
             this.AboutHMS.Text = "About";
             this.AboutHMS.Click += new System.EventHandler(this.AboutHMS_Click);
+            // 
+            // DeleteRowRowConMenu
+            // 
+            this.DeleteRowRowConMenu.ForeColor = System.Drawing.SystemColors.Control;
+            this.DeleteRowRowConMenu.Name = "DeleteRowRowConMenu";
+            this.DeleteRowRowConMenu.Size = new System.Drawing.Size(180, 22);
+            this.DeleteRowRowConMenu.Text = "Delete Row";
+            this.DeleteRowRowConMenu.Click += new System.EventHandler(this.DeleteRowRMS_Click);
             // 
             // MainForm
             // 
@@ -687,6 +697,7 @@
         private System.Windows.Forms.ToolStripMenuItem CopyRowRowConMenu;
         private System.Windows.Forms.ToolStripMenuItem AddParamFMS;
         private System.Windows.Forms.ToolStripMenuItem SaveFMS;
+        private System.Windows.Forms.ToolStripMenuItem DeleteRowRowConMenu;
     }
 }
 
