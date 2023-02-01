@@ -3,7 +3,6 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using SoulsFormats;
-using System.Windows.Forms;
 using System.Collections.Generic;
 
 namespace ACFAParamEditor
