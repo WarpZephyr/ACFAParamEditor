@@ -15,6 +15,7 @@ namespace ACFAParamEditor
         private RowWrapper rowStore;
         private object[] rowPaste;
         private string paramPath;
+        private object cellValueStore;
 
         // MainForm Constructor
         public MainForm()
@@ -30,6 +31,7 @@ namespace ACFAParamEditor
             //FileMS.DropDown.DropShadowEnabled= false; // TODO: Fix random location changing when shadow is disabled
             ExportFMS.DropDown.DropShadowEnabled = false;
             EditMS.DropDown.DropShadowEnabled = false;
+            OptionsMS.DropDown.DropShadowEnabled = false;
             HelpMS.DropDown.DropShadowEnabled = false;
 
             // Disable image beside menu strip sub items
@@ -241,6 +243,7 @@ namespace ACFAParamEditor
         // Duplicate the currently selected row
         private void DuplicateRowEMS_Click(object sender, EventArgs e)
         {
+            if (RowDGV.CurrentRow == null) { return; }
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
             RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
             PARAM.Row newRowObject = new PARAM.Row(selectedRow.Row.ID, selectedRow.Row.Name, selectedParam.Param.AppliedParamdef);
@@ -353,7 +356,12 @@ namespace ACFAParamEditor
                 CellDGV.Rows.Add(newCell);
             }    
         }
-        
+
+        private void CellDGV_SelectionChanged(object sender, EventArgs e)
+        {
+            cellValueStore = CellDGV.CurrentRow.Cells[2].Value;
+        }
+
         // TODO: Make error messages on status strip disappear when switching cells
         #endregion DataGridViewSelectionChanges
 
@@ -383,14 +391,25 @@ namespace ACFAParamEditor
         // Saves a cell's state
         private void CellDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (CellDGV.CurrentRow != null)
+            try
             {
-                object dgvValue = CellDGV.CurrentRow.Cells[2].Value;
-                CellWrapper selectedCell = CellDGV.CurrentRow.Cells[1].Value as CellWrapper;
-                //if (CheckTypeSize.CheckSize())
-                //{
+                if (CellDGV.CurrentRow != null)
+                {
+                    object dgvValue = CellDGV.CurrentRow.Cells[2].Value;
+                    CellWrapper selectedCell = CellDGV.CurrentRow.Cells[1].Value as CellWrapper;
                     selectedCell.Cell.Value = dgvValue;
-                //}
+                }
+            }
+            catch (OverflowException OFe) 
+            {
+                CellWrapper selectedCell = CellDGV.CurrentRow.Cells[1].Value as CellWrapper;
+                selectedCell.Cell.Value = cellValueStore;
+                CellDGV.CurrentRow.Cells[2].Value = cellValueStore;
+                ReaderStatusStrip.Items.Clear();
+                string description = $"Value too high or too low for {selectedCell.Cell.Def.DisplayName}";
+                TSSLDefReading.Text = $"DEBUG: {description}, see parameditor.log";
+                Debug.WriteLine($"{description}");
+                Logger.LogExceptionWithDate(OFe, description);
             }
         }
         #endregion DataGridViewSaveState

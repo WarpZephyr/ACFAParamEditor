@@ -13,5 +13,10 @@ namespace ACFAParamEditor
                 e.ArrowColor = Color.White;
             base.OnRenderArrow(e);
         }
+        protected override void OnRenderItemCheck(ToolStripItemImageRenderEventArgs e)
+        {
+            
+            base.OnRenderItemCheck(e);
+        }
     }
 }

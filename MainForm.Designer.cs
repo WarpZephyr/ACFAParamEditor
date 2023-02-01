@@ -318,6 +318,7 @@
             this.CellDGV.Size = new System.Drawing.Size(370, 605);
             this.CellDGV.TabIndex = 2;
             this.CellDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellDGV_CellValueChanged);
+            this.CellDGV.SelectionChanged += new System.EventHandler(this.CellDGV_SelectionChanged);
             // 
             // celltype
             // 
@@ -678,7 +679,7 @@
             this.AboutHMS.Name = "AboutHMS";
             this.AboutHMS.Size = new System.Drawing.Size(180, 22);
             this.AboutHMS.Text = "About";
-            this.AboutHMS.ToolTipText = "About this program";
+            this.AboutHMS.ToolTipText = "About this program - Not yet implemented";
             this.AboutHMS.Click += new System.EventHandler(this.AboutHMS_Click);
             // 
             // RemoveParamFMS
