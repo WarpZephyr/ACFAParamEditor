@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using SoulsFormats;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace ACFAParamEditor
 {
@@ -32,7 +33,7 @@ namespace ACFAParamEditor
             return null;
         }
 
-        public static string GetFiles(string context)
+        public static string GetParamFiles(string context)
         {
             // Prompt the user for folders containing param files
             CommonOpenFileDialog paramFolderPathDialog = new CommonOpenFileDialog
@@ -48,6 +49,28 @@ namespace ACFAParamEditor
             }
 
             return null;
+        }
+
+        public static List<object> GetCells(PARAM.Row row)
+        {
+            List<object> cellValues = new List<object>();
+            foreach (PARAM.Cell cell in row.Cells)
+            {
+                cellValues.Add(cell.Value);
+            }
+            return cellValues;
+        }
+
+        public static PARAM.Row SetCells(PARAM.Row newRow, PARAM.Row oldRow)
+        {
+            List<object> oldCellValues = GetCells(oldRow);
+            int iterator = 0;
+            foreach (PARAM.Cell newCell in newRow.Cells)
+            {
+                newCell.Value = oldCellValues[iterator];
+                iterator++;
+            }
+            return newRow;
         }
 
         public static bool CheckIfParam(string paramFilePath)

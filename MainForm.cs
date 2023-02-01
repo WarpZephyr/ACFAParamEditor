@@ -78,7 +78,7 @@ namespace ACFAParamEditor
         // Open Params
         private void OpenParamsFMS_click(object sender, EventArgs e)
         {
-            string paramFolderPath = Util.GetFiles("params");
+            string paramFolderPath = Util.GetParamFiles("params");
             if (paramFolderPath == null) { return; }
             paramPath = paramFolderPath;
 
@@ -114,6 +114,13 @@ namespace ACFAParamEditor
         // Save the currently open param
         private void SaveFMS_Click(object sender, EventArgs e)
         {
+            if (ParamDGV.Rows.Count == 0) { return; }
+            if (VerifySaveFileOMS.Checked == true)
+            {
+                DialogResult saveDialog = MessageBox.Show("Are you sure you want to save this param?", "Save Param", MessageBoxButtons.YesNo);
+                if (saveDialog != DialogResult.Yes) { return; }
+            }
+
             if (ParamDGV.CurrentRow != null)
             {
                 ParamWrapper param = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
@@ -124,6 +131,13 @@ namespace ACFAParamEditor
         // Save all params
         private void SaveAllFMS_Click(object sender, EventArgs e)
         {
+            if (ParamDGV.Rows.Count == 0) { return; }
+            if (VerifySaveFileOMS.Checked == true)
+            {
+                DialogResult saveDialog = MessageBox.Show("Are you sure you want to save this param?", "Save Param", MessageBoxButtons.YesNo);
+                if (saveDialog != DialogResult.Yes) { return; }
+            }
+
             foreach (DataGridViewRow row in ParamDGV.Rows) 
             {
                 ParamWrapper param = row.Cells[0].Value as ParamWrapper;
@@ -135,7 +149,7 @@ namespace ACFAParamEditor
         private void ConvertDefXmlEFMS_Click(object sender, EventArgs e)
         {
             Directory.CreateDirectory($"{Util.resFolderPath}/xml/");
-            string defUserFolderPath = Util.GetFiles("defs");
+            string defUserFolderPath = Util.GetParamFiles("defs");
             if (defUserFolderPath == null) { return; }
             string defsPath = defUserFolderPath;
 
@@ -205,9 +219,10 @@ namespace ACFAParamEditor
             {
                 ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
                 RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-                PARAM.Row newRowObject = new PARAM.Row(selectedRow.Row.ID, selectedRow.Row.Name, selectedParam.Param.AppliedParamdef);
-                object[] newRow = MakeObjectArray.MakeRowObject(newRowObject);
-                rowPaste = newRow;
+                PARAM.Row newRow = new PARAM.Row(selectedRow.Row.ID, selectedRow.Row.Name, selectedParam.Param.AppliedParamdef);
+                Util.SetCells(newRow, selectedRow.Row);
+                object[] newRowObject = MakeObjectArray.MakeRowObject(newRow);
+                rowPaste = newRowObject;
             }
         }
 
@@ -218,8 +233,8 @@ namespace ACFAParamEditor
             {
                 RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
                 RowWrapper newRowWrapper = rowPaste[1] as RowWrapper;
-                if (CellDGV.Rows.Count != newRowWrapper.Row.Cells.Count) { return;  }         
-                if (Util.CheckNameMatch(newRowWrapper.Row, selectedRow.Row));
+                if (CellDGV.Rows.Count != newRowWrapper.Row.Cells.Count) { return; }
+                if (!Util.CheckNameMatch(newRowWrapper.Row, selectedRow.Row)) { return; }
                 ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
                 int MaxID = RowDGV.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[0].Value));
                 newRowWrapper.Row.ID = MaxID + 1;
