@@ -1,7 +1,6 @@
 # ACFAParamEditor
-FULLY WORKING NOW
-It needs a lot of improvements so I'm not ready to release it yet  
-You can however build it yourself
+1.0 has been released!  
+Some features are not in place yet but I will add them later
 
 # Building
 If you want to build the project you should clone it with this command in git bash:  
