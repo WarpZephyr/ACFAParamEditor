@@ -386,7 +386,7 @@
             this.OpenParamsFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.OpenParamsFMS.ForeColor = System.Drawing.SystemColors.Control;
             this.OpenParamsFMS.Name = "OpenParamsFMS";
-            this.OpenParamsFMS.Size = new System.Drawing.Size(180, 22);
+            this.OpenParamsFMS.Size = new System.Drawing.Size(145, 22);
             this.OpenParamsFMS.Text = "Open Params";
             this.OpenParamsFMS.Click += new System.EventHandler(this.OpenParamsFMS_click);
             // 
@@ -397,7 +397,7 @@
             this.SaveFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.SaveFMS.ForeColor = System.Drawing.SystemColors.Control;
             this.SaveFMS.Name = "SaveFMS";
-            this.SaveFMS.Size = new System.Drawing.Size(180, 22);
+            this.SaveFMS.Size = new System.Drawing.Size(145, 22);
             this.SaveFMS.Text = "Save";
             this.SaveFMS.Click += new System.EventHandler(this.SaveFMS_Click);
             // 
@@ -406,7 +406,7 @@
             this.FileSaveSeparatorMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.FileSaveSeparatorMS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.FileSaveSeparatorMS.Name = "FileSaveSeparatorMS";
-            this.FileSaveSeparatorMS.Size = new System.Drawing.Size(177, 6);
+            this.FileSaveSeparatorMS.Size = new System.Drawing.Size(142, 6);
             // 
             // ExportFMS
             // 
@@ -420,7 +420,7 @@
             this.ConvertTsvParamEFMS});
             this.ExportFMS.ForeColor = System.Drawing.SystemColors.Control;
             this.ExportFMS.Name = "ExportFMS";
-            this.ExportFMS.Size = new System.Drawing.Size(180, 22);
+            this.ExportFMS.Size = new System.Drawing.Size(145, 22);
             this.ExportFMS.Text = "Export";
             // 
             // ConvertDefXmlEFMS
@@ -537,6 +537,7 @@
             this.Controls.Add(this.SplitContainerA);
             this.Controls.Add(this.ReaderStatusStrip);
             this.Controls.Add(this.MainFormMenuStrip);
+            this.ForeColor = System.Drawing.SystemColors.Control;
             this.MainMenuStrip = this.MainFormMenuStrip;
             this.Name = "MainForm";
             this.Text = "Armored Core For Answer Param Editor";

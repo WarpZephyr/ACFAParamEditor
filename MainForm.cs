@@ -13,6 +13,7 @@ namespace ACFAParamEditor
         // Initialize global def list
         private List<PARAMDEF> defList = new List<PARAMDEF>();
         private RowWrapper rowStore;
+        private object cellValueStore;
         private string paramPath;
         public MainForm()
         {
@@ -40,7 +41,7 @@ namespace ACFAParamEditor
             Directory.CreateDirectory($"{Util.resFolderPath}/def/");
 
             // Create def list on form load
-            string[] defFiles = Directory.GetFiles($"{Util.resFolderPath}/def/", "*.*");      // Switch xml/def to test either
+            string[] defFiles = Directory.GetFiles($"{Util.resFolderPath}/def/", "*.def");      // Switch xml/def to test either
             foreach (string defPath in defFiles)
             {
                 try
@@ -125,7 +126,13 @@ namespace ACFAParamEditor
                     Debug.WriteLine($"{description}");
                     Logger.LogExceptionWithDate(IDEx, description);
                 }
-            }  
+            }
+
+            if (ParamDGV.Rows.Count == 0)
+            {
+                RowDGV.Rows.Clear();
+                CellDGV.Rows.Clear();
+            }
         }
 
         // TODO: Save the user's changes to params when they press save
@@ -306,7 +313,6 @@ namespace ACFAParamEditor
             {
                 object dgvValue = CellDGV.CurrentRow.Cells[2].Value;
                 CellWrapper selectedCell = CellDGV.CurrentRow.Cells[1].Value as CellWrapper;
-
                 selectedCell.Cell.Value = dgvValue;
             }
         }
