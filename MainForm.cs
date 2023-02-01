@@ -117,12 +117,15 @@ namespace ACFAParamEditor
         {
             if (ParamDGV.CurrentRow == null) { return; }
             ParamDGV.Rows.Clear();
+            RowDGV.Rows.Clear();
+            CellDGV.Rows.Clear();
         }
 
         // Remove the currently selected param
         private void RemoveParamFMS_Click(object sender, EventArgs e)
         {
             if (ParamDGV.CurrentRow == null) { return; }
+            if (ParamDGV.Rows.Count == 1) { RowDGV.Rows.Clear(); CellDGV.Rows.Clear(); }
             ParamDGV.Rows.Remove(ParamDGV.CurrentRow);
         }
 
@@ -288,6 +291,7 @@ namespace ACFAParamEditor
         // TODO: Make error messages on status strip disappear when switching params
         private void ParamDGV_SelectionChanged(object sender, EventArgs e)
         {
+            if (ParamDGV.CurrentRow == null) { return; }
             RowDGV.Rows.Clear();
             CellDGV.Rows.Clear();
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
