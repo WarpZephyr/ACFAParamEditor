@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
 using System.Linq;
-using Microsoft.WindowsAPICodePack.Dialogs;
 using SoulsFormats;
 
 namespace ACFAParamEditor
@@ -29,13 +28,13 @@ namespace ACFAParamEditor
             // Disable Shadows on Dropdowns
             //FileMS.DropDown.DropShadowEnabled= false; // TODO: Fix random location changing when shadow is disabled
             ExportFMS.DropDown.DropShadowEnabled = false;
-            RowMS.DropDown.DropShadowEnabled = false;
+            EditMS.DropDown.DropShadowEnabled = false;
             HelpMS.DropDown.DropShadowEnabled = false;
 
             // Disable image beside menu strip sub items
             ((ToolStripDropDownMenu)FileMS.DropDown).ShowImageMargin = false;
             ((ToolStripDropDownMenu)ExportFMS.DropDown).ShowImageMargin = false;
-            ((ToolStripDropDownMenu)RowMS.DropDown).ShowImageMargin = false;
+            ((ToolStripDropDownMenu)EditMS.DropDown).ShowImageMargin = false;
             ((ToolStripDropDownMenu)HelpMS.DropDown).ShowImageMargin = false;
             RowDGVContextMenu.ShowImageMargin=false;
         }
@@ -185,7 +184,7 @@ namespace ACFAParamEditor
         }
 
         // Duplicate the currently selected row
-        private void DuplicateRowRMS_Click(object sender, EventArgs e)
+        private void DuplicateRowEMS_Click(object sender, EventArgs e)
         {
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
             RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
@@ -200,7 +199,7 @@ namespace ACFAParamEditor
         }
 
         // Copy currently selected row
-        private void CopyRowRMS_Click(object sender, EventArgs e)
+        private void CopyRowEMS_Click(object sender, EventArgs e)
         {
             if (RowDGV.CurrentRow != null)
             {
@@ -213,7 +212,7 @@ namespace ACFAParamEditor
         }
 
         // Paste copied row
-        private void PasteRowRMS_Click(object sender, EventArgs e)
+        private void PasteRowEMS_Click(object sender, EventArgs e)
         {
             if (rowPaste != null)
             {
@@ -231,18 +230,19 @@ namespace ACFAParamEditor
         }
 
         // TODO: Delete the currently selected row
-        private void DeleteRowRMS_Click(object sender, EventArgs e)
+        private void DeleteRowEMS_Click(object sender, EventArgs e)
         {
             if (RowDGV.CurrentRow != null)
             {
-                DialogResult deleteDialog = MessageBox.Show("Are you sure you want to delete this row?", "Delete Row", MessageBoxButtons.YesNo);
-                if (deleteDialog == DialogResult.Yes)
-                {
-                    ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
-                    RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-                    selectedParam.Param.Rows.Remove(selectedRow.Row);
-                    RowDGV.Rows.Remove(RowDGV.CurrentRow);
+                if (VerifyDeleteRowOMS.Checked == true) {
+                    DialogResult deleteDialog = MessageBox.Show("Are you sure you want to delete this row?", "Delete Row", MessageBoxButtons.YesNo);
+                    if (deleteDialog != DialogResult.Yes) { return; } 
                 }
+                ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
+                RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
+                selectedParam.Param.Rows.Remove(selectedRow.Row);
+                RowDGV.Rows.Remove(RowDGV.CurrentRow);
+                
             }
         }
 
