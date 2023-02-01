@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using System.Linq;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using SoulsFormats;
 
@@ -186,8 +187,15 @@ namespace ACFAParamEditor
         // Duplicate the currently selected row
         private void DuplicateRowRMS_Click(object sender, EventArgs e)
         {
+            ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
             RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-            object[] newRow = { selectedRow.Row.ID, selectedRow };
+            PARAM.Row newRowObject = new PARAM.Row(selectedRow.Row.ID, selectedRow.Row.Name, selectedParam.Param.AppliedParamdef);
+            object[] newRow = MakeObjectArray.MakeRowObject(newRowObject);
+            RowWrapper newRowWrapper = newRow[1] as RowWrapper;
+            int MaxID = RowDGV.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[0].Value));
+            newRowWrapper.Row.ID = MaxID + 1;
+            newRow[0] = MaxID + 1;
+            selectedParam.Param.Rows.Add(newRowWrapper.Row);
             RowDGV.Rows.Add(newRow);
         }
 
@@ -196,8 +204,10 @@ namespace ACFAParamEditor
         {
             if (RowDGV.CurrentRow != null)
             {
+                ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
                 RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-                object[] newRow = { selectedRow.Row.ID, selectedRow };
+                PARAM.Row newRowObject = new PARAM.Row(selectedRow.Row.ID, selectedRow.Row.Name, selectedParam.Param.AppliedParamdef);
+                object[] newRow = MakeObjectArray.MakeRowObject(newRowObject);
                 rowPaste = newRow;
             }
         }
@@ -207,6 +217,12 @@ namespace ACFAParamEditor
         {
             if (rowPaste != null)
             {
+                ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
+                RowWrapper newRowWrapper = rowPaste[1] as RowWrapper;
+                int MaxID = RowDGV.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[0].Value));
+                newRowWrapper.Row.ID = MaxID + 1;
+                rowPaste[0] = MaxID + 1;
+                selectedParam.Param.Rows.Add(newRowWrapper.Row);     
                 RowDGV.Rows.Add(rowPaste);
             }
         }
@@ -237,10 +253,10 @@ namespace ACFAParamEditor
         private void ParamDGV_SelectionChanged(object sender, EventArgs e)
         {
             RowDGV.Rows.Clear();
-            CellDGV.Rows.Clear();    
-            var selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
+            CellDGV.Rows.Clear();
+            ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
 
-            foreach (var row in selectedParam.Param.Rows)
+            foreach (PARAM.Row row in selectedParam.Param.Rows)
             {
                 object[] newRow = MakeObjectArray.MakeRowObject(row);
                 RowDGV.Rows.Add(newRow);
