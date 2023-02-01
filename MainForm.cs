@@ -217,8 +217,11 @@ namespace ACFAParamEditor
         {
             if (rowPaste != null)
             {
-                ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
+                RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
                 RowWrapper newRowWrapper = rowPaste[1] as RowWrapper;
+                if (CellDGV.Rows.Count != newRowWrapper.Row.Cells.Count) { return;  }         
+                if (Util.CheckNameMatch(newRowWrapper.Row, selectedRow.Row));
+                ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
                 int MaxID = RowDGV.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[0].Value));
                 newRowWrapper.Row.ID = MaxID + 1;
                 rowPaste[0] = MaxID + 1;

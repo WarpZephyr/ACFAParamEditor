@@ -77,6 +77,36 @@ namespace ACFAParamEditor
                 return false;
             }
         }
+        public static bool CheckNameMatch(PARAM.Row pasteRow, PARAM.Row paramRow)
+        {
+            foreach (PARAM.Cell pasteCell in pasteRow.Cells)
+            {
+                foreach (PARAM.Cell paramCell in paramRow.Cells)
+                {
+                    if (pasteCell.Def.DisplayName == paramCell.Def.DisplayName)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        // Not currently used
+        public static bool CheckTypeMatch(PARAM.Row pasteRow, PARAM.Row paramRow)
+        {
+            foreach (PARAM.Cell pasteCell in pasteRow.Cells)
+            {
+                foreach (PARAM.Cell paramCell in paramRow.Cells)
+                {
+                    if (pasteCell.Def.DisplayType == paramCell.Def.DisplayType)
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
 
         // Used to check if a drag and dropped file is a param, def, or neither
         // TODO: Add drag and drop
