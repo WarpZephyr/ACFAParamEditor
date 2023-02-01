@@ -67,6 +67,7 @@ namespace ACFAParamEditor
             if (defList.Count == 0)
             {
                 OpenParamsFMS.Enabled = false;
+                AddParamFMS.Enabled = false;
                 string description = "WARNING: No defs found in resource folder";
                 TSSLDefReading.Text = description;
                 Debug.WriteLine(description);
@@ -109,6 +110,20 @@ namespace ACFAParamEditor
             object[] newParam = MakeObjectArray.MakeParamObject(paramFilePath, defList);
             if (newParam == null) { return; }
             ParamDGV.Rows.Add(newParam);
+        }
+
+        // Remove all params
+        private void ClearParamFMS_Click(object sender, EventArgs e)
+        {
+            if (ParamDGV.CurrentRow == null) { return; }
+            ParamDGV.Rows.Clear();
+        }
+
+        // Remove the currently selected param
+        private void RemoveParamFMS_Click(object sender, EventArgs e)
+        {
+            if (ParamDGV.CurrentRow == null) { return; }
+            ParamDGV.Rows.Remove(ParamDGV.CurrentRow);
         }
 
         // Save the currently open param
