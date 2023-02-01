@@ -10,16 +10,20 @@ namespace ACFAParamEditor
 {
     public partial class MainForm : Form
     {
-        // Initialize global def list
+        // Initialize global variables
         private List<PARAMDEF> defList = new List<PARAMDEF>();
         private RowWrapper rowStore;
         private object[] rowPaste;
         private string paramPath;
+
+        // MainForm Constructor
         public MainForm()
         {
             InitializeComponent();
-            // Use override to change colors of selected Menu Strip items to dark mode and disable shadows
-            MainFormMenuStrip.Renderer = new OverrideToolStripRenderer();
+            // Use override to change colors of selected Strip items to dark mode and disable shadows
+            var toolStripOverrideRenderer = new OverrideToolStripRenderer();
+            MainFormMenuStrip.Renderer = toolStripOverrideRenderer;
+            RowDGVContextMenu.Renderer = toolStripOverrideRenderer;
 
             // Disable Shadows on Dropdowns
             //FileMS.DropDown.DropShadowEnabled= false; // TODO: Fix random location changing when shadow is disabled
@@ -32,6 +36,7 @@ namespace ACFAParamEditor
             ((ToolStripDropDownMenu)ExportFMS.DropDown).ShowImageMargin = false;
             ((ToolStripDropDownMenu)RowMS.DropDown).ShowImageMargin = false;
             ((ToolStripDropDownMenu)HelpMS.DropDown).ShowImageMargin = false;
+            RowDGVContextMenu.ShowImageMargin=false;
         }
 
         // On Main Form Load, add the defs to the global def list
@@ -41,13 +46,13 @@ namespace ACFAParamEditor
             Directory.CreateDirectory($"{Util.resFolderPath}/def/");
 
             // Create def list on form load
-            string[] defFiles = Directory.GetFiles($"{Util.resFolderPath}/def/", "*.def");      // Switch xml/def to test either
+            string[] defFiles = Directory.GetFiles($"{Util.resFolderPath}/def/", "*.def");
             foreach (string defPath in defFiles)
             {
                 try
                 {
-                    defList.Add(PARAMDEF.Read(defPath));                            // Comment/Uncomment this line to test Def
-                    //defList.Add(PARAMDEF.XmlDeserialize(defPath));                // Comment/Uncomment this line to test xml
+                    defList.Add(PARAMDEF.Read(defPath));
+                    //defList.Add(PARAMDEF.XmlDeserialize(defPath));
                 }
                 catch (InvalidDataException IDEx)
                 {
@@ -73,58 +78,19 @@ namespace ACFAParamEditor
         // Open Params
         private void OpenParamsFMS_click(object sender, EventArgs e)
         {
-            // Prompt the user for folders containing param files
-            CommonOpenFileDialog binFolderPathDialog = new CommonOpenFileDialog
-            {
-                InitialDirectory = "C:\\Users",
-                IsFolderPicker = true,
-                Title = "Select the Folder containing your Params"
-            };
+            string paramFolderPath = Util.GetFiles("params");
+            if (paramFolderPath == null) { return; }
+            paramPath = paramFolderPath;
 
-            if (binFolderPathDialog.ShowDialog() != CommonFileDialogResult.Ok)
-            {
-                return;
-            }
-
-            string binFolderPath = binFolderPathDialog.FileName;
-            paramPath = binFolderPath;
-
-            // Apply defs to params
             ParamDGV.Rows.Clear();
-            string[] binFiles = Directory.GetFiles(binFolderPath, "*.*");
-            foreach (string binPath in binFiles)
+            string[] paramFiles = Directory.GetFiles(paramFolderPath, "*.*");
+            foreach (string paramPath in paramFiles)
             {
-                try
+                if (Util.CheckIfParam(paramPath))
                 {
-                    try
-                    {
-                        var param = new ParamWrapper()
-                        {
-                            ParamName = Path.GetFileName(binPath),
-                            Param = PARAM.Read(binPath)
-                        };
-
-                        var applyDef = param.Param.ApplyParamdefCarefully(defList);
-                        if (applyDef == true)
-                        {
-                            object[] newParamRow = { param, param.Param.ParamType };
-                            ParamDGV.Rows.Add(newParamRow);
-                        }
-                    }
-                    catch (EndOfStreamException EOSe)
-                    {
-                        string description = $"Failed to parse Param at {binPath}";
-                        TSSLParamReading.Text = $"DEBUG: {description}, see parameditor.log";
-                        Debug.WriteLine($"{description}");
-                        Logger.LogExceptionWithDate(EOSe, description);
-                    }
-                }
-                catch (InvalidDataException IDEx)
-                {
-                    string description = $"Failed to parse Param at {binPath}";
-                    TSSLParamReading.Text = $"DEBUG: {description}, see parameditor.log";
-                    Debug.WriteLine($"{description}");
-                    Logger.LogExceptionWithDate(IDEx, description);
+                    object[] newParam = MakeObjectArray.MakeParamObject(paramPath, defList);
+                    if (newParam == null ) { continue; }
+                    ParamDGV.Rows.Add(newParam);
                 }
             }
 
@@ -135,7 +101,28 @@ namespace ACFAParamEditor
             }
         }
 
+        // Open and add one param
+        private void AddParamFMS_Click(object sender, EventArgs e)
+        {
+            string paramFilePath = Util.GetParamFile();
+            if (paramFilePath == null) { return; }
+            object[] newParam = MakeObjectArray.MakeParamObject(paramFilePath, defList);
+            if (newParam == null) { return; }
+            ParamDGV.Rows.Add(newParam);
+        }
+
+        // Save the currently open param
         private void SaveFMS_Click(object sender, EventArgs e)
+        {
+            if (ParamDGV.CurrentRow != null)
+            {
+                ParamWrapper param = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
+                param.Param.Write($"{paramPath}/{param.ParamName}");
+            }
+        }
+
+        // Save all params
+        private void SaveAllFMS_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow row in ParamDGV.Rows) 
             {
@@ -144,28 +131,16 @@ namespace ACFAParamEditor
             }
         }
 
-        // Convert defs to xmls - Does not convert properly yet and leads to more null cells
-        // TODO: Fix def to xml conversion
+        // TODO: Fix def to xml conversion - Convert defs to xmls
         private void ConvertDefXmlEFMS_Click(object sender, EventArgs e)
         {
             Directory.CreateDirectory($"{Util.resFolderPath}/xml/");
-
-            // Prompt the user for folders containing def files to be serialized into Paramdef Xmls
-            CommonOpenFileDialog defFolderPathDialog = new CommonOpenFileDialog
-            {
-                InitialDirectory = "C:\\Users",
-                IsFolderPicker = true,
-                Title = "Select the Folder containing your Defs to convert them into XMLs"
-            };
-
-            if (defFolderPathDialog.ShowDialog() != CommonFileDialogResult.Ok)
-            {
-                return;
-            }
+            string defUserFolderPath = Util.GetFiles("defs");
+            if (defUserFolderPath == null) { return; }
+            string defsPath = defUserFolderPath;
 
             // Convert defs to xmls
-            var defUserFolderPath = defFolderPathDialog.FileName;
-            string[] defFiles = Directory.GetFiles(defUserFolderPath, "*.*");
+            string[] defFiles = Directory.GetFiles(defsPath, "*.*");
             foreach (string defPath in defFiles)
             {
                 try
@@ -216,21 +191,37 @@ namespace ACFAParamEditor
             RowDGV.Rows.Add(newRow);
         }
 
+        // Copy currently selected row
         private void CopyRowRMS_Click(object sender, EventArgs e)
         {
-            RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-            object[] newRow = { selectedRow.Row.ID, selectedRow };
-            rowPaste = newRow;
+            if (RowDGV.CurrentRow != null)
+            {
+                RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
+                object[] newRow = { selectedRow.Row.ID, selectedRow };
+                rowPaste = newRow;
+            }
         }
+
+        // Paste copied row
         private void PasteRowRMS_Click(object sender, EventArgs e)
         {
-            RowDGV.Rows.Add(rowPaste);
+            if (rowPaste != null)
+            {
+                RowDGV.Rows.Add(rowPaste);
+            }
         }
 
         // TODO: Delete the currently selected row
         private void DeleteRowRMS_Click(object sender, EventArgs e)
         {
-
+            if (RowDGV.CurrentRow != null)
+            {
+                DialogResult deleteDialog = MessageBox.Show("Are you sure you want to delete this row?", "Delete Row", MessageBoxButtons.YesNo);
+                if (deleteDialog == DialogResult.Yes)
+                {
+                    RowDGV.Rows.Remove(RowDGV.CurrentRow);
+                }
+            }
         }
 
         // TODO: Show About form message
@@ -251,12 +242,7 @@ namespace ACFAParamEditor
 
             foreach (var row in selectedParam.Param.Rows)
             {
-                var rowWrapper = new RowWrapper()
-                {      
-                    Row = row
-                };
-
-                object[] newRow = {rowWrapper.Row.ID, rowWrapper};
+                object[] newRow = MakeObjectArray.MakeRowObject(row);
                 RowDGV.Rows.Add(newRow);
             }
         }
@@ -265,31 +251,16 @@ namespace ACFAParamEditor
         // TODO: Make error messages on status strip disappear when switching rows
         private void RowDGV_SelectionChanged(object sender, EventArgs e)
         {
+            //if (RowDGV.CurrentRow == null) { return; }
             CellDGV.Rows.Clear();
             RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
             rowStore = selectedRow;
-
-            if (selectedRow.Row.Cells != null)
+            if (selectedRow.Row.Cells == null) { return; }
+            foreach (var cell in selectedRow.Row.Cells)
             {
-                foreach (var cell in selectedRow.Row.Cells)
-                {
-                    var cellWrapper = new CellWrapper()
-                    {
-                        Cell = cell
-                    };
-
-                    object[] newCellRow = { cellWrapper.Cell.Def.DisplayType, cellWrapper, cellWrapper.Cell.Value };
-                    CellDGV.Rows.Add(newCellRow);
-                }
-            }
-            else 
-            {
-                ReaderStatusStrip.Items.Clear();
-                string description = $"Row {selectedRow.Row.ID} in {ParamDGV.CurrentRow.Cells[0].Value} has Null Cells";
-                TSSLCellReading.Text = description;
-                Logger.LogErrorWithDate(description);
-                return;
-            }        
+                object[] newCell = MakeObjectArray.MakeCellObject(cell);
+                CellDGV.Rows.Add(newCell);
+            }    
         }
         
         // TODO: Make error messages on status strip disappear when switching cells
