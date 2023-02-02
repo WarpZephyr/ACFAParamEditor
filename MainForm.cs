@@ -111,7 +111,7 @@ namespace ACFAParamEditor
         {
             string paramFilePath = Util.GetParamFile();
             if (paramFilePath == null) { return; }
-            paramPath = paramFilePath;
+            paramPath = Path.GetDirectoryName(paramFilePath);
             object[] newParam = MakeObjectArray.MakeParamObject(paramFilePath, defList);
             if (newParam == null) { return; }
             ParamDGV.Rows.Add(newParam);
@@ -273,16 +273,20 @@ namespace ACFAParamEditor
         {
             if (rowPaste != null)
             {
-                RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-                RowWrapper newRowWrapper = rowPaste[1] as RowWrapper;
-                if (CellDGV.Rows.Count != newRowWrapper.Row.Cells.Count) { return; }
-                if (!Util.CheckNameMatch(newRowWrapper.Row, selectedRow.Row)) { return; }
-                ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
-                int MaxID = RowDGV.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[0].Value));
-                newRowWrapper.Row.ID = MaxID + 1;
-                rowPaste[0] = MaxID + 1;
-                selectedParam.Param.Rows.Add(newRowWrapper.Row);     
-                RowDGV.Rows.Add(rowPaste);
+                RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;                     // Original, visual item
+                RowWrapper newRowWrapper = rowPaste[1] as RowWrapper;                                        // New, not visual item
+
+
+                if (CellDGV.Rows.Count != newRowWrapper.Row.Cells.Count) { return; }                         // Make sure the cell counts match
+                if (!Util.CheckNameMatch(newRowWrapper.Row, selectedRow.Row)) { return; }                    // Make sure the names in cells match
+
+                ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;             // Get the currently selected Param
+
+                int MaxID = RowDGV.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[0].Value)); // Get the biggest row ID in the Param
+                newRowWrapper.Row.ID = MaxID + 1;                                                            // Set the New, not visual row ID to the MaxID plus 1
+                rowPaste[0] = MaxID + 1;                                                                     // Set the old, visual row ID to the MaxID plus 1
+                selectedParam.Param.Rows.Add(newRowWrapper.Row);                                             // Add the new, not visul row to the Param
+                RowDGV.Rows.Add(rowPaste);                                                                   // Add the old, visul row, to the RowDGV rows
             }
         }
 

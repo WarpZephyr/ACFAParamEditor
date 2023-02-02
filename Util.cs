@@ -26,7 +26,7 @@ namespace ACFAParamEditor
 
             if (paramFilePathDialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                return Path.GetDirectoryName(paramFilePathDialog.FileName);
+                return paramFilePathDialog.FileName;
             }
 
             return null;
