@@ -14,6 +14,7 @@ namespace ACFAParamEditor
         private List<PARAMDEF> defList = new List<PARAMDEF>();
         private RowWrapper rowStore;
         private object[] rowPaste;
+        private ParamWrapper rowPasteParam;
         private object cellValueStore;
 
         // MainForm Constructor
@@ -259,6 +260,7 @@ namespace ACFAParamEditor
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
             RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
             object[] newRowObject = Util.CopyRow(selectedParam, selectedRow);
+            rowPasteParam = selectedParam;
             rowPaste = newRowObject;
         }
 
@@ -268,11 +270,15 @@ namespace ACFAParamEditor
             if (rowPaste == null) { return; }
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
             RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-            object[] newRowObject = Util.CopyRow(selectedParam, selectedRow);
-            rowPaste = newRowObject;
-            RowWrapper newRowWrapper = rowPaste[1] as RowWrapper;
+
+            CopyObject newCopyObject = new CopyObject();
+
+            object[] newRow = newCopyObject.CopyRow((RowWrapper)rowPaste[1], rowPasteParam);
+            RowWrapper newRowWrapper = newRow[1] as RowWrapper;
+
             if (CellDGV.Rows.Count != newRowWrapper.Row.Cells.Count) { return; }
             if (!Util.CheckNameMatch(newRowWrapper.Row, selectedRow.Row)) { return; }
+
             int MaxID = RowDGV.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[0].Value));
             newRowWrapper.Row.ID = MaxID + 1;
             rowPaste[0] = MaxID + 1;

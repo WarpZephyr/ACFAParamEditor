@@ -61,6 +61,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CopyObject.cs" />
     <Compile Include="MakeObjectArray.cs" />
     <Compile Include="CellWrapper.cs" />
     <Compile Include="IsExternalInit.cs" />
