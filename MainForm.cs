@@ -14,7 +14,6 @@ namespace ACFAParamEditor
         private List<PARAMDEF> defList = new List<PARAMDEF>();
         private RowWrapper rowStore;
         private object[] rowPaste;
-        private string paramPath;
         private object cellValueStore;
 
         // MainForm Constructor
@@ -79,18 +78,17 @@ namespace ACFAParamEditor
             }
         }
 
-        #region MenuItems
         // Open Params
         private void OpenParamsFMS_click(object sender, EventArgs e)
         {
             string paramFolderPath = Util.GetParamFiles("params");
             if (paramFolderPath == null) { return; }
-            paramPath = paramFolderPath;
 
             ParamDGV.Rows.Clear();
             string[] paramFiles = Directory.GetFiles(paramFolderPath, "*.*");
             foreach (string paramPath in paramFiles)
             {
+                if (Path.GetExtension(paramPath) == ".bak") { continue; }
                 if (Util.CheckIfParam(paramPath))
                 {
                     object[] newParam = MakeObjectArray.MakeParamObject(paramPath, defList);
@@ -111,7 +109,7 @@ namespace ACFAParamEditor
         {
             string paramFilePath = Util.GetParamFile();
             if (paramFilePath == null) { return; }
-            paramPath = Path.GetDirectoryName(paramFilePath);
+            if (Path.GetExtension(paramFilePath) == ".bak") { MessageBox.Show("Cannot load backup file"); return; }
             object[] newParam = MakeObjectArray.MakeParamObject(paramFilePath, defList);
             if (newParam == null) { return; }
             ParamDGV.Rows.Add(newParam);
@@ -121,6 +119,11 @@ namespace ACFAParamEditor
         private void ClearParamFMS_Click(object sender, EventArgs e)
         {
             if (ParamDGV.CurrentRow == null) { return; }
+            if (VerifyParamRemovalOMS.Checked == true)
+            {
+                DialogResult saveDialog = MessageBox.Show("Are you sure you want to clear all params?", "Clear all Params", MessageBoxButtons.YesNo);
+                if (saveDialog != DialogResult.Yes) { return; }
+            }
             ParamDGV.Rows.Clear();
             RowDGV.Rows.Clear();
             CellDGV.Rows.Clear();
@@ -130,11 +133,9 @@ namespace ACFAParamEditor
         private void RemoveParamFMS_Click(object sender, EventArgs e)
         {
             if (ParamDGV.CurrentRow == null) { return; }
-            if (VerifyParamRemovalOMS.Checked == true)
-            {
-                DialogResult saveDialog = MessageBox.Show("Are you sure you want to remove the currently selected param?", "Remove Selected Param", MessageBoxButtons.YesNo);
-                if (saveDialog != DialogResult.Yes) { return; }
-            }
+            if (VerifyParamRemovalOMS.Checked == false) { return; }
+            DialogResult saveDialog = MessageBox.Show("Are you sure you want to remove the currently selected param?", "Remove Selected Param", MessageBoxButtons.YesNo);
+            if (saveDialog != DialogResult.Yes) { return; }
             if (ParamDGV.Rows.Count == 1) { RowDGV.Rows.Clear(); CellDGV.Rows.Clear(); }
             ParamDGV.Rows.Remove(ParamDGV.CurrentRow);
         }
@@ -143,22 +144,20 @@ namespace ACFAParamEditor
         private void SaveFMS_Click(object sender, EventArgs e)
         {
             if (ParamDGV.CurrentRow == null) { return; }
-            if (VerifySaveFileOMS.Checked == true)
-            {
+            if (VerifySaveFileOMS.Checked == true) {
                 DialogResult saveDialog = MessageBox.Show("Are you sure you want to save this param?", "Save Param", MessageBoxButtons.YesNo);
                 if (saveDialog != DialogResult.Yes) { return; }
             }
-
             ParamWrapper param = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
-            /*if (BackupParamOMS.Checked == true)
+            if (BackupParamOMS.Checked == true)
             {
-                if (!File.Exists($"{paramPath}/{param.ParamName}.original.bak")) 
+                if (!File.Exists($"{param.ParamPath}/{param.ParamName}.original.bak")) 
                 { 
-                    param.Param.Write($"{paramPath}/{param.ParamName}.original.bak");
+                    param.Param.Write($"{param.ParamPath}/{param.ParamName}.original.bak");
                 }
-                param.Param.Write($"{paramPath}/{param.ParamName}.bak");
-            }*/
-            param.Param.Write($"{paramPath}/{param.ParamName}");
+                param.Param.Write($"{param.ParamPath}/{param.ParamName}.bak");
+            }
+            param.Param.Write($"{param.ParamPath}/{param.ParamName}");
         }
 
         // Save all params
@@ -170,19 +169,18 @@ namespace ACFAParamEditor
                 DialogResult saveDialog = MessageBox.Show("Are you sure you want to save all params?", "Save all Params", MessageBoxButtons.YesNo);
                 if (saveDialog != DialogResult.Yes) { return; }
             }
-
             foreach (DataGridViewRow row in ParamDGV.Rows) 
             {
                 ParamWrapper param = row.Cells[0].Value as ParamWrapper;
-                /*if (BackupParamOMS.Checked == true)
+                if (BackupParamOMS.Checked == true)
                 {
-                    if (!File.Exists($"{paramPath}/{param.ParamName}.original.bak"))
+                    if (!File.Exists($"{param.ParamPath}/{param.ParamName}.original.bak"))
                     {
-                        param.Param.Write($"{paramPath}/{param.ParamName}.original.bak");
+                        param.Param.Write($"{param.ParamPath}/{param.ParamName}.original.bak");
                     }
-                    param.Param.Write($"{paramPath}/{param.ParamName}.bak");
-                }*/
-                param.Param.Write($"{paramPath}/{param.ParamName}");
+                    param.Param.Write($"{param.ParamPath}/{param.ParamName}.bak");
+                }
+                param.Param.Write($"{param.ParamPath}/{param.ParamName}");
             }
         }
 
@@ -285,30 +283,28 @@ namespace ACFAParamEditor
         // TODO: Delete the currently selected row
         private void DeleteRowEMS_Click(object sender, EventArgs e)
         {
-            if (RowDGV.CurrentRow != null) 
+            if (RowDGV.CurrentRow == null) { return; }
+            ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
+            RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
+            if (VerifyDeleteRowOMS.Checked == true) 
             {
-                ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
-                RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-                if (VerifyDeleteRowOMS.Checked == true) 
-                {
-                    DialogResult deleteDialog = MessageBox.Show("Are you sure you want to delete this row?", "Delete Row", MessageBoxButtons.YesNo);
-                    if (deleteDialog != DialogResult.Yes) { return; } 
-                }
-                if (RowDGV.Rows.Count == 1)
-                {
-                    DialogResult deleteDialog = MessageBox.Show("This will also delete the currently selected param, are you sure you wish to continue?", "Delete Param", MessageBoxButtons.YesNo);
-                    if (deleteDialog != DialogResult.Yes) { return; }
-                    if (ParamDGV.Rows.Count == 1) 
-                    {
-                        RowDGV.Rows.Clear();
-                        CellDGV.Rows.Clear();
-                    }
-                    ParamDGV.Rows.Remove(ParamDGV.CurrentRow);
-                    return;
-                }
-                selectedParam.Param.Rows.Remove(selectedRow.Row);
-                RowDGV.Rows.Remove(RowDGV.CurrentRow);
+                DialogResult deleteDialog = MessageBox.Show("Are you sure you want to delete this row?", "Delete Row", MessageBoxButtons.YesNo);
+                if (deleteDialog != DialogResult.Yes) { return; } 
             }
+            if (RowDGV.Rows.Count == 1)
+            {
+                DialogResult deleteDialog = MessageBox.Show("This will also delete the currently selected param, are you sure you wish to continue?", "Delete Param", MessageBoxButtons.YesNo);
+                if (deleteDialog != DialogResult.Yes) { return; }
+                if (ParamDGV.Rows.Count == 1) 
+                {
+                    RowDGV.Rows.Clear();
+                    CellDGV.Rows.Clear();
+                }
+                ParamDGV.Rows.Remove(ParamDGV.CurrentRow);
+                return;
+            }
+            selectedParam.Param.Rows.Remove(selectedRow.Row);
+            RowDGV.Rows.Remove(RowDGV.CurrentRow);
         }
 
         // TODO: Show About form message
@@ -316,9 +312,7 @@ namespace ACFAParamEditor
         {
 
         }
-        #endregion MenuItems
 
-        #region DataGridViewSelectionChanges
         // Show newly selected Param's Rows when Param DataGridView selection changes
         // TODO: Make error messages on status strip disappear when switching params
         private void ParamDGV_SelectionChanged(object sender, EventArgs e)
@@ -357,9 +351,7 @@ namespace ACFAParamEditor
         }
 
         // TODO: Make error messages on status strip disappear when switching cells
-        #endregion DataGridViewSelectionChanges
 
-        #region DataGridViewSaveState
         private void RowDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (RowDGV.CurrentRow != null)
@@ -406,15 +398,14 @@ namespace ACFAParamEditor
                 Logger.LogExceptionWithDate(OFe, description);
             }
         }
-        #endregion DataGridViewSaveState
 
-        // TODO: When someone attempts to drag a file into the window's Param viewing area
+        // When someone attempts to drag a file into the window's Param viewing area
         private void SplitContainerA_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
         }
 
-        // TODO: Check the dropped item
+        // Check the dropped item
         private void SplitContainerA_DragDrop(object sender, DragEventArgs e)
         {
             string[] filepaths = (string[])e.Data.GetData(DataFormats.FileDrop);
@@ -422,13 +413,13 @@ namespace ACFAParamEditor
             {
                 if (Directory.Exists(path))
                 {
-                    paramPath = path;
                     ParamDGV.Rows.Clear();
                     string[] paramFiles = Directory.GetFiles(path, "*.*");
                     foreach (string paramPath in paramFiles)
                     {
                         if (Util.CheckIfParam(paramPath))
                         {
+                            if (Path.GetExtension(paramPath) == ".bak") { continue; }
                             object[] newParam = MakeObjectArray.MakeParamObject(paramPath, defList);
                             if (newParam == null) { continue; }
                             ParamDGV.Rows.Add(newParam);
@@ -437,7 +428,7 @@ namespace ACFAParamEditor
                 }
                 else
                 {
-                    paramPath = Path.GetDirectoryName(path);
+                    if (Path.GetExtension(path) == ".bak") { continue; }
                     object[] newParam = MakeObjectArray.MakeParamObject(path, defList);
                     if (newParam == null) { MessageBox.Show("Invalid file, not a usable param"); return; }
                     ParamDGV.Rows.Add(newParam);
@@ -451,6 +442,21 @@ namespace ACFAParamEditor
             {
                 DeleteRowEMS_Click(sender, e);
             }
+
+            if (e.Control && e.KeyCode == Keys.C)
+            {
+                CopyRowEMS_Click(sender, e);
+            }
+
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                PasteRowEMS_Click(sender, e);
+            }
+        }
+
+        private void RowDGV_KeyUp(object sender, KeyEventArgs e)
+        {
+
         }
 
         private void ParamDGV_KeyDown(object sender, KeyEventArgs e)
@@ -459,6 +465,6 @@ namespace ACFAParamEditor
             {
                 RemoveParamFMS_Click(sender, e);
             }
-        }
+        } 
     }
 }

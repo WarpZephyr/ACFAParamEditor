@@ -13,6 +13,7 @@ namespace ACFAParamEditor
             var param = new ParamWrapper()
             {
                 ParamName = Path.GetFileName(paramFilePath),
+                ParamPath= Path.GetDirectoryName(paramFilePath),
                 Param = PARAM.Read(paramFilePath)
             };
 
