@@ -72,6 +72,14 @@ namespace ACFAParamEditor
             return newRow;
         }
 
+        public static object[] CopyRow(ParamWrapper currentParam, RowWrapper currentRow) 
+        {
+            PARAM.Row newRow = new PARAM.Row(currentRow.Row.ID, currentRow.Row.Name, currentParam.Param.AppliedParamdef);
+            SetCells(newRow, currentRow.Row);
+            object[] newRowObject = MakeObjectArray.MakeRowObject(newRow);
+            return newRowObject;
+        }
+
         public static bool CheckIfParam(string paramFilePath)
         {
             try
