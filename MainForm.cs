@@ -111,6 +111,7 @@ namespace ACFAParamEditor
         {
             string paramFilePath = Util.GetParamFile();
             if (paramFilePath == null) { return; }
+            paramPath = paramFilePath;
             object[] newParam = MakeObjectArray.MakeParamObject(paramFilePath, defList);
             if (newParam == null) { return; }
             ParamDGV.Rows.Add(newParam);
@@ -141,26 +142,23 @@ namespace ACFAParamEditor
         // Save the currently open param
         private void SaveFMS_Click(object sender, EventArgs e)
         {
-            if (ParamDGV.Rows.Count == 0) { return; }
+            if (ParamDGV.CurrentRow == null) { return; }
             if (VerifySaveFileOMS.Checked == true)
             {
                 DialogResult saveDialog = MessageBox.Show("Are you sure you want to save this param?", "Save Param", MessageBoxButtons.YesNo);
                 if (saveDialog != DialogResult.Yes) { return; }
             }
 
-            if (ParamDGV.CurrentRow != null)
+            ParamWrapper param = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
+            /*if (BackupParamOMS.Checked == true)
             {
-                ParamWrapper param = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
-                if (BackupParamOMS.Checked == true)
-                {
-                    if (!File.Exists($"{paramPath}/{param.ParamName}.original.bak")) 
-                    { 
-                        param.Param.Write($"{paramPath}/{param.ParamName}.original.bak");
-                    }
-                    param.Param.Write($"{paramPath}/{param.ParamName}.bak");
+                if (!File.Exists($"{paramPath}/{param.ParamName}.original.bak")) 
+                { 
+                    param.Param.Write($"{paramPath}/{param.ParamName}.original.bak");
                 }
-                param.Param.Write($"{paramPath}/{param.ParamName}");
-            }
+                param.Param.Write($"{paramPath}/{param.ParamName}.bak");
+            }*/
+            param.Param.Write($"{paramPath}/{param.ParamName}");
         }
 
         // Save all params
@@ -176,14 +174,14 @@ namespace ACFAParamEditor
             foreach (DataGridViewRow row in ParamDGV.Rows) 
             {
                 ParamWrapper param = row.Cells[0].Value as ParamWrapper;
-                if (BackupParamOMS.Checked == true)
+                /*if (BackupParamOMS.Checked == true)
                 {
                     if (!File.Exists($"{paramPath}/{param.ParamName}.original.bak"))
                     {
                         param.Param.Write($"{paramPath}/{param.ParamName}.original.bak");
                     }
                     param.Param.Write($"{paramPath}/{param.ParamName}.bak");
-                }
+                }*/
                 param.Param.Write($"{paramPath}/{param.ParamName}");
             }
         }
@@ -423,8 +421,8 @@ namespace ACFAParamEditor
         // TODO: Check the dropped item
         private void SplitContainerA_DragDrop(object sender, DragEventArgs e)
         {
-            List<string> filepaths = new List<string>();
-            foreach (string path in (string[])e.Data.GetData(DataFormats.FileDrop, false))
+            string[] filepaths = (string[])e.Data.GetData(DataFormats.FileDrop);
+            foreach (string path in filepaths)
             {
                 if (Directory.Exists(path))
                 {
@@ -443,6 +441,7 @@ namespace ACFAParamEditor
                 }
                 else
                 {
+                    paramPath = Path.GetDirectoryName(path);
                     object[] newParam = MakeObjectArray.MakeParamObject(path, defList);
                     if (newParam == null) { MessageBox.Show("Invalid file, not a usable param"); return; }
                     ParamDGV.Rows.Add(newParam);

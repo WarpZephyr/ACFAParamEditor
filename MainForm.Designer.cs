@@ -48,6 +48,9 @@
             this.ParamDGV = new System.Windows.Forms.DataGridView();
             this.paramname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paramtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ParamDGVContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.AddParamParamConMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoveParamParamConMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.CellDGV = new System.Windows.Forms.DataGridView();
             this.celltype = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cellname = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +66,8 @@
             this.FileMS = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenParamsFMS = new System.Windows.Forms.ToolStripMenuItem();
             this.AddParamFMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoveParamFMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.ClearParamFMS = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveFMS = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveAllFMS = new System.Windows.Forms.ToolStripMenuItem();
             this.FileSaveSeparatorMS = new System.Windows.Forms.ToolStripSeparator();
@@ -78,20 +83,16 @@
             this.PasteRowEMS = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteRowEMS = new System.Windows.Forms.ToolStripMenuItem();
             this.OptionsMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.VerifySaveFileOMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.VerifyParamRemovalOMS = new System.Windows.Forms.ToolStripMenuItem();
             this.VerifyDeleteRowOMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.BackupParamOMS = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpMS = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutHMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.RemoveParamFMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.ClearParamFMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.VerifySaveFileOMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.BackupParamOMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.VerifyParamRemovalOMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.ParamDGVContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.AddParamParamConMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.RemoveParamParamConMenu = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.RowDGV)).BeginInit();
             this.RowDGVContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ParamDGV)).BeginInit();
+            this.ParamDGVContextMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CellDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainerA)).BeginInit();
             this.SplitContainerA.Panel1.SuspendLayout();
@@ -103,7 +104,6 @@
             this.SplitContainerB.SuspendLayout();
             this.ReaderStatusStrip.SuspendLayout();
             this.MainFormMenuStrip.SuspendLayout();
-            this.ParamDGVContextMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // RowDGV
@@ -268,6 +268,33 @@
             this.paramtype.HeaderText = "Param Type";
             this.paramtype.Name = "paramtype";
             this.paramtype.ReadOnly = true;
+            // 
+            // ParamDGVContextMenu
+            // 
+            this.ParamDGVContextMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.ParamDGVContextMenu.DropShadowEnabled = false;
+            this.ParamDGVContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AddParamParamConMenu,
+            this.RemoveParamParamConMenu});
+            this.ParamDGVContextMenu.Name = "RowDGVContextMenu";
+            this.ParamDGVContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.ParamDGVContextMenu.Size = new System.Drawing.Size(155, 48);
+            // 
+            // AddParamParamConMenu
+            // 
+            this.AddParamParamConMenu.ForeColor = System.Drawing.SystemColors.Control;
+            this.AddParamParamConMenu.Name = "AddParamParamConMenu";
+            this.AddParamParamConMenu.Size = new System.Drawing.Size(154, 22);
+            this.AddParamParamConMenu.Text = "Add Param";
+            this.AddParamParamConMenu.Click += new System.EventHandler(this.AddParamFMS_Click);
+            // 
+            // RemoveParamParamConMenu
+            // 
+            this.RemoveParamParamConMenu.ForeColor = System.Drawing.SystemColors.Control;
+            this.RemoveParamParamConMenu.Name = "RemoveParamParamConMenu";
+            this.RemoveParamParamConMenu.Size = new System.Drawing.Size(154, 22);
+            this.RemoveParamParamConMenu.Text = "Remove Param";
+            this.RemoveParamParamConMenu.Click += new System.EventHandler(this.RemoveParamFMS_Click);
             // 
             // CellDGV
             // 
@@ -456,7 +483,7 @@
             this.OpenParamsFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.OpenParamsFMS.ForeColor = System.Drawing.SystemColors.Control;
             this.OpenParamsFMS.Name = "OpenParamsFMS";
-            this.OpenParamsFMS.Size = new System.Drawing.Size(180, 22);
+            this.OpenParamsFMS.Size = new System.Drawing.Size(154, 22);
             this.OpenParamsFMS.Text = "Open Params";
             this.OpenParamsFMS.ToolTipText = "Adds all found params in a folder";
             this.OpenParamsFMS.Click += new System.EventHandler(this.OpenParamsFMS_click);
@@ -468,10 +495,34 @@
             this.AddParamFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.AddParamFMS.ForeColor = System.Drawing.SystemColors.Control;
             this.AddParamFMS.Name = "AddParamFMS";
-            this.AddParamFMS.Size = new System.Drawing.Size(180, 22);
+            this.AddParamFMS.Size = new System.Drawing.Size(154, 22);
             this.AddParamFMS.Text = "Add Param";
             this.AddParamFMS.ToolTipText = "Adds one param of your choosing";
             this.AddParamFMS.Click += new System.EventHandler(this.AddParamFMS_Click);
+            // 
+            // RemoveParamFMS
+            // 
+            this.RemoveParamFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.RemoveParamFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RemoveParamFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.RemoveParamFMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.RemoveParamFMS.Name = "RemoveParamFMS";
+            this.RemoveParamFMS.Size = new System.Drawing.Size(154, 22);
+            this.RemoveParamFMS.Text = "Remove Param";
+            this.RemoveParamFMS.ToolTipText = "Removes the currently selected param";
+            this.RemoveParamFMS.Click += new System.EventHandler(this.RemoveParamFMS_Click);
+            // 
+            // ClearParamFMS
+            // 
+            this.ClearParamFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.ClearParamFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClearParamFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ClearParamFMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.ClearParamFMS.Name = "ClearParamFMS";
+            this.ClearParamFMS.Size = new System.Drawing.Size(154, 22);
+            this.ClearParamFMS.Text = "Clear Params";
+            this.ClearParamFMS.ToolTipText = "Unloads all params without saving";
+            this.ClearParamFMS.Click += new System.EventHandler(this.ClearParamFMS_Click);
             // 
             // SaveFMS
             // 
@@ -480,7 +531,7 @@
             this.SaveFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.SaveFMS.ForeColor = System.Drawing.SystemColors.Control;
             this.SaveFMS.Name = "SaveFMS";
-            this.SaveFMS.Size = new System.Drawing.Size(180, 22);
+            this.SaveFMS.Size = new System.Drawing.Size(154, 22);
             this.SaveFMS.Text = "Save";
             this.SaveFMS.ToolTipText = "Saves the currently selected param back to the original file";
             this.SaveFMS.Click += new System.EventHandler(this.SaveFMS_Click);
@@ -492,7 +543,7 @@
             this.SaveAllFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.SaveAllFMS.ForeColor = System.Drawing.SystemColors.Control;
             this.SaveAllFMS.Name = "SaveAllFMS";
-            this.SaveAllFMS.Size = new System.Drawing.Size(180, 22);
+            this.SaveAllFMS.Size = new System.Drawing.Size(154, 22);
             this.SaveAllFMS.Text = "Save All";
             this.SaveAllFMS.ToolTipText = "Saves all loaded params back to the original files";
             this.SaveAllFMS.Click += new System.EventHandler(this.SaveAllFMS_Click);
@@ -502,7 +553,7 @@
             this.FileSaveSeparatorMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.FileSaveSeparatorMS.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
             this.FileSaveSeparatorMS.Name = "FileSaveSeparatorMS";
-            this.FileSaveSeparatorMS.Size = new System.Drawing.Size(177, 6);
+            this.FileSaveSeparatorMS.Size = new System.Drawing.Size(151, 6);
             // 
             // ExportFMS
             // 
@@ -516,7 +567,7 @@
             this.ConvertTsvParamEFMS});
             this.ExportFMS.ForeColor = System.Drawing.SystemColors.Control;
             this.ExportFMS.Name = "ExportFMS";
-            this.ExportFMS.Size = new System.Drawing.Size(180, 22);
+            this.ExportFMS.Size = new System.Drawing.Size(154, 22);
             this.ExportFMS.Text = "Export";
             this.ExportFMS.ToolTipText = "Export files to different types";
             // 
@@ -595,7 +646,7 @@
             this.DuplicateRowEMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.DuplicateRowEMS.ForeColor = System.Drawing.SystemColors.Control;
             this.DuplicateRowEMS.Name = "DuplicateRowEMS";
-            this.DuplicateRowEMS.Size = new System.Drawing.Size(180, 22);
+            this.DuplicateRowEMS.Size = new System.Drawing.Size(150, 22);
             this.DuplicateRowEMS.Text = "Duplicate Row";
             this.DuplicateRowEMS.Click += new System.EventHandler(this.DuplicateRowEMS_Click);
             // 
@@ -605,7 +656,7 @@
             this.CopyRowEMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CopyRowEMS.ForeColor = System.Drawing.SystemColors.Control;
             this.CopyRowEMS.Name = "CopyRowEMS";
-            this.CopyRowEMS.Size = new System.Drawing.Size(180, 22);
+            this.CopyRowEMS.Size = new System.Drawing.Size(150, 22);
             this.CopyRowEMS.Text = "Copy Row";
             this.CopyRowEMS.Click += new System.EventHandler(this.CopyRowEMS_Click);
             // 
@@ -615,7 +666,7 @@
             this.PasteRowEMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.PasteRowEMS.ForeColor = System.Drawing.SystemColors.Control;
             this.PasteRowEMS.Name = "PasteRowEMS";
-            this.PasteRowEMS.Size = new System.Drawing.Size(180, 22);
+            this.PasteRowEMS.Size = new System.Drawing.Size(150, 22);
             this.PasteRowEMS.Text = "Paste Row";
             this.PasteRowEMS.Click += new System.EventHandler(this.PasteRowEMS_Click);
             // 
@@ -625,7 +676,7 @@
             this.DeleteRowEMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.DeleteRowEMS.ForeColor = System.Drawing.SystemColors.Control;
             this.DeleteRowEMS.Name = "DeleteRowEMS";
-            this.DeleteRowEMS.Size = new System.Drawing.Size(180, 22);
+            this.DeleteRowEMS.Size = new System.Drawing.Size(150, 22);
             this.DeleteRowEMS.Text = "Delete Row";
             this.DeleteRowEMS.Click += new System.EventHandler(this.DeleteRowEMS_Click);
             // 
@@ -644,6 +695,34 @@
             this.OptionsMS.Size = new System.Drawing.Size(61, 20);
             this.OptionsMS.Text = "Options";
             // 
+            // VerifySaveFileOMS
+            // 
+            this.VerifySaveFileOMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.VerifySaveFileOMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.VerifySaveFileOMS.Checked = true;
+            this.VerifySaveFileOMS.CheckOnClick = true;
+            this.VerifySaveFileOMS.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.VerifySaveFileOMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.VerifySaveFileOMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.VerifySaveFileOMS.Name = "VerifySaveFileOMS";
+            this.VerifySaveFileOMS.Size = new System.Drawing.Size(189, 22);
+            this.VerifySaveFileOMS.Text = "Verify Saving";
+            this.VerifySaveFileOMS.ToolTipText = "Ask you before saving params if checked";
+            // 
+            // VerifyParamRemovalOMS
+            // 
+            this.VerifyParamRemovalOMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.VerifyParamRemovalOMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.VerifyParamRemovalOMS.Checked = true;
+            this.VerifyParamRemovalOMS.CheckOnClick = true;
+            this.VerifyParamRemovalOMS.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.VerifyParamRemovalOMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.VerifyParamRemovalOMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.VerifyParamRemovalOMS.Name = "VerifyParamRemovalOMS";
+            this.VerifyParamRemovalOMS.Size = new System.Drawing.Size(189, 22);
+            this.VerifyParamRemovalOMS.Text = "Verify Param Removal";
+            this.VerifyParamRemovalOMS.ToolTipText = "Ask you before removing params if checked";
+            // 
             // VerifyDeleteRowOMS
             // 
             this.VerifyDeleteRowOMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
@@ -657,6 +736,21 @@
             this.VerifyDeleteRowOMS.Size = new System.Drawing.Size(189, 22);
             this.VerifyDeleteRowOMS.Text = "Verify Row Deletion";
             this.VerifyDeleteRowOMS.ToolTipText = "Ask you before deleting rows if checked";
+            // 
+            // BackupParamOMS
+            // 
+            this.BackupParamOMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.BackupParamOMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BackupParamOMS.Checked = true;
+            this.BackupParamOMS.CheckOnClick = true;
+            this.BackupParamOMS.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.BackupParamOMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.BackupParamOMS.Enabled = false;
+            this.BackupParamOMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.BackupParamOMS.Name = "BackupParamOMS";
+            this.BackupParamOMS.Size = new System.Drawing.Size(189, 22);
+            this.BackupParamOMS.Text = "Backup Params";
+            this.BackupParamOMS.ToolTipText = "Backup param files before overwriting them if checked";
             // 
             // HelpMS
             // 
@@ -677,103 +771,10 @@
             this.AboutHMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.AboutHMS.ForeColor = System.Drawing.SystemColors.Control;
             this.AboutHMS.Name = "AboutHMS";
-            this.AboutHMS.Size = new System.Drawing.Size(180, 22);
+            this.AboutHMS.Size = new System.Drawing.Size(107, 22);
             this.AboutHMS.Text = "About";
             this.AboutHMS.ToolTipText = "About this program - Not yet implemented";
             this.AboutHMS.Click += new System.EventHandler(this.AboutHMS_Click);
-            // 
-            // RemoveParamFMS
-            // 
-            this.RemoveParamFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.RemoveParamFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.RemoveParamFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.RemoveParamFMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.RemoveParamFMS.Name = "RemoveParamFMS";
-            this.RemoveParamFMS.Size = new System.Drawing.Size(180, 22);
-            this.RemoveParamFMS.Text = "Remove Param";
-            this.RemoveParamFMS.ToolTipText = "Removes the currently selected param";
-            this.RemoveParamFMS.Click += new System.EventHandler(this.RemoveParamFMS_Click);
-            // 
-            // ClearParamFMS
-            // 
-            this.ClearParamFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.ClearParamFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ClearParamFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.ClearParamFMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.ClearParamFMS.Name = "ClearParamFMS";
-            this.ClearParamFMS.Size = new System.Drawing.Size(180, 22);
-            this.ClearParamFMS.Text = "Clear Params";
-            this.ClearParamFMS.ToolTipText = "Unloads all params without saving";
-            this.ClearParamFMS.Click += new System.EventHandler(this.ClearParamFMS_Click);
-            // 
-            // VerifySaveFileOMS
-            // 
-            this.VerifySaveFileOMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.VerifySaveFileOMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.VerifySaveFileOMS.Checked = true;
-            this.VerifySaveFileOMS.CheckOnClick = true;
-            this.VerifySaveFileOMS.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.VerifySaveFileOMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.VerifySaveFileOMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.VerifySaveFileOMS.Name = "VerifySaveFileOMS";
-            this.VerifySaveFileOMS.Size = new System.Drawing.Size(189, 22);
-            this.VerifySaveFileOMS.Text = "Verify Saving";
-            this.VerifySaveFileOMS.ToolTipText = "Ask you before saving params if checked";
-            // 
-            // BackupParamOMS
-            // 
-            this.BackupParamOMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.BackupParamOMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BackupParamOMS.Checked = true;
-            this.BackupParamOMS.CheckOnClick = true;
-            this.BackupParamOMS.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.BackupParamOMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.BackupParamOMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.BackupParamOMS.Name = "BackupParamOMS";
-            this.BackupParamOMS.Size = new System.Drawing.Size(189, 22);
-            this.BackupParamOMS.Text = "Backup Params";
-            this.BackupParamOMS.ToolTipText = "Backup param files before overwriting them if checked";
-            // 
-            // VerifyParamRemovalOMS
-            // 
-            this.VerifyParamRemovalOMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.VerifyParamRemovalOMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.VerifyParamRemovalOMS.Checked = true;
-            this.VerifyParamRemovalOMS.CheckOnClick = true;
-            this.VerifyParamRemovalOMS.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.VerifyParamRemovalOMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.VerifyParamRemovalOMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.VerifyParamRemovalOMS.Name = "VerifyParamRemovalOMS";
-            this.VerifyParamRemovalOMS.Size = new System.Drawing.Size(189, 22);
-            this.VerifyParamRemovalOMS.Text = "Verify Param Removal";
-            this.VerifyParamRemovalOMS.ToolTipText = "Ask you before removing params if checked";
-            // 
-            // ParamDGVContextMenu
-            // 
-            this.ParamDGVContextMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.ParamDGVContextMenu.DropShadowEnabled = false;
-            this.ParamDGVContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddParamParamConMenu,
-            this.RemoveParamParamConMenu});
-            this.ParamDGVContextMenu.Name = "RowDGVContextMenu";
-            this.ParamDGVContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.ParamDGVContextMenu.Size = new System.Drawing.Size(155, 48);
-            // 
-            // AddParamParamConMenu
-            // 
-            this.AddParamParamConMenu.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddParamParamConMenu.Name = "AddParamParamConMenu";
-            this.AddParamParamConMenu.Size = new System.Drawing.Size(154, 22);
-            this.AddParamParamConMenu.Text = "Add Param";
-            this.AddParamParamConMenu.Click += new System.EventHandler(this.AddParamFMS_Click);
-            // 
-            // RemoveParamParamConMenu
-            // 
-            this.RemoveParamParamConMenu.ForeColor = System.Drawing.SystemColors.Control;
-            this.RemoveParamParamConMenu.Name = "RemoveParamParamConMenu";
-            this.RemoveParamParamConMenu.Size = new System.Drawing.Size(154, 22);
-            this.RemoveParamParamConMenu.Text = "Remove Param";
-            this.RemoveParamParamConMenu.Click += new System.EventHandler(this.RemoveParamFMS_Click);
             // 
             // MainForm
             // 
@@ -792,6 +793,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.RowDGV)).EndInit();
             this.RowDGVContextMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ParamDGV)).EndInit();
+            this.ParamDGVContextMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CellDGV)).EndInit();
             this.SplitContainerA.Panel1.ResumeLayout(false);
             this.SplitContainerA.Panel2.ResumeLayout(false);
@@ -805,7 +807,6 @@
             this.ReaderStatusStrip.PerformLayout();
             this.MainFormMenuStrip.ResumeLayout(false);
             this.MainFormMenuStrip.PerformLayout();
-            this.ParamDGVContextMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
