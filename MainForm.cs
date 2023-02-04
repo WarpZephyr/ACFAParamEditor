@@ -435,7 +435,7 @@ namespace ACFAParamEditor
                     if (!Util.CheckIfParam(path)) { continue; }
                     if (Path.GetExtension(path) == ".bak") { continue; }
                     object[] newParam = MakeObjectArray.MakeParamObject(path, defList);
-                    if (newParam == null) { MessageBox.Show("Invalid file, not a usable param"); return; }
+                    if (newParam == null) { return; }
                     ParamDGV.Rows.Add(newParam);
                 }
             }
