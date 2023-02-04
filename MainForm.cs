@@ -423,17 +423,16 @@ namespace ACFAParamEditor
                     string[] paramFiles = Directory.GetFiles(path, "*.*");
                     foreach (string paramPath in paramFiles)
                     {
-                        if (Util.CheckIfParam(paramPath))
-                        {
-                            if (Path.GetExtension(paramPath) == ".bak") { continue; }
-                            object[] newParam = MakeObjectArray.MakeParamObject(paramPath, defList);
-                            if (newParam == null) { continue; }
-                            ParamDGV.Rows.Add(newParam);
-                        }
+                        if (!Util.CheckIfParam(paramPath)) { continue; }
+                        if (Path.GetExtension(paramPath) == ".bak") { continue; }
+                        object[] newParam = MakeObjectArray.MakeParamObject(paramPath, defList);
+                        if (newParam == null) { continue; }
+                        ParamDGV.Rows.Add(newParam);
                     }
                 }
                 else
                 {
+                    if (!Util.CheckIfParam(path)) { continue; }
                     if (Path.GetExtension(path) == ".bak") { continue; }
                     object[] newParam = MakeObjectArray.MakeParamObject(path, defList);
                     if (newParam == null) { MessageBox.Show("Invalid file, not a usable param"); return; }
