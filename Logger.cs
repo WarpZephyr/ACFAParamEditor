@@ -8,23 +8,8 @@ namespace ACFAParamEditor
         // Create log files, overwrite them if they already exist
         public static void createLog() 
         {
-            if (!File.Exists(Util.paramEditorLog))
-            {
-                using StreamWriter sw = File.CreateText(Util.paramEditorLog);
-            }
-            else
-            {
-                File.WriteAllText(Util.paramEditorLog, String.Empty);
-            }
-
-            if (!File.Exists(Util.stacktraceLog))
-            {
-                using StreamWriter sw = File.CreateText(Util.stacktraceLog);
-            }
-            else
-            {
-                File.WriteAllText(Util.stacktraceLog, String.Empty);
-            }
+            File.WriteAllText(Util.paramEditorLog, String.Empty);
+            File.WriteAllText(Util.stacktraceLog, String.Empty);
         }
 
         // Log when an exception has occurred with logs for the user and the dev

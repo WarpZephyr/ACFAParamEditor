@@ -14,70 +14,40 @@ namespace ACFAParamEditor
         public static string paramEditorLog = $"{envFolderPath}/parameditor.log";
         public static string stacktraceLog = $"{envFolderPath}/stacktrace.log";
 
-        public static string GetParamFile()
+        public static string GetFilePath(string context)
         {
-            // Prompt the user for folders containing param files
-            CommonOpenFileDialog paramFilePathDialog = new CommonOpenFileDialog
+            // Prompt the user for file
+            CommonOpenFileDialog filePathDialog = new CommonOpenFileDialog
             {
                 InitialDirectory = "C:\\Users",
                 IsFolderPicker = false,
-                Title = "Select your Param to add"
+                Title = $"Select your {context} to add"
             };
 
-            if (paramFilePathDialog.ShowDialog() == CommonFileDialogResult.Ok)
+            if (filePathDialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                return paramFilePathDialog.FileName;
+                return filePathDialog.FileName;
             }
 
             return null;
         }
 
-        public static string GetParamFiles(string context)
+        public static string GetFolderPath(string context)
         {
-            // Prompt the user for folders containing param files
-            CommonOpenFileDialog paramFolderPathDialog = new CommonOpenFileDialog
+            // Prompt the user for folder containing files
+            CommonOpenFileDialog folderPathDialog = new CommonOpenFileDialog
             {
                 InitialDirectory = "C:\\Users",
                 IsFolderPicker = true,
-                Title = $"Select the Folder containing your {context}"
+                Title = $"Select the folder containing your {context}"
             };
 
-            if (paramFolderPathDialog.ShowDialog() == CommonFileDialogResult.Ok)
+            if (folderPathDialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                return paramFolderPathDialog.FileName;
+                return folderPathDialog.FileName;
             }
 
             return null;
-        }
-
-        public static List<object> GetCells(PARAM.Row row)
-        {
-            List<object> cellValues = new List<object>();
-            foreach (PARAM.Cell cell in row.Cells)
-            {
-                cellValues.Add(cell.Value);
-            }
-            return cellValues;
-        }
-
-        public static PARAM.Row SetCells(PARAM.Row newRow, PARAM.Row oldRow)
-        {
-            List<object> oldCellValues = GetCells(oldRow);
-            int iterator = 0;
-            foreach (PARAM.Cell newCell in newRow.Cells)
-            {
-                newCell.Value = oldCellValues[iterator];
-                iterator++;
-            }
-            return newRow;
-        }
-
-        public static object[] CopyRow(ParamWrapper currentParam, RowWrapper currentRow) 
-        {
-            PARAM.Row newRow = new PARAM.Row(currentRow.Row.ID, currentRow.Row.Name, currentParam.Param.AppliedParamdef);
-            SetCells(newRow, currentRow.Row);
-            object[] newRowObject = MakeObjectArray.MakeRowObject(newRow);
-            return newRowObject;
         }
 
         public static bool CheckIfParam(string paramFilePath)
@@ -91,7 +61,7 @@ namespace ACFAParamEditor
                 }
                 catch (InvalidDataException IDEx)
                 {
-                    string description = $"Failed to parse Param {paramFilePath}";
+                    string description = $"Failed to parse Param because of InvalidDataException at {paramFilePath}";
                     //TSSLParamReading.Text = $"DEBUG: {description}, see parameditor.log";
                     Debug.WriteLine($"{description}");
                     Logger.LogExceptionWithDate(IDEx, description);
@@ -100,13 +70,14 @@ namespace ACFAParamEditor
             }
             catch (EndOfStreamException EOSe)
             {
-                string description = $"Failed to parse Param at {paramFilePath}";
+                string description = $"Failed to parse Param because of EndOfStreamException at {paramFilePath}";
                 //TSSLParamReading.Text = $"DEBUG: {description}, see parameditor.log";
                 Debug.WriteLine($"{description}");
                 Logger.LogExceptionWithDate(EOSe, description);
                 return false;
             }
         }
+
         public static bool CheckNameMatch(PARAM.Row pasteRow, PARAM.Row paramRow)
         {
             foreach (PARAM.Cell pasteCell in pasteRow.Cells)
@@ -123,7 +94,7 @@ namespace ACFAParamEditor
         }
 
         // Not currently used
-        public static bool CheckTypeMatch(PARAM.Row pasteRow, PARAM.Row paramRow)
+        /*public static bool CheckTypeMatch(PARAM.Row pasteRow, PARAM.Row paramRow)
         {
             foreach (PARAM.Cell pasteCell in pasteRow.Cells)
             {
@@ -136,13 +107,6 @@ namespace ACFAParamEditor
                 }
             }
             return false;
-        }
-
-        // Used to check if a drag and dropped file is a param, def, or neither
-        // TODO: Add drag and drop
-        /*public static string CheckFile(object file) 
-        {
-            
         }*/
     }
 }

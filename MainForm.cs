@@ -12,9 +12,8 @@ namespace ACFAParamEditor
     {
         // Initialize global variables
         private List<PARAMDEF> defList = new List<PARAMDEF>();
+        private List<object[]> rowPasteList = new List<object[]>();
         private RowWrapper rowStore;
-        private object[] rowPaste;
-        private ParamWrapper rowPasteParam;
         private object cellValueStore;
 
         // MainForm Constructor
@@ -82,7 +81,7 @@ namespace ACFAParamEditor
         // Open Params
         private void OpenParamsFMS_click(object sender, EventArgs e)
         {
-            string paramFolderPath = Util.GetParamFiles("params");
+            string paramFolderPath = Util.GetFolderPath("params");
             if (paramFolderPath == null) { return; }
 
             ParamDGV.Rows.Clear();
@@ -93,7 +92,7 @@ namespace ACFAParamEditor
                 if (Util.CheckIfParam(paramPath))
                 {
                     object[] newParam = MakeObjectArray.MakeParamObject(paramPath, defList);
-                    if (newParam == null ) { continue; }
+                    if (newParam == null) { continue; }
                     ParamDGV.Rows.Add(newParam);
                 }
             }
@@ -108,7 +107,7 @@ namespace ACFAParamEditor
         // Open and add one param
         private void AddParamFMS_Click(object sender, EventArgs e)
         {
-            string paramFilePath = Util.GetParamFile();
+            string paramFilePath = Util.GetFilePath("param");
             if (paramFilePath == null) { return; }
             if (Path.GetExtension(paramFilePath) == ".bak") { MessageBox.Show("Cannot load backup file"); return; }
             object[] newParam = MakeObjectArray.MakeParamObject(paramFilePath, defList);
@@ -189,7 +188,7 @@ namespace ACFAParamEditor
         private void ConvertDefXmlEFMS_Click(object sender, EventArgs e)
         {
             Directory.CreateDirectory($"{Util.resFolderPath}/xml/");
-            string defUserFolderPath = Util.GetParamFiles("defs");
+            string defUserFolderPath = Util.GetFolderPath("defs");
             if (defUserFolderPath == null) { return; }
             string defsPath = defUserFolderPath;
 
@@ -240,17 +239,8 @@ namespace ACFAParamEditor
         // Duplicate the currently selected row
         private void DuplicateRowEMS_Click(object sender, EventArgs e)
         {
-            if (RowDGV.CurrentRow == null) { return; }
-            ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
-            RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-            PARAM.Row newRowObject = new PARAM.Row(selectedRow.Row.ID, selectedRow.Row.Name, selectedParam.Param.AppliedParamdef);
-            object[] newRow = MakeObjectArray.MakeRowObject(newRowObject);
-            RowWrapper newRowWrapper = newRow[1] as RowWrapper;
-            int MaxID = RowDGV.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[0].Value));
-            newRowWrapper.Row.ID = MaxID + 1;
-            newRow[0] = MaxID + 1;
-            selectedParam.Param.Rows.Add(newRowWrapper.Row);
-            RowDGV.Rows.Add(newRow);
+            CopyRowEMS_Click(sender, e);
+            PasteRowEMS_Click(sender, e);
         }
 
         // Copy currently selected row
@@ -258,32 +248,36 @@ namespace ACFAParamEditor
         {
             if (RowDGV.CurrentRow == null) { return; }
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
-            RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-            object[] newRowObject = Util.CopyRow(selectedParam, selectedRow);
-            rowPasteParam = selectedParam;
-            rowPaste = newRowObject;
+
+            foreach (DataGridViewRow dgvRow in RowDGV.SelectedRows)
+            {
+                RowWrapper currentRow = dgvRow.Cells[1].Value as RowWrapper;
+                object[] newRowObject = CopyObject.CopyRow(selectedParam, currentRow);
+                rowPasteList.Insert(0, newRowObject);
+            }
         }
 
         // Paste copied row
         private void PasteRowEMS_Click(object sender, EventArgs e)
         {
-            if (rowPaste == null) { return; }
+            if (rowPasteList.Count == 0) { return; }
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
             RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
+            PasteObject newPasteObject = new PasteObject();
 
-            CopyObject newCopyObject = new CopyObject();
+            foreach (object[] row in rowPasteList)
+            {
+                object[] newRow = newPasteObject.PasteRow(row);
+                RowWrapper newRowWrapper = newRow[1] as RowWrapper;
 
-            object[] newRow = newCopyObject.CopyRow((RowWrapper)rowPaste[1], rowPasteParam);
-            RowWrapper newRowWrapper = newRow[1] as RowWrapper;
+                if (CellDGV.Rows.Count != newRowWrapper.Row.Cells.Count || !Util.CheckNameMatch(newRowWrapper.Row, selectedRow.Row)) { return; }
 
-            if (CellDGV.Rows.Count != newRowWrapper.Row.Cells.Count) { return; }
-            if (!Util.CheckNameMatch(newRowWrapper.Row, selectedRow.Row)) { return; }
-
-            int MaxID = RowDGV.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[0].Value));
-            newRowWrapper.Row.ID = MaxID + 1;
-            rowPaste[0] = MaxID + 1;
-            selectedParam.Param.Rows.Add(newRowWrapper.Row); 
-            RowDGV.Rows.Add(rowPaste);
+                int MaxID = RowDGV.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[0].Value));
+                newRowWrapper.Row.ID = MaxID + 1;
+                row[0] = MaxID + 1;
+                selectedParam.Param.Rows.Add(newRowWrapper.Row);
+                RowDGV.Rows.Add(row);
+            }
         }
 
         // TODO: Delete the currently selected row
@@ -444,35 +438,16 @@ namespace ACFAParamEditor
             }
         }
 
-        private void RowDGV_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Delete)
-            {
-                DeleteRowEMS_Click(sender, e);
-            }
-
-            if (e.Control && e.KeyCode == Keys.C)
-            {
-                CopyRowEMS_Click(sender, e);
-            }
-
-            if (e.Control && e.KeyCode == Keys.V)
-            {
-                PasteRowEMS_Click(sender, e);
-            }
-        }
-
-        private void RowDGV_KeyUp(object sender, KeyEventArgs e)
-        {
-
-        }
-
         private void ParamDGV_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete)
-            {
-                RemoveParamFMS_Click(sender, e);
-            }
-        } 
+            if (e.KeyCode == Keys.Delete) RemoveParamFMS_Click(sender, e);
+        }
+
+        private void RowDGV_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete) DeleteRowEMS_Click(sender, e);
+            if (e.Control && e.KeyCode == Keys.C) CopyRowEMS_Click(sender, e);
+            if (e.Control && e.KeyCode == Keys.V) PasteRowEMS_Click(sender, e);
+        }
     }
 }
