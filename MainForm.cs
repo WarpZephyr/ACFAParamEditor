@@ -408,7 +408,10 @@ namespace ACFAParamEditor
         // When someone attempts to drag a file into the window's Param viewing area
         private void SplitContainerA_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
         }
 
         // Check the dropped item
@@ -435,7 +438,7 @@ namespace ACFAParamEditor
                     if (!Util.CheckIfParam(path)) { continue; }
                     if (Path.GetExtension(path) == ".bak") { continue; }
                     object[] newParam = MakeObjectArray.MakeParamObject(path, defList);
-                    if (newParam == null) { return; }
+                    if (newParam == null) { continue; }
                     ParamDGV.Rows.Add(newParam);
                 }
             }
