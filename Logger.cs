@@ -5,34 +5,51 @@ namespace ACFAParamEditor
 {
     internal static class Logger
     {
-        // Create log files, overwrite them if they already exist
-        public static void createLog() 
+        /// <summary>
+        /// Create log files and overwrite them if they already exist.
+        /// </summary>
+        public static void CreateLog() 
         {
-            File.WriteAllText(Util.paramEditorLog, String.Empty);
+            File.WriteAllText(Util.log, String.Empty);
             File.WriteAllText(Util.stacktraceLog, String.Empty);
         }
 
-        // Log when an exception has occurred with logs for the user and the dev
-        public static void LogExceptionWithDate(Exception ex, string description) 
+        /// <summary>
+        /// Log something with an exception, date, and time.
+        /// </summary>
+        /// <param name="ex">The exception to log</param>
+        /// <param name="description">The description of what to log</param>
+        public static void LogExceptionWithDate(Exception ex, string description = null) 
         {
-            using (StreamWriter sw = File.AppendText(Util.paramEditorLog))
-            {
-                sw.WriteLine($"{description} on {DateTime.Now}");
-            }
+            using StreamWriter swLog = File.AppendText(Util.log);
+            swLog.WriteLine($"{description} on {DateTime.Now}");
+            swLog.Close();
 
-            using (StreamWriter sw = File.AppendText(Util.stacktraceLog))
-            {
-                sw.WriteLine($"Description: \"{description}\" on {DateTime.Now}\nException: {ex.Message}\nStacktrace: {ex}");
-            }
+            using StreamWriter swStacktrace = File.AppendText(Util.stacktraceLog);
+            swStacktrace.WriteLine($"Description: \"{description ?? "Unknown Error"}\" on {DateTime.Now}\nException: {ex.Message}\nStacktrace: {ex}");
+            swStacktrace.Close();
         }
 
-        // Log when a issue has occurred in a log for the user, no need for stacktrace log here
-        public static void LogErrorWithDate(string description) 
+        /// <summary>
+        /// Log something with the date and time.
+        /// </summary>
+        /// <param name="description">The description of what to log</param>
+        public static void LogWithDate(string description = null) 
         {
-            using (StreamWriter sw = File.AppendText(Util.paramEditorLog))
-            {
-                sw.WriteLine($"{description} on {DateTime.Now}");
-            }
+            using StreamWriter sw = File.AppendText(Util.log);
+            sw.WriteLine($"{description ?? "Log with date was called"} on {DateTime.Now}");
+            sw.Close();
+        }
+
+        /// <summary>
+        /// Log something.
+        /// </summary>
+        /// <param name="description">The description of what to log</param>
+        public static void Log(string description = null)
+        {
+            using StreamWriter sw = File.AppendText(Util.log);
+            sw.WriteLine($"{description ?? "Log was called"}");
+            sw.Close();
         }
     }
 }

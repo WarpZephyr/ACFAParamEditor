@@ -10,24 +10,29 @@ namespace ACFAParamEditor
 {
     public partial class MainForm : Form
     {
+        // Initialize stacks
+        //Stack<Action> undoStack = new();
+        //Stack<Action> redoStack = new();
+
         // Initialize global variables
-        private List<PARAMDEF> defList = new List<PARAMDEF>();
-        private List<object[]> rowPasteList = new List<object[]>();
+        private List<PARAMDEF> defs = new();
+        private List<object[]> rowPasteList = new();
         private RowWrapper rowStore;
         private object cellValueStore;
+        internal static List<ParamWrapper> modifiedParams = new();
 
         // MainForm Constructor
         public MainForm()
         {
             InitializeComponent();
             // Use override to change colors of selected Strip items to dark mode and disable shadows
-            var toolStripOverrideRenderer = new OverrideToolStripRenderer();
+            OverrideToolStripRenderer toolStripOverrideRenderer = new();
             MainFormMenuStrip.Renderer = toolStripOverrideRenderer;
             RowDGVContextMenu.Renderer = toolStripOverrideRenderer;
             ParamDGVContextMenu.Renderer = toolStripOverrideRenderer;
 
             // Disable Shadows on Dropdowns
-            //FileMS.DropDown.DropShadowEnabled= false; // TODO: Fix random location changing when shadow is disabled
+            //FileMS.DropDown.DropShadowEnabled = false; // TODO: Fix random location changing when shadow is disabled
             ExportFMS.DropDown.DropShadowEnabled = false;
             EditMS.DropDown.DropShadowEnabled = false;
             OptionsMS.DropDown.DropShadowEnabled = false;
@@ -40,63 +45,21 @@ namespace ACFAParamEditor
             ((ToolStripDropDownMenu)HelpMS.DropDown).ShowImageMargin = false;
             RowDGVContextMenu.ShowImageMargin=false;
             ParamDGVContextMenu.ShowImageMargin=false;
+
+            // Load defs
+            ACFAParamEditor.Load.LoadDefs(defs);
         }
 
-        // On Main Form Load, add the defs to the global def list
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Logger.createLog();
-            Directory.CreateDirectory($"{Util.resFolderPath}/def/");
-
-            // Create def list on form load
-            string[] defFiles = Directory.GetFiles($"{Util.resFolderPath}/def/", "*.def");
-            foreach (string defPath in defFiles)
-            {
-                try
-                {
-                    defList.Add(PARAMDEF.Read(defPath));
-                    //defList.Add(PARAMDEF.XmlDeserialize(defPath));
-                }
-                catch (InvalidDataException IDEx)
-                {
-                    string description = $"Failed to parse Paramdef at {defPath}";
-                    TSSLDefReading.Text = $"DEBUG: {description}, see parameditor.log";
-                    Debug.WriteLine($"{description}");
-                    Logger.LogExceptionWithDate(IDEx, description);
-                }
-            }
-
-            // If the def resource folder is empty for some reason
-            if (defList.Count == 0)
-            {
-                OpenParamsFMS.Enabled = false;
-                AddParamFMS.Enabled = false;
-                string description = "WARNING: No defs found in resource folder";
-                TSSLDefReading.Text = description;
-                Debug.WriteLine(description);
-                Logger.LogErrorWithDate(description);
-            }
+            
         }
 
-        // Open Params
+        // Add params
         private void OpenParamsFMS_click(object sender, EventArgs e)
         {
-            string paramFolderPath = Util.GetFolderPath("params");
-            if (paramFolderPath == null) { return; }
-
-            ParamDGV.Rows.Clear();
-            string[] paramFiles = Directory.GetFiles(paramFolderPath, "*.*");
-            foreach (string paramPath in paramFiles)
-            {
-                if (Path.GetExtension(paramPath) == ".bak") { continue; }
-                if (Util.CheckIfParam(paramPath))
-                {
-                    object[] newParam = MakeObjectArray.MakeParamObject(paramPath, defList);
-                    if (newParam == null) { continue; }
-                    ParamDGV.Rows.Add(newParam);
-                }
-            }
-
+            string[] path = Util.GetFilePaths("params");
+            ACFAParamEditor.Load.LoadParams(path, defs, ParamDGV);
             if (ParamDGV.Rows.Count == 0)
             {
                 RowDGV.Rows.Clear();
@@ -104,25 +67,14 @@ namespace ACFAParamEditor
             }
         }
 
-        // Open and add one param
-        private void AddParamFMS_Click(object sender, EventArgs e)
-        {
-            string paramFilePath = Util.GetFilePath("param");
-            if (paramFilePath == null) { return; }
-            if (Path.GetExtension(paramFilePath) == ".bak") { MessageBox.Show("Cannot load backup file"); return; }
-            object[] newParam = MakeObjectArray.MakeParamObject(paramFilePath, defList);
-            if (newParam == null) { return; }
-            ParamDGV.Rows.Add(newParam);
-        }
-
         // Remove all params
         private void ClearParamFMS_Click(object sender, EventArgs e)
         {
-            if (ParamDGV.CurrentRow == null) { return; }
+            if (ParamDGV.CurrentRow == null) return;
             if (VerifyParamRemovalOMS.Checked == true)
             {
                 DialogResult saveDialog = MessageBox.Show("Are you sure you want to clear all params?", "Clear all Params", MessageBoxButtons.YesNo);
-                if (saveDialog != DialogResult.Yes) { return; }
+                if (saveDialog != DialogResult.Yes) return;
             }
             ParamDGV.Rows.Clear();
             RowDGV.Rows.Clear();
@@ -132,10 +84,10 @@ namespace ACFAParamEditor
         // Remove the currently selected param
         private void RemoveParamFMS_Click(object sender, EventArgs e)
         {
-            if (ParamDGV.CurrentRow == null) { return; }
-            if (VerifyParamRemovalOMS.Checked == false) { return; }
+            if (ParamDGV.CurrentRow == null) return;
+            if (VerifyParamRemovalOMS.Checked == false) return;
             DialogResult saveDialog = MessageBox.Show("Are you sure you want to remove the currently selected param?", "Remove Selected Param", MessageBoxButtons.YesNo);
-            if (saveDialog != DialogResult.Yes) { return; }
+            if (saveDialog != DialogResult.Yes) return;
             if (ParamDGV.Rows.Count == 1) { RowDGV.Rows.Clear(); CellDGV.Rows.Clear(); }
             ParamDGV.Rows.Remove(ParamDGV.CurrentRow);
         }
@@ -143,45 +95,17 @@ namespace ACFAParamEditor
         // Save the currently open param
         private void SaveFMS_Click(object sender, EventArgs e)
         {
-            if (ParamDGV.CurrentRow == null) { return; }
-            if (VerifySaveFileOMS.Checked == true) {
-                DialogResult saveDialog = MessageBox.Show("Are you sure you want to save this param?", "Save Param", MessageBoxButtons.YesNo);
-                if (saveDialog != DialogResult.Yes) { return; }
-            }
+            if (ParamDGV.CurrentRow == null) return;
             ParamWrapper param = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
-            if (BackupParamOMS.Checked == true)
-            {
-                if (!File.Exists($"{param.ParamPath}/{param.ParamName}.original.bak")) 
-                { 
-                    param.Param.Write($"{param.ParamPath}/{param.ParamName}.original.bak");
-                }
-                param.Param.Write($"{param.ParamPath}/{param.ParamName}.bak");
-            }
-            param.Param.Write($"{param.ParamPath}/{param.ParamName}");
+            Save.SaveParam(param, BackupParamOMS.Checked, VerifySaveFileOMS.Checked);
         }
 
         // Save all params
         private void SaveAllFMS_Click(object sender, EventArgs e)
         {
-            if (ParamDGV.Rows.Count == 0) { return; }
-            if (VerifySaveFileOMS.Checked == true)
-            {
-                DialogResult saveDialog = MessageBox.Show("Are you sure you want to save all params?", "Save all Params", MessageBoxButtons.YesNo);
-                if (saveDialog != DialogResult.Yes) { return; }
-            }
-            foreach (DataGridViewRow row in ParamDGV.Rows) 
-            {
-                ParamWrapper param = row.Cells[0].Value as ParamWrapper;
-                if (BackupParamOMS.Checked == true)
-                {
-                    if (!File.Exists($"{param.ParamPath}/{param.ParamName}.original.bak"))
-                    {
-                        param.Param.Write($"{param.ParamPath}/{param.ParamName}.original.bak");
-                    }
-                    param.Param.Write($"{param.ParamPath}/{param.ParamName}.bak");
-                }
-                param.Param.Write($"{param.ParamPath}/{param.ParamName}");
-            }
+            if (ParamDGV.Rows.Count == 0) return;
+
+            Save.SaveParams(ParamDGV, BackupParamOMS.Checked, VerifySaveFileOMS.Checked);
         }
 
         // TODO: Fix def to xml conversion - Convert defs to xmls
@@ -189,11 +113,10 @@ namespace ACFAParamEditor
         {
             Directory.CreateDirectory($"{Util.resFolderPath}/xml/");
             string defUserFolderPath = Util.GetFolderPath("defs");
-            if (defUserFolderPath == null) { return; }
-            string defsPath = defUserFolderPath;
+            if (defUserFolderPath == null) return;
 
             // Convert defs to xmls
-            string[] defFiles = Directory.GetFiles(defsPath, "*.*");
+            string[] defFiles = Directory.GetFiles(defUserFolderPath, "*.*");
             foreach (string defPath in defFiles)
             {
                 try
@@ -203,9 +126,9 @@ namespace ACFAParamEditor
                 }
                 catch (InvalidDataException IDEx)
                 {
-                    ReaderStatusStrip.Items.Clear();
+                    MainFormStatus.Text = "";
                     string description = $"Failed to serialize file into Paramdef Xml at {defPath}";
-                    TSSLDefReading.Text = $"DEBUG: {description}, see parameditor.log";
+                    MainFormStatus.Text = $"DEBUG: {description}, see parameditor.log";
                     Debug.WriteLine($"{description}");
                     Logger.LogExceptionWithDate(IDEx, description);
                 }
@@ -246,13 +169,15 @@ namespace ACFAParamEditor
         // Copy currently selected row
         private void CopyRowEMS_Click(object sender, EventArgs e)
         {
-            if (RowDGV.CurrentRow == null) { return; }
+            if (RowDGV.CurrentRow == null) return;
+            rowPasteList.Clear();
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
 
             foreach (DataGridViewRow dgvRow in RowDGV.SelectedRows)
             {
                 RowWrapper currentRow = dgvRow.Cells[1].Value as RowWrapper;
-                object[] newRowObject = CopyObject.CopyRow(selectedParam, currentRow);
+                CopyObject newCopyObject = new();
+                object[] newRowObject = newCopyObject.CopyRow(selectedParam, currentRow);
                 rowPasteList.Insert(0, newRowObject);
             }
         }
@@ -260,51 +185,60 @@ namespace ACFAParamEditor
         // Paste copied row
         private void PasteRowEMS_Click(object sender, EventArgs e)
         {
-            if (rowPasteList.Count == 0) { return; }
+            if (rowPasteList.Count == 0) return;
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
             RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-            PasteObject newPasteObject = new PasteObject();
+            bool success = false;
 
             foreach (object[] row in rowPasteList)
             {
-                object[] newRow = newPasteObject.PasteRow(row);
-                RowWrapper newRowWrapper = newRow[1] as RowWrapper;
+                RowWrapper newRowWrapper = row[1] as RowWrapper;
 
-                if (CellDGV.Rows.Count != newRowWrapper.Row.Cells.Count || !Util.CheckNameMatch(newRowWrapper.Row, selectedRow.Row)) { return; }
+                if (CellDGV.Rows.Count != newRowWrapper.Row.Cells.Count || !Util.CheckNameMatch(newRowWrapper.Row, selectedRow.Row)) return;
 
                 int MaxID = RowDGV.Rows.Cast<DataGridViewRow>().Max(r => Convert.ToInt32(r.Cells[0].Value));
                 newRowWrapper.Row.ID = MaxID + 1;
                 row[0] = MaxID + 1;
                 selectedParam.Param.Rows.Add(newRowWrapper.Row);
+                success = true;
                 RowDGV.Rows.Add(row);
             }
+
+            if (!modifiedParams.Contains(selectedParam) && success) modifiedParams.Add(selectedParam);
+            //undoStack.Push(Undo.UndoRowPaste(selectedParam, RowDGV, ParamDGV));
         }
 
-        // TODO: Delete the currently selected row
+        // Delete the currently selected row
         private void DeleteRowEMS_Click(object sender, EventArgs e)
         {
-            if (RowDGV.CurrentRow == null) { return; }
+            if (RowDGV.CurrentRow == null) return;
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
             RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-            if (VerifyDeleteRowOMS.Checked == true) 
+            bool success = false;
+
+            if (VerifyDeleteRowOMS.Checked)
             {
-                DialogResult deleteDialog = MessageBox.Show("Are you sure you want to delete this row?", "Delete Row", MessageBoxButtons.YesNo);
-                if (deleteDialog != DialogResult.Yes) { return; } 
+                DialogResult deleteDialog = MessageBox.Show("Are you sure you want to delete the selected rows?", "Delete Selected Rows", MessageBoxButtons.YesNo);
+                if (deleteDialog != DialogResult.Yes) return; 
             }
-            if (RowDGV.Rows.Count == 1)
+
+            //undoStack.Push(Undo.UndoRowDelete(selectedParam, RowDGV, ParamDGV));
+
+            if (RowDGV.Rows.Count == 1 && RemoveEmptyParamOMS.Checked)
             {
-                DialogResult deleteDialog = MessageBox.Show("This will also delete the currently selected param, are you sure you wish to continue?", "Delete Param", MessageBoxButtons.YesNo);
-                if (deleteDialog != DialogResult.Yes) { return; }
-                if (ParamDGV.Rows.Count == 1) 
-                {
-                    RowDGV.Rows.Clear();
-                    CellDGV.Rows.Clear();
-                }
-                ParamDGV.Rows.Remove(ParamDGV.CurrentRow);
+                RemoveParamFMS_Click(sender, e);
                 return;
             }
-            selectedParam.Param.Rows.Remove(selectedRow.Row);
-            RowDGV.Rows.Remove(RowDGV.CurrentRow);
+
+            foreach (DataGridViewRow dgvRow in RowDGV.SelectedRows)
+            {
+                RowWrapper currentRow = dgvRow.Cells[1].Value as RowWrapper;
+                selectedParam.Param.Rows.Remove(currentRow.Row);
+                success = true;
+                RowDGV.Rows.Remove(dgvRow);
+            }
+
+            if (!modifiedParams.Contains(selectedParam) && success) modifiedParams.Add(selectedParam);
         }
 
         // TODO: Show About form message
@@ -314,10 +248,9 @@ namespace ACFAParamEditor
         }
 
         // Show newly selected Param's Rows when Param DataGridView selection changes
-        // TODO: Make error messages on status strip disappear when switching params
         private void ParamDGV_SelectionChanged(object sender, EventArgs e)
         {
-            if (ParamDGV.CurrentRow == null) { return; }
+            if (ParamDGV.CurrentRow == null) return;
             RowDGV.Rows.Clear();
             CellDGV.Rows.Clear();
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
@@ -330,70 +263,73 @@ namespace ACFAParamEditor
         }
 
         // Show newly selected Row's Cells when Row DataGridView selection changes
-        // TODO: Make error messages on status strip disappear when switching rows
         private void RowDGV_SelectionChanged(object sender, EventArgs e)
         {
-            if (RowDGV.CurrentRow == null) { return; }
+            if (RowDGV.CurrentRow == null) return;
             CellDGV.Rows.Clear();
             RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
             rowStore = selectedRow;
-            if (selectedRow.Row.Cells == null) { return; }
+            if (selectedRow.Row.Cells == null) return;
             foreach (var cell in selectedRow.Row.Cells)
             {
                 object[] newCell = MakeObjectArray.MakeCellObject(cell);
                 CellDGV.Rows.Add(newCell);
-            }    
+            }
         }
 
+        // Backup cell value in case a user puts a value too large or too small
         private void CellDGV_SelectionChanged(object sender, EventArgs e)
         {
             cellValueStore = CellDGV.CurrentRow.Cells[2].Value;
         }
 
-        // TODO: Make error messages on status strip disappear when switching cells
-
+        // Saves a row's state
         private void RowDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if (RowDGV.CurrentRow != null)
+            if (RowDGV.CurrentRow == null) return;
+            RowWrapper previousRow = rowStore;
+            RowWrapper newRowValue = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
+            bool success = false;
+
+            switch (e.ColumnIndex)
             {
-                RowWrapper previousRow = rowStore;
-                RowWrapper newRowValue = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-                switch (e.ColumnIndex)
-                {
-                    case 0:
-                        string id = (string)RowDGV.CurrentRow.Cells[0].Value;
-                        int idInt = Int32.Parse(id);
-                        newRowValue.Row.ID = idInt;
-                        break;
-                    case 1:
-                        string name = RowDGV.CurrentRow.Cells[1].Value.ToString();
-                        previousRow.Row.Name = name;
-                        RowDGV.Rows[e.RowIndex].Cells[1].Value = (previousRow);
-                        break;
-                }
+                case 0:
+                    int id = int.Parse((string)RowDGV.CurrentRow.Cells[0].Value);
+                    newRowValue.Row.ID = id;
+                    success = true;
+                    break;
+                case 1:
+                    previousRow.Row.Name = RowDGV.CurrentRow.Cells[1].Value.ToString();
+                    success = true;
+                    RowDGV.Rows[e.RowIndex].Cells[1].Value = (previousRow);
+                    break;
             }
+
+            ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
+            if (!modifiedParams.Contains(selectedParam) && success) modifiedParams.Add(selectedParam);
         }
 
         // Saves a cell's state
         private void CellDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            if (CellDGV.CurrentRow == null) return;
+            ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
             try
             {
-                if (CellDGV.CurrentRow != null)
-                {
-                    object dgvValue = CellDGV.CurrentRow.Cells[2].Value;
-                    CellWrapper selectedCell = CellDGV.CurrentRow.Cells[1].Value as CellWrapper;
-                    selectedCell.Cell.Value = dgvValue;
-                }
+                object dgvValue = CellDGV.CurrentRow.Cells[2].Value;
+                CellWrapper selectedCell = CellDGV.CurrentRow.Cells[1].Value as CellWrapper;
+                if (selectedCell == null) return;
+                selectedCell.Cell.Value = dgvValue;
+                if (!modifiedParams.Contains(selectedParam)) modifiedParams.Add(selectedParam);
             }
             catch (OverflowException OFe) 
             {
                 CellWrapper selectedCell = CellDGV.CurrentRow.Cells[1].Value as CellWrapper;
                 selectedCell.Cell.Value = cellValueStore;
                 CellDGV.CurrentRow.Cells[2].Value = cellValueStore;
-                ReaderStatusStrip.Items.Clear();
+                MainFormStatus.Text = "";
                 string description = $"Value too high or too low for {selectedCell.Cell.Def.DisplayName}";
-                TSSLDefReading.Text = $"DEBUG: {description}, see parameditor.log";
+                MainFormStatus.Text = $"DEBUG: {description}, see parameditor.log";
                 Debug.WriteLine($"{description}");
                 Logger.LogExceptionWithDate(OFe, description);
             }
@@ -402,40 +338,25 @@ namespace ACFAParamEditor
         // When someone attempts to drag a file into the window's Param viewing area
         private void SplitContainerA_DragEnter(object sender, DragEventArgs e)
         {
-            if (e.Data.GetDataPresent(DataFormats.FileDrop))
-            {
-                e.Effect = DragDropEffects.Copy;
-            }
+            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
         }
 
         // Check the dropped item
         private void SplitContainerA_DragDrop(object sender, DragEventArgs e)
         {
-            string[] filepaths = (string[])e.Data.GetData(DataFormats.FileDrop);
-            foreach (string path in filepaths)
+            string[] paths = (string[])e.Data.GetData(DataFormats.FileDrop);
+            ACFAParamEditor.Load.LoadParams(paths, defs, ParamDGV);
+            if (ParamDGV.Rows.Count == 0)
             {
-                if (Directory.Exists(path))
-                {
-                    ParamDGV.Rows.Clear();
-                    string[] paramFiles = Directory.GetFiles(path, "*.*");
-                    foreach (string paramPath in paramFiles)
-                    {
-                        if (!Util.CheckIfParam(paramPath)) { continue; }
-                        if (Path.GetExtension(paramPath) == ".bak") { continue; }
-                        object[] newParam = MakeObjectArray.MakeParamObject(paramPath, defList);
-                        if (newParam == null) { continue; }
-                        ParamDGV.Rows.Add(newParam);
-                    }
-                }
-                else
-                {
-                    if (!Util.CheckIfParam(path)) { continue; }
-                    if (Path.GetExtension(path) == ".bak") { continue; }
-                    object[] newParam = MakeObjectArray.MakeParamObject(path, defList);
-                    if (newParam == null) { continue; }
-                    ParamDGV.Rows.Add(newParam);
-                }
+                RowDGV.Rows.Clear();
+                CellDGV.Rows.Clear();
             }
+        }
+
+        private void MainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            //if (e.Control && e.KeyCode == Keys.Z) UndoEMS_Click(sender, e);
+            //if (e.Control && e.KeyCode == Keys.Y) RedoEMS_Click(sender, e);
         }
 
         private void ParamDGV_KeyDown(object sender, KeyEventArgs e)
@@ -448,6 +369,34 @@ namespace ACFAParamEditor
             if (e.KeyCode == Keys.Delete) DeleteRowEMS_Click(sender, e);
             if (e.Control && e.KeyCode == Keys.C) CopyRowEMS_Click(sender, e);
             if (e.Control && e.KeyCode == Keys.V) PasteRowEMS_Click(sender, e);
+        }
+
+        private void UndoEMS_Click(object sender, EventArgs e)
+        {
+            //if (undoStack.Count != 0) { undoStack.Pop()(); }
+        }
+
+        private void RedoEMS_Click(object sender, EventArgs e)
+        {
+            //if (redoStack.Count != 0) { redoStack.Pop()(); }
+        }
+
+        private void CellDGV_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Control && e.KeyCode == Keys.V)
+            {
+                string value = Clipboard.GetText();
+                string[] lines = value.Split('\n');
+                int colIndex = CellDGV.CurrentCell.ColumnIndex;
+                string[] cells = lines[0].Split('\t');
+                for (int i = 0; i < lines.Length; i++)
+                {
+                    if (i > CellDGV.SelectedCells.Count) return;
+                    if (CellDGV[1, CellDGV.SelectedCells[i].RowIndex].Value is not CellWrapper selectedCell) return;
+                    CellDGV[colIndex, CellDGV.SelectedCells[i].RowIndex].Value = lines[i];
+                    selectedCell.Cell.Value = lines[i];
+                }
+            }
         }
     }
 }

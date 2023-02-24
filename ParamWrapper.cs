@@ -1,4 +1,5 @@
 ﻿using SoulsFormats;
+using System.IO;
 
 namespace ACFAParamEditor
 {
@@ -6,6 +7,8 @@ namespace ACFAParamEditor
     {
         internal string ParamName { get; init; }
         internal string ParamPath { get; init; }
+        internal string BNDPath { get; init; }
+        internal bool IsBND { get; init; }
         internal PARAM Param { get; init; }
         public override string ToString() => ParamName;
     }

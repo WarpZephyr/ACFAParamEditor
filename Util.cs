@@ -1,9 +1,6 @@
 ﻿using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
-using System.Diagnostics;
-using System.IO;
 using SoulsFormats;
-using System.Collections.Generic;
 
 namespace ACFAParamEditor
 {
@@ -11,17 +8,21 @@ namespace ACFAParamEditor
     {
         public static string envFolderPath = $"{Environment.CurrentDirectory}/";
         public static string resFolderPath = $"{Environment.CurrentDirectory}/res/";
-        public static string paramEditorLog = $"{envFolderPath}/parameditor.log";
+        public static string log = $"{envFolderPath}/parameditor.log";
         public static string stacktraceLog = $"{envFolderPath}/stacktrace.log";
 
-        public static string GetFilePath(string context)
+        /// <summary>
+        /// Get a single file from the user.
+        /// </summary>
+        /// <param name="context">An optional argument of a string containing context of what file you want to ask the user to open</param>
+        /// <returns>A string containing the path to a file the user selects</returns>
+        public static string GetFilePath(string context = null)
         {
-            // Prompt the user for file
-            CommonOpenFileDialog filePathDialog = new CommonOpenFileDialog
+            CommonOpenFileDialog filePathDialog = new()
             {
                 InitialDirectory = "C:\\Users",
                 IsFolderPicker = false,
-                Title = $"Select your {context} to add"
+                Title = $"Select your {context ?? "file"} to open"
             };
 
             if (filePathDialog.ShowDialog() == CommonFileDialogResult.Ok)
@@ -32,14 +33,18 @@ namespace ACFAParamEditor
             return null;
         }
 
-        public static string GetFolderPath(string context)
+        /// <summary>
+        /// Get a single folder from the user.
+        /// </summary>
+        /// <param name="context">An optional argument of a string containing context of what folder you want to ask the user to open</param>
+        /// <returns>A string containing the path to a folder the user selects</returns>
+        public static string GetFolderPath(string context = null)
         {
-            // Prompt the user for folder containing files
-            CommonOpenFileDialog folderPathDialog = new CommonOpenFileDialog
+            CommonOpenFileDialog folderPathDialog = new()
             {
                 InitialDirectory = "C:\\Users",
                 IsFolderPicker = true,
-                Title = $"Select the folder containing your {context}"
+                Title = $"Select the folder containing your {context ?? "files"}"
             };
 
             if (folderPathDialog.ShowDialog() == CommonFileDialogResult.Ok)
@@ -50,39 +55,60 @@ namespace ACFAParamEditor
             return null;
         }
 
-        public static bool CheckIfParam(string paramFilePath)
+        /// <summary>
+        /// Get a multiple files from the user.
+        /// </summary>
+        /// <param name="context">An optional argument of a string containing context of what files you want to ask the user to open</param>
+        /// <returns>A string array containing all the paths the user selects</returns>
+        public static string[] GetFilePaths(string context = null)
         {
-            try
+            CommonOpenFileDialog filePathDialog = new()
             {
-                try
-                {
-                    PARAM.Read(paramFilePath);
-                    return true;
-                }
-                catch (InvalidDataException IDEx)
-                {
-                    string description = $"Failed to parse Param because of InvalidDataException at {paramFilePath}";
-                    //TSSLParamReading.Text = $"DEBUG: {description}, see parameditor.log";
-                    Debug.WriteLine($"{description}");
-                    Logger.LogExceptionWithDate(IDEx, description);
-                    return false;
-                }
-            }
-            catch (EndOfStreamException EOSe)
+                InitialDirectory = "C:\\Users",
+                Multiselect = true,
+                Title = $"Select your {context ?? "files"}"
+            };
+
+            if (filePathDialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                string description = $"Failed to parse Param because of EndOfStreamException at {paramFilePath}";
-                //TSSLParamReading.Text = $"DEBUG: {description}, see parameditor.log";
-                Debug.WriteLine($"{description}");
-                Logger.LogExceptionWithDate(EOSe, description);
-                return false;
+                return (string[])filePathDialog.FileNames;
             }
+
+            return null;
         }
 
-        public static bool CheckNameMatch(PARAM.Row pasteRow, PARAM.Row paramRow)
+        /// <summary>
+        /// Get a save path from the user.
+        /// </summary>
+        /// <param name="context">An optional argument of a string containing context of what you want to ask the user to save</param>
+        /// <returns>A string containing the path where the user wants to save a file</returns>
+        public static string GetSavePath(string context = null)
         {
-            foreach (PARAM.Cell pasteCell in pasteRow.Cells)
+            CommonSaveFileDialog saveFileDialog = new()
             {
-                foreach (PARAM.Cell paramCell in paramRow.Cells)
+                InitialDirectory = "C:\\Users",
+                Title = $"Choose where to save {context ?? "files"}"
+            };
+
+            if (saveFileDialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                return saveFileDialog.FileName;
+            }
+
+            return null;
+        }
+
+        /// <summary>
+        /// Check if copied row cells names match location's row cell names
+        /// </summary>
+        /// <param name="copiedRow">The copied param row</param>
+        /// <param name="locationRow">A param row in the location the copied param row is trying to be pasted</param>
+        /// <returns>Whether or not a row or rows can be pasted into the selected param</returns>
+        public static bool CheckNameMatch(PARAM.Row copiedRow, PARAM.Row locationRow)
+        {
+            foreach (PARAM.Cell pasteCell in copiedRow.Cells)
+            {
+                foreach (PARAM.Cell paramCell in locationRow.Cells)
                 {
                     if (pasteCell.Def.DisplayName == paramCell.Def.DisplayName)
                     {
@@ -90,23 +116,8 @@ namespace ACFAParamEditor
                     }
                 }
             }
+
             return false;
         }
-
-        // Not currently used
-        /*public static bool CheckTypeMatch(PARAM.Row pasteRow, PARAM.Row paramRow)
-        {
-            foreach (PARAM.Cell pasteCell in pasteRow.Cells)
-            {
-                foreach (PARAM.Cell paramCell in paramRow.Cells)
-                {
-                    if (pasteCell.Def.DisplayType == paramCell.Def.DisplayType)
-                    {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }*/
     }
 }

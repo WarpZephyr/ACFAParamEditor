@@ -1,12 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 using SoulsFormats;
 
 namespace ACFAParamEditor
 {
-    internal static class CopyObject
+    internal class CopyObject
     {
-        public static object[] CopyRow(ParamWrapper selectedParam, RowWrapper selectedRow)
+        public List<object[]> CopyRows(ParamWrapper selectedParam, DataGridView RowDGV)
+        {
+            List<object[]> copiedRows = new();
+            foreach (DataGridViewRow dgvRow in RowDGV.SelectedRows)
+            {
+                RowWrapper currentRow = dgvRow.Cells[1].Value as RowWrapper;
+                PARAM.Row newRow = new PARAM.Row(currentRow.Row.ID, currentRow.Row.Name, selectedParam.Param.AppliedParamdef);
+                CopyCells(newRow, currentRow.Row);
+                object[] newRowObject = MakeObjectArray.MakeRowObject(newRow);
+                copiedRows.Add(newRowObject);
+            }
+            return copiedRows;
+        }
+
+        public object[] CopyRow(ParamWrapper selectedParam, RowWrapper selectedRow)
         {
             PARAM.Row newRow = new PARAM.Row(selectedRow.Row.ID, selectedRow.Row.Name, selectedParam.Param.AppliedParamdef);
             CopyCells(newRow, selectedRow.Row);

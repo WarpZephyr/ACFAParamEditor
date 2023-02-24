@@ -7,26 +7,66 @@ namespace ACFAParamEditor
 {
     internal static class MakeObjectArray
     {
-        // Make and return a param
-        public static object[] MakeParamObject(string paramFilePath, List<PARAMDEF> defList)
+        
+        /// <summary>
+        /// Make an object array containing a param so it can be loaded into the Param DataGridView
+        /// </summary>
+        /// <param name="path">A string containing the full path to the param file</param>
+        /// <param name="defList">The def list so that the params can be read</param>
+        /// <returns></returns>
+        public static object[] MakeParamObject(string path, List<PARAMDEF> defList)
         {
-            var param = new ParamWrapper()
+            PARAM loadedParam = Load.VerifyParam(path);
+            if (loadedParam == null) return null;
+            ParamWrapper param = new()
             {
-                ParamName = Path.GetFileName(paramFilePath),
-                ParamPath= Path.GetDirectoryName(paramFilePath),
-                Param = PARAM.Read(paramFilePath)
+                ParamName = Path.GetFileName(path),
+                ParamPath = path,
+                IsBND = false,
+                Param = loadedParam
             };
 
-            var applyDef = param.Param.ApplyParamdefCarefully(defList);
+            bool applyDef = param.Param.ApplyParamdefCarefully(defList);
             object[] newParamRow = { param, param.Param.ParamType };
-            if (applyDef == true) { return newParamRow; }
+            if (applyDef == true) return newParamRow;
             return null;
         }
 
-        // Make and return a row
+        /// <summary>
+        /// Make an object array using data from a BND3 containing a param so it can be loaded into the Param DataGridView
+        /// </summary>
+        /// <param name="bndPath"></param>
+        /// <param name="bFile"></param>
+        /// <param name="defList"></param>
+        /// <param name="paramPath"></param>
+        /// <returns></returns>
+        public static object[] MakeParamObject(string bndPath, BinderFile bFile, List<PARAMDEF> defList, string paramPath)
+        {
+            PARAM loadedParam = Load.VerifyParam(bFile.Bytes);
+            if (loadedParam == null) return null;
+            ParamWrapper param = new()
+            {
+                ParamName = paramPath,
+                ParamPath = bFile.Name,
+                BNDPath = bndPath,
+                IsBND = true,
+                Param = loadedParam
+            };
+
+            bool applyDef = param.Param.ApplyParamdefCarefully(defList);
+            object[] newParamRow = { param, param.Param.ParamType };
+            if (applyDef == true) return newParamRow;
+            return null;
+        }
+
+        /// <summary>
+        /// Make an object array containing a param row so it can be loaded into the Row DataGridView
+        /// </summary>
+        /// <param name="row"></param>
+        /// <returns></returns>
         public static object[] MakeRowObject(PARAM.Row row)
         {
-            var rowWrapper = new RowWrapper()
+            RowWrapper rowWrapper = new()
             {
                 Row = row
             };
@@ -35,10 +75,14 @@ namespace ACFAParamEditor
             return newRow;
         }
 
-        // Make and return a cell
+        /// <summary>
+        /// Make an object array containing a param cell so it can be loaded into the Cell DataGridView
+        /// </summary>
+        /// <param name="cell"></param>
+        /// <returns></returns>
         public static object[] MakeCellObject(PARAM.Cell cell)
         {
-            var cellWrapper = new CellWrapper()
+            CellWrapper cellWrapper = new()
             {
                 Cell = cell
             };

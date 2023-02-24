@@ -61,6 +61,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter.cs" />
+    <Compile Include="Load.cs" />
     <Compile Include="PasteObject.cs" />
     <Compile Include="CopyObject.cs" />
     <Compile Include="MakeObjectArray.cs" />
@@ -76,6 +78,8 @@
     <Compile Include="OverrideToolStripRenderer.cs" />
     <Compile Include="OverrideMenuStripSelectedColor.cs" />
     <Compile Include="ParamWrapper.cs" />
+    <Compile Include="Save.cs" />
+    <Compile Include="Undo.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -108,14 +112,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="SoulsFormats\SoulsFormats\SoulsFormats.csproj">
-      <Project>{bcca1dd4-bc1a-4eb1-81cc-508eb67d1d0f}</Project>
+    <ProjectReference Include="..\SoulsFormats\SoulsFormats\SoulsFormats.csproj">
+      <Project>{e0e4c277-1cac-47d0-a2c8-e9d267462b6f}</Project>
       <Name>SoulsFormats</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="res\def\AaParam.def">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\def\acactrestrictionparam.def">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="res\def\ACAIParam.def">

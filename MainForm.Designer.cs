@@ -49,7 +49,7 @@
             this.paramname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paramtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ParamDGVContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.AddParamParamConMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenParamsParamConMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveParamParamConMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.CellDGV = new System.Windows.Forms.DataGridView();
             this.celltype = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,14 +58,10 @@
             this.SplitContainerA = new System.Windows.Forms.SplitContainer();
             this.SplitContainerB = new System.Windows.Forms.SplitContainer();
             this.ReaderStatusStrip = new System.Windows.Forms.StatusStrip();
-            this.TSSLParamReading = new System.Windows.Forms.ToolStripStatusLabel();
-            this.TSSLRowReading = new System.Windows.Forms.ToolStripStatusLabel();
-            this.TSSLCellReading = new System.Windows.Forms.ToolStripStatusLabel();
-            this.TSSLDefReading = new System.Windows.Forms.ToolStripStatusLabel();
+            this.MainFormStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.MainFormMenuStrip = new System.Windows.Forms.MenuStrip();
             this.FileMS = new System.Windows.Forms.ToolStripMenuItem();
             this.OpenParamsFMS = new System.Windows.Forms.ToolStripMenuItem();
-            this.AddParamFMS = new System.Windows.Forms.ToolStripMenuItem();
             this.RemoveParamFMS = new System.Windows.Forms.ToolStripMenuItem();
             this.ClearParamFMS = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveFMS = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +74,8 @@
             this.ConvertParamTsvEFMS = new System.Windows.Forms.ToolStripMenuItem();
             this.ConvertTsvParamEFMS = new System.Windows.Forms.ToolStripMenuItem();
             this.EditMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.UndoEMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.RedoEMS = new System.Windows.Forms.ToolStripMenuItem();
             this.DuplicateRowEMS = new System.Windows.Forms.ToolStripMenuItem();
             this.CopyRowEMS = new System.Windows.Forms.ToolStripMenuItem();
             this.PasteRowEMS = new System.Windows.Forms.ToolStripMenuItem();
@@ -87,6 +85,7 @@
             this.VerifyParamRemovalOMS = new System.Windows.Forms.ToolStripMenuItem();
             this.VerifyDeleteRowOMS = new System.Windows.Forms.ToolStripMenuItem();
             this.BackupParamOMS = new System.Windows.Forms.ToolStripMenuItem();
+            this.RemoveEmptyParamOMS = new System.Windows.Forms.ToolStripMenuItem();
             this.HelpMS = new System.Windows.Forms.ToolStripMenuItem();
             this.AboutHMS = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.RowDGV)).BeginInit();
@@ -275,19 +274,19 @@
             this.ParamDGVContextMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
             this.ParamDGVContextMenu.DropShadowEnabled = false;
             this.ParamDGVContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AddParamParamConMenu,
+            this.OpenParamsParamConMenu,
             this.RemoveParamParamConMenu});
             this.ParamDGVContextMenu.Name = "RowDGVContextMenu";
             this.ParamDGVContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.ParamDGVContextMenu.Size = new System.Drawing.Size(155, 48);
             // 
-            // AddParamParamConMenu
+            // OpenParamsParamConMenu
             // 
-            this.AddParamParamConMenu.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddParamParamConMenu.Name = "AddParamParamConMenu";
-            this.AddParamParamConMenu.Size = new System.Drawing.Size(154, 22);
-            this.AddParamParamConMenu.Text = "Add Param";
-            this.AddParamParamConMenu.Click += new System.EventHandler(this.AddParamFMS_Click);
+            this.OpenParamsParamConMenu.ForeColor = System.Drawing.SystemColors.Control;
+            this.OpenParamsParamConMenu.Name = "OpenParamsParamConMenu";
+            this.OpenParamsParamConMenu.Size = new System.Drawing.Size(154, 22);
+            this.OpenParamsParamConMenu.Text = "Open Params";
+            this.OpenParamsParamConMenu.Click += new System.EventHandler(this.OpenParamsFMS_click);
             // 
             // RemoveParamParamConMenu
             // 
@@ -347,6 +346,7 @@
             this.CellDGV.TabIndex = 2;
             this.CellDGV.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.CellDGV_CellValueChanged);
             this.CellDGV.SelectionChanged += new System.EventHandler(this.CellDGV_SelectionChanged);
+            this.CellDGV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CellDGV_KeyDown);
             // 
             // celltype
             // 
@@ -410,38 +410,17 @@
             // 
             this.ReaderStatusStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ReaderStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.TSSLParamReading,
-            this.TSSLRowReading,
-            this.TSSLCellReading,
-            this.TSSLDefReading});
+            this.MainFormStatus});
             this.ReaderStatusStrip.Location = new System.Drawing.Point(0, 629);
             this.ReaderStatusStrip.Name = "ReaderStatusStrip";
             this.ReaderStatusStrip.Size = new System.Drawing.Size(1118, 22);
             this.ReaderStatusStrip.TabIndex = 1;
             // 
-            // TSSLParamReading
+            // MainFormStatus
             // 
-            this.TSSLParamReading.ForeColor = System.Drawing.SystemColors.Control;
-            this.TSSLParamReading.Name = "TSSLParamReading";
-            this.TSSLParamReading.Size = new System.Drawing.Size(0, 17);
-            // 
-            // TSSLRowReading
-            // 
-            this.TSSLRowReading.ForeColor = System.Drawing.SystemColors.Control;
-            this.TSSLRowReading.Name = "TSSLRowReading";
-            this.TSSLRowReading.Size = new System.Drawing.Size(0, 17);
-            // 
-            // TSSLCellReading
-            // 
-            this.TSSLCellReading.ForeColor = System.Drawing.SystemColors.Control;
-            this.TSSLCellReading.Name = "TSSLCellReading";
-            this.TSSLCellReading.Size = new System.Drawing.Size(0, 17);
-            // 
-            // TSSLDefReading
-            // 
-            this.TSSLDefReading.ForeColor = System.Drawing.SystemColors.Control;
-            this.TSSLDefReading.Name = "TSSLDefReading";
-            this.TSSLDefReading.Size = new System.Drawing.Size(0, 17);
+            this.MainFormStatus.ForeColor = System.Drawing.SystemColors.Control;
+            this.MainFormStatus.Name = "MainFormStatus";
+            this.MainFormStatus.Size = new System.Drawing.Size(0, 17);
             // 
             // MainFormMenuStrip
             // 
@@ -465,7 +444,6 @@
             this.FileMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.FileMS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.OpenParamsFMS,
-            this.AddParamFMS,
             this.RemoveParamFMS,
             this.ClearParamFMS,
             this.SaveFMS,
@@ -488,18 +466,6 @@
             this.OpenParamsFMS.Text = "Open Params";
             this.OpenParamsFMS.ToolTipText = "Adds all found params in a folder";
             this.OpenParamsFMS.Click += new System.EventHandler(this.OpenParamsFMS_click);
-            // 
-            // AddParamFMS
-            // 
-            this.AddParamFMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
-            this.AddParamFMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.AddParamFMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.AddParamFMS.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddParamFMS.Name = "AddParamFMS";
-            this.AddParamFMS.Size = new System.Drawing.Size(154, 22);
-            this.AddParamFMS.Text = "Add Param";
-            this.AddParamFMS.ToolTipText = "Adds one param of your choosing";
-            this.AddParamFMS.Click += new System.EventHandler(this.AddParamFMS_Click);
             // 
             // RemoveParamFMS
             // 
@@ -632,6 +598,8 @@
             this.EditMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.EditMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.EditMS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.UndoEMS,
+            this.RedoEMS,
             this.DuplicateRowEMS,
             this.CopyRowEMS,
             this.PasteRowEMS,
@@ -640,6 +608,28 @@
             this.EditMS.Name = "EditMS";
             this.EditMS.Size = new System.Drawing.Size(39, 20);
             this.EditMS.Text = "Edit";
+            // 
+            // UndoEMS
+            // 
+            this.UndoEMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.UndoEMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.UndoEMS.Enabled = false;
+            this.UndoEMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.UndoEMS.Name = "UndoEMS";
+            this.UndoEMS.Size = new System.Drawing.Size(150, 22);
+            this.UndoEMS.Text = "Undo";
+            this.UndoEMS.Click += new System.EventHandler(this.UndoEMS_Click);
+            // 
+            // RedoEMS
+            // 
+            this.RedoEMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.RedoEMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RedoEMS.Enabled = false;
+            this.RedoEMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.RedoEMS.Name = "RedoEMS";
+            this.RedoEMS.Size = new System.Drawing.Size(150, 22);
+            this.RedoEMS.Text = "Redo";
+            this.RedoEMS.Click += new System.EventHandler(this.RedoEMS_Click);
             // 
             // DuplicateRowEMS
             // 
@@ -690,7 +680,8 @@
             this.VerifySaveFileOMS,
             this.VerifyParamRemovalOMS,
             this.VerifyDeleteRowOMS,
-            this.BackupParamOMS});
+            this.BackupParamOMS,
+            this.RemoveEmptyParamOMS});
             this.OptionsMS.ForeColor = System.Drawing.SystemColors.Control;
             this.OptionsMS.Name = "OptionsMS";
             this.OptionsMS.Size = new System.Drawing.Size(61, 20);
@@ -706,7 +697,7 @@
             this.VerifySaveFileOMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.VerifySaveFileOMS.ForeColor = System.Drawing.SystemColors.Control;
             this.VerifySaveFileOMS.Name = "VerifySaveFileOMS";
-            this.VerifySaveFileOMS.Size = new System.Drawing.Size(189, 22);
+            this.VerifySaveFileOMS.Size = new System.Drawing.Size(191, 22);
             this.VerifySaveFileOMS.Text = "Verify Saving";
             this.VerifySaveFileOMS.ToolTipText = "Ask you before saving params if checked";
             // 
@@ -720,7 +711,7 @@
             this.VerifyParamRemovalOMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.VerifyParamRemovalOMS.ForeColor = System.Drawing.SystemColors.Control;
             this.VerifyParamRemovalOMS.Name = "VerifyParamRemovalOMS";
-            this.VerifyParamRemovalOMS.Size = new System.Drawing.Size(189, 22);
+            this.VerifyParamRemovalOMS.Size = new System.Drawing.Size(191, 22);
             this.VerifyParamRemovalOMS.Text = "Verify Param Removal";
             this.VerifyParamRemovalOMS.ToolTipText = "Ask you before removing params if checked";
             // 
@@ -734,7 +725,7 @@
             this.VerifyDeleteRowOMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.VerifyDeleteRowOMS.ForeColor = System.Drawing.SystemColors.Control;
             this.VerifyDeleteRowOMS.Name = "VerifyDeleteRowOMS";
-            this.VerifyDeleteRowOMS.Size = new System.Drawing.Size(189, 22);
+            this.VerifyDeleteRowOMS.Size = new System.Drawing.Size(191, 22);
             this.VerifyDeleteRowOMS.Text = "Verify Row Deletion";
             this.VerifyDeleteRowOMS.ToolTipText = "Ask you before deleting rows if checked";
             // 
@@ -748,9 +739,21 @@
             this.BackupParamOMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.BackupParamOMS.ForeColor = System.Drawing.SystemColors.Control;
             this.BackupParamOMS.Name = "BackupParamOMS";
-            this.BackupParamOMS.Size = new System.Drawing.Size(189, 22);
+            this.BackupParamOMS.Size = new System.Drawing.Size(191, 22);
             this.BackupParamOMS.Text = "Backup Params";
             this.BackupParamOMS.ToolTipText = "Backup param files before overwriting them if checked";
+            // 
+            // RemoveEmptyParamOMS
+            // 
+            this.RemoveEmptyParamOMS.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(75)))), ((int)(((byte)(75)))));
+            this.RemoveEmptyParamOMS.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.RemoveEmptyParamOMS.CheckOnClick = true;
+            this.RemoveEmptyParamOMS.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.RemoveEmptyParamOMS.ForeColor = System.Drawing.SystemColors.Control;
+            this.RemoveEmptyParamOMS.Name = "RemoveEmptyParamOMS";
+            this.RemoveEmptyParamOMS.Size = new System.Drawing.Size(191, 22);
+            this.RemoveEmptyParamOMS.Text = "Remove Empty Param";
+            this.RemoveEmptyParamOMS.ToolTipText = "Remove params from the loaded list when there are no rows left in them";
             // 
             // HelpMS
             // 
@@ -787,10 +790,12 @@
             this.Controls.Add(this.ReaderStatusStrip);
             this.Controls.Add(this.MainFormMenuStrip);
             this.ForeColor = System.Drawing.SystemColors.Control;
+            this.KeyPreview = true;
             this.MainMenuStrip = this.MainFormMenuStrip;
             this.Name = "MainForm";
             this.Text = "Armored Core For Answer Param Editor";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.RowDGV)).EndInit();
             this.RowDGVContextMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ParamDGV)).EndInit();
@@ -820,10 +825,7 @@
         private System.Windows.Forms.SplitContainer SplitContainerA;
         private System.Windows.Forms.SplitContainer SplitContainerB;
         private System.Windows.Forms.StatusStrip ReaderStatusStrip;
-        private System.Windows.Forms.ToolStripStatusLabel TSSLParamReading;
-        private System.Windows.Forms.ToolStripStatusLabel TSSLRowReading;
-        private System.Windows.Forms.ToolStripStatusLabel TSSLCellReading;
-        private System.Windows.Forms.ToolStripStatusLabel TSSLDefReading;
+        private System.Windows.Forms.ToolStripStatusLabel MainFormStatus;
         private System.Windows.Forms.DataGridViewTextBoxColumn paramname;
         private System.Windows.Forms.DataGridViewTextBoxColumn paramtype;
         private System.Windows.Forms.DataGridViewTextBoxColumn celltype;
@@ -852,7 +854,6 @@
         private System.Windows.Forms.ContextMenuStrip RowDGVContextMenu;
         private System.Windows.Forms.ToolStripMenuItem PasteRowRowConMenu;
         private System.Windows.Forms.ToolStripMenuItem CopyRowRowConMenu;
-        private System.Windows.Forms.ToolStripMenuItem AddParamFMS;
         private System.Windows.Forms.ToolStripMenuItem SaveFMS;
         private System.Windows.Forms.ToolStripMenuItem DeleteRowRowConMenu;
         private System.Windows.Forms.ToolStripMenuItem OptionsMS;
@@ -863,8 +864,11 @@
         private System.Windows.Forms.ToolStripMenuItem BackupParamOMS;
         private System.Windows.Forms.ToolStripMenuItem VerifyParamRemovalOMS;
         private System.Windows.Forms.ContextMenuStrip ParamDGVContextMenu;
-        private System.Windows.Forms.ToolStripMenuItem AddParamParamConMenu;
+        private System.Windows.Forms.ToolStripMenuItem OpenParamsParamConMenu;
         private System.Windows.Forms.ToolStripMenuItem RemoveParamParamConMenu;
+        private System.Windows.Forms.ToolStripMenuItem UndoEMS;
+        private System.Windows.Forms.ToolStripMenuItem RedoEMS;
+        private System.Windows.Forms.ToolStripMenuItem RemoveEmptyParamOMS;
     }
 }
 
