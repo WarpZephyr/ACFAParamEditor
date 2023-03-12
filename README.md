@@ -3,7 +3,7 @@
 Some features are not in place yet but I will add them later
 
 # Building
-If you want to build the project you should clone it with this command in git bash:  
+If you want to build the project you should clone it with these commands in git bash:  
 ```
 git clone https://github.com/WarpZephyr/ACFAParamEditor.git  
 git clone https://github.com/WarpZephyr/SoulsFormats.git  
