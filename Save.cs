@@ -24,7 +24,7 @@ namespace ACFAParamEditor
          
             if (param.IsBND)
             {
-                SaveParamBND(param, backup);
+                SaveParamBND(param, BND3.Read(param.BNDPath), param.BNDPath, false, backup);
                 return;
             }
 
@@ -35,19 +35,28 @@ namespace ACFAParamEditor
         /// Save param file inside of a BND3.
         /// </summary>
         /// <param name="param">The param wrapper containing the param's name, directory, path, and finally the param itself</param>
-        public static void SaveParamBND(ParamWrapper param, bool backup)
+        /// <param name="bnd">The current BND being saved to</param>
+        /// <param name="BNDPath">The path to the root BND</param>
+        /// <param name="isDeepBND">Is this a BND inside of a BND, used for recursion, set this to false</param>
+        /// <param name="backup">Whether or not to backup the root BND</param>
+        public static void SaveParamBND(ParamWrapper param, BND3 bnd, string BNDPath, bool isDeepBND, bool backup)
         {
-            BND3 bnd = BND3.Read(param.BNDPath);
             if (backup && !File.Exists($"{param.BNDPath}.bak")) bnd.Write($"{param.BNDPath}.bak");
             foreach (BinderFile bFile in bnd.Files)
             {
-                if (bFile.Name == param.ParamPath)
+                if (BND3.Is(bFile.Bytes))
+                {
+                    var deepBnd = BND3.Read(bFile.Bytes);
+                    SaveParamBND(param, deepBnd, BNDPath, true, backup);
+                    bFile.Bytes = deepBnd.Write();
+                }
+                else if (bFile.Name == param.ParamPath)
                 {
                     bFile.Bytes = param.Param.Write();
                 }
             }
 
-            bnd.Write(param.BNDPath);
+            if(!isDeepBND) bnd.Write(BNDPath);
         }
 
         /// <summary>

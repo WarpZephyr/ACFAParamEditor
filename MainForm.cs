@@ -333,6 +333,17 @@ namespace ACFAParamEditor
                 Debug.WriteLine($"{description}");
                 Logger.LogExceptionWithDate(OFe, description);
             }
+            catch(FormatException Fe)
+            {
+                CellWrapper selectedCell = CellDGV.CurrentRow.Cells[1].Value as CellWrapper;
+                selectedCell.Cell.Value = cellValueStore;
+                CellDGV.CurrentRow.Cells[2].Value = cellValueStore;
+                MainFormStatus.Text = "";
+                string description = $"Format of value for {selectedCell.Cell.Def.DisplayName} was incorrect";
+                MainFormStatus.Text = $"DEBUG: {description}, see parameditor.log";
+                Debug.WriteLine($"{description}");
+                Logger.LogExceptionWithDate(Fe, description);
+            }
         }
 
         // When someone attempts to drag a file into the window's Param viewing area
@@ -383,7 +394,7 @@ namespace ACFAParamEditor
 
         private void CellDGV_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Control && e.KeyCode == Keys.V)
+            /*if (e.Control && e.KeyCode == Keys.V)
             {
                 string value = Clipboard.GetText();
                 string[] lines = value.Split('\n');
@@ -396,7 +407,7 @@ namespace ACFAParamEditor
                     CellDGV[colIndex, CellDGV.SelectedCells[i].RowIndex].Value = lines[i];
                     selectedCell.Cell.Value = lines[i];
                 }
-            }
+            }*/
         }
     }
 }
