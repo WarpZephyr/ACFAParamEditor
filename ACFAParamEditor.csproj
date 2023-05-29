@@ -61,11 +61,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bind.cs" />
     <Compile Include="Converter.cs" />
-    <Compile Include="Load.cs" />
+    <Compile Include="Loadable.cs" />
+    <Compile Include="Reader.cs" />
+    <Compile Include="OverrideTabControl.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PasteObject.cs" />
     <Compile Include="CopyObject.cs" />
-    <Compile Include="MakeObjectArray.cs" />
+    <Compile Include="MakeRow.cs" />
     <Compile Include="CellWrapper.cs" />
     <Compile Include="IsExternalInit.cs" />
     <Compile Include="Logger.cs" />
@@ -78,7 +83,7 @@
     <Compile Include="OverrideToolStripRenderer.cs" />
     <Compile Include="OverrideMenuStripSelectedColor.cs" />
     <Compile Include="ParamWrapper.cs" />
-    <Compile Include="Save.cs" />
+    <Compile Include="Writer.cs" />
     <Compile Include="Undo.cs" />
     <Compile Include="Util.cs" />
     <Compile Include="Program.cs" />

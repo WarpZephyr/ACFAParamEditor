@@ -8,9 +8,7 @@ namespace ACFAParamEditor
         public OverrideToolStripRenderer() : base(new OverrideMenuStripSelectedColorTable()) {}
         protected override void OnRenderArrow(ToolStripArrowRenderEventArgs e)
         {
-            var tsMenuItem = e.Item as ToolStripMenuItem;
-            if (tsMenuItem != null)
-                e.ArrowColor = Color.White;
+            if (e.Item is ToolStripMenuItem tsMenuItem) e.ArrowColor = Color.White;
             base.OnRenderArrow(e);
         }
         protected override void OnRenderItemCheck(ToolStripItemImageRenderEventArgs e)

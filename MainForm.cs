@@ -5,6 +5,7 @@ using System.IO;
 using System.Windows.Forms;
 using System.Linq;
 using SoulsFormats;
+using System.Drawing;
 
 namespace ACFAParamEditor
 {
@@ -15,11 +16,30 @@ namespace ACFAParamEditor
         //Stack<Action> redoStack = new();
 
         // Initialize global variables
-        private List<PARAMDEF> defs = new();
-        private List<object[]> rowPasteList = new();
-        private RowWrapper rowStore;
-        private object cellValueStore;
-        internal static List<ParamWrapper> modifiedParams = new();
+        /// <summary>
+        /// A list of defs for reading params.
+        /// </summary>
+        private List<PARAMDEF> Defs = new();
+
+        /// <summary>
+        /// A list of rows to paste so that multiple rows can be copy pasted. TODO: REFACTOR.
+        /// </summary>
+        private List<object[]> RowPasteList = new();
+
+        /// <summary>
+        /// Store a row for undo operations. TODO: REFACTOR.
+        /// </summary>
+        private RowWrapper RowStore;
+
+        /// <summary>
+        /// Store cell value before its changed to revert just in case it fails to be set. TODO: REFACTOR.
+        /// </summary>
+        private object CellValueStore;
+
+        /// <summary>
+        /// A list of params that have been modified so we know which specific ones to save.
+        /// </summary>
+        internal static List<ParamWrapper> ModifiedParams = new();
 
         // MainForm Constructor
         public MainForm()
@@ -46,8 +66,8 @@ namespace ACFAParamEditor
             RowDGVContextMenu.ShowImageMargin=false;
             ParamDGVContextMenu.ShowImageMargin=false;
 
-            // Load defs
-            ACFAParamEditor.Load.LoadDefs(defs);
+            // Loader defs
+            Reader.LoadDefs(Defs);
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -59,7 +79,7 @@ namespace ACFAParamEditor
         private void OpenParamsFMS_click(object sender, EventArgs e)
         {
             string[] path = Util.GetFilePaths("params");
-            ACFAParamEditor.Load.LoadParams(path, defs, ParamDGV);
+            Reader.ReadParams(path, Defs, ParamDGV, RecurseOMS.Checked, false);
             if (ParamDGV.Rows.Count == 0)
             {
                 RowDGV.Rows.Clear();
@@ -92,20 +112,28 @@ namespace ACFAParamEditor
             ParamDGV.Rows.Remove(ParamDGV.CurrentRow);
         }
 
-        // Save the currently open param
+        /// <summary>
+        /// Button for saving currently open param.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveFMS_Click(object sender, EventArgs e)
         {
             if (ParamDGV.CurrentRow == null) return;
             ParamWrapper param = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
-            Save.SaveParam(param, BackupParamOMS.Checked, VerifySaveFileOMS.Checked);
+            Writer.SaveParam(param, RecurseOMS.Checked, BackupParamOMS.Checked, VerifySaveFileOMS.Checked);
         }
 
-        // Save all params
+        /// <summary>
+        /// Button for saving all params.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SaveAllFMS_Click(object sender, EventArgs e)
         {
             if (ParamDGV.Rows.Count == 0) return;
 
-            Save.SaveParams(ParamDGV, BackupParamOMS.Checked, VerifySaveFileOMS.Checked);
+            Writer.SaveParams(ModifiedParams, RecurseOMS.Checked, BackupParamOMS.Checked, VerifySaveFileOMS.Checked);
         }
 
         // TODO: Fix def to xml conversion - Convert defs to xmls
@@ -166,11 +194,11 @@ namespace ACFAParamEditor
             PasteRowEMS_Click(sender, e);
         }
 
-        // Copy currently selected row
+        // Clone currently selected row
         private void CopyRowEMS_Click(object sender, EventArgs e)
         {
             if (RowDGV.CurrentRow == null) return;
-            rowPasteList.Clear();
+            RowPasteList.Clear();
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
 
             foreach (DataGridViewRow dgvRow in RowDGV.SelectedRows)
@@ -178,19 +206,19 @@ namespace ACFAParamEditor
                 RowWrapper currentRow = dgvRow.Cells[1].Value as RowWrapper;
                 CopyObject newCopyObject = new();
                 object[] newRowObject = newCopyObject.CopyRow(selectedParam, currentRow);
-                rowPasteList.Insert(0, newRowObject);
+                RowPasteList.Insert(0, newRowObject);
             }
         }
 
         // Paste copied row
         private void PasteRowEMS_Click(object sender, EventArgs e)
         {
-            if (rowPasteList.Count == 0) return;
+            if (RowPasteList.Count == 0) return;
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
             RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
             bool success = false;
 
-            foreach (object[] row in rowPasteList)
+            foreach (object[] row in RowPasteList)
             {
                 RowWrapper newRowWrapper = row[1] as RowWrapper;
 
@@ -204,7 +232,7 @@ namespace ACFAParamEditor
                 RowDGV.Rows.Add(row);
             }
 
-            if (!modifiedParams.Contains(selectedParam) && success) modifiedParams.Add(selectedParam);
+            if (!ModifiedParams.Contains(selectedParam) && success) ModifiedParams.Add(selectedParam);
             //undoStack.Push(Undo.UndoRowPaste(selectedParam, RowDGV, ParamDGV));
         }
 
@@ -238,7 +266,7 @@ namespace ACFAParamEditor
                 RowDGV.Rows.Remove(dgvRow);
             }
 
-            if (!modifiedParams.Contains(selectedParam) && success) modifiedParams.Add(selectedParam);
+            if (!ModifiedParams.Contains(selectedParam) && success) ModifiedParams.Add(selectedParam);
         }
 
         // TODO: Show About form message
@@ -257,7 +285,7 @@ namespace ACFAParamEditor
 
             foreach (PARAM.Row row in selectedParam.Param.Rows)
             {
-                object[] newRow = MakeObjectArray.MakeRowObject(row);
+                object[] newRow = MakeRow.MakeRowRow(row);
                 RowDGV.Rows.Add(newRow);
             }
         }
@@ -268,11 +296,11 @@ namespace ACFAParamEditor
             if (RowDGV.CurrentRow == null) return;
             CellDGV.Rows.Clear();
             RowWrapper selectedRow = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
-            rowStore = selectedRow;
+            RowStore = selectedRow;
             if (selectedRow.Row.Cells == null) return;
             foreach (var cell in selectedRow.Row.Cells)
             {
-                object[] newCell = MakeObjectArray.MakeCellObject(cell);
+                object[] newCell = MakeRow.MakeCellRow(cell);
                 CellDGV.Rows.Add(newCell);
             }
         }
@@ -280,14 +308,14 @@ namespace ACFAParamEditor
         // Backup cell value in case a user puts a value too large or too small
         private void CellDGV_SelectionChanged(object sender, EventArgs e)
         {
-            cellValueStore = CellDGV.CurrentRow.Cells[2].Value;
+            CellValueStore = CellDGV.CurrentRow.Cells[2].Value;
         }
 
         // Saves a row's state
         private void RowDGV_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (RowDGV.CurrentRow == null) return;
-            RowWrapper previousRow = rowStore;
+            RowWrapper previousRow = RowStore;
             RowWrapper newRowValue = RowDGV.CurrentRow.Cells[1].Value as RowWrapper;
             bool success = false;
 
@@ -306,7 +334,7 @@ namespace ACFAParamEditor
             }
 
             ParamWrapper selectedParam = ParamDGV.CurrentRow.Cells[0].Value as ParamWrapper;
-            if (!modifiedParams.Contains(selectedParam) && success) modifiedParams.Add(selectedParam);
+            if (!ModifiedParams.Contains(selectedParam) && success) ModifiedParams.Add(selectedParam);
         }
 
         // Saves a cell's state
@@ -320,13 +348,13 @@ namespace ACFAParamEditor
                 CellWrapper selectedCell = CellDGV.CurrentRow.Cells[1].Value as CellWrapper;
                 if (selectedCell == null) return;
                 selectedCell.Cell.Value = dgvValue;
-                if (!modifiedParams.Contains(selectedParam)) modifiedParams.Add(selectedParam);
+                if (!ModifiedParams.Contains(selectedParam)) ModifiedParams.Add(selectedParam);
             }
             catch (OverflowException OFe) 
             {
                 CellWrapper selectedCell = CellDGV.CurrentRow.Cells[1].Value as CellWrapper;
-                selectedCell.Cell.Value = cellValueStore;
-                CellDGV.CurrentRow.Cells[2].Value = cellValueStore;
+                selectedCell.Cell.Value = CellValueStore;
+                CellDGV.CurrentRow.Cells[2].Value = CellValueStore;
                 MainFormStatus.Text = "";
                 string description = $"Value too high or too low for {selectedCell.Cell.Def.DisplayName}";
                 MainFormStatus.Text = $"DEBUG: {description}, see parameditor.log";
@@ -336,8 +364,8 @@ namespace ACFAParamEditor
             catch(FormatException Fe)
             {
                 CellWrapper selectedCell = CellDGV.CurrentRow.Cells[1].Value as CellWrapper;
-                selectedCell.Cell.Value = cellValueStore;
-                CellDGV.CurrentRow.Cells[2].Value = cellValueStore;
+                selectedCell.Cell.Value = CellValueStore;
+                CellDGV.CurrentRow.Cells[2].Value = CellValueStore;
                 MainFormStatus.Text = "";
                 string description = $"Format of value for {selectedCell.Cell.Def.DisplayName} was incorrect";
                 MainFormStatus.Text = $"DEBUG: {description}, see parameditor.log";
@@ -356,7 +384,7 @@ namespace ACFAParamEditor
         private void SplitContainerA_DragDrop(object sender, DragEventArgs e)
         {
             string[] paths = (string[])e.Data.GetData(DataFormats.FileDrop);
-            ACFAParamEditor.Load.LoadParams(paths, defs, ParamDGV);
+            Reader.ReadParams(paths, Defs, ParamDGV, RecurseOMS.Checked, false);
             if (ParamDGV.Rows.Count == 0)
             {
                 RowDGV.Rows.Clear();
@@ -366,6 +394,8 @@ namespace ACFAParamEditor
 
         private void MainForm_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Control && e.KeyCode == Keys.S) SaveFMS_Click(sender, e);
+            else if (e.Control && e.Shift && e.KeyCode == Keys.S) SaveAllFMS_Click(sender, e);
             //if (e.Control && e.KeyCode == Keys.Z) UndoEMS_Click(sender, e);
             //if (e.Control && e.KeyCode == Keys.Y) RedoEMS_Click(sender, e);
         }
@@ -378,8 +408,8 @@ namespace ACFAParamEditor
         private void RowDGV_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete) DeleteRowEMS_Click(sender, e);
-            if (e.Control && e.KeyCode == Keys.C) CopyRowEMS_Click(sender, e);
-            if (e.Control && e.KeyCode == Keys.V) PasteRowEMS_Click(sender, e);
+            else if (e.Control && e.KeyCode == Keys.C) CopyRowEMS_Click(sender, e);
+            else if (e.Control && e.KeyCode == Keys.V) PasteRowEMS_Click(sender, e);
         }
 
         private void UndoEMS_Click(object sender, EventArgs e)

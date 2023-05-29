@@ -15,7 +15,7 @@ namespace ACFAParamEditor
                 RowWrapper currentRow = dgvRow.Cells[1].Value as RowWrapper;
                 PARAM.Row newRow = new PARAM.Row(currentRow.Row.ID, currentRow.Row.Name, selectedParam.Param.AppliedParamdef);
                 CopyCells(newRow, currentRow.Row);
-                object[] newRowObject = MakeObjectArray.MakeRowObject(newRow);
+                object[] newRowObject = MakeRow.MakeRowRow(newRow);
                 copiedRows.Add(newRowObject);
             }
             return copiedRows;
@@ -25,7 +25,7 @@ namespace ACFAParamEditor
         {
             PARAM.Row newRow = new PARAM.Row(selectedRow.Row.ID, selectedRow.Row.Name, selectedParam.Param.AppliedParamdef);
             CopyCells(newRow, selectedRow.Row);
-            object[] newRowObject = MakeObjectArray.MakeRowObject(newRow);
+            object[] newRowObject = MakeRow.MakeRowRow(newRow);
             return newRowObject;
         }
 
