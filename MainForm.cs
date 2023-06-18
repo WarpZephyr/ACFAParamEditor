@@ -68,6 +68,8 @@ namespace ACFAParamEditor
 
             // Loader defs
             Reader.LoadDefs(Defs);
+            if (Defs.Count == 0)
+                MainFormStatus.Text = "WARNING: No Defs loaded.";
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -438,6 +440,16 @@ namespace ACFAParamEditor
                     selectedCell.Cell.Value = lines[i];
                 }
             }*/
+        }
+
+        private void ParamDGV_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            CountLabel.Text = $"{ParamDGV.RowCount}";
+        }
+
+        private void ParamDGV_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            CountLabel.Text = $"{ParamDGV.RowCount}";
         }
     }
 }

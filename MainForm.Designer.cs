@@ -81,16 +81,17 @@ namespace ACFAParamEditor
             this.AboutHMS = new System.Windows.Forms.ToolStripMenuItem();
             this.SplitContainerA = new System.Windows.Forms.SplitContainer();
             this.ParamDGV = new System.Windows.Forms.DataGridView();
-            this.SplitContainerB = new System.Windows.Forms.SplitContainer();
-            this.RowDGV = new System.Windows.Forms.DataGridView();
-            this.CellDGV = new System.Windows.Forms.DataGridView();
             this.paramname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.paramtype = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SplitContainerB = new System.Windows.Forms.SplitContainer();
+            this.RowDGV = new System.Windows.Forms.DataGridView();
             this.rowid = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.rowname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CellDGV = new System.Windows.Forms.DataGridView();
             this.celltype = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cellname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cellvalue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CountLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.RowDGVContextMenu.SuspendLayout();
             this.ParamDGVContextMenu.SuspendLayout();
             this.ReaderStatusStrip.SuspendLayout();
@@ -175,7 +176,8 @@ namespace ACFAParamEditor
             // 
             this.ReaderStatusStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.ReaderStatusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MainFormStatus});
+            this.MainFormStatus,
+            this.CountLabel});
             this.ReaderStatusStrip.Location = new System.Drawing.Point(0, 629);
             this.ReaderStatusStrip.Name = "ReaderStatusStrip";
             this.ReaderStatusStrip.Size = new System.Drawing.Size(1118, 22);
@@ -631,8 +633,24 @@ namespace ACFAParamEditor
             this.ParamDGV.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.ParamDGV.Size = new System.Drawing.Size(366, 605);
             this.ParamDGV.TabIndex = 0;
+            this.ParamDGV.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.ParamDGV_RowsAdded);
+            this.ParamDGV.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.ParamDGV_RowsRemoved);
             this.ParamDGV.SelectionChanged += new System.EventHandler(this.ParamDGV_SelectionChanged);
             this.ParamDGV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ParamDGV_KeyDown);
+            // 
+            // paramname
+            // 
+            this.paramname.HeaderText = "Param Name";
+            this.paramname.Name = "paramname";
+            this.paramname.ReadOnly = true;
+            this.paramname.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // paramtype
+            // 
+            this.paramtype.HeaderText = "Param Type";
+            this.paramtype.Name = "paramtype";
+            this.paramtype.ReadOnly = true;
+            this.paramtype.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // SplitContainerB
             // 
@@ -705,6 +723,20 @@ namespace ACFAParamEditor
             this.RowDGV.SelectionChanged += new System.EventHandler(this.RowDGV_SelectionChanged);
             this.RowDGV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RowDGV_KeyDown);
             // 
+            // rowid
+            // 
+            this.rowid.FillWeight = 48.63222F;
+            this.rowid.HeaderText = "Row ID";
+            this.rowid.Name = "rowid";
+            this.rowid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // rowname
+            // 
+            this.rowname.FillWeight = 151.3678F;
+            this.rowname.HeaderText = "Row Name";
+            this.rowname.Name = "rowname";
+            this.rowname.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
             // CellDGV
             // 
             this.CellDGV.AllowUserToAddRows = false;
@@ -757,34 +789,6 @@ namespace ACFAParamEditor
             this.CellDGV.SelectionChanged += new System.EventHandler(this.CellDGV_SelectionChanged);
             this.CellDGV.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CellDGV_KeyDown);
             // 
-            // paramname
-            // 
-            this.paramname.HeaderText = "Param Name";
-            this.paramname.Name = "paramname";
-            this.paramname.ReadOnly = true;
-            this.paramname.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // paramtype
-            // 
-            this.paramtype.HeaderText = "Param Type";
-            this.paramtype.Name = "paramtype";
-            this.paramtype.ReadOnly = true;
-            this.paramtype.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // rowid
-            // 
-            this.rowid.FillWeight = 48.63222F;
-            this.rowid.HeaderText = "Row ID";
-            this.rowid.Name = "rowid";
-            this.rowid.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // rowname
-            // 
-            this.rowname.FillWeight = 151.3678F;
-            this.rowname.HeaderText = "Row Name";
-            this.rowname.Name = "rowname";
-            this.rowname.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // celltype
             // 
             this.celltype.HeaderText = "Cell Type";
@@ -804,6 +808,11 @@ namespace ACFAParamEditor
             this.cellvalue.HeaderText = "Cell Value";
             this.cellvalue.Name = "cellvalue";
             this.cellvalue.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // CountLabel
+            // 
+            this.CountLabel.Name = "CountLabel";
+            this.CountLabel.Size = new System.Drawing.Size(0, 17);
             // 
             // MainForm
             // 
@@ -896,6 +905,7 @@ namespace ACFAParamEditor
         private System.Windows.Forms.DataGridViewTextBoxColumn celltype;
         private System.Windows.Forms.DataGridViewTextBoxColumn cellname;
         private System.Windows.Forms.DataGridViewTextBoxColumn cellvalue;
+        private System.Windows.Forms.ToolStripStatusLabel CountLabel;
     }
 }
 

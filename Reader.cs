@@ -17,12 +17,15 @@ namespace ACFAParamEditor
             Logger.CreateLog();
             Directory.CreateDirectory($"{Util.resFolderPath}/def/");
 
-            string[] defFiles = Directory.GetFiles($"{Util.resFolderPath}/def/", "*.def");
+            string[] defFiles = Directory.GetFiles($"{Util.resFolderPath}/def/", "*");
             foreach (string defPath in defFiles)
             {
                 try
                 {
-                    defs.Add(PARAMDEF.Read(defPath));
+                    if (defPath.EndsWith(".xml"))
+                        defs.Add(PARAMDEF.XmlDeserialize(defPath));
+                    else if (defPath.EndsWith(".def"))
+                        defs.Add(PARAMDEF.Read(defPath));
                 }
                 catch (InvalidDataException IDEx)
                 {
@@ -30,7 +33,8 @@ namespace ACFAParamEditor
                 }
             }
 
-            if (defs.Count == 0) Logger.Log("WARNING: No defs found in resource folder");
+            if (defs.Count == 0)
+                Logger.Log("WARNING: No defs found in resource folder");
         }
 
         /// <summary>
@@ -98,7 +102,11 @@ namespace ACFAParamEditor
                 }
 
                 object[] newParam = ReadParam(path, defs, skipBackup);
-                if (newParam == null) continue;
+                if (newParam == null)
+                {
+                    Console.WriteLine(Path.GetFileName(path));
+                    continue;
+                }
                 dgv.Rows.Add(newParam);
             }
         }

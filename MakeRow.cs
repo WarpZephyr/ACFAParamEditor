@@ -26,7 +26,7 @@ namespace ACFAParamEditor
                 Param = loadedParam
             };
 
-            bool applyDef = param.Param.ApplyParamdefCarefully(defList);
+            bool applyDef = param.Param.ApplyParamdefSomewhatCarefully(defList);
             object[] newParamRow = { param, param.Param.ParamType };
             if (applyDef == true) return newParamRow;
             return null;
