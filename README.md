@@ -1,6 +1,6 @@
 # ACFAParamEditor
-1.0 has been released!  
-Some features are not in place yet but I will add them later
+This has been depreciated, please use ACParamEditor instead.
+https://github.com/WarpZephyr/ACParamEditor.git
 
 # Building
 If you want to build the project you should clone it with these commands in git bash:  

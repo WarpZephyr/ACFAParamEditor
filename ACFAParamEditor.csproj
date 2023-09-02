@@ -117,12 +117,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SoulsFormats\SoulsFormats\SoulsFormats.csproj">
-      <Project>{e0e4c277-1cac-47d0-a2c8-e9d267462b6f}</Project>
-      <Name>SoulsFormats</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="res\def\AaParam.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -369,6 +363,12 @@
     <Content Include="res\def\WeaponSoundParam.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SoulsFormatsExtended\SoulsFormats\SoulsFormatsExtended.csproj">
+      <Project>{e0e4c277-1cac-47d0-a2c8-e9d267462b6f}</Project>
+      <Name>SoulsFormatsExtended</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

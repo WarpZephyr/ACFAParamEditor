@@ -358,7 +358,7 @@ namespace ACFAParamEditor
                 selectedCell.Cell.Value = CellValueStore;
                 CellDGV.CurrentRow.Cells[2].Value = CellValueStore;
                 MainFormStatus.Text = "";
-                string description = $"Value too high or too low for {selectedCell.Cell.Def.DisplayName}";
+                string description = $"Value too high or too low for \"{selectedCell}\"";
                 MainFormStatus.Text = $"DEBUG: {description}, see parameditor.log";
                 Debug.WriteLine($"{description}");
                 Logger.LogExceptionWithDate(OFe, description);
@@ -369,7 +369,7 @@ namespace ACFAParamEditor
                 selectedCell.Cell.Value = CellValueStore;
                 CellDGV.CurrentRow.Cells[2].Value = CellValueStore;
                 MainFormStatus.Text = "";
-                string description = $"Format of value for {selectedCell.Cell.Def.DisplayName} was incorrect";
+                string description = $"Format of value for \"{selectedCell}\" was incorrect";
                 MainFormStatus.Text = $"DEBUG: {description}, see parameditor.log";
                 Debug.WriteLine($"{description}");
                 Logger.LogExceptionWithDate(Fe, description);

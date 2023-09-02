@@ -48,8 +48,8 @@ namespace ACFAParamEditor
         /// <param name="data">A Binder to write.</param>
         public static byte[] WriteBinder(IBinder data)
         {
-            if (data is BND3 bnd3) bnd3.Write();
-            else if (data is BND4 bnd4) bnd4.Write();
+            if (data is BND3 bnd3) return bnd3.Write();
+            else if (data is BND4 bnd4) return bnd4.Write();
             return null;
         }
 
@@ -67,7 +67,7 @@ namespace ACFAParamEditor
         {
             Util.Clone(dataPath, backup);
             if (bhdPath != null) Util.Clone(bhdPath, backup);
-            IBinder binder = WriteBinder(data, newData, binderFileNames, dataPath, bhdPath, recurse);
+            IBinder binder = WriteBinder(data, newData, binderFileNames, "", dataPath, bhdPath, recurse);
             WriteBinder(binder, dataPath, bhdPath);
         }
 
@@ -78,25 +78,33 @@ namespace ACFAParamEditor
         /// <param name="newData">New data to write to BinderFiles in a Binder.</param>
         /// <param name="binderFileNames">The names of BinderFiles you want to write the provided new data to.</param>
         /// <param name="recurse">Whether or not to write to nested Binders in this Binder.</param>
-        public static IBinder WriteBinder(IBinder binder, byte[] newData, string[] binderFileNames, string dataPath, string bhdPath = null, bool recurse = false)
+        public static IBinder WriteBinder(IBinder binder, byte[] newData, string[] binderFileNames, string dataPath, string binderName, string bhdPath = null, bool recurse = false)
         {
             foreach (var bFile in binder.Files)
             {
+                bool found = false;
                 if (recurse && Bind.IsBinder(bFile.Bytes))
                 {
                     IBinder deepBinder = Bind.ReadBinder(bFile.Bytes);
-                    WriteBinder(deepBinder, newData, binderFileNames, dataPath, bhdPath, recurse);
+                    WriteBinder(deepBinder, newData, binderFileNames, binderName, dataPath, bhdPath, recurse);
 
                     byte[] newBytes = WriteBinder(deepBinder);
-                    if (newBytes != null) bFile.Bytes = newBytes;
+                    if (newBytes != null)
+                        bFile.Bytes = newBytes;
+                    break;
                 }
 
                 foreach (var name in binderFileNames)
                 {
                     if (bFile.Name == null)
                         continue;
-                    if (name.Contains(bFile.Name)) bFile.Bytes = newData;
+                    if (name.EndsWith(bFile.Name) && name.Contains(binderName))
+                        bFile.Bytes = newData;
+                    break;
                 }
+
+                if (found)
+                    break;
             }
 
             return binder;
